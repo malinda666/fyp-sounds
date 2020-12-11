@@ -1,10 +1,7 @@
 import React, { Component } from "react";
 import './faq.css'
-import {
-        VerificationOvel,
-        LoginEmailAlreadyExistsOval        
-      } from '../../assets/img/index'
 import Footer from '../../components/footer'
+import Header from "../../components/header";
 
 
 export default class ForgotPassword extends Component {
@@ -12,7 +9,6 @@ export default class ForgotPassword extends Component {
     super(props);
 
     this.state = {
-        confirmationCodeSent: false
     };
   }
 
@@ -58,13 +54,7 @@ export default class ForgotPassword extends Component {
       <div class="anima-container-center-horizontal">
         <div class="question-QxM5SU montserrat-bold-rose-pearl-24px">question?</div>
       </div>
-      <div class="anima-container-center-horizontal">
-        <div class="group-C61RwL">
-          <img class="oval-NOXmfT" src={VerificationOvel} alt=""/>
-          <img class="oval-E582nk" src={LoginEmailAlreadyExistsOval} alt=""/>
-          <div class="fypsoundslogo-NOXmfT"></div>
-        </div>
-      </div>
+     <Header/>
       <div class="anima-container-center-horizontal">
           <Footer/>
       </div>

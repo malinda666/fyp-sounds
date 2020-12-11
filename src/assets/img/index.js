@@ -16,7 +16,13 @@ import LandingOval4 from './landing-oval-43D35223-E895-47C0-B981-BAB351E24CEC.pn
 import MusicForm5bRectangle from './music-form-5b-rectangle-1BB6C41E-7C46-41D4-B39F-D711C73CDAC1@2x.png'
 import FaqOvalfrom from './faq-oval-C2728B77-6129-405E-94B1-5F062DA8FC16.png'
 import EditBackChevron from './edit-back-chevron-C5315D8A-30AA-4844-ADD3-08DF477B688E@2x.png'
-
+import PasswordRectangle2x from './password-rectangle-2257FDC9-CA97-4DE1-9D62-248216FF0F69@2x.png'
+import TrendsPath3 from './trends-path-3-1A837FD2-7868-42BD-A244-5B2907FA42B4.png'
+import SoundsNewUserOval52x from './soundsnewuser-oval-5-78B75F94-53D4-4B68-A256-76AC366E93CE@2x.png'
+import SoundsNewUserShape from './soundsnewuser-shape-5AC061D4-341B-4D4A-8511-328B0DCB5D0A@2x.png'
+import EarningsNewUserShape2x from './earningsnewuser-shape-D60209FA-58FE-4491-AD21-B201263E1A99@2x.png'
+import EarningsNewUserPath2x from './earningsnewuser-path-C1CA5CB8-62F5-4841-9D52-20FCC352455B@2x.png'
+import TrendsNewUserShape2x from './trendsnewuser-shape-BBC6516E-2C9F-4B00-9C7D-C818826EE039@2x.png'
 
 export {
     DropdownDemoNexticon,
@@ -36,5 +42,12 @@ export {
     LandingOval4,
     MusicForm5bRectangle,
     FaqOvalfrom,
-    EditBackChevron
+    EditBackChevron,
+    PasswordRectangle2x,
+    TrendsPath3,
+    SoundsNewUserOval52x,
+    SoundsNewUserShape,
+    EarningsNewUserShape2x,
+    EarningsNewUserPath2x,
+    TrendsNewUserShape2x
 }

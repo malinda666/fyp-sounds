@@ -60,7 +60,7 @@ export default class Home extends Component {
         </div>
       </div>
        <div class="anima-container-center-horizontal">
-        <a href="login.html" class="anima-full-height-a">
+        <a href="/login" class="anima-full-height-a">
           <div class="nexticon-C61RwL anima-smart-layers-pointers">
             <img
               class="rectangle-rGr1Cp"

@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import './about.css'
+import './policy.css'
 import Footer from '../../components/footer'
 import Header from "../../components/header";
 
 
-export default class About extends Component {
+export default class Policy extends Component {
   constructor(props) {
     super(props);
 
@@ -14,12 +14,12 @@ export default class About extends Component {
 
   render(){
       return(
-          <div class="about anima-screen">
+           <div class="privacypolicy anima-screen">
       <div class="anima-container-center-horizontal">
         <div class="bar-C61RwL"></div>
       </div>
       <div class="anima-container-center-horizontal">
-        <div class="about-C61RwL montserrat-bold-rose-pearl-24px">about</div>
+        <div class="privacy-policy-C61RwL montserrat-bold-rose-pearl-24px">privacy policy</div>
       </div>
       <div class="anima-container-center-horizontal">
         <div class="lorem-ipsum-dolor-si-C61RwL montserrat-light-mountain-mist-14px">
@@ -34,7 +34,7 @@ export default class About extends Component {
       </div>
       <Header/>
       <div class="anima-container-center-horizontal">
-        <Footer/>
+          <Footer/>
       </div>
       </div>
       )

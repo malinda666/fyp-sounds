@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import './forgotPassword.css'
 import {LoginEmailAlreadyExistsRectangle,
-        VerificationOvel,
-        LoginEmailAlreadyExistsOval,
         LoginRectangle2x,
         EditBackChevron
       } from '../../assets/img/index'
 import Footer from '../../components/footer'
+import Header from "../../components/header";
 
 
 export default class ForgotPassword extends Component {
@@ -38,6 +37,18 @@ export default class ForgotPassword extends Component {
               required
             />
           </div>
+        <div class="anima-container-center-horizontal">
+        <a class="anima-full-height-a"
+          ><div class="no-account-found-un-C61RwL">*no account found under this email. <br /></div
+        ></a>
+      </div>
+      <div class="anima-container-center-horizontal">
+        <a href="login.html" class="anima-full-height-a"
+          ><div class="new-user-join-here-C61RwL montserrat-light-gravel-14px">
+            <span class="span1-vTI2Tg"><br /><br />new user? join</span><span class="span2-vTI2Tg"> here</span>
+          </div></a
+        >
+      </div>
           <div class="overlap-group1-rGr1Cp">
             <img class="rectangle-3cn1mj" src={LoginRectangle2x} alt=""/>
             <div class="send-3cn1mj montserrat-semi-bold-white-20px">send</div>
@@ -46,13 +57,7 @@ export default class ForgotPassword extends Component {
       </div>
       <div class="anima-container-center-horizontal"><div class="ud83eudd26-u2640ufe0f-C61RwL">🤦🏾‍♀️</div>
       </div>
-<div class="anima-container-center-horizontal">
-        <div class="group-C61RwL">
-          <img class="oval-NOXmfT" src={VerificationOvel}  alt=""/>
-          <img class="oval-E582nk" src={LoginEmailAlreadyExistsOval} alt="" />
-          <div class="fypsoundslogo-NOXmfT"></div>
-        </div>
-      </div>
+<Header/>
        <div class="anima-container-center-horizontal">
            <Footer/>
        </div>

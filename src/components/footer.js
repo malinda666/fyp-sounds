@@ -9,7 +9,7 @@ const Footer = () => {
             <img class="oval-iFLr8c" src={FaqOvalfrom} alt=""/>
             <div class="group-5-iFLr8c">
               <div class="anima-container-center-horizontal">
-                <a href="recovery.html" class="anima-full-height-a">
+                <a href="/forgotPassword" class="anima-full-height-a">
                   <div class="x-pHGZZ8 montserrat-semi-bold-white-14px">
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -20,19 +20,19 @@ const Footer = () => {
               <div class="anima-container-center-horizontal">
                 <a href="about.html" class="anima-full-height-a">
                   <div class="about-pHGZZ8">
-                    <a href="about.html" onclick="window.event.stopPropagation()"
+                    <a href="/about"
                       ><div class="about-tmGEPR montserrat-semi-bold-white-14px">About</div></a>
                   </div></a>
               </div>
               <div class="anima-container-center-horizontal">
-                <a href="faq.html" class="anima-full-height-a"
+                <a href="/faq" class="anima-full-height-a"
                   ><div class="faq-pHGZZ8 montserrat-semi-bold-white-14px">FAQ</div></a>
               </div>
               <div class="anima-container-center-horizontal">
-                <a href="contact.html" class="anima-full-height-a"
+                <a href="/contact" class="anima-full-height-a"
                   ><div class="contact-pHGZZ8 montserrat-semi-bold-white-14px">Contact</div></a>
               </div>
-              <a href="privacypolicy.html"
+              <a href="/policy"
                 ><div class="privacy-policy-pHGZZ8 montserrat-semi-bold-white-14px">Privacy Policy</div></a>
             </div>
           </div>
