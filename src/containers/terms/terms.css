@@ -1,0 +1,227 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,600,700,300");
+
+* {
+    box-sizing: border-box;
+}
+
+.animate-enter {
+    animation: animate-enter-frames 0.5s ease-in-out 0.2s 1 normal forwards;
+    display: block;
+    opacity: 0;
+    transform: scale(1.1);
+}
+
+.montserrat-bold-white-24px {
+    color: white;
+    font-family: "Montserrat", Helvetica, Arial, serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.montserrat-light-white-14px {
+    color: white;
+    font-family: "Montserrat", Helvetica, Arial, serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+}
+
+.montserrat-semi-bold-white-20px {
+    color: white;
+    font-family: "Montserrat", Helvetica, Arial, serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+}
+
+.terms {
+    background-color: var(--onahau);
+    height: 100vh;
+    margin: 0px;
+    min-height: 896px;
+    min-width: 414px;
+    position: relative;
+    width: 100%;
+}
+
+.terms .dismiss {
+    background-color: transparent;
+    height: auto;
+    left: 22px;
+    letter-spacing: 0px;
+    line-height: 24px;
+    position: absolute;
+    text-align: center;
+    top: 9px;
+    white-space: nowrap;
+    width: 102px;
+}
+
+.terms .fypsoundslogo {
+    background-color: transparent;
+    background-size: 100% 100%;
+    height: 40px;
+    left: 475px;
+    position: absolute;
+    top: 400px;
+    width: 94px;
+}
+
+.terms .lorem-ipsu-or-si-copy {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: 0px;
+    line-height: 17px;
+    position: fixed;
+    text-align: justify;
+    top: 179px;
+    width: 288px;
+}
+
+.terms .nexticon-copy-2 {
+    background-color: transparent;
+    display: block;
+    height: 41px;
+    margin-left: 3px;
+    margin-right: -3px;
+    position: fixed;
+    top: 456px;
+    width: 146px;
+    opacity: 0;
+    transform: scale(1.1);
+}
+
+.terms .oval-4eduM0 {
+    background-color: transparent;
+    height: 603px;
+    left: 38px;
+    position: absolute;
+    top: 349px;
+    width: 968px;
+}
+
+.terms .oval-6sb1qn {
+    background-color: transparent;
+    height: 746px;
+    left: 38px;
+    position: absolute;
+    top: 539px;
+    width: 1343px;
+}
+
+.terms .oval-BJQsbv {
+    background-color: transparent;
+    height: 722px;
+    left: 58px;
+    position: absolute;
+    top: 0px;
+    width: 1043px;
+}
+
+.terms .oval-ovOecM {
+    background-color: transparent;
+    height: 649px;
+    left: 0px;
+    position: absolute;
+    top: 690px;
+    width: 1240px;
+}
+
+.terms .overlap-group-C61RwL {
+    background-color: transparent;
+    height: 1339px;
+    left: -315px;
+    position: absolute;
+    top: -371px;
+    width: 1381px;
+}
+
+.terms .rectangle-IZxxJF {
+    background-color: transparent;
+    height: 896px;
+    left: 315px;
+    position: absolute;
+    top: 371px;
+    width: 414px;
+}
+
+.terms .rectangle-OxJunE {
+    background-color: transparent;
+    height: 41px;
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    width: 146px;
+}
+
+.terms .rectangle-copy {
+    background-color: transparent;
+    bottom: 0px;
+    height: 533px;
+    position: fixed;
+    width: 414px;
+}
+
+.terms .rectangle-pXVhQA {
+    background-color: transparent;
+    height: 31px;
+    left: 17px;
+    position: absolute;
+    top: 9px;
+    width: 112px;
+}
+
+.terms .terms {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: 0px;
+    line-height: 29px;
+    position: fixed;
+    text-align: left;
+    top: 108px;
+    white-space: nowrap;
+    width: auto;
+}
+
+:root {
+    --onahau: rgba(199, 255, 253, 1);
+}
+
+@keyframes animate-enter-frames {
+    from {
+        opacity: 0;
+        transform: scale(1.1);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.container-center-vertical,
+.container-center-horizontal {
+    pointer-events: none;
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    margin: 0;
+}
+
+.container-center-horizontal {
+    justify-content: center;
+    width: 100%;
+}
+
+.container-center-vertical>*,
+.container-center-horizontal>* {
+    pointer-events: auto;
+    flex-shrink: 0;
+}
+
+.auto-animated .container-center-vertical,
+.auto-animated .container-center-horizontal {
+    opacity: 1;
+}

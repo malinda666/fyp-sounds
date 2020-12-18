@@ -1,99 +1,172 @@
-import React, { Component } from "react";
+import React from "react";
+import {
+  Link
+} from 'react-router-dom';
 import './contact.css'
-import {      
-        LoginEmailAlreadyExistsRectangle,
-        LoginEmailAlreadyExistsRectangle2x
-      } from '../../assets/img/index'
-import Footer from '../../components/footer'
-import Header from "../../components/header";
 
 
-export default class Contact extends Component {
-  constructor(props) {
-    super(props);
+export default class Contact extends React.Component {
+  render() {
+    const {
+      contact,
+      spanText,
+      spanText2,
+      inputName,
+      inputType,
+      inputPlaceholder,
+      inputRequired,
+      rectangle,
+      rectangleCopy2,
+      send,
+      oval,
+      oval2,
+      oval3,
+      label1,
+      faq,
+      contact2,
+      privacyPolicy,
+      copyright2512021Al,
+      overlapgroup1Props,
+      overlapgroup12Props,
+      fypsoundslogoProps,
+      aboutProps,
+      fypsoundslogo2Props,
+    } = this.props;
 
-    this.state = {
-        
-    };
+    return (
+      <div className="contact">
+        <div className="container-center-horizontal">
+          <div className="bar"></div>
+        </div>
+        <div className="container-center-horizontal">
+          <h1 className="contact-C61RwL montserrat-bold-rose-pearl-24px">{contact}</h1>
+        </div>
+        <div className="container-center-horizontal">
+          <a href="mailto:contact@fypsounds.com" className="full-height-a">
+            <p className="or-shoot-us-an-email montserrat-light-gravel-14px">
+              <span className="span1-YPZk8k">{spanText}</span>
+              <span className="span2-YPZk8k">{spanText2}</span>
+            </p>
+          </a>
+        </div>
+        <div className="container-center-horizontal">
+          <form className="nexticon-copy" name="form2" action="form2" method="post">
+            <Overlapgroup1 {...overlapgroup1Props} />
+            <Overlapgroup1 {...overlapgroup12Props} className="overlap-group" />
+            <div className="overlap-group2">
+              <div className="rectangle-zlebQ8 border-class-1"></div>
+              <textarea
+                className="text- montserrat-light-mountain-mist-14px"
+                name={inputName}
+                placeholder={inputPlaceholder}
+                type={inputType}
+                required={inputRequired}
+              ></textarea>
+            </div>
+            <div className="overlap-group3">
+              <a href="javascript:SubmitForm('form2')">
+                <img className="rectangle-2m0hPv" src={rectangle} />
+              </a>
+              <a href="javascript:SubmitForm('form2')">
+                <img className="rectangle-2m0hPv" src={rectangleCopy2} />
+              </a>
+              <div className="send montserrat-bold-white-20px">{send}</div>
+            </div>
+          </form>
+        </div>
+        <div className="container-center-horizontal">
+          <form className="group" name="none" action="none" method="post">
+            <img className="oval-NOXmfT" src={oval} />
+            <img className="oval-E582nk" src={oval2} />
+            <Fypsoundslogo {...fypsoundslogoProps} />
+          </form>
+        </div>
+        <div className="container-center-horizontal">
+          <form className="footer" name="none" action="none" method="post">
+            <div className="overlap-group4">
+              <img className="oval-FuOxjK" src={oval3} />
+              <div className="group-5">
+                <div className="container-center-horizontal">
+                  <p className="x montserrat-semi-bold-white-14px">{label1}</p>
+                </div>
+                <About {...aboutProps} />
+                <div className="container-center-horizontal">
+                  <div className="faq montserrat-semi-bold-white-14px">{faq}</div>
+                </div>
+                <div className="container-center-horizontal">
+                  <Link to="/contact" className="full-height-a">
+                    <div className="contact-e9FaNd montserrat-semi-bold-white-14px">{contact2}</div>
+                  </Link>
+                </div>
+                <div className="privacy-policy montserrat-semi-bold-white-14px">{privacyPolicy}</div>
+              </div>
+            </div>
+            <Fypsoundslogo2 {...fypsoundslogo2Props} />
+            <div className="container-center-horizontal">
+              <p className="copyright--51-2021-al montserrat-normal-white-13px">{copyright2512021Al}</p>
+            </div>
+          </form>
+        </div>
+      </div>
+    );
   }
+}
 
-  render(){
-      return(
-          <div class="contact anima-screen">
-      <div class="anima-container-center-horizontal">
-        <div class="bar-C61RwL"></div>
+
+class Overlapgroup1 extends React.Component {
+  render() {
+    const { rectangleCopy, inputName, inputType, inputPlaceholder, inputRequired, className } = this.props;
+
+    return (
+      <div className={`overlap-group1 ${className || ""}`}>
+        <img className="rectangle-copy" src={rectangleCopy} />
+        <input
+          className="text- montserrat-light-mountain-mist-14px"
+          name={inputName}
+          placeholder={inputPlaceholder}
+          type={inputType}
+          required={inputRequired}
+        />
       </div>
-      <div class="anima-container-center-horizontal">
-        <div class="contact-C61RwL montserrat-bold-rose-pearl-24px">contact</div>
+    );
+  }
+}
+
+
+class Fypsoundslogo extends React.Component {
+  render() {
+    const { fypsoundsLogo } = this.props;
+
+    return <div className="fypsoundslogo-NOXmfT" style={{ backgroundImage: `url(${fypsoundsLogo})` }}></div>;
+  }
+}
+
+
+class About extends React.Component {
+  render() {
+    const { about } = this.props;
+
+    return (
+      <div className="container-center-horizontal">
+        <div className="about-e9FaNd">
+          <a href="/about">
+            <div className="about-x2vL0s montserrat-semi-bold-white-14px">{about}</div>
+          </a>
+        </div>
       </div>
-      <div class="anima-container-center-horizontal">
-        <a href="mailto:contact@fypsounds.com" class="anima-full-height-a"
-          ><div class="or-shoot-us-an-email-C61RwL montserrat-light-gravel-14px">
-            <span class="span1-YPZk8k">or shoot us an email at </span
-            ><span class="span2-YPZk8k">contact@fypsounds.com</span>
-          </div></a>
+    );
+  }
+}
+
+
+class Fypsoundslogo2 extends React.Component {
+  render() {
+    const { fypsoundsLogo } = this.props;
+
+    return (
+      <div className="container-center-horizontal">
+        <div className="fypsoundslogo-iPe1yZ" style={{ backgroundImage: `url(${fypsoundsLogo})` }}></div>
       </div>
-      <div class="anima-container-center-horizontal">
-        <form class="nexticon-copy-C61RwL" name="form2" action="form2" method="post">
-          <input type="text" name="trapit" value="" style={{display: "none"}} />
-          <div class="overlap-group1-q2VZwF">
-            <img
-              class="rectangle-copy-Vg8Dgr"
-              src={LoginEmailAlreadyExistsRectangle}
-              alt=""
-            />
-            <input
-              class="text-name-Vg8Dgr montserrat-light-mountain-mist-14px"
-              name="textname"
-              placeholder=""
-              type="text"
-              required
-            />
-          </div>
-          <div class="overlap-group-q2VZwF">
-            <img
-              class="rectangle-ZtaLEy"
-              src={LoginEmailAlreadyExistsRectangle}
-              alt=""
-            />
-            <input
-              class="text-email-ZtaLEy montserrat-light-mountain-mist-14px"
-              name="textemail"
-              placeholder="email"
-              type="email"
-              required
-            />
-          </div>
-          <div class="overlap-group2-q2VZwF">
-            <div class="rectangle-zlebQ8 border-class-1"></div>
-            <textarea
-              class="text-type-here-zlebQ8 montserrat-light-mountain-mist-14px"
-              name="texttypehere"
-              placeholder=""
-              type="text"
-              required
-            ></textarea>
-          </div>
-          <div class="overlap-group3-q2VZwF">
-           <img
-                class="rectangle-c5djvB"
-                src={LoginEmailAlreadyExistsRectangle2x}
-                alt=""
-            />
-            <img
-                class="rectangle-copy-2-c5djvB"
-                src={LoginEmailAlreadyExistsRectangle2x}
-                alt=""
-            />
-            <div class="send-c5djvB">send</div>
-          </div>
-        </form>
-      </div>
-    <Header/>
-      <div class="anima-container-center-horizontal">
-          <Footer/>
-      </div>
-      </div>
-      )
+    );
   }
 }

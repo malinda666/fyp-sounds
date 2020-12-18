@@ -1,48 +1,50 @@
-/* screen - landing */
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,600,700,300");
 
-.anima-animate-enter10 {
-    animation: anima-animate-enter10-frames 0.20s ease-in-out 0.00s 1 normal forwards;
-    display: block;
-    opacity: 0;
-    transform: scale(0.9);
+@font-face {
+    font-family: "SofiaPro-Bold";
+    font-style: normal;
+    font-weight: 1 1000;
+    src: url("https://fonts.animaapp.com/SofiaPro-Bold") format("opentype");
 }
 
-.anima-animate-enter11 {
-    animation: anima-animate-enter11-frames 0.20s ease-in-out 0.00s 1 normal forwards;
-    display: block;
-    opacity: 0;
-    transform: scale(0.9);
+* {
+    box-sizing: border-box;
 }
 
-.anima-animate-enter12 {
-    animation: anima-animate-enter12-frames 2.00s ease-in-out 0.00s 1 normal forwards;
-    display: block;
-    opacity: 0;
-    filter: blur(50px);
-}
-
-.anima-animate-enter8 {
-    animation: anima-animate-enter8-frames 0.20s ease-in-out 0.00s 1 normal forwards;
+.animate-enter {
+    animation: animate-enter-frames 0.2s ease-in-out 0s 1 normal forwards;
     display: block;
     opacity: 0;
     transform: scale(1.1);
 }
 
-.anima-animate-enter9 {
-    animation: anima-animate-enter9-frames 0.70s ease-in-out 0.00s 1 normal forwards;
+.animate-enter1 {
+    animation: animate-enter1-frames 0.7s ease-in-out 0s 1 normal forwards;
     display: block;
     opacity: 0;
     filter: blur(10px);
 }
 
-.applecoloremoji-normal-granite-gray-30px {
-    color: var(--granite-gray);
-    font-family: "AppleColorEmoji", Helvetica, Arial, serif;
-    font-size: 30px;
+.animate-enter2 {
+    animation: animate-enter2-frames 0.2s ease-in-out 0s 1 normal forwards;
+    display: block;
+    opacity: 0;
+    transform: scale(0.9);
 }
 
-.border-class-1 {
-    border: 1px solid rgba(150, 150, 150, 1.0);
+.animate-enter3 {
+    animation: animate-enter3-frames 0.2s ease-in-out 0s 1 normal forwards;
+    display: block;
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+.animate-enter4 {
+    animation: animate-enter4-frames 2s ease-in-out 0s 1 normal forwards;
+    display: block;
+    opacity: 0;
+    filter: blur(50px);
 }
 
 .landing {
@@ -61,7 +63,6 @@
 .landing .about-IlweIA {
     align-items: flex-start;
     background-color: transparent;
-    box-sizing: border-box;
     display: inline-flex;
     flex-direction: row;
     height: 18px;
@@ -78,21 +79,17 @@
     background-color: transparent;
     flex-shrink: 0;
     height: auto;
-    letter-spacing: 0.00px;
+    letter-spacing: 0px;
     line-height: 18px;
     min-height: 18px;
-    position: relative;
     text-align: left;
     white-space: nowrap;
     width: 66px;
 }
 
-.landing .anything-can-go-vira-C61RwL {
+.landing .anything-can-go-vira {
     background-color: transparent;
-    color: var(--white);
     display: block;
-    font-family: "SofiaPro-Bold", Helvetica, Arial, serif;
-    font-size: 25px;
     height: auto;
     letter-spacing: -0.16px;
     line-height: 36px;
@@ -107,24 +104,10 @@
     transform: scale(0.9);
 }
 
-.landing .contact-IlweIA {
+.landing .copyright--51-2021-al {
     background-color: transparent;
     height: auto;
-    letter-spacing: 0.00px;
-    line-height: 18px;
-    margin-left: 23px;
-    margin-right: -23px;
-    position: absolute;
-    text-align: center;
-    top: 0px;
-    white-space: nowrap;
-    width: 100px;
-}
-
-.landing .copyright--51-2021-al-iPe1yZ {
-    background-color: transparent;
-    height: auto;
-    letter-spacing: 0.00px;
+    letter-spacing: 0px;
     line-height: 16px;
     position: absolute;
     text-align: center;
@@ -133,12 +116,9 @@
     width: 372px;
 }
 
-.landing .create-tik-tok-sounds-C61RwL {
+.landing .create-tik-tok-sounds {
     background-color: transparent;
-    color: var(--white);
     display: block;
-    font-family: "SofiaPro-Bold", Helvetica, Arial, serif;
-    font-size: 25px;
     height: auto;
     letter-spacing: -0.16px;
     line-height: 25px;
@@ -150,21 +130,7 @@
     transform: scale(0.9);
 }
 
-.landing .faq-IlweIA {
-    background-color: transparent;
-    height: auto;
-    letter-spacing: 0.00px;
-    line-height: 18px;
-    margin-left: -66px;
-    margin-right: 66px;
-    position: absolute;
-    text-align: center;
-    top: 0px;
-    white-space: nowrap;
-    width: 73px;
-}
-
-.landing .footer-C61RwL {
+.landing .footer {
     background-color: transparent;
     bottom: -136px;
     height: 296px;
@@ -172,9 +138,8 @@
     width: 1748px;
 }
 
-.landing .fypsoundslogo-C61RwL {
+.landing .fypsoundslogo {
     background-color: transparent;
-    background-image: url(../../assets/img/landing-fypcopy-FC15333B-EE21-4557-9C63-CCC8FCA72CC7@2x.png);
     background-size: 100% 100%;
     display: block;
     height: 42px;
@@ -187,7 +152,7 @@
     filter: blur(10px);
 }
 
-.landing .group-5-4K0abD {
+.landing .group-5 {
     background-color: transparent;
     height: 18px;
     left: 692px;
@@ -196,7 +161,7 @@
     width: 362px;
 }
 
-.landing .nexticon-C61RwL {
+.landing .nexticon {
     background-color: transparent;
     height: 54px;
     pointer-events: auto;
@@ -206,8 +171,7 @@
     width: 192px;
 }
 
-.landing .nexticon-C61RwL:hover {
-
+.landing .nexticon:hover {
     transform: scale(1.1);
 }
 
@@ -259,7 +223,7 @@
     width: 984px;
 }
 
-.landing .overlap-group-iPe1yZ {
+.landing .overlap-group {
     background-color: transparent;
     height: 295px;
     left: 1px;
@@ -268,80 +232,10 @@
     width: 1747px;
 }
 
-.landing .overlap-group9-iPe1yZ {
-    background-color: transparent;
-    height: 295px;
-    left: 1px;
-    position: absolute;
-    top: 0px;
-    width: 1747px;
-}
-
-.landing .oval-iFLr8c {
-    background-color: transparent;
-    height: 295px;
-    left: 0px;
-    position: absolute;
-    top: 0px;
-    width: 1747px;
-}
-
-.landing .group-5-iFLr8c {
-    background-color: transparent;
-    height: 18px;
-    left: 692px;
-    position: absolute;
-    top: 90px;
-    width: 362px;
-}
-
-.landing .x-pHGZZ8 {
+.landing .faq {
     background-color: transparent;
     height: auto;
-    letter-spacing: 0.00px;
-    line-height: 18px;
-    margin-left: -48px;
-    margin-right: 48px;
-    position: absolute;
-    text-align: center;
-    top: 0px;
-    white-space: nowrap;
-    width: auto;
-}
-
-.landing .about-pHGZZ8 {
-    align-items: flex-start;
-    background-color: transparent;
-    box-sizing: border-box;
-    display: inline-flex;
-    flex-direction: row;
-    height: 18px;
-    justify-content: flex-start;
-    margin-left: -137px;
-    margin-right: 137px;
-    min-width: 66px;
-    position: absolute;
-    top: 0px;
-    width: auto;
-}
-
-.landing .about-tmGEPR {
-    background-color: transparent;
-    flex-shrink: 0;
-    height: auto;
-    letter-spacing: 0.00px;
-    line-height: 18px;
-    min-height: 18px;
-    position: relative;
-    text-align: left;
-    white-space: nowrap;
-    width: 66px;
-}
-
-.landing .faq-pHGZZ8 {
-    background-color: transparent;
-    height: auto;
-    letter-spacing: 0.00px;
+    letter-spacing: 0px;
     line-height: 18px;
     margin-left: -66px;
     margin-right: 66px;
@@ -352,25 +246,11 @@
     width: 73px;
 }
 
-.landing .contact-pHGZZ8 {
+.landing .contact {
     background-color: transparent;
     height: auto;
-    letter-spacing: 0.00px;
-    line-height: 18px;
-    margin-left: 23px;
-    margin-right: -23px;
-    position: absolute;
-    text-align: center;
-    top: 0px;
-    white-space: nowrap;
-    width: 100px;
-}
-
-.landing .privacy-policy-pHGZZ8 {
-    background-color: transparent;
-    height: auto;
-    left: 262px;
-    letter-spacing: 0.00px;
+    left: 8px;
+    letter-spacing: 0px;
     line-height: 18px;
     position: absolute;
     text-align: center;
@@ -379,11 +259,11 @@
     width: 100px;
 }
 
-.landing .privacy-policy-IlweIA {
+.landing .about {
     background-color: transparent;
     height: auto;
-    left: 262px;
-    letter-spacing: 0.00px;
+    left: -150px;
+    letter-spacing: 0px;
     line-height: 18px;
     position: absolute;
     text-align: center;
@@ -391,12 +271,25 @@
     white-space: nowrap;
     width: 100px;
 }
+
+.landing .privacy-policy {
+    background-color: transparent;
+    height: auto;
+    left: 262px;
+    letter-spacing: 0px;
+    line-height: 18px;
+    position: absolute;
+    text-align: center;
+    top: 0px;
+    white-space: nowrap;
+    width: 100px;
+}
+
 
 .landing .rectangle-C61RwL {
     background-color: transparent;
     display: block;
     height: calc(99.91% + 1px);
-    overflow: hidden;
     position: fixed;
     top: 0px;
     width: 414px;
@@ -429,7 +322,7 @@
 }
 
 .landing .span1-t2xaPz {
-    letter-spacing: 0.00px;
+    letter-spacing: 0px;
     line-height: 36px;
 }
 
@@ -440,16 +333,11 @@
     line-height: 46px;
 }
 
-.landing .upload-sounds-rGr1Cp {
+.landing .upload-sounds {
     background-color: transparent;
-    color: var(--white);
-    font-family: 'Montserrat', Helvetica, Arial, serif;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 700;
     height: auto;
     left: 18px;
-    letter-spacing: 0.00px;
+    letter-spacing: 0px;
     line-height: 24px;
     position: absolute;
     text-align: center;
@@ -458,10 +346,10 @@
     width: auto;
 }
 
-.landing .x-IlweIA {
+.landing .x {
     background-color: transparent;
     height: auto;
-    letter-spacing: 0.00px;
+    letter-spacing: 0px;
     line-height: 18px;
     margin-left: -48px;
     margin-right: 48px;
@@ -472,127 +360,41 @@
     width: auto;
 }
 
-.montserrat-bold-rose-pearl-24px {
-    color: var(--rose-pearl);
-    font-family: 'Montserrat', Helvetica, Arial, serif;
-    font-size: 24px;
+.montserrat-bold-white-20px {
+    color: white;
+    font-family: "Montserrat", Helvetica, Arial, serif;
+    font-size: 20px;
     font-style: normal;
     font-weight: 700;
 }
 
-.montserrat-light-gravel-14px {
-    color: var(--gravel);
-    font-family: 'Montserrat', Helvetica, Arial, serif;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 300;
-}
-
-.montserrat-light-mountain-mist-14px {
-    color: var(--mountain-mist);
-    font-family: 'Montserrat', Helvetica, Arial, serif;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 300;
-}
-
 .montserrat-normal-white-13px {
-    color: var(--white);
-    font-family: 'Montserrat', Helvetica, Arial, serif;
+    color: white;
+    font-family: "Montserrat", Helvetica, Arial, serif;
     font-size: 13px;
     font-style: normal;
     font-weight: 400;
 }
 
 .montserrat-semi-bold-white-14px {
-    color: var(--white);
-    font-family: 'Montserrat', Helvetica, Arial, serif;
+    color: white;
+    font-family: "Montserrat", Helvetica, Arial, serif;
     font-size: 14px;
     font-style: normal;
     font-weight: 600;
 }
 
-.montserrat-semi-bold-white-20px {
-    color: var(--white);
-    font-family: 'Montserrat', Helvetica, Arial, serif;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 600;
-}
-
-.sfprodisplay-regular-normal-granite-gray-20px {
-    color: var(--granite-gray);
-    font-family: "SFProDisplay-Regular", Helvetica, Arial, serif;
-    font-size: 20px;
-}
-
-.sfprodisplay-regular-normal-pink-swan-15px {
-    color: var(--pink-swan);
-    font-family: "SFProDisplay-Regular", Helvetica, Arial, serif;
-    font-size: 15px;
-}
-
-.sofiapro-normal-white-30px {
-    color: var(--white);
+.sofiapro-normal-white-25px {
+    color: white;
     font-family: "SofiaPro-Bold", Helvetica, Arial, serif;
-    font-size: 30px;
+    font-size: 25px;
 }
 
 :root {
-    --anakiwa: rgba(145, 255, 251, 1.0);
-    --black: rgba(0, 0, 0, 1.0);
-    --bright-turquoise: rgba(0, 242, 234, 1.0);
-    --granite-gray: rgba(102, 102, 102, 1.0);
-    --gravel: rgba(74, 73, 74, 1.0);
-    --mountain-mist: rgba(151, 151, 151, 1.0);
-    --mountain-mist-2: rgba(153, 153, 153, 1.0);
-    --pink-swan: rgba(186, 186, 186, 1.0);
-    --rose-pearl: rgba(245, 55, 124, 1.0);
-    --torch-red: rgba(255, 0, 80, 1.0);
-    --white: rgba(255, 255, 255, 1.0);
+    --anakiwa: rgba(145, 255, 251, 1);
 }
 
-@keyframes anima-animate-enter10-frames {
-
-    from {
-        opacity: 0;
-        transform: scale(0.9);
-    }
-
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-@keyframes anima-animate-enter11-frames {
-
-    from {
-        opacity: 0;
-        transform: scale(0.9);
-    }
-
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-@keyframes anima-animate-enter12-frames {
-
-    from {
-        opacity: 0;
-        filter: blur(50px);
-    }
-
-    to {
-        opacity: 1;
-        filter: none;
-    }
-}
-
-@keyframes anima-animate-enter8-frames {
-
+@keyframes animate-enter-frames {
     from {
         opacity: 0;
         transform: scale(1.1);
@@ -604,8 +406,7 @@
     }
 }
 
-@keyframes anima-animate-enter9-frames {
-
+@keyframes animate-enter1-frames {
     from {
         opacity: 0;
         filter: blur(10px);
@@ -615,4 +416,65 @@
         opacity: 1;
         filter: none;
     }
+}
+
+@keyframes animate-enter2-frames {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes animate-enter3-frames {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes animate-enter4-frames {
+    from {
+        opacity: 0;
+        filter: blur(50px);
+    }
+
+    to {
+        opacity: 1;
+        filter: none;
+    }
+}
+
+.container-center-vertical,
+.container-center-horizontal {
+    pointer-events: none;
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    margin: 0;
+}
+
+.container-center-horizontal {
+    justify-content: center;
+    width: 100%;
+}
+
+.container-center-vertical>*,
+.container-center-horizontal>* {
+    pointer-events: auto;
+    flex-shrink: 0;
+}
+
+.auto-animated .container-center-vertical,
+.auto-animated .container-center-horizontal {
+    opacity: 1;
 }

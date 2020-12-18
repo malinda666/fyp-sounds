@@ -1,0 +1,445 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,700,600,500,300");
+
+@font-face {
+    font-family: "SofiaPro-Bold";
+    font-weight: 1 1000;
+    src: url("../../assets/fonts/Sofia Pro Bold.ttf") format("truetype");
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.animate-enter {
+    animation: animate-enter-frames 0.5s ease-in-out 0.2s 1 normal forwards;
+    display: block;
+    opacity: 0;
+    transform: scale(1.1);
+}
+
+.animate-enter1 {
+    animation: animate-enter1-frames 0.2s ease-in-out 0s 1 normal forwards;
+    display: block;
+    opacity: 0;
+}
+
+.montserrat-light-gravel-14px {
+    color: var(--gravel);
+    font-family: "Montserrat", Helvetica, Arial, serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+}
+
+.montserrat-light-mountain-mist-20px {
+    color: var(--mountain-mist);
+    font-family: "Montserrat", Helvetica, Arial, serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+}
+
+.montserrat-medium-white-20px {
+    color: white;
+    font-family: "Montserrat", Helvetica, Arial, serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+}
+
+.montserrat-semi-bold-white-20px {
+    color: white;
+    font-family: "Montserrat", Helvetica, Arial, serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+}
+
+.newsound {
+    background-color: var(--anakiwa);
+    background-size: 100% 100%;
+    height: 100vh;
+    margin: 0px;
+    min-height: 896px;
+    min-width: 414px;
+    position: relative;
+    width: 100%;
+}
+
+.newsound .artwork-ca-019t-inclu {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: 0px;
+    line-height: 17px;
+    margin-left: 11px;
+    margin-right: -11px;
+    position: fixed;
+    text-align: center;
+    top: 502px;
+    white-space: nowrap;
+    width: 354px;
+}
+
+.newsound .audio-title {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: -0.19px;
+    line-height: 42px;
+    position: absolute;
+    text-align: center;
+    top: 548px;
+    white-space: nowrap;
+    width: auto;
+}
+
+.newsound .bar {
+    align-items: center;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    justify-content: flex-start;
+    min-height: 100%;
+    position: absolute;
+    top: 29px;
+    width: 381px;
+}
+
+.newsound .fypsoundslogo {
+    background-color: transparent;
+    background-size: 100% 100%;
+    flex-shrink: 0;
+    height: 40px;
+    margin-right: 1px;
+    width: 94px;
+}
+
+.newsound .group {
+    align-items: flex-start;
+    background-color: transparent;
+    display: inline-flex;
+    flex-direction: row;
+    height: 41px;
+    justify-content: flex-start;
+    min-width: 346px;
+    position: absolute;
+    top: 721px;
+    width: auto;
+}
+
+.newsound .group-2-copy {
+    background-color: white;
+    border-radius: 6px;
+    height: 233px;
+    overflow: hidden;
+    position: absolute;
+    top: 244px;
+    width: 244px;
+}
+
+.newsound .is-your-audio-a {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: -0.19px;
+    line-height: 42px;
+    position: absolute;
+    text-align: center;
+    top: 658px;
+    white-space: nowrap;
+    width: auto;
+}
+
+.newsound .nexticon {
+    background-color: transparent;
+    flex-shrink: 0;
+    height: 41px;
+    pointer-events: auto;
+    position: relative;
+    transition: all 0.2s ease-in-out;
+    width: 146px;
+}
+
+.newsound .nexticon-copy {
+    background-color: transparent;
+    display: block;
+    flex-shrink: 0;
+    height: 41px;
+    margin-left: 54px;
+    pointer-events: auto;
+    position: relative;
+    transition: all 0.2s ease-in-out;
+    width: 146px;
+    opacity: 0;
+    transform: scale(1.1);
+}
+
+.newsound .nexticon-copy:hover {
+    transform: scale(1.1);
+}
+
+.newsound .nexticon:hover {
+    transform: scale(1.1);
+}
+
+.newsound .oval-4eduM0 {
+    background-color: transparent;
+    height: 603px;
+    left: 38px;
+    position: absolute;
+    top: 349px;
+    width: 968px;
+}
+
+.newsound .oval-6sb1qn {
+    background-color: transparent;
+    height: 746px;
+    left: 38px;
+    position: absolute;
+    top: 539px;
+    width: 1343px;
+}
+
+.newsound .oval-BJQsbv {
+    background-color: transparent;
+    height: 722px;
+    left: 58px;
+    position: absolute;
+    top: 0px;
+    width: 1043px;
+}
+
+.newsound .oval-ovOecM {
+    background-color: transparent;
+    height: 649px;
+    left: 0px;
+    position: absolute;
+    top: 690px;
+    width: 1240px;
+}
+
+.newsound .overlap-group-C61RwL {
+    background-color: transparent;
+    height: 1339px;
+    left: -315px;
+    position: absolute;
+    top: -371px;
+    width: 1381px;
+}
+
+.newsound .overlap-group1 {
+    background-color: transparent;
+    flex-shrink: 0;
+    height: 41px;
+    margin-top: 539px;
+    position: relative;
+    width: 309px;
+}
+
+.newsound .path {
+    background-color: transparent;
+    height: 23px;
+    left: 43px;
+    position: absolute;
+    top: 36px;
+    width: 20px;
+}
+
+.newsound .rectangle {
+    background-color: transparent;
+    height: 41px;
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    width: 309px;
+}
+
+.newsound .rectangle-2 {
+    background-color: white;
+    border-radius: 6px;
+    height: 233px;
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    width: 244px;
+}
+
+.newsound .rectangle-bKk8JK {
+    background-color: transparent;
+    height: 31px;
+    left: 17px;
+    position: absolute;
+    top: 9px;
+    width: 112px;
+}
+
+.newsound .rectangle-bKk8JK {
+    background-color: transparent;
+    height: 41px;
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    width: 146px;
+}
+
+.newsound .shape-UPUXXo {
+    background-color: transparent;
+    height: 15px;
+    left: 10px;
+    position: absolute;
+    top: 9px;
+    width: 15px;
+}
+
+.newsound .shape-rlzqmL {
+    background-color: transparent;
+    height: 55px;
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    width: 63px;
+}
+
+.newsound .song {
+    background-color: transparent;
+    height: auto;
+    left: 27px;
+    letter-spacing: 0px;
+    line-height: 24px;
+    position: absolute;
+    text-align: center;
+    top: 9px;
+    white-space: nowrap;
+    width: 88px;
+}
+
+.newsound .sound {
+    background-color: transparent;
+    height: auto;
+    left: 27px;
+    letter-spacing: 0px;
+    line-height: 24px;
+    position: absolute;
+    text-align: center;
+    top: 9px;
+    white-space: nowrap;
+    width: 88px;
+}
+
+.newsound .text-type-here {
+    background-color: transparent;
+    border: 0;
+    display: block;
+    height: 30px;
+    left: 0px;
+    letter-spacing: 0px;
+    line-height: 24px;
+    padding: 0;
+    position: absolute;
+    resize: none;
+    text-align: center;
+    top: 8px;
+    width: 309px;
+    opacity: 0;
+}
+
+.newsound .text-type-here::placeholder {
+    color: rgba(151, 151, 151, 0.6);
+}
+
+.newsound .tik-tok-au-io-submiss {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: -0.12px;
+    line-height: 24px;
+    position: absolute;
+    text-align: center;
+    top: 125px;
+    width: auto;
+}
+
+.newsound .upload {
+    background-color: transparent;
+    height: 59px;
+    left: 91px;
+    pointer-events: auto;
+    position: absolute;
+    top: 87px;
+    transition: all 0.2s ease-in-out;
+    width: 63px;
+}
+
+.newsound .upload-a-cover-image {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: -0.19px;
+    line-height: 42px;
+    position: absolute;
+    text-align: center;
+    top: 181px;
+    white-space: nowrap;
+    width: auto;
+}
+
+.newsound .upload:hover {
+    transform: scale(1.1);
+}
+
+.sofiapro-normal-white-30px {
+    color: white;
+    font-family: "SofiaPro-Bold", Helvetica, Arial, serif;
+    font-size: 30px;
+}
+
+:root {
+    --anakiwa: rgba(145, 255, 251, 1);
+    --gravel: rgba(74, 73, 74, 1);
+    --mountain-mist: rgba(151, 151, 151, 1);
+}
+
+@keyframes animate-enter-frames {
+    from {
+        opacity: 0;
+        transform: scale(1.1);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes animate-enter1-frames {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.container-center-vertical,
+.container-center-horizontal {
+    pointer-events: none;
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    margin: 0;
+}
+
+.container-center-horizontal {
+    justify-content: center;
+    width: 100%;
+}
+
+.container-center-vertical>*,
+.container-center-horizontal>* {
+    pointer-events: auto;
+    flex-shrink: 0;
+}
+
+.auto-animated .container-center-vertical,
+.auto-animated .container-center-horizontal {
+    opacity: 1;
+}

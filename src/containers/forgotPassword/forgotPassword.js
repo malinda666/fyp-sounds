@@ -1,127 +1,135 @@
-import React, { Component } from "react";
+import React from "react";
 import './forgotPassword.css'
-import {LoginEmailAlreadyExistsRectangle,
-        LoginRectangle2x,
-        EditBackChevron
-      } from '../../assets/img/index'
-import Footer from '../../components/footer'
-import Header from "../../components/header";
+import {
+  Link
+} from 'react-router-dom';
 
 
-export default class ForgotPassword extends Component {
-  constructor(props) {
-    super(props);
+export default class Recovery extends React.Component {
+  render() {
+    const {
+      forgotYourAccess,
+      rectangle,
+      inputName,
+      inputType,
+      inputPlaceholder,
+      inputRequired,
+      rectangle2,
+      send,
+      Ud83EUdd26Ud83CUdffeU200DU2640Ufe0F,
+      oval,
+      oval2,
+      oval3,
+      label1,
+      faq,
+      contact,
+      privacyPolicy,
+      copyright2512021Al,
+      fypsoundslogoProps,
+      aboutProps,
+      fypsoundslogo2Props,
+    } = this.props;
 
-    this.state = {
-        confirmationCodeSent: false
-    };
-  }
-
-   renderForm() {
     return (
-        <div class="recovery anima-screen">
-            <div class="anima-container-center-horizontal">
-        <div class="nexticon-C61RwL">
-          <div class="forgot-your-access-rGr1Cp">forgot your access?</div>
-          <div class="overlap-group-rGr1Cp">
-            <img
-              class="rectangle-NaDWhO"
-              src={LoginEmailAlreadyExistsRectangle}
-              alt=""
-            />
-            <input
-              class="text-email-NaDWhO montserrat-light-mountain-mist-14px"
-              name="textemail"
-              placeholder="email"
-              type="email"
-              required
-            />
-          </div>
-        <div class="anima-container-center-horizontal">
-        <a class="anima-full-height-a"
-          ><div class="no-account-found-un-C61RwL">*no account found under this email. <br /></div
-        ></a>
-      </div>
-      <div class="anima-container-center-horizontal">
-        <a href="login.html" class="anima-full-height-a"
-          ><div class="new-user-join-here-C61RwL montserrat-light-gravel-14px">
-            <span class="span1-vTI2Tg"><br /><br />new user? join</span><span class="span2-vTI2Tg"> here</span>
-          </div></a
-        >
-      </div>
-          <div class="overlap-group1-rGr1Cp">
-            <img class="rectangle-3cn1mj" src={LoginRectangle2x} alt=""/>
-            <div class="send-3cn1mj montserrat-semi-bold-white-20px">send</div>
-          </div>
-        </div>
-      </div>
-      <div class="anima-container-center-horizontal"><div class="ud83eudd26-u2640ufe0f-C61RwL">🤦🏾‍♀️</div>
-      </div>
-<Header/>
-       <div class="anima-container-center-horizontal">
-           <Footer/>
-       </div>
-      </div>
-    )
-   }
-
-   renderConfirmationForm() {
-    return (
-            <div class="anima-container-center-horizontal">
-      <form class="password anima-screen" name="form9" action="form9" method="post">
-        <div class="auto-flex-C61RwL">
-          <div class="top-bar-fhuxN3">
-            <div class="back-icon-msdVCT">
-              <img
-                class="back-chevron-S8W5J0"
-                src={EditBackChevron}
-                alt=""
+      <div className="recovery">
+        <div className="container-center-horizontal">
+          <div className="nexticon">
+            <div className="forgot-your-access montserrat-semi-bold-torch-red-25px">{forgotYourAccess}</div>
+            <div className="overlap-group">
+              <img className="rectangle-NaDWhO" src={rectangle} />
+              <input
+                className="text-email montserrat-light-mountain-mist-14px"
+                name={inputName}
+                placeholder={inputPlaceholder}
+                type={inputType}
+                required={inputRequired}
               />
             </div>
+            <div className="overlap-group1">
+              <img className="rectangle-3cn1mj" src={rectangle2} />
+              <div className="send montserrat-semi-bold-white-20px">{send}</div>
+            </div>
           </div>
-          <div class="password-fhuxN3 montserrat-bold-rose-pearl-24px">password</div>
         </div>
-        <div class="clear-cache-copy-C61RwL">
-          <div class="old-password-z9wHcl sfprodisplay-regular-normal-granite-gray-20px">Old Password</div>
-          <input
-            class="text-z9wHcl sfprodisplay-regular-normal-pink-swan-15px"
-            name="text"
-            placeholder=""
-            type="password"
-            required
-          />
+        <div className="container-center-horizontal">
+          <h1 className="ud83eudd26-u2640ufe0f montserrat-semi-bold-white-45px">
+            {Ud83EUdd26Ud83CUdffeU200DU2640Ufe0F}
+          </h1>
         </div>
-        <div class="clear-cache-copy-2-C61RwL">
-          <div class="new-password-R3TVeF sfprodisplay-regular-normal-granite-gray-20px">New Password</div>
-          <input
-            class="text-R3TVeF sfprodisplay-regular-normal-pink-swan-15px"
-            name="text"
-            placeholder=""
-            type="password"
-            required
-          />
+        <div className="container-center-horizontal">
+          <div className="group">
+            <img className="oval-NOXmfT" src={oval} />
+            <img className="oval-E582nk" src={oval2} />
+            <Fypsoundslogo {...fypsoundslogoProps} />
+          </div>
         </div>
-       
-          <div class="nexticon-C61RwL"><div class="save-rGr1Cp montserrat-semi-bold-white-20px">save</div></div>
-        
-      </form>
-    </div>
-    )
-   }
-
-  render(){
-      return(
-    <div >
-       {
-       this.state.confirmationCodeSent
-          ? 
-          this.renderConfirmationForm()
-          : 
-         this.renderForm()
-          }
-      
-       </div>
-      )
+        <div className="container-center-horizontal">
+          <div className="footer">
+            <div className="overlap-group2">
+              <img className="oval-S4xVmX" src={oval3} />
+              <div className="group-5">
+                <div className="container-center-horizontal">
+                  <Link to="/recovery" className="full-height-a">
+                    <p className="x montserrat-semi-bold-white-14px">{label1}</p>
+                  </Link>
+                </div>
+                <About {...aboutProps} />
+                <div className="container-center-horizontal">
+                  <div className="faq montserrat-semi-bold-white-14px">{faq}</div>
+                </div>
+                <div className="container-center-horizontal">
+                  <div className="contact montserrat-semi-bold-white-14px">{contact}</div>
+                </div>
+                <div className="privacy-policy montserrat-semi-bold-white-14px">{privacyPolicy}</div>
+              </div>
+            </div>
+            <Fypsoundslogo2 {...fypsoundslogo2Props} />
+            <div className="container-center-horizontal">
+              <p className="copyright--51-2021-al montserrat-normal-white-13px">{copyright2512021Al}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
   }
-
 }
+
+
+class Fypsoundslogo extends React.Component {
+  render() {
+    const { fypsoundsLogo } = this.props;
+
+    return <div className="fypsoundslogo-NOXmfT" style={{ backgroundImage: `url(${fypsoundsLogo})` }}></div>;
+  }
+}
+
+
+class About extends React.Component {
+  render() {
+    const { about } = this.props;
+
+    return (
+      <div className="container-center-horizontal">
+        <div className="about-Tai3pd">
+          <a href="/about">
+            <div className="about-zEflc1 montserrat-semi-bold-white-14px">{about}</div>
+          </a>
+        </div>
+      </div>
+    );
+  }
+}
+
+
+class Fypsoundslogo2 extends React.Component {
+  render() {
+    const { fypsoundsLogo } = this.props;
+
+    return (
+      <div className="container-center-horizontal">
+        <div className="fypsoundslogo-iPe1yZ" style={{ backgroundImage: `url(${fypsoundsLogo})` }}></div>
+      </div>
+    );
+  }
+}
+

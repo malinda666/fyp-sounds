@@ -1,7 +1,12 @@
-/* screen - about */
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:600,300,700,400");
+
+* {
+    box-sizing: border-box;
+}
 
 .about {
-    background-color: var(--white);
+    background-color: white;
     height: 100vh;
     margin: 0px;
     min-height: 896px;
@@ -13,7 +18,7 @@
 .about .about-C61RwL {
     background-color: transparent;
     height: auto;
-    letter-spacing: 0.00px;
+    letter-spacing: 0px;
     line-height: 29px;
     position: fixed;
     text-align: left;
@@ -25,7 +30,6 @@
 .about .about-IlweIA {
     align-items: flex-start;
     background-color: transparent;
-    box-sizing: border-box;
     display: inline-flex;
     flex-direction: row;
     height: 18px;
@@ -42,16 +46,15 @@
     background-color: transparent;
     flex-shrink: 0;
     height: auto;
-    letter-spacing: 0.00px;
+    letter-spacing: 0px;
     line-height: 18px;
     min-height: 18px;
-    position: relative;
     text-align: left;
     white-space: nowrap;
     width: 66px;
 }
 
-.about .bar-C61RwL {
+.about .bar {
     background-color: transparent;
     height: 40px;
     margin-left: -0px;
@@ -61,10 +64,10 @@
     width: 94px;
 }
 
-.about .contact-IlweIA {
+.about .contact {
     background-color: transparent;
     height: auto;
-    letter-spacing: 0.00px;
+    letter-spacing: 0px;
     line-height: 18px;
     margin-left: 23px;
     margin-right: -23px;
@@ -75,10 +78,10 @@
     width: 100px;
 }
 
-.about .copyright--51-2021-al-iPe1yZ {
+.about .copyright--51-2021-al {
     background-color: transparent;
     height: auto;
-    letter-spacing: 0.00px;
+    letter-spacing: 0px;
     line-height: 16px;
     position: absolute;
     text-align: center;
@@ -87,10 +90,10 @@
     width: 372px;
 }
 
-.about .faq-IlweIA {
+.about .faq {
     background-color: transparent;
     height: auto;
-    letter-spacing: 0.00px;
+    letter-spacing: 0px;
     line-height: 18px;
     margin-left: -66px;
     margin-right: 66px;
@@ -101,7 +104,7 @@
     width: 73px;
 }
 
-.about .footer-C61RwL {
+.about .footer {
     background-color: transparent;
     bottom: -136px;
     height: 296px;
@@ -111,7 +114,6 @@
 
 .about .fypsoundslogo-NOXmfT {
     background-color: transparent;
-    background-image: url(../../assets/img/terms-fypcopy-4ACB0B03-1969-4D09-9F0F-4CEA607FD053@2x.png);
     background-size: 100% 100%;
     height: 40px;
     left: 245px;
@@ -122,7 +124,6 @@
 
 .about .fypsoundslogo-iPe1yZ {
     background-color: transparent;
-    background-image: url(../../assets/img/earnings-fypcopy-1E23A663-EBC4-4EED-89E7-2AB7DC03ADF7@2x.png);
     background-size: 100% 100%;
     height: 24px;
     position: absolute;
@@ -130,16 +131,7 @@
     width: 57px;
 }
 
-.about .group-5-4K0abD {
-    background-color: transparent;
-    height: 18px;
-    left: 692px;
-    position: absolute;
-    top: 90px;
-    width: 362px;
-}
-
-.about .group-C61RwL {
+.about .group {
     background-color: transparent;
     height: 452px;
     margin-left: 96px;
@@ -149,10 +141,19 @@
     width: 776px;
 }
 
-.about .lorem-ipsum-dolor-si-C61RwL {
+.about .group-5 {
+    background-color: transparent;
+    height: 18px;
+    left: 692px;
+    position: absolute;
+    top: 90px;
+    width: 362px;
+}
+
+.about .lorem-ipsum-dolor-si {
     background-color: transparent;
     height: auto;
-    letter-spacing: 0.00px;
+    letter-spacing: 0px;
     line-height: 17px;
     margin-left: 1px;
     margin-right: -1px;
@@ -189,7 +190,7 @@
     width: 592px;
 }
 
-.about .overlap-group-iPe1yZ {
+.about .overlap-group {
     background-color: transparent;
     height: 295px;
     left: 1px;
@@ -198,11 +199,11 @@
     width: 1747px;
 }
 
-.about .privacy-policy-IlweIA {
+.about .privacy-policy {
     background-color: transparent;
     height: auto;
     left: 262px;
-    letter-spacing: 0.00px;
+    letter-spacing: 0px;
     line-height: 18px;
     position: absolute;
     text-align: center;
@@ -211,10 +212,10 @@
     width: 100px;
 }
 
-.about .x-IlweIA {
+.about .x {
     background-color: transparent;
     height: auto;
-    letter-spacing: 0.00px;
+    letter-spacing: 0px;
     line-height: 18px;
     margin-left: -48px;
     margin-right: 48px;
@@ -223,205 +224,71 @@
     top: 0px;
     white-space: nowrap;
     width: auto;
-}
-
-.about .overlap-group9-iPe1yZ {
-    background-color: transparent;
-    height: 295px;
-    left: 1px;
-    position: absolute;
-    top: 0px;
-    width: 1747px;
-}
-
-.about .oval-iFLr8c {
-    background-color: transparent;
-    height: 295px;
-    left: 0px;
-    position: absolute;
-    top: 0px;
-    width: 1747px;
-}
-
-.about .group-5-iFLr8c {
-    background-color: transparent;
-    height: 18px;
-    left: 692px;
-    position: absolute;
-    top: 90px;
-    width: 362px;
-}
-
-.about .x-pHGZZ8 {
-    background-color: transparent;
-    height: auto;
-    letter-spacing: 0.00px;
-    line-height: 18px;
-    margin-left: -48px;
-    margin-right: 48px;
-    position: absolute;
-    text-align: center;
-    top: 0px;
-    white-space: nowrap;
-    width: auto;
-}
-
-.about .about-pHGZZ8 {
-    align-items: flex-start;
-    background-color: transparent;
-    box-sizing: border-box;
-    display: inline-flex;
-    flex-direction: row;
-    height: 18px;
-    justify-content: flex-start;
-    margin-left: -137px;
-    margin-right: 137px;
-    min-width: 66px;
-    position: absolute;
-    top: 0px;
-    width: auto;
-}
-
-.about .about-tmGEPR {
-    background-color: transparent;
-    flex-shrink: 0;
-    height: auto;
-    letter-spacing: 0.00px;
-    line-height: 18px;
-    min-height: 18px;
-    position: relative;
-    text-align: left;
-    white-space: nowrap;
-    width: 66px;
-}
-
-.about .faq-pHGZZ8 {
-    background-color: transparent;
-    height: auto;
-    letter-spacing: 0.00px;
-    line-height: 18px;
-    margin-left: -66px;
-    margin-right: 66px;
-    position: absolute;
-    text-align: center;
-    top: 0px;
-    white-space: nowrap;
-    width: 73px;
-}
-
-.about .contact-pHGZZ8 {
-    background-color: transparent;
-    height: auto;
-    letter-spacing: 0.00px;
-    line-height: 18px;
-    margin-left: 23px;
-    margin-right: -23px;
-    position: absolute;
-    text-align: center;
-    top: 0px;
-    white-space: nowrap;
-    width: 100px;
-}
-
-.about .privacy-policy-pHGZZ8 {
-    background-color: transparent;
-    height: auto;
-    left: 262px;
-    letter-spacing: 0.00px;
-    line-height: 18px;
-    position: absolute;
-    text-align: center;
-    top: 0px;
-    white-space: nowrap;
-    width: 100px;
-}
-
-.applecoloremoji-normal-granite-gray-30px {
-    color: var(--granite-gray);
-    font-family: "AppleColorEmoji", Helvetica, Arial, serif;
-    font-size: 30px;
-}
-
-.border-class-1 {
-    border: 1px solid rgba(150, 150, 150, 1.0);
 }
 
 .montserrat-bold-rose-pearl-24px {
     color: var(--rose-pearl);
-    font-family: 'Montserrat', Helvetica, Arial, serif;
+    font-family: "Montserrat", Helvetica, Arial, serif;
     font-size: 24px;
     font-style: normal;
     font-weight: 700;
 }
 
-.montserrat-light-gravel-14px {
-    color: var(--gravel);
-    font-family: 'Montserrat', Helvetica, Arial, serif;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 300;
-}
-
 .montserrat-light-mountain-mist-14px {
     color: var(--mountain-mist);
-    font-family: 'Montserrat', Helvetica, Arial, serif;
+    font-family: "Montserrat", Helvetica, Arial, serif;
     font-size: 14px;
     font-style: normal;
     font-weight: 300;
 }
 
 .montserrat-normal-white-13px {
-    color: var(--white);
-    font-family: 'Montserrat', Helvetica, Arial, serif;
+    color: white;
+    font-family: "Montserrat", Helvetica, Arial, serif;
     font-size: 13px;
     font-style: normal;
     font-weight: 400;
 }
 
 .montserrat-semi-bold-white-14px {
-    color: var(--white);
-    font-family: 'Montserrat', Helvetica, Arial, serif;
+    color: white;
+    font-family: "Montserrat", Helvetica, Arial, serif;
     font-size: 14px;
     font-style: normal;
     font-weight: 600;
 }
 
-.montserrat-semi-bold-white-20px {
-    color: var(--white);
-    font-family: 'Montserrat', Helvetica, Arial, serif;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 600;
-}
-
-.sfprodisplay-regular-normal-granite-gray-20px {
-    color: var(--granite-gray);
-    font-family: "SFProDisplay-Regular", Helvetica, Arial, serif;
-    font-size: 20px;
-}
-
-.sfprodisplay-regular-normal-pink-swan-15px {
-    color: var(--pink-swan);
-    font-family: "SFProDisplay-Regular", Helvetica, Arial, serif;
-    font-size: 15px;
-}
-
-.sofiapro-normal-white-30px {
-    color: var(--white);
-    font-family: "SofiaPro-Bold", Helvetica, Arial, serif;
-    font-size: 30px;
-}
-
 :root {
-    --anakiwa: rgba(145, 255, 251, 1.0);
-    --black: rgba(0, 0, 0, 1.0);
-    --bright-turquoise: rgba(0, 242, 234, 1.0);
-    --granite-gray: rgba(102, 102, 102, 1.0);
-    --gravel: rgba(74, 73, 74, 1.0);
-    --mountain-mist: rgba(151, 151, 151, 1.0);
-    --mountain-mist-2: rgba(153, 153, 153, 1.0);
-    --pink-swan: rgba(186, 186, 186, 1.0);
-    --rose-pearl: rgba(245, 55, 124, 1.0);
-    --torch-red: rgba(255, 0, 80, 1.0);
-    --white: rgba(255, 255, 255, 1.0);
+    --mountain-mist: rgba(151, 151, 151, 1);
+    --rose-pearl: rgba(245, 55, 124, 1);
+}
+
+.container-center-vertical,
+.container-center-horizontal {
+    pointer-events: none;
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    margin: 0;
+}
+
+.container-center-horizontal {
+    justify-content: center;
+    width: 100%;
+}
+
+.container-center-vertical>*,
+.container-center-horizontal>* {
+    pointer-events: auto;
+    flex-shrink: 0;
+}
+
+.auto-animated .container-center-vertical,
+.auto-animated .container-center-horizontal {
+    opacity: 1;
+}
+
+a {
+    text-decoration: none;
+    display: contents;
 }

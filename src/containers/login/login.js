@@ -1,23 +1,14 @@
-import React, { Component } from "react";
-import './login.css'
-import {LoginEmailAlreadyExistsRectangle, 
-        LoginEmailAlreadyExistsRectangle2x,
-        LoginRectangle2x
-      } from '../../assets/img/index'
-import Footer from '../../components/footer'
-import Header from "../../components/header";
+import React from "react";
+import './login.css';
 import userManagementService from '../../services/userManagementService'
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
-
-export default class Login extends Component {
-  constructor(props) {
+export default class Login extends React.Component {
+    constructor(props) {
     super(props);
 
     this.state = {
       loading: false,
-      email: "",
+      email: "", 
       password: "",
       newUser: null,
       deliveryEmail:'',
@@ -25,18 +16,18 @@ export default class Login extends Component {
       verificationCode:'',
       isInvalidCode: false
     };
+
+    this.handleFieldChange = this.handleFieldChange.bind(this);
   }
 
   validateForm() {
     const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
     if (!this.state.email || this.state.email === '') {
-     toast.error('Email required');
       return false;
     }
 
     if(!re.test(this.state.email)){
-      toast.error('Invalid email format');
       return false;
     }   
 
@@ -49,7 +40,6 @@ export default class Login extends Component {
 
     return true;
   }
-
 
    signUp = () => {
       if (this.validateForm()) {
@@ -70,19 +60,20 @@ export default class Login extends Component {
               //     }
               //   });
               // } else {
-               toast.error('Signup process failed');
+               //toast.error('Signup process failed');
                this.setState({errorMessage : 'Signup process failed'});
                }
             } else {
-              this.setState({
-                deliveryEmail: result.data.CodeDeliveryDetails.Destination,
-                newUser: result.data,
-              });
+               this.props.history.push({
+                    pathname: '/verify',
+                    state: { email: this.state.email,
+                            password: this.state.password }
+                      });
             }
             this.setState({ loading: false });
           } else {
             this.setState({ loading: false, errorMessage : 'Signup process failed' });
-            toast.error('Signup process failed');
+            //toast.error('Signup process failed');
           }
         })
         .catch((err) => {
@@ -100,315 +91,269 @@ export default class Login extends Component {
           //   toast.error(err.response.data);
           // }
           this.setState({ loading: false, errorMessage : 'Signup process failed' });
-          toast.error('Signup process failed');
+          //toast.error('Signup process failed');
         });
       }
 
    }
 
-   verifyUser = () =>{
-    this.setState({ loading: true});
-    userManagementService
-      .confirmUser(this.state.email.trim(), this.state.verificationCode)
-      .then((res) => {
-        if (res.status === 200) {
-          userManagementService
-            .signIn(this.state.email.trim(), this.state.password)
-            .then((res) => {
-              if(res.status === 200){
-              localStorage.setItem('refreshtoken', res.data.refreshToken);
-              localStorage.setItem('access_token', res.data.accessToken);
-              localStorage.setItem('id_token', res.data.idToken.jwtToken);
-              
-              // userAPI
-              //   .getUserByEmail(this.state.email)
-              //   .then((result) => {
-              //     if (result.status == 200) {
-              //       if (result.data.data.User.length === 0) {
-              //         userAPI
-              //           .CreateUser(
-              //             this.state.fullname,
-              //             this.state.email,
-              //             date_of_birth,
-              //             this.state.country.label,
-              //             this.state.role
-              //           )
-              //           .then((response) => {
-              //             if (response.status == 200) {
-              //               this.handleUpload(
-              //                 response.data.data.CreateUser.full_name,
-              //                 response.data.data.CreateUser.country,
-              //                 response.data.data.CreateUser.role,
-              //                 response.data.data.CreateUser.user_dir
-              //               );
-              //             }
-              //           })
-              //           .catch((err) => {
-              //             this.setState({
-              //               loading: false,
-              //               verifyButtonText: 'Verify',
-              //             });
-              //             toast.error('unable to create user');
-              //           });
-              
-                   // } else {
-                     toast.success('User verified Successfully');
-                      this.setState({ loading: false });
-                      this.props.history.push("/dashboard");
-                      // this.props.history.push(ROUTES.form);
-                   // }
-                  //}
-                // })
-                // .catch((err) => {
-                //   this.setState({ loading: false});
-                //   //toast.error('unable to create user');
-                // });
-              }
-              else{
-                this.setState({ loading: false});
-                toast.error('unable to signin, please contact administrator');
-              }
-            })
-            .catch((err) => {
-              this.setState({ loading: false});
-              toast.error('unable to signin, please contact administrator');
-            });
-        } else {
-          this.setState({ loading: false});
-          toast.error('unable to verify user');
-        }
-      })
-      .catch((err) => {
-        this.setState({ loading: false});
-        if (err.response.data.includes('UsernameExistsException')) 
-        {
-          this.setState({isInvalidCode : true})
-        }
-        else
-          toast.error('unable to verify user, contact administrator');
-      });
-  }
-
-  reSend= () => {
-    userManagementService
-      .resendConfirmationCode(this.state.email.trim())
-      .then((res) => {
-        if (res.status === 200) {
-          toast.success('Verification code sent to ' + this.state.email.trim());
-        } else {
-          toast.error('Unable to send verification code');
-        }
-      })
-      .catch((err) => {
-        toast.error('Unable to send verification code');
-      });
-  }
-
-
    handleFieldChange(event){
+     if(event){
      this.setState({
       [event.target.id]: event.target.value,
     });
+  }
    }
 
-   renderForm() {
-    return (
-       <div>
-      <div class="anima-container-center-horizontal">
-        <div class="bar-C61RwL"></div>
-      </div>
-      <div class="anima-container-center-horizontal">
-        <form class="nexticon-copy-C61RwL" name="form7" action="form7" method="post">
-          <input type="text" name="trapit" value="" style={{display : 'none'}} />
-          <div class="or-q2VZwF">or</div>
-          <div class="overlap-group-q2VZwF">
-            <img
-              class="rectangle-ZtaLEy"
-              src={LoginEmailAlreadyExistsRectangle}
-              alt=""
-            />
-            <input
-              class="text-email-ZtaLEy montserrat-light-mountain-mist-14px"
-              name="textemail"
-              placeholder="email"
-              type="email"
-              required
-            />
-          </div>
-          <div class="overlap-group1-q2VZwF">
-            <div class="rectangle-Vg8Dgr border-class-1"></div>
-            <input
-              class="text-Vg8Dgr montserrat-light-mountain-mist-14px"
-              name="text"
-              placeholder="***********"
-              type="password"
-              required
-            />
-          </div>
-          <div class="overlap-group2-q2VZwF">
-           
-              <img
-                class="rectangle-zlebQ8"
-                src={LoginEmailAlreadyExistsRectangle2x}
-                alt=""
-            />
-            <div class="login-zlebQ8">login</div>
-          </div>
-        </form>
-      </div>
-      <div class="anima-container-center-horizontal">
-        <div class="bar-C61RwL"></div>
-      </div>
-      <div class="anima-container-center-horizontal">
-        <form class="nexticon-copy-VMr6Om" name="none" action="none" method="post">
-          <input type="text" name="trapit" value="" style={{display : 'none'}} />
-          <div class="or-7M0e6D">or</div>
-          <div class="overlap-group3-7M0e6D">
-            <img
-              class="rectangle-z2N0p4"
-              src={LoginEmailAlreadyExistsRectangle}
-              alt=""
-            />
-            <input
-              class="text-email-z2N0p4 montserrat-light-mountain-mist-14px"
-              name="textemail"
-              placeholder="email"
-              type="email"
-              required
-            />
-          </div>
-          <div class="overlap-group4-7M0e6D">
-            <div class="rectangle-G8qwHz border-class-1"></div>
-            <input
-              class="text-G8qwHz montserrat-light-mountain-mist-14px"
-              name="text"
-              placeholder="***********"
-              type="password"
-              required
-            />
-          </div>
-          <div class="overlap-group5-7M0e6D">
-            <a href="sounds.html"
-              ><img
-                class="rectangle-HEidus"
-                src={LoginEmailAlreadyExistsRectangle2x}
-                alt=""
-            /></a>
-            <div class="login-HEidus">login</div>
-          </div>
-        </form>
-      </div>
-      <div class="anima-container-center-horizontal">
-          <div class="forgot-your-access-C61RwL montserrat-light-gravel-14px">
-            <span class="span1-VhPCr0">forgot your access? no worries, click </span
-            ><span class="span2-VhPCr0"><a href="/forgotPassword">here</a></span>
-          </div>
-      </div>
-      <div class="anima-container-center-horizontal">
-        <form class="nexticon-C61RwL-Join" name="form8" action="form8" method="post" >
-          <input type="text" name="trapit" value="" style={{display : 'none'}} />
-          <div class="overlap-group6-rGr1Cp">
-            <img
-              class="rectangle-JHJaxP"
-              src={LoginEmailAlreadyExistsRectangle}
-              alt=""
-            />
-            <input
-              id="email"
-              class="text-email-JHJaxP montserrat-light-mountain-mist-14px"
-              name="textemail"
-              placeholder="email"
-              type="email"
-              required
-              onChange={this.handleFieldChange.bind(this)}
-            />
-          </div>
-          <div class="overlap-group7-rGr1Cp">
-            <div class="rectangle-nf2t0w border-class-1"></div>
-            <input
-              id = "password"
-              class="text-nf2t0w montserrat-light-mountain-mist-14px"
-              name="text"
-              placeholder="***********"
-              type="password"
-              required
-              onChange={this.handleFieldChange.bind(this)}
-            />
-          </div>
-          <div class="overlap-group8-rGr1Cp"  onClick={this.signUp.bind(this)}>            
-              <img class="rectangle-SB4sVT" src={LoginRectangle2x} alt=""
-            />
-            <div class="join-SB4sVT">join</div>
-          </div>
-        </form>
-      </div>
-</div>
-    )
-   }
 
-   renderConfirmationForm() {
+    login = () => {
+     if (this.validateForm()) {
+      this.setState({ loading: true });
+      // userAPI
+      //   .getUserByEmail(this.state.username)
+      //   .then((result) => {
+      //     if (result.status == 200) {
+      //       if (result.data.data.User[0] != null) {
+              userManagementService
+                .signIn(this.state.email, this.state.password)
+                .then((res) => {
+                  if (res.status == 200) {
+                    if (res.data.code != null) {
+                      if (res.data.code == 'NotAuthorizedException') {
+                        // this.setState({
+                        //   lvrgLoginErrorMessage:
+                        //     notification.UNAUTHORIZED_ACCESS,
+                        // });
+                      } else {
+                        // this.setState({
+                        //   lvrgLoginErrorMessage:
+                        //     notification.UNAUTHORIZED_ACCESS,
+                        // });
+                      }
+                    } else {
+                      localStorage.setItem(
+                        'refreshtoken',
+                        res.data.refreshToken
+                      );
+                      localStorage.setItem(
+                        'access_token',
+                        res.data.accessToken
+                      );
+                      localStorage.setItem(
+                        'id_token',
+                        res.data.idToken.jwtToken
+                      );
+                      this.props.history.push('/dashboard');
+                    }
+                    this.setState({ loading: false });
+                  } else {
+                    // this.setState({
+                    //   lvrgLoginErrorMessage: notification.UNAUTHORIZED_ACCESS,
+                    // });
+                    this.setState({ loading: false });
+                  }
+                });
+            } else {
+              // this.setState({
+              //   lvrgLoginErrorMessage: notification.UNAUTHORIZED_ACCESS,
+              // });
+              this.setState({ loading: false });
+            }
+          // }
+        // })
+        // .catch((err) => {
+        //   this.setState({
+        //     lvrgLoginErrorMessage: notification.UNAUTHORIZED_ACCESS,
+        //   });
+        //   this.setState({ loading: false });
+        // });
+    };
+
+  render() {
+    const {
+      spanText,
+      spanText2,
+      rectangle,
+      join,
+      rectangle2,
+      login,
+      oval,
+      oval2,
+      oval3,
+      label1,
+      faq,
+      contact,
+      privacyPolicy,
+      copyright2512021Al,
+      or,
+      overlapgroupProps,
+      overlapgroup1Props,
+      overlapgroup2Props,
+      overlapgroup12Props,
+      fypsoundslogoProps,
+      aboutProps,
+      fypsoundslogo2Props,
+      AnEmailIsRequireJoin,
+      AnEmailIsRequireLogin
+    } = this.props;
+
     return (
-         <div>
-      <div class="anima-container-center-horizontal">
-        <div class="nexticon-C61RwL">
-          <div class="check-your-email-for-rGr1Cp">check your email for</div>
-          <div class="overlap-group-rGr1Cp">
-            <img
-              class="rectangle-NaDWhO"
-              src={LoginEmailAlreadyExistsRectangle}
-              alt=""
-            />
-            <input
-              id="verificationCode"
-              class="text-verif-ation-code-NaDWhO montserrat-light-mountain-mist-14px"
-              name="textverificationcode"
-              placeholder="verification code"
-              type="number"
-              onChange={this.handleFieldChange.bind(this)}
-              required
-            />
-          </div>
-          <div class="overlap-group1-rGr1Cp">
-            <img class="rectangle-3cn1mj" src={LoginRectangle2x} alt="" onClick={this.verifyUser.bind(this)} />
-            <div class="confirm-3cn1mj montserrat-semi-bold-white-20px">confirm</div>
-          </div>
+      <div className="login">
+        <div className="container-center-horizontal">
+          <div className="bar"></div>
+        </div>
+        <div className="container-center-horizontal">
+          <p className="forgot-your-access montserrat-light-gravel-14px">
+            <span className="span1-VhPCr0">{spanText}</span>
+            <span className="span2-VhPCr0">{spanText2}</span>
+          </p>
+        </div>
+        <div className="container-center-horizontal">
+          <form className="nexticon-C61RwL" name="form1" action="form1" method="post">
+            <Overlapgroup {... {...overlapgroupProps, handleFieldChange : event => this.handleFieldChange(event)}}  />
+            <div className="container-center-horizontal">
+        <p className="an-email-is-require montserrat-light-red-14px">{AnEmailIsRequireJoin}</p>
+      </div>
+            <Overlapgroup1 {... {...overlapgroup1Props, handleFieldChange : event => this.handleFieldChange(event)}} />
+            <div className="overlap-group-CzwooT" onClick={this.signUp.bind(this)}>
+              <img className="rectangle-zF71vY" src={rectangle} />              
+                <div className="join montserrat-bold-white-20px">{join}</div>              
+            </div>
+          </form>
+        </div>
+        <div className="container-center-horizontal">
+          <form className="nexticon-VMr6Om" name="form2" action="form2" method="post">
+            <Overlapgroup {...{...overlapgroup2Props, handleFieldChange : event => this.handleFieldChange(event)}}/>
+<div className="container-center-horizontal">
+        <p className="an-email-is-require montserrat-light-red-14px">{AnEmailIsRequireLogin}</p>
+      </div>
+            <Overlapgroup1 {...{...overlapgroup12Props, handleFieldChange : event => this.handleFieldChange(event)}} />
+            <div className="overlap-group-CzwooT" onClick={this.login.bind(this)}>
+              <img className="rectangle-zF71vY" src={rectangle2} />
+              <a href="javascript:SubmitForm('form2')">
+                <div className="login montserrat-bold-white-20px">{login}</div>
+              </a>
+            </div>
+          </form>
+        </div>
+        <div className="container-center-horizontal">
+          <form className="group" name="none" action="none" method="post">
+            <img className="oval-NOXmfT" src={oval} />
+            <img className="oval-E582nk" src={oval2} />
+            <Fypsoundslogo {...fypsoundslogoProps} />
+          </form>
+        </div>
+        <div className="container-center-horizontal">
+          <form className="footer" name="none" action="none" method="post">
+            <div className="overlap-group6">
+              <img className="oval-ipjwHu" src={oval3} />
+              <div className="group-5">
+                <div className="container-center-horizontal">
+                  <p className="x montserrat-semi-bold-white-14px">{label1}</p>
+                </div>
+                <About {...aboutProps} />
+                <div className="container-center-horizontal">
+                  <div className="faq montserrat-semi-bold-white-14px">{faq}</div>
+                </div>
+                <div className="container-center-horizontal">
+                  <div className="contact montserrat-semi-bold-white-14px">{contact}</div>
+                </div>
+                <div className="privacy-policy montserrat-semi-bold-white-14px">{privacyPolicy}</div>
+              </div>
+            </div>
+            <Fypsoundslogo2 {...fypsoundslogo2Props} />
+            <div className="container-center-horizontal">
+              <p className="copyright--51-2021-al montserrat-normal-white-13px">{copyright2512021Al}</p>
+            </div>
+          </form>
+        </div>
+        <div className="container-center-horizontal">
+          <h1 className="or sofiapro-normal-torch-red-25px">{or}</h1>
         </div>
       </div>
-      <div class="anima-container-center-horizontal"><div class="ud83dudd75ufe0f-C61RwL">🕵️</div></div>
-       <div class="anima-container-center-horizontal">
-        <div class="didnu2019t-ceive-clic-C61RwL montserrat-light-gravel-14px">
-          <span class="span1-LBLLyx">didn’t receive? click here to </span><span class="span2-LBLLyx" onClick={this.reSend.bind(this)}>re-send</span>
+    );
+  }
+}
+
+
+class Overlapgroup extends React.Component {
+  render() {
+    const { rectangle, inputName, inputType, inputPlaceholder, inputRequired} = this.props;
+
+    return (
+      <div className="overlap-group">
+        <img className="rectangle-NaDWhO" src={rectangle} />
+        <input
+        id="email"
+          className="text montserrat-light-mountain-mist-14px"
+          name={inputName}
+          placeholder={inputPlaceholder}
+          type={inputType}
+          required={inputRequired}
+          onChange={this.props.handleFieldChange}
+        />
+      </div>
+    );
+  }
+}
+
+
+class Overlapgroup1 extends React.Component {
+  render() {
+    const { inputName, inputType, inputPlaceholder, inputRequired } = this.props;
+
+    return (
+      <div className="overlap-group1">
+        <div className="rectangle-3cn1mj border-class-1"></div>
+        <input
+        id ="password"
+          className="text montserrat-light-mountain-mist-14px"
+          name={inputName}
+          placeholder={inputPlaceholder}
+          type={inputType}
+          required={inputRequired}
+          onChange={this.props.handleFieldChange}
+        />
+      </div>
+    );
+  }
+}
+
+
+class Fypsoundslogo extends React.Component {
+  render() {
+    const { fypsoundsLogo } = this.props;
+
+    return <div className="fypsoundslogo-NOXmfT" style={{ backgroundImage: `url(${fypsoundsLogo})` }}></div>;
+  }
+}
+
+
+class About extends React.Component {
+  render() {
+    const { about } = this.props;
+
+    return (
+      <div className="container-center-horizontal">
+        <div className="about-7pmZoB">
+          <a href="/about">
+            <div className="about-rVE2UT montserrat-semi-bold-white-14px">{about}</div>
+          </a>
         </div>
       </div>
-      {
-        this.state.isInvalidCode ? 
-         <div class="anima-container-center-horizontal">
-        <a href="/forgotPassword" class="anima-full-height-a"><div class="invalid-code-C61RwL">*invalid code</div></a>
-      </div> : null
-      }
-     
+    );
+  }
+}
+
+
+class Fypsoundslogo2 extends React.Component {
+  render() {
+    const { fypsoundsLogo } = this.props;
+
+    return (
+      <div className="container-center-horizontal">
+        <div className="fypsoundslogo-iPe1yZ" style={{ backgroundImage: `url(${fypsoundsLogo})` }}></div>
       </div>
-    )
-   }
-
-   render() {
-    return (  
-      
-       <div class="login anima-screen">
-          <ToastContainer />
-      {
-      this.state.newUser === null
-          ? this.renderForm()
-          : 
-          this.renderConfirmationForm()
-           }   
-
-     <Header/>
-      <div class="anima-container-center-horizontal">
-        <Footer/>       
-      </div>
-    </div>
-    )
-   }
-
+    );
+  }
 }

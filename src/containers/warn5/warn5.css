@@ -1,0 +1,222 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,600,300,700");
+
+@font-face {
+    font-family: "SofiaPro-Bold";
+    font-weight: 1 1000;
+    src: url("../../assets/fonts/Sofia Pro Bold.ttf") format("truetype");
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.animate-enter {
+    animation: animate-enter-frames 0.5s ease-in-out 0.2s 1 normal forwards;
+    display: block;
+    opacity: 0;
+    transform: scale(1.1);
+}
+
+.applecoloremoji-normal-white-60px {
+    color: white;
+    font-family: "AppleColorEmoji", Helvetica, Arial, serif;
+    font-size: 60px;
+}
+
+.montserrat-semi-bold-white-20px {
+    color: white;
+    font-family: "Montserrat", Helvetica, Arial, serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+}
+
+.sofiapro-normal-white-30px {
+    color: white;
+    font-family: "SofiaPro-Bold", Helvetica, Arial, serif;
+    font-size: 30px;
+}
+
+.warn5 {
+    background-color: var(--onahau);
+    height: 100vh;
+    margin: 0px;
+    min-height: 896px;
+    min-width: 414px;
+    position: relative;
+    width: 100%;
+}
+
+.warn5 .congratulations-you {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: -0.19px;
+    line-height: 42px;
+    margin-left: 0px;
+    margin-right: -0px;
+    position: fixed;
+    text-align: center;
+    top: 286px;
+    width: 329px;
+}
+
+.warn5 .dismiss {
+    background-color: transparent;
+    height: auto;
+    left: 22px;
+    letter-spacing: 0px;
+    line-height: 24px;
+    position: absolute;
+    text-align: center;
+    top: 9px;
+    white-space: nowrap;
+    width: 102px;
+}
+
+.warn5 .fypsoundslogo {
+    background-color: transparent;
+    background-size: 100% 100%;
+    height: 40px;
+    position: absolute;
+    top: 64px;
+    width: 94px;
+}
+
+.warn5 .nexticon-copy-2 {
+    background-color: transparent;
+    display: block;
+    height: 41px;
+    position: fixed;
+    top: 448px;
+    width: 146px;
+    opacity: 0;
+    transform: scale(1.1);
+}
+
+.warn5 .oval-4eduM0 {
+    background-color: transparent;
+    height: 603px;
+    left: 38px;
+    position: absolute;
+    top: 349px;
+    width: 968px;
+}
+
+.warn5 .oval-6sb1qn {
+    background-color: transparent;
+    height: 746px;
+    left: 38px;
+    position: absolute;
+    top: 539px;
+    width: 1343px;
+}
+
+.warn5 .oval-BJQsbv {
+    background-color: transparent;
+    height: 722px;
+    left: 58px;
+    position: absolute;
+    top: 0px;
+    width: 1043px;
+}
+
+.warn5 .oval-ovOecM {
+    background-color: transparent;
+    height: 649px;
+    left: 0px;
+    position: absolute;
+    top: 690px;
+    width: 1240px;
+}
+
+.warn5 .overlap-group-C61RwL {
+    background-color: transparent;
+    height: 1339px;
+    left: -315px;
+    position: absolute;
+    top: -371px;
+    width: 1381px;
+}
+
+.warn5 .rectangle-IZxxJF {
+    background-color: transparent;
+    height: 896px;
+    left: 315px;
+    position: absolute;
+    top: 371px;
+    width: 414px;
+}
+
+.warn5 .rectangle-OxJunE {
+    background-color: transparent;
+    height: 41px;
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    width: 146px;
+}
+
+.warn5 .rectangle-pXVhQA {
+    background-color: transparent;
+    height: 31px;
+    left: 17px;
+    position: absolute;
+    top: 9px;
+    width: 112px;
+}
+
+.warn5 .ud83cudf89 {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: -0.38px;
+    line-height: 79px;
+    margin-left: 3px;
+    margin-right: -3px;
+    position: fixed;
+    text-align: center;
+    top: 207px;
+    white-space: nowrap;
+    width: auto;
+}
+
+:root {
+    --onahau: rgba(199, 255, 253, 1);
+}
+
+@keyframes animate-enter-frames {
+    from {
+        opacity: 0;
+        transform: scale(1.1);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.container-center-vertical,
+.container-center-horizontal {
+    pointer-events: none;
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    margin: 0;
+}
+
+.container-center-horizontal {
+    justify-content: center;
+    width: 100%;
+}
+
+.container-center-vertical>*,
+.container-center-horizontal>* {
+    pointer-events: auto;
+    flex-shrink: 0;
+}
+
+.auto-animated .container-center-vertical,
+.auto-animated .container-center-horizontal {
+    opacity: 1;
+}
