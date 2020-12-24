@@ -2,6 +2,13 @@ import React from "react";
 import './soundStep1.css'
 
 export default class SoundForm1 extends React.Component {
+   constructor(props) {
+    super(props);
+
+    this.state = {
+    }
+  }
+
   render() {
     const {
       oval,
@@ -26,14 +33,14 @@ export default class SoundForm1 extends React.Component {
           <img className="oval-6sb1qn" src={oval3} />
           <h1 className="are-you-the-owner-of sofiapro-normal-white-30px">{areYouTheOwnerOf}</h1>
           <img className="oval-ovOecM" src={oval4} />
-          <div className="nexticon animate-enter smart-layers-pointers ">
+          <div className="nexticon animate-enter smart-layers-pointers " onClick={() => this.props.history.push("/soundStep2")}>
             <img className="rectangle-Zkpfmi" src={rectangle} />
         
               <img className="rectangle" src={rectangle2} />
          
             <div className="yes montserrat-semi-bold-white-20px">{yes}</div>
           </div>
-          <div className="nexticon animate-enter1 smart-layers-pointers ">
+          <div className="nexticon animate-enter1 smart-layers-pointers " onClick={() => this.props.history.push("/warn1")}>
             <img className="rectangle-Zkpfmi" src={rectangle3} />
           
               <img className="rectangle" src={rectangle4} />

@@ -440,6 +440,38 @@
     --torch-red: rgba(255, 0, 80, 1);
 }
 
+.login .an-email-is-require {
+    background-color: transparent;
+    flex-shrink: 0;
+    height: auto;
+    letter-spacing: 0px;
+    line-height: 17px;
+    min-height: 17px;
+    text-align: center;
+    white-space: nowrap;
+    width: 309px;
+}
+
+.login .a-password-is-requi {
+    background-color: transparent;
+    flex-shrink: 0;
+    height: auto;
+    letter-spacing: 0px;
+    line-height: 17px;
+    min-height: 17px;
+    text-align: center;
+    white-space: nowrap;
+    width: 309px;
+}
+
+.montserrat-light-red-14px {
+    color: red;
+    font-family: "Montserrat", Helvetica, Arial, serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+}
+
 .container-center-vertical,
 .container-center-horizontal {
     pointer-events: none;

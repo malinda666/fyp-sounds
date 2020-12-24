@@ -1,12 +1,18 @@
 import React from "react";
 import './dashboard.css'
 import ImageUploader from 'react-images-upload';
+import fileManagementService from "../../services/fileManagementService";
+import uploadManagementService from "../../services/uploadManagementService";
 
 export default class Soundsnewuser extends React.Component {
 
    constructor() {
         super({})
         this.inputOpenFileRef = React.createRef()
+        this.state = {
+          loading : false,          
+          overlayText: 'Uploading your file ...',
+        }
     }
 
     showOpenFileDlg = () => {
@@ -17,6 +23,70 @@ export default class Soundsnewuser extends React.Component {
   console.log(this.uploadInput.files[0]);
   let file = this.uploadInput.files[0]
   let s3Path = this.state.user_dir + '/profile/' + file.name;
+  
+  fileManagementService
+      .uploadFile(s3Path, file.type)
+      .then((response) => {
+        if(response.status == 200){
+          this.setState({
+          loading: true
+        });
+        var signedRequest = response.data.signedRequest;
+        var url = response.data.url;
+        // this.setState({url: url})
+        console.log('Recieved a signed request ' + signedRequest);
+        // Put the fileType in the headers for the upload
+
+        uploadManagementService
+          .upload(signedRequest, file, file.type)
+          .then((result) => {
+            console.log('Response from s3');
+            if (result.status == 200) {
+              documentAPI
+                .createDocument(
+                  url,
+                  this.state.type != '' ? this.state.type : 'contract',
+                  this.state.section,
+                  this.state.documentName != ''
+                    ? this.state.documentName
+                    : 'Contract'
+                )
+                .then((documentResult) => {
+                  if (documentResult.status == 200) {
+                    this.setState({ fileName: '' });
+                    this.setState({ uploadFileName: '' });
+                    this.setState({ loading: false });
+                    this.setState({ open: true });
+                    toast.success(popupMessage);
+                  } else {
+                    this.setState({ loading: false });
+                    //toast.error('ERROR : Unable to upload document');
+                  }
+                })
+                .catch((error) => {
+                  this.setState({ loading: false });
+                 //// toast.error('ERROR ' + JSON.stringify(error));
+                });
+            } else {
+              this.setState({ loading: false });
+              //toast.error('ERROR : Unable to upload document');
+            }
+          })
+          .catch((error) => {
+            this.setState({ loading: false });
+           // toast.error('ERROR ' + JSON.stringify(error));
+          });
+        }
+        else {
+          this.setState({ loading: false });
+        }
+        
+      })
+      .catch((error) => {
+        this.setState({ loading: false });
+        toast.error(JSON.stringify(error));
+      });
+
 
   }
 

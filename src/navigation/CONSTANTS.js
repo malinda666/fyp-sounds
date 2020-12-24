@@ -126,7 +126,7 @@ const LoginData = {
     oval: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9b135225cce9e6c83ec9e/img/login-oval-37692DBC-7C66-488D-9C3E-C248CABCFAFC.png",
     oval2: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9b135225cce9e6c83ec9e/img/login-oval-FF512D72-33D2-4971-AF51-774DB977A674.png",
     oval3: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9cb0c225cce9e6c83edec/img/landing-oval-083AEC00-4CBB-4E35-AC1A-D6E8ADC06CFE.png",
-    label1: "                   |                     |                             |",
+    label1: "                       |                     |                             |",
     faq: "FAQ",
     contact: "Contact",
     privacyPolicy: "Privacy Policy",
@@ -415,7 +415,7 @@ const Warn4Data = {
     fypcopyProps: fypcopyData,
 };
 
-const clearCacheCopyCreatorData = {
+const clearCacheMCreatorData = {
     creator: "creator",
     inputName: "textcharliedamelio",
     inputType: "text",
@@ -423,7 +423,7 @@ const clearCacheCopyCreatorData = {
     inputRequired: false,
 };
 
-const clearCacheCopySongData = {
+const clearCacheMTitleData = {
     creator: "title",
     inputName: "textsongname",
     inputType: "text",
@@ -431,12 +431,20 @@ const clearCacheCopySongData = {
     inputRequired: false,
 };
 
-const clearCacheCopy32Data = {
+const clearCacheMFeaturingData = {
+    creator: "featuring",
+    inputName: "textnone",
+    inputType: "text",
+    inputPlaceholder: "none",
+    inputRequired: false,
+};
+
+const clearCacheStoresData = {
     stores: "stores",
     tiktok: "TikTok",
 };
 
-const clearCacheCopy33Data = {
+const clearCacheMTypeData = {
     stores: "type",
     tiktok: "song",
 };
@@ -455,10 +463,12 @@ const MusicsubData = {
     mysoundWav: "mysound.wav",
     nextIcon: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/music-form-5-rectangle-4AE56F57-DF50-4263-9FAF-A9FD319B1626@2x.png",
     submit: "submit",
-    clearCacheCopyProps: clearCacheCopyCreatorData,
-    clearCacheCopy2Props: clearCacheCopySongData,
-    clearCacheCopy3Props: clearCacheCopy32Data,
-    clearCacheCopy32Props: clearCacheCopy33Data,
+    clearCacheCopyProps: clearCacheMCreatorData,
+    clearCacheCopy2Props: clearCacheMTitleData,
+    clearCacheStoresProps : clearCacheStoresData,
+    clearCacheCopy3Props: clearCacheMFeaturingData,
+    clearCacheCopy32Props: clearCacheMTypeData,
+
 };
 
 const Warn2Data = {
@@ -542,6 +552,197 @@ const warn1Data = {
     dismiss: "dismiss",
 };
 
+const SoundForm1bData = {
+    oval: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/terms-oval-F34BDD7E-EE24-4970-9B17-24A3EFC107DD.png",
+    oval2: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/sound-form-1b-oval-966F7874-FF18-498D-B504-6D5ABBF91A37.png",
+    oval3: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/sound-form-2b-oval-89BB9F42-8867-478D-B038-A023ADEEC092.png",
+    oval4: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/warn5-oval-1444CE1B-527A-46B8-B16D-9AF575A2E6BC.png",
+    rectangle: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/music-form-1-rectangle-F44A733F-3C97-4AB9-BCB6-5073AA49C42C@2x.png",
+    rectangle2: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/warn6-rectangle-9F2AD481-C04F-48C2-8CCD-816AF2EC0E30@2x.png",
+    yes: "yes",
+    rectangle3: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/music-form-1-rectangle-F44A733F-3C97-4AB9-BCB6-5073AA49C42C@2x.png",
+    rectangle4: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/warn3-rectangle-7170A44A-6C2A-4282-833B-DEB8905E7703@2x.png",
+    no: "no",
+    yes2: "yes",
+    areYouTheOwnerOf: "are you the owner of this content?",
+    isThisContentExpl: "is this content explicit?",
+    fypcopyProps: fypcopyData,
+};
+
+const SoundForm2bData = {
+    oval: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/terms-oval-F34BDD7E-EE24-4970-9B17-24A3EFC107DD.png",
+    oval2: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/sound-form-1b-oval-966F7874-FF18-498D-B504-6D5ABBF91A37.png",
+    oval3: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/sound-form-2b-oval-89BB9F42-8867-478D-B038-A023ADEEC092.png",
+    isThisContentExpl: "is this content explicit?",
+    oval4: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/warn5-oval-1444CE1B-527A-46B8-B16D-9AF575A2E6BC.png",
+    yes: "yes",
+    areYouTheOwnerOf: "are you the owner of this content?",
+    creatorName: "creator name",
+    uploadAudioFile: "upload audio file",
+    rectangle: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9b07bd17f415ef6417737/img/landing-rectangle-7B857663-284C-4A34-892B-D34711E16967@2x.png",
+    rectangle2: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/music-form-5-rectangle-4AE56F57-DF50-4263-9FAF-A9FD319B1626@2x.png",
+    next: "next",
+    no: "no",
+    rectangle3: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/music-form-5-rectangle-701C9049-694E-4B16-824E-736BA3B5633D@2x.png",
+    rectangle4: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/music-form-5-rectangle-701C9049-694E-4B16-824E-736BA3B5633D@2x.png",
+    upload: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/music-form-5b-upload-20CB638F-554B-412D-BF46-5FDDA5ACCA4E@2x.png",
+    inputName: "texttype",
+    inputType: "text",
+    inputPlaceholder: "type…",
+    inputRequired: true,
+    wavOrMp3Format: "WAV. or .mp3 format, at least 10 seconds long.",
+    rectangle5: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/music-form-5-rectangle-4AE56F57-DF50-4263-9FAF-A9FD319B1626@2x.png",
+    category: "category",
+    backChevron: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/sound-form-2b-back-chevron-46B448B4-008B-4B6C-A6E5-039C06DF2258@2x.png",
+    fypsoundslogoProps: fypsoundslogoData,
+};
+
+const clearCacheCreatorData = {
+    creator: "creator",
+    inputName: "textcharliedamelio",
+    inputType: "text",
+    inputPlaceholder: "Charlie D’Amelio",
+    inputRequired: false,
+};
+
+const clearCacheTitleData = {
+    creator: "title",
+    inputName: "textsongname",
+    inputType: "text",
+    inputPlaceholder: "Song Name",
+    inputRequired: false,
+};
+
+const clearCacheStoreData = {
+    stores: "stores",
+    tiktok: "TikTok",
+};
+
+const clearCacheTypeData = {
+    stores: "type",
+    tiktok: "sound",
+};
+
+const SoundsubData = {
+    review: "review",
+    category: "category",
+    funny: "Funny",
+    content: "content",
+    explicit: "Explicit",
+    audioFile: "audio file",
+    mysoundWav: "mysound.wav",
+    nextIcon: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/music-form-5-rectangle-4AE56F57-DF50-4263-9FAF-A9FD319B1626@2x.png",
+    submit: "submit",
+    clearCacheCopyProps: clearCacheCreatorData,
+    clearCacheCopy2Props: clearCacheTitleData,
+    clearCacheCopy3Props: clearCacheStoreData,
+    clearCacheCopy32Props: clearCacheTypeData,
+};
+
+
+const MusicForm2Data = {
+    oval: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/terms-oval-F34BDD7E-EE24-4970-9B17-24A3EFC107DD.png",
+    oval2: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/sound-form-1b-oval-966F7874-FF18-498D-B504-6D5ABBF91A37.png",
+    oval3: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/sound-form-2b-oval-89BB9F42-8867-478D-B038-A023ADEEC092.png",
+    oval4: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/warn5-oval-1444CE1B-527A-46B8-B16D-9AF575A2E6BC.png",
+    rectangle: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/music-form-1-rectangle-F44A733F-3C97-4AB9-BCB6-5073AA49C42C@2x.png",
+    rectangle2: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/warn6-rectangle-9F2AD481-C04F-48C2-8CCD-816AF2EC0E30@2x.png",
+    tiktok: "TikTok",
+    rectangle3: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/music-form-1-rectangle-F44A733F-3C97-4AB9-BCB6-5073AA49C42C@2x.png",
+    rectangle4: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/warn3-rectangle-7170A44A-6C2A-4282-833B-DEB8905E7703@2x.png",
+    allStores: "all stores",
+    yes: "yes",
+    areYouTheOwnerOf: "are you the owner of this content?",
+    publishAudioTo: "publish audio to",
+    fypcopyProps: fypcopyData,
+};
+
+
+const nexticonCopy7Data = {
+    producerName: "producer name",
+};
+
+const nexticonCopy72Data = {
+    producerName: "featuring artist",
+};
+
+const MusicForm3Data = {
+    oval: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/terms-oval-F34BDD7E-EE24-4970-9B17-24A3EFC107DD.png",
+    oval2: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/sound-form-1b-oval-966F7874-FF18-498D-B504-6D5ABBF91A37.png",
+    oval3: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/sound-form-2b-oval-89BB9F42-8867-478D-B038-A023ADEEC092.png",
+    publishAudioTo: "publish audio to",
+    oval4: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/warn5-oval-1444CE1B-527A-46B8-B16D-9AF575A2E6BC.png",
+    allStores: "all stores",
+    yes: "yes",
+    areYouTheOwnerOf: "are you the owner of this content?",
+    creatorName: "creator name",
+    authorName: "author name",
+    rectangle: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9b07bd17f415ef6417737/img/landing-rectangle-7B857663-284C-4A34-892B-D34711E16967@2x.png",
+    rectangle2: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/music-form-5-rectangle-4AE56F57-DF50-4263-9FAF-A9FD319B1626@2x.png",
+    next: "next",
+    rectangle3: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/music-form-5-rectangle-701C9049-694E-4B16-824E-736BA3B5633D@2x.png",
+    rectangle4: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/music-form-5-rectangle-701C9049-694E-4B16-824E-736BA3B5633D@2x.png",
+    rectangle5: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/music-form-5-rectangle-701C9049-694E-4B16-824E-736BA3B5633D@2x.png",
+    inputName: "textrequired",
+    inputType: "text",
+    inputPlaceholder: "*required",
+    inputRequired: true,
+    inputName2: "textrequired1",
+    inputType2: "text",
+    inputPlaceholder2: "*required",
+    inputRequired2: true,
+    rectangleCopy: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/music-form-5-rectangle-701C9049-694E-4B16-824E-736BA3B5633D@2x.png",
+    inputName3: "textoptional",
+    inputType3: "text",
+    inputPlaceholder3: "optional",
+    inputRequired3: true,
+    inputName4: "textrequired2",
+    inputType4: "text",
+    inputPlaceholder4: "*required",
+    inputRequired4: true,
+    fypcopyProps: fypcopyData,
+    nexticonCopy7Props: nexticonCopy7Data,
+    nexticonCopy72Props: nexticonCopy72Data,
+};
+
+
+const MusicForm4Data = {
+    oval: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/terms-oval-F34BDD7E-EE24-4970-9B17-24A3EFC107DD.png",
+    oval2: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/sound-form-1b-oval-966F7874-FF18-498D-B504-6D5ABBF91A37.png",
+    oval3: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/sound-form-2b-oval-89BB9F42-8867-478D-B038-A023ADEEC092.png",
+    oval4: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/warn5-oval-1444CE1B-527A-46B8-B16D-9AF575A2E6BC.png",
+    rectangle: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/music-form-1-rectangle-F44A733F-3C97-4AB9-BCB6-5073AA49C42C@2x.png",
+    rectangle2: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/warn6-rectangle-9F2AD481-C04F-48C2-8CCD-816AF2EC0E30@2x.png",
+    yes: "yes",
+    rectangle3: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/music-form-1-rectangle-F44A733F-3C97-4AB9-BCB6-5073AA49C42C@2x.png",
+    rectangle4: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/warn3-rectangle-7170A44A-6C2A-4282-833B-DEB8905E7703@2x.png",
+    no: "no",
+    isThisContentExpl: "is this content explicit?",
+    fypcopyProps: fypcopyData,
+};
+
+const MusicForm5Data = {
+    oval: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/terms-oval-F34BDD7E-EE24-4970-9B17-24A3EFC107DD.png",
+    oval2: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/sound-form-1b-oval-966F7874-FF18-498D-B504-6D5ABBF91A37.png",
+    oval3: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/sound-form-2b-oval-89BB9F42-8867-478D-B038-A023ADEEC092.png",
+    oval4: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/warn5-oval-1444CE1B-527A-46B8-B16D-9AF575A2E6BC.png",
+    yes: "yes",
+    isThisContentExpl: "is this content explicit?",
+    rectangle: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/music-form-5-rectangle-4AE56F57-DF50-4263-9FAF-A9FD319B1626@2x.png",
+    category: "category",
+    backChevron: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/sound-form-2b-back-chevron-46B448B4-008B-4B6C-A6E5-039C06DF2258@2x.png",
+    rectangle2: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/music-form-5-rectangle-701C9049-694E-4B16-824E-736BA3B5633D@2x.png",
+    upload: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/music-form-5b-upload-20CB638F-554B-412D-BF46-5FDDA5ACCA4E@2x.png",
+    uploadAudioFile: "upload audio file",
+    rectangle3: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9b07bd17f415ef6417737/img/landing-rectangle-7B857663-284C-4A34-892B-D34711E16967@2x.png",
+    rectangle4: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/music-form-5-rectangle-4AE56F57-DF50-4263-9FAF-A9FD319B1626@2x.png",
+    next: "next",
+    wavOrMp3Format: "WAV. or .mp3 format, at least 10 seconds long.",
+    fypcopyProps: fypcopyData,
+};
+
+
+
 
 export {
     AboutData,
@@ -563,5 +764,12 @@ export {
     Warn6Data,
     NewSoundData,
     SoundForm1Data,
-    warn1Data
+    warn1Data,
+    SoundForm1bData,
+    SoundForm2bData,
+    SoundsubData,
+    MusicForm2Data,
+    MusicForm3Data,
+    MusicForm4Data,
+    MusicForm5Data
 }

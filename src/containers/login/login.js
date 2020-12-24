@@ -20,16 +20,30 @@ export default class Login extends React.Component {
     this.handleFieldChange = this.handleFieldChange.bind(this);
   }
 
-  validateForm() {
+  validateForm(formType) {
     const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
     if (!this.state.email || this.state.email === '') {
+      
+      if(formType === 'join'){
+        this.setState({isJoinEmailRequired : true});
+      }
+
       return false;
     }
 
-    if(!re.test(this.state.email)){
+    if (!this.state.password || this.state.password === '') {
+      
+      if(formType === 'join'){
+        this.setState({isJoinPasswordRequired : true});
+      }
+
       return false;
-    }   
+    }
+
+    // if(!re.test(this.state.email)){
+    //   return false;
+    // }   
 
     // if (!this.state.passwordValidation.isSuccess) {
     //   toast.error(
@@ -42,7 +56,7 @@ export default class Login extends React.Component {
   }
 
    signUp = () => {
-      if (this.validateForm()) {
+      if (this.validateForm('join')) {
         this.setState({ loading: true });
         userManagementService.signUp(this.state.email, this.state.password)
         .then((result) => {
@@ -194,7 +208,9 @@ export default class Login extends React.Component {
       aboutProps,
       fypsoundslogo2Props,
       AnEmailIsRequireJoin,
-      AnEmailIsRequireLogin
+      AnEmailIsRequireLogin,
+      AnEmailIsRequire,
+      APasswordIsRequi
     } = this.props;
 
     return (
@@ -267,6 +283,14 @@ export default class Login extends React.Component {
             </div>
           </form>
         </div>
+         {this.state.isJoinEmailRequired ? 
+         <div className="container-center-horizontal">
+        <p className="an-email-is-require montserrat-light-red-14px">{AnEmailIsRequire}</p>
+        </div> : null }
+        {this.state.isJoinPasswordRequired ? 
+        <div className="container-center-horizontal">
+        <p className="a-password-is-requi montserrat-light-red-14px">{APasswordIsRequi}</p>
+        </div> : null }
         <div className="container-center-horizontal">
           <h1 className="or sofiapro-normal-torch-red-25px">{or}</h1>
         </div>

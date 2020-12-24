@@ -20,6 +20,13 @@ import MusicReview from '../containers/musicReview/musicReview'
 import NewSound from '../containers/newSound/newSound'
 import SoundStep1 from '../containers/soundStep1/soundStep1'
 import Warn1 from '../containers/warn1/warn1'
+import SoundStep2 from '../containers/soundStep2/soundStep2'
+import SoundStep3 from '../containers/soundStep3/soundStep3'
+import SoundReview from '../containers/soundReview/soundReview'
+import SongStep1 from '../containers/songStep1/songStep1'
+import SongStep2 from '../containers/songStep2/songStep2'
+import SongStep3 from '../containers/songStep3/songStep3'
+import SongStep4 from '../containers/songStep4/songStep4'
 import { AboutData, 
          FAQData, 
          LandingData, 
@@ -39,7 +46,14 @@ import { AboutData,
          Warn6Data,
          NewSoundData,
          SoundForm1Data,
-         warn1Data
+         warn1Data,
+         SoundForm1bData,
+         SoundForm2bData,
+         SoundsubData,
+         MusicForm2Data,
+         MusicForm3Data,
+         MusicForm4Data,
+         MusicForm5Data
         } from './CONSTANTS'
 
 const RouterConfig = ({ childProps }) => 
@@ -64,6 +78,13 @@ const RouterConfig = ({ childProps }) =>
     <UnauthenticatedRoute path="/newSound" exact component={NewSound} props = {NewSoundData}/>
     <UnauthenticatedRoute path="/soundStep1" exact component={SoundStep1} props = {SoundForm1Data}/>
     <UnauthenticatedRoute path="/warn1" exact component={Warn1} props = {warn1Data}/>
+    <UnauthenticatedRoute path="/soundStep2" exact component={SoundStep2} props = {SoundForm1bData}/>
+    <UnauthenticatedRoute path="/soundStep3" exact component={SoundStep3} props = {SoundForm2bData}/>
+    <UnauthenticatedRoute path="/soundReview" exact component={SoundReview} props = {SoundsubData}/>
+    <UnauthenticatedRoute path="/songStep1" exact component={SongStep1} props = {MusicForm2Data}/>
+    <UnauthenticatedRoute path="/songStep2" exact component={SongStep2} props = {MusicForm3Data}/>
+    <UnauthenticatedRoute path="/songStep3" exact component={SongStep3} props = {MusicForm4Data}/>
+    <UnauthenticatedRoute path="/songStep4" exact component={SongStep4} props = {MusicForm5Data}/>
 </Switch>;
 
 export default RouterConfig;

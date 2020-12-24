@@ -1,5 +1,5 @@
 import React from "react";
-import './musicReview.css'
+import './songReview.css';
 
 export default class Musicsub extends React.Component {
   render() {
@@ -19,7 +19,7 @@ export default class Musicsub extends React.Component {
       submit,
       clearCacheCopyProps,
       clearCacheCopy2Props,
-      clearCacheStoresProps,
+      clearCacheCopy3Props,
       clearCacheCopy3Props,
       clearCacheCopy32Props,
     } = this.props;
@@ -50,7 +50,7 @@ export default class Musicsub extends React.Component {
           <div className="producer sfprodisplay-regular-normal-granite-gray-20px">{producer}</div>
           <div className="dj-sins sfprodisplay-regular-normal-pink-swan-15px">{djSins}</div>
         </div>
-        <ClearCacheCopy3 {...clearCacheStoresProps} />
+        <ClearCacheCopy3 {...clearCacheCopy3Props} />
         <div className="clear-cache">
           <div className="rectangle-19-copy-gUmma6"></div>
           <div className="rectangle-19-copy-gUmma6"></div>
