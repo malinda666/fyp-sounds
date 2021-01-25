@@ -126,7 +126,7 @@ const LoginData = {
     oval: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9b135225cce9e6c83ec9e/img/login-oval-37692DBC-7C66-488D-9C3E-C248CABCFAFC.png",
     oval2: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9b135225cce9e6c83ec9e/img/login-oval-FF512D72-33D2-4971-AF51-774DB977A674.png",
     oval3: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9cb0c225cce9e6c83edec/img/landing-oval-083AEC00-4CBB-4E35-AC1A-D6E8ADC06CFE.png",
-    label1: "                       |                     |                             |",
+    label1: "                   |                     |                             |",
     faq: "FAQ",
     contact: "Contact",
     privacyPolicy: "Privacy Policy",

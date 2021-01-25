@@ -1,5 +1,5 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
-@import url("https://fonts.googleapis.com/css?family=Montserrat:700,400,300,600");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:700,300,600,400");
 
 @font-face {
     font-family: "SofiaPro-Bold";
@@ -15,7 +15,7 @@
     border: 1px solid var(--mountain-mist-2);
 }
 
-.login {
+.loginerrormessages {
     background-color: white;
     height: 100vh;
     margin: 0px;
@@ -25,7 +25,35 @@
     width: 100%;
 }
 
-.login .about-7pmZoB {
+.loginerrormessages .a-password-is-requi-C61RwL {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: 0px;
+    line-height: 17px;
+    margin-left: 6px;
+    margin-right: -6px;
+    position: fixed;
+    text-align: center;
+    top: 412px;
+    white-space: nowrap;
+    width: 309px;
+}
+
+.loginerrormessages .a-password-is-requi-VMr6Om {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: 0px;
+    line-height: 17px;
+    margin-left: 6px;
+    margin-right: -6px;
+    position: fixed;
+    text-align: center;
+    top: 210px;
+    white-space: nowrap;
+    width: 309px;
+}
+
+.loginerrormessages .about-7pmZoB {
     align-items: flex-start;
     background-color: transparent;
     display: inline-flex;
@@ -40,7 +68,7 @@
     width: auto;
 }
 
-.login .about-rVE2UT {
+.loginerrormessages .about-rVE2UT {
     background-color: transparent;
     flex-shrink: 0;
     height: auto;
@@ -52,7 +80,35 @@
     width: 66px;
 }
 
-.login .bar {
+.loginerrormessages .an-email-is-require-C61RwL {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: 0px;
+    line-height: 17px;
+    margin-left: 6px;
+    margin-right: -6px;
+    position: fixed;
+    text-align: center;
+    top: 358px;
+    white-space: nowrap;
+    width: 309px;
+}
+
+.loginerrormessages .an-email-is-require-VMr6Om {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: 0px;
+    line-height: 17px;
+    margin-left: -0px;
+    margin-right: 0px;
+    position: fixed;
+    text-align: center;
+    top: 156px;
+    white-space: nowrap;
+    width: 309px;
+}
+
+.loginerrormessages .bar {
     background-color: transparent;
     height: 40px;
     margin-left: -0px;
@@ -62,7 +118,7 @@
     width: 94px;
 }
 
-.login .contact {
+.loginerrormessages .contact {
     background-color: transparent;
     height: auto;
     letter-spacing: 0px;
@@ -76,7 +132,7 @@
     width: 100px;
 }
 
-.login .copyright--51-2021-al {
+.loginerrormessages .copyright--51-2021-al {
     background-color: transparent;
     height: auto;
     letter-spacing: 0px;
@@ -88,7 +144,7 @@
     width: 372px;
 }
 
-.login .faq {
+.loginerrormessages .faq {
     background-color: transparent;
     height: auto;
     letter-spacing: 0px;
@@ -102,7 +158,7 @@
     width: 73px;
 }
 
-.login .footer {
+.loginerrormessages .footer {
     background-color: transparent;
     bottom: -136px;
     height: 296px;
@@ -110,7 +166,7 @@
     width: 1748px;
 }
 
-.login .forgot-your-access {
+.loginerrormessages .forgot-your-access {
     background-color: transparent;
     height: auto;
     letter-spacing: 0px;
@@ -121,7 +177,7 @@
     width: 321px;
 }
 
-.login .fypsoundslogo-NOXmfT {
+.loginerrormessages .fypsoundslogo-NOXmfT {
     background-color: transparent;
     background-size: 100% 100%;
     height: 40px;
@@ -131,7 +187,7 @@
     width: 94px;
 }
 
-.login .fypsoundslogo-iPe1yZ {
+.loginerrormessages .fypsoundslogo-iPe1yZ {
     background-color: transparent;
     background-size: 100% 100%;
     height: 24px;
@@ -140,7 +196,7 @@
     width: 57px;
 }
 
-.login .group {
+.loginerrormessages .group {
     background-color: transparent;
     height: 452px;
     margin-left: 96px;
@@ -150,7 +206,7 @@
     width: 776px;
 }
 
-.login .group-5 {
+.loginerrormessages .group-5 {
     background-color: transparent;
     height: 18px;
     left: 692px;
@@ -159,7 +215,7 @@
     width: 362px;
 }
 
-.login .join {
+.loginerrormessages .join {
     background-color: transparent;
     height: auto;
     left: 75px;
@@ -172,7 +228,7 @@
     width: auto;
 }
 
-.login .login {
+.loginerrormessages .login {
     background-color: transparent;
     height: auto;
     left: 69px;
@@ -185,7 +241,7 @@
     width: auto;
 }
 
-.login .nexticon-C61RwL {
+.loginerrormessages .nexticon {
     align-items: center;
     background-color: transparent;
     display: flex;
@@ -200,34 +256,33 @@
     width: 311px;
 }
 
-.login .nexticon-VMr6Om {
+.loginerrormessages .nexticon-copy {
     align-items: center;
     background-color: transparent;
     display: flex;
     flex-direction: column;
     height: auto;
     justify-content: flex-start;
-    margin-left: 0px;
-    margin-right: -0px;
     min-height: 100%;
     position: fixed;
-    top: 323px;
+    top: 279px;
     width: 311px;
 }
 
-.login .or {
+.loginerrormessages .or {
     background-color: transparent;
+    flex-shrink: 0;
     height: auto;
     letter-spacing: 0px;
     line-height: 36px;
-    position: absolute;
+    min-height: 36px;
+    min-width: 37px;
     text-align: center;
-    top: 279px;
     white-space: nowrap;
     width: auto;
 }
 
-.login .oval-E582nk {
+.loginerrormessages .oval-E582nk {
     background-color: transparent;
     height: 242px;
     left: 0px;
@@ -236,7 +291,7 @@
     width: 775px;
 }
 
-.login .oval-NOXmfT {
+.loginerrormessages .oval-NOXmfT {
     background-color: transparent;
     height: 410px;
     left: 15px;
@@ -245,7 +300,7 @@
     width: 592px;
 }
 
-.login .oval-ipjwHu {
+.loginerrormessages .oval-ipjwHu {
     background-color: transparent;
     height: 295px;
     left: 0px;
@@ -254,15 +309,16 @@
     width: 1747px;
 }
 
-.login .overlap-group {
+.loginerrormessages .overlap-group {
     background-color: transparent;
     flex-shrink: 0;
     height: 33px;
+    margin-top: 8px;
     position: relative;
     width: 311px;
 }
 
-.login .overlap-group-CzwooT {
+.loginerrormessages .overlap-group-PVhVGJ {
     background-color: transparent;
     flex-shrink: 0;
     height: 54px;
@@ -272,7 +328,7 @@
     width: 192px;
 }
 
-.login .overlap-group1 {
+.loginerrormessages .overlap-group1 {
     background-color: transparent;
     flex-shrink: 0;
     height: 33px;
@@ -281,7 +337,11 @@
     width: 311px;
 }
 
-.login .overlap-group6 {
+.loginerrormessages .overlap-group3 {
+    margin-top: unset;
+}
+
+.loginerrormessages .overlap-group6 {
     background-color: transparent;
     height: 295px;
     left: 1px;
@@ -290,7 +350,7 @@
     width: 1747px;
 }
 
-.login .privacy-policy {
+.loginerrormessages .privacy-policy {
     background-color: transparent;
     height: auto;
     left: 262px;
@@ -303,7 +363,16 @@
     width: 100px;
 }
 
-.login .rectangle-3cn1mj {
+.loginerrormessages .rectangle-JWSful {
+    background-color: transparent;
+    height: 54px;
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    width: 192px;
+}
+
+.loginerrormessages .rectangle-Vg8Dgr {
     background-color: white;
     border-radius: 16.5px;
     height: 33px;
@@ -313,7 +382,7 @@
     width: 311px;
 }
 
-.login .rectangle-NaDWhO {
+.loginerrormessages .rectangle-ZtaLEy {
     background-color: transparent;
     height: 33px;
     left: 0px;
@@ -322,27 +391,18 @@
     width: 311px;
 }
 
-.login .rectangle-zF71vY {
-    background-color: transparent;
-    height: 54px;
-    left: 0px;
-    position: absolute;
-    top: 0px;
-    width: 192px;
-}
-
-.login .span1-VhPCr0 {
+.loginerrormessages .span1-VhPCr0 {
     line-height: 17px;
 }
 
-.login .span2-VhPCr0 {
+.loginerrormessages .span2-VhPCr0 {
     font-family: "Montserrat", Helvetica, Arial, serif;
     font-style: normal;
     font-weight: 700;
     line-height: 18px;
 }
 
-.login .text {
+.loginerrormessages .text {
     background-color: transparent;
     border: 0;
     height: 30px;
@@ -357,23 +417,23 @@
     width: 288px;
 }
 
-.login .text::placeholder {
+.loginerrormessages .text::placeholder {
     color: rgba(151, 151, 151, 0.6);
 }
 
-.login .text::placeholder {
+.loginerrormessages .text::placeholder {
     color: rgba(151, 151, 151, 0.6);
 }
 
-.login .text::placeholder {
+.loginerrormessages .text::placeholder {
     color: rgba(151, 151, 151, 0.6);
 }
 
-.login .text::placeholder {
+.loginerrormessages .text::placeholder {
     color: rgba(151, 151, 151, 0.6);
 }
 
-.login .x {
+.loginerrormessages .x {
     background-color: transparent;
     height: auto;
     letter-spacing: 0px;
@@ -411,6 +471,14 @@
     font-weight: 300;
 }
 
+.montserrat-light-red-14px {
+    color: red;
+    font-family: "Montserrat", Helvetica, Arial, serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+}
+
 .montserrat-normal-white-13px {
     color: white;
     font-family: "Montserrat", Helvetica, Arial, serif;
@@ -438,38 +506,6 @@
     --mountain-mist: rgba(151, 151, 151, 1);
     --mountain-mist-2: rgba(150, 150, 150, 1);
     --torch-red: rgba(255, 0, 80, 1);
-}
-
-.login .an-email-is-require {
-    background-color: transparent;
-    flex-shrink: 0;
-    height: auto;
-    letter-spacing: 0px;
-    line-height: 17px;
-    min-height: 17px;
-    text-align: center;
-    white-space: nowrap;
-    width: 309px;
-}
-
-.login .a-password-is-requi {
-    background-color: transparent;
-    flex-shrink: 0;
-    height: auto;
-    letter-spacing: 0px;
-    line-height: 17px;
-    min-height: 17px;
-    text-align: center;
-    white-space: nowrap;
-    width: 309px;
-}
-
-.montserrat-light-red-14px {
-    color: red;
-    font-family: "Montserrat", Helvetica, Arial, serif;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 300;
 }
 
 .container-center-vertical,

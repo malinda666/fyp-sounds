@@ -1,8 +1,9 @@
 import React from "react";
-import './dashboard.css'
-import ImageUploader from 'react-images-upload';
+import './dashboard.css';
+import { uuid } from 'uuidv4';
 import fileManagementService from "../../services/fileManagementService";
 import uploadManagementService from "../../services/uploadManagementService";
+import profileManagementService from "../../services/profileManagementService";
 
 export default class Soundsnewuser extends React.Component {
 
@@ -22,7 +23,10 @@ export default class Soundsnewuser extends React.Component {
   uploadProfileImage = () => {
   console.log(this.uploadInput.files[0]);
   let file = this.uploadInput.files[0]
-  let s3Path = this.state.user_dir + '/profile/' + file.name;
+  var re = /(?:\.([^.]+))?$/;
+  var ext = re.exec(file.name);
+  let user_dir = localStorage.getItem('user_dir');
+  let s3Path = user_dir + '/profile/' + uuid()+'.' +ext[1];
   
   fileManagementService
       .uploadFile(s3Path, file.type)
@@ -42,22 +46,11 @@ export default class Soundsnewuser extends React.Component {
           .then((result) => {
             console.log('Response from s3');
             if (result.status == 200) {
-              documentAPI
-                .createDocument(
-                  url,
-                  this.state.type != '' ? this.state.type : 'contract',
-                  this.state.section,
-                  this.state.documentName != ''
-                    ? this.state.documentName
-                    : 'Contract'
-                )
-                .then((documentResult) => {
-                  if (documentResult.status == 200) {
-                    this.setState({ fileName: '' });
-                    this.setState({ uploadFileName: '' });
+              profileManagementService
+                .updateProfileImage(url)
+                .then((profileUpdateResult) => {
+                  if (profileUpdateResult.status == 200) {                    
                     this.setState({ loading: false });
-                    this.setState({ open: true });
-                    toast.success(popupMessage);
                   } else {
                     this.setState({ loading: false });
                     //toast.error('ERROR : Unable to upload document');
@@ -84,7 +77,7 @@ export default class Soundsnewuser extends React.Component {
       })
       .catch((error) => {
         this.setState({ loading: false });
-        toast.error(JSON.stringify(error));
+        //toast.error(JSON.stringify(error));
       });
 
 
