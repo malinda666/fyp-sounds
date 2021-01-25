@@ -20,7 +20,7 @@ export default class About extends React.Component {
       fypsoundslogoProps,
       about2Props,
       fypsoundslogo2Props,
-    } = this.props;
+    } = this.props;  
 
     return (
       <div className="about">
