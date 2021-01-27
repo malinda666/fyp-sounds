@@ -5,6 +5,26 @@ import {
 } from 'react-router-dom';
 
 export default class MusicForm3 extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      creatorName :'',
+      authorName: '',
+      producerName:'',
+      featuringArtist:''
+
+    }
+  }
+
+  handleFieldChange(event){
+     if(event){
+     this.setState({
+      [event.target.id]: event.target.value,
+    });
+  }
+   }
+
   render() {
     const {
       oval,
@@ -53,62 +73,64 @@ export default class MusicForm3 extends React.Component {
         <h1 className="publish-audio-to sofiapro-normal-white-30px">{publishAudioTo}</h1>
         <img className="oval-QxM5SU" src={oval4} />
         <div className="nexticon-copy-2">
-          <div className="all-stores montserrat-light-white-20px">{allStores}</div>
+          <div className="all-stores montserrat-light-white-20px">{this.props.location?.state?.store}</div>
         </div>
         <div className="nexticon-copy-5">
           <div className="yes montserrat-light-white-20px">{yes}</div>
         </div>
         <Fypcopy {...fypcopyProps} />
         <div className="are-you-the-owner-of sofiapro-normal-white-30px">{areYouTheOwnerOf}</div>
-        <Link to="/musicform3">
+        
           <div className="nexticon-copy-3">
             <div className="or-name sofiapro-normal-white-30px">{creatorName}</div>
-          </div>
-        </Link>
-        <Link to="/musicform3">
-          <div className="nexticon-copy-6">
-            <div className="or-name sofiapro-normal-white-30px">{authorName}</div>
-          </div>
-        </Link>
-        <NexticonCopy7 {...nexticonCopy7Props} />
-        <div className="nexticon">
-          <img className="rectangle-rGr1Cp" src={rectangle} />
-          <img className="rectangle-xd37is" src={rectangle2} />
-          <div className="next montserrat-semi-bold-white-20px">{next}</div>
-        </div>
-        <img className="rectangle-C61RwL" src={rectangle3} />
-        <img className="rectangle-VMr6Om" src={rectangle4} />
-        <img className="rectangle-mzXdH9" src={rectangle5} />
-        <input
-          className="text- montserrat-light-mountain-mist-20px"
+          <input
+          id='creatorName'
+          className="text-field text-1 montserrat-light-mountain-mist-20px"
           name={inputName}
           placeholder={inputPlaceholder}
           type={inputType}
           required={inputRequired}
+          onChange={this.handleFieldChange.bind(this)}
         />
-        <input
-          className="text- montserrat-light-mountain-mist-20px"
+          </div>
+       
+        
+          <div className="nexticon-copy-6">
+            <div className="or-name sofiapro-normal-white-30px">{authorName}</div>
+            <input
+            id='authorName'
+          className="text-field text- montserrat-light-mountain-mist-20px"
           name={inputName2}
           placeholder={inputPlaceholder2}
           type={inputType2}
           required={inputRequired2}
+          onChange={this.handleFieldChange.bind(this)}
         />
-        <NexticonCopy7 {...nexticonCopy72Props} className="nexticon-copy-8" />
-        <img className="rectangle-copy" src={rectangleCopy} />
-        <input
-          className="text- montserrat-light-mountain-mist-20px"
-          name={inputName3}
-          placeholder={inputPlaceholder3}
-          type={inputType3}
-          required={inputRequired3}
-        />
-        <input
-          className="text- montserrat-light-mountain-mist-20px"
-          name={inputName4}
-          placeholder={inputPlaceholder4}
-          type={inputType4}
-          required={inputRequired4}
-        />
+          </div>
+       
+        <NexticonCopy7 {...{...nexticonCopy7Props, handleFieldChange : event => this.handleFieldChange(event), id: 'producerName'}} />
+        <div className="nexticon" onClick={()=>{
+                                                                                this.props.history.push({
+                                                                                pathname: '/songStep3',
+                                                                                state: { 
+                                                                                  store: this.props.location.state.store, 
+                                                                                  coverImageURL : this.props.location.state.coverImageURL, 
+                                                                                  albumcover: this.props.location.state.albumcover,
+                                                                                  title : this.props.location.state.title, 
+                                                                                  email : this.props.location.state.email,
+                                                                                  featuringArtist : this.state.featuringArtist,
+                                                                                  producerName: this.state.producerName,
+                                                                                  creatorName: this.state.creatorName,
+                                                                                  authorName: this.state.authorName
+                                                                                }})
+                                                                                }}>
+          <img className="rectangle-rGr1Cp" src={rectangle} />
+          <img className="rectangle-xd37is" src={rectangle2} />
+          <div className="next montserrat-semi-bold-white-20px">{next}</div>
+        </div>
+       
+        <NexticonCopy7 {...{...nexticonCopy72Props, handleFieldChange : event => this.handleFieldChange(event), id: 'featuringArtist'}} className="nexticon-copy-8" />    
+      
       </div>
     );
   }
@@ -129,11 +151,18 @@ class NexticonCopy7 extends React.Component {
     const { producerName, className } = this.props;
 
     return (
-      <Link to="/musicform3">
         <div className={`nexticon-copy-7 ${className || ""}`}>
           <div className="producer-name sofiapro-normal-white-30px">{producerName}</div>
+           <input
+           id={this.props.id}
+          className="text-field text- montserrat-light-mountain-mist-20px"
+          name={this.props.id}
+          placeholder={this.props.placeholder}
+          type='text'
+          required={true}
+          onChange={this.props.handleFieldChange}
+        />
         </div>
-      </Link>
     );
   }
 }

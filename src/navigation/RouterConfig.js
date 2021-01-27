@@ -27,6 +27,7 @@ import SongStep1 from '../containers/songStep1/songStep1'
 import SongStep2 from '../containers/songStep2/songStep2'
 import SongStep3 from '../containers/songStep3/songStep3'
 import SongStep4 from '../containers/songStep4/songStep4'
+import VerifyPassword from '../containers/forgotPassword/verification'
 import { AboutData, 
          FAQData, 
          LandingData, 
@@ -53,7 +54,8 @@ import { AboutData,
          MusicForm2Data,
          MusicForm3Data,
          MusicForm4Data,
-         MusicForm5Data
+         MusicForm5Data,
+         RecoverPasswordData
         } from './CONSTANTS'
 
 const RouterConfig = ({ childProps }) => 
@@ -61,6 +63,7 @@ const RouterConfig = ({ childProps }) =>
     <UnauthenticatedRoute path="/login" exact component={Login} props={LoginData} />
     <UnauthenticatedRoute path="/" exact component={Home} props={LandingData} />
     <UnauthenticatedRoute path="/forgotPassword" exact component={ForgotPassword} props={RecoveryData} />
+    <UnauthenticatedRoute path="/verifyPassword" exact component={VerifyPassword} props={RecoverPasswordData}/>
     <UnauthenticatedRoute path="/faq" exact component={FAQ} props={FAQData} />
     <UnauthenticatedRoute path="/about" exact component={About} props={AboutData} />
     <UnauthenticatedRoute path="/contact" exact component={Contact} props={ContactData} />

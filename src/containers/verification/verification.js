@@ -35,7 +35,10 @@ export default class Verificationin extends React.Component {
               localStorage.setItem('access_token', res.data.accessToken);
               localStorage.setItem('id_token', res.data.idToken.jwtToken);    
                this.setState({ loading: false, user_dir: profileResponse.data.user_dir });
-               this.props.history.push("/dashboard");                
+                this.props.history.push({
+                    pathname: '/dashboard',
+                    state: { email: this.props.location.state.email}
+                      });        
               }
               else{
                 this.setState({ loading: false});
@@ -81,7 +84,7 @@ export default class Verificationin extends React.Component {
     userManagementService
       .resendConfirmationCode(this.state.email.trim())
       .then((res) => {
-        if (res.status == 200) {
+        if (res.status === 200) {
           //toast.success('Verification code sent to ' + this.state.email.trim());
         } else {
          // toast.error('Unable to send verification code');
@@ -157,17 +160,19 @@ export default class Verificationin extends React.Component {
             <div className="overlap-group2">
               <img className="oval-S4xVmX" src={oval3} />
               <div className="group-5">
-                <div className="container-center-horizontal">
-                  <p className="x montserrat-semi-bold-white-14px">{label1}</p>
-                </div>
                 <About {...aboutProps} />
-                <div className="container-center-horizontal">
-                  <div className="faq montserrat-semi-bold-white-14px">{faq}</div>
+                <div className="container-center-horizontal footer-items">
+                  <p className="footer-items-devider">|</p>
+                  <div className="montserrat-semi-bold-white-14px">{faq}</div>
                 </div>
-                <div className="container-center-horizontal">
-                  <div className="contact montserrat-semi-bold-white-14px">{contact}</div>
+                <div className="container-center-horizontal footer-items">
+                  <p className="footer-items-devider">|</p>
+                  <div className="montserrat-semi-bold-white-14px">{contact}</div>
                 </div>
-                <div className="privacy-policy montserrat-semi-bold-white-14px">{privacyPolicy}</div>
+                <div className="container-center-horizontal footer-items">
+                  <p className="footer-items-devider">|</p>
+                  <div className="montserrat-semi-bold-white-14px">{privacyPolicy}</div>
+                </div>
               </div>
             </div>
             <Fypsoundslogo2 {...fypsoundslogo2Props} />
@@ -207,12 +212,10 @@ class About extends React.Component {
     const { about } = this.props;
 
     return (
-      <div className="container-center-horizontal">
-        <div className="about-Tai3pd">
+      <div className="container-center-horizontal footer-items">
           <a href="/about">
-            <div className="about-zEflc1 montserrat-semi-bold-white-14px">{about}</div>
+            <div className="montserrat-semi-bold-white-14px">{about}</div>
           </a>
-        </div>
       </div>
     );
   }

@@ -2,6 +2,10 @@ import React from "react";
 import './warn5.css'
 
 export default class Warn5 extends React.Component {
+  constructor(props) {     
+    super(props);
+   }
+
   render() {
     const {
       oval,
@@ -20,11 +24,11 @@ export default class Warn5 extends React.Component {
 
     return (
       <div className="warn5">
-        <div className="overlap-group-C61RwL">
-          <img className="oval-4eduM0" src={oval} />
-          <img className="oval-BJQsbv" src={oval2} />
-          <img className="oval-6sb1qn" src={oval3} />
-          <img className="oval-ovOecM" src={oval4} />
+        <div className="bg-image-wrap">
+          <div className="bg-image1" style={{ backgroundImage: `url(${oval})` }} ></div>
+          <div className="bg-image2" style={{ backgroundImage: `url(${oval2})` }} ></div>
+          <div className="bg-image3" style={{ backgroundImage: `url(${oval3})` }}></div>
+          <div className="bg-image4" style={{ backgroundImage: `url(${oval4})` }}></div>
           <img className="rectangle-IZxxJF" src={rectangle} />
           <img className="rectangle-IZxxJF" src={rectangleCopy} />
         </div>
@@ -32,7 +36,12 @@ export default class Warn5 extends React.Component {
           <h1 className="ud83cudf89 applecoloremoji-normal-white-60px">{Ud83CUdf89}</h1>
         </div>
         <div className="container-center-horizontal">
-          <div className="nexticon-copy-2 animate-enter">
+          <div className="nexticon-copy-2 animate-enter" onClick={() => {this.props.history.push({
+                                                                          pathname : '/dashboard',
+                                                                          state: {
+                                                                              email : this.props.location.state.email
+                                                                            }
+                                                                          })}}>
             <img className="rectangle-pXVhQA" src={rectangle2} />
             <a >
               <img className="rectangle-OxJunE" src={rectangle3} />

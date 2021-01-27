@@ -92,6 +92,10 @@
     width: 146px;
 }
 
+.soundform1 .btn-no {
+    left: 580px;
+}
+
 .soundform1 .nexticon:hover {
     transform: scale(1.1);
 }

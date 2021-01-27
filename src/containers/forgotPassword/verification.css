@@ -1,5 +1,5 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
-@import url("https://fonts.googleapis.com/css?family=Montserrat:400,600,300,700");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:600,700,300,400");
 
 @font-face {
     font-family: "SFProDisplay-Regular";
@@ -52,13 +52,29 @@
 }
 
 .password {
+    align-items: center;
     background-color: white;
-    height: 100vh;
-    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    justify-content: flex-start;
     min-height: 896px;
-    min-width: 414px;
-    position: relative;
-    width: 100%;
+    padding: 16px 0;
+    width: 414px;
+}
+
+.password .auto-flex-C61RwL {
+    align-items: center;
+    align-self: flex-start;
+    background-color: transparent;
+    display: inline-flex;
+    flex-direction: row;
+    flex-shrink: 0;
+    height: 29px;
+    justify-content: flex-start;
+    margin-left: 26px;
+    min-width: 255px;
+    width: auto;
 }
 
 .password .back-chevron {
@@ -68,59 +84,53 @@
     width: 11px;
 }
 
-.password .back-icon {
-    align-items: flex-start;
-    background-color: transparent;
-    display: inline-flex;
-    flex-direction: row;
-    flex-shrink: 0;
-    height: 21px;
-    justify-content: flex-start;
-    min-width: 12px;
-    width: auto;
-}
-
 .password .clear-cache-copy {
     align-items: center;
     background-color: white;
     display: inline-flex;
     flex-direction: row;
+    flex-shrink: 0;
     height: 68px;
     justify-content: flex-start;
+    margin-top: 15px;
     min-width: 414px;
     padding: 18px 22px;
-    position: absolute;
-    top: 60px;
     width: auto;
 }
 
 .password .clear-cache-copy-2 {
-    top: 128px;
+    margin-top: 0px;
 }
 
 .password .clear-cache-copy-3 {
-    top: 196px;
+    flex-shrink: unset;
+    left: 0px;
+    margin-top: unset;
+    position: absolute;
+    top: 130px;
 }
 
-.password .didnu2019t-ceive-clic {
+.password .didnt-receive-clic {
     background-color: transparent;
     height: auto;
+    left: 0px;
     letter-spacing: 0px;
     line-height: 14px;
-    position: fixed;
+    position: absolute;
     text-align: center;
-    top: 523px;
+    top: 28px;
     width: 250px;
 }
 
 .password .incorrect-code-che {
     background-color: transparent;
     height: auto;
+    left: 0px;
     letter-spacing: 0px;
     line-height: 17px;
-    position: fixed;
+    position: absolute;
     text-align: center;
-    top: 495px;
+    top: 0px;
     width: 250px;
 }
 
@@ -130,14 +140,13 @@
     background-size: 100% 100%;
     display: inline-flex;
     flex-direction: row;
+    flex-shrink: 0;
     height: 54px;
     justify-content: flex-end;
-    margin-left: -4px;
-    margin-right: 4px;
+    margin-right: 0px;
+    margin-top: 0px;
     min-width: 192px;
     padding: 0 72px;
-    position: absolute;
-    top: 432px;
     width: auto;
 }
 
@@ -153,17 +162,34 @@
     width: 156px;
 }
 
+.password .overlap-group-C61RwL {
+    background-color: transparent;
+    flex-shrink: 0;
+    height: 10px;
+    margin-top: 0px;
+    position: relative;
+    width: 414px;
+}
+
+.password .overlap-group1-C61RwL {
+    background-color: transparent;
+    flex-shrink: 0;
+    height: 46px;
+    margin-top: 9px;
+    position: relative;
+    width: 250px;
+}
+
 .password .password {
     background-color: transparent;
+    flex-shrink: 0;
     height: auto;
     letter-spacing: 0px;
     line-height: 29px;
-    margin-left: 10px;
-    margin-right: -10px;
-    padding-top: 0px;
-    position: absolute;
+    margin-left: 118px;
+    min-height: 29px;
+    min-width: 135px;
     text-align: left;
-    top: 16px;
     white-space: nowrap;
     width: auto;
 }
@@ -188,10 +214,11 @@
     flex-direction: row;
     height: 134px;
     justify-content: flex-end;
+    left: 79px;
     min-width: 256px;
     padding: 6px 7px;
-    position: fixed;
-    top: 263px;
+    position: absolute;
+    top: 200px;
     width: auto;
 }
 
@@ -208,22 +235,15 @@
     width: auto;
 }
 
-.password .span1-LBLLyx {
+.password .span1-8xxcLV {
+    line-height: 18px;
+}
+
+.password .span1-DPz9jc {
     line-height: 17px;
 }
 
-.password .span1-RxjuOq {
-    line-height: 18px;
-}
-
-.password .span2-LBLLyx {
-    font-family: "Montserrat", Helvetica, Arial, serif;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 18px;
-}
-
-.password .span2-RxjuOq {
+.password .span2-8xxcLV {
     font-family: "Montserrat", Helvetica, Arial, serif;
     font-size: 8px;
     font-style: normal;
@@ -231,7 +251,14 @@
     line-height: 10px;
 }
 
-.password .span3-RxjuOq {
+.password .span2-DPz9jc {
+    font-family: "Montserrat", Helvetica, Arial, serif;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 18px;
+}
+
+.password .span3 {
     font-family: "Montserrat", Helvetica, Arial, serif;
     font-style: normal;
     font-weight: 300;
@@ -270,12 +297,10 @@
     background-color: transparent;
     display: inline-flex;
     flex-direction: row;
+    flex-shrink: 0;
     height: 21px;
     justify-content: flex-start;
-    margin-right: 175px;
     min-width: 12px;
-    position: absolute;
-    top: 20px;
     width: auto;
 }
 
@@ -298,34 +323,4 @@
     --pink-swan: rgba(186, 186, 186, 1);
     --rose-pearl: rgba(245, 55, 124, 1);
     --white: rgba(255, 255, 255, 0.9);
-}
-
-.container-center-vertical,
-.container-center-horizontal {
-    pointer-events: none;
-    display: flex;
-    flex-direction: row;
-    padding: 0;
-    margin: 0;
-}
-
-.container-center-horizontal {
-    justify-content: center;
-    width: 100%;
-}
-
-.container-center-vertical>*,
-.container-center-horizontal>* {
-    pointer-events: auto;
-    flex-shrink: 0;
-}
-
-.auto-animated .container-center-vertical,
-.auto-animated .container-center-horizontal {
-    opacity: 1;
-}
-
-a {
-    text-decoration: none;
-    display: contents;
 }

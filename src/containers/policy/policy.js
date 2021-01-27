@@ -45,23 +45,23 @@ export default class PrivacyPolicy extends React.Component {
             <div className="overlap-group">
               <img className="oval-4K0abD" src={oval3} />
               <div className="group-5">
-                <div className="container-center-horizontal">
-                  <p className="x montserrat-semi-bold-white-14px">{label1}</p>
-                </div>
                 <About {...aboutProps} />
                   <Link to="/faq">
-                <div className="container-center-horizontal">
-                 
-                  <div className="faq montserrat-semi-bold-white-14px">{faq}</div>
-            
+                <div className="container-center-horizontal footer-items">
+                  <p className="footer-items-devider">|</p>
+                  <div className="montserrat-semi-bold-white-14px">{faq}</div>
                 </div>
                       </Link>
-                <div className="container-center-horizontal">
-                  <div className="contact montserrat-semi-bold-white-14px">{contact}</div>
+                <div className="container-center-horizontal footer-items">
+                  <p className="footer-items-devider">|</p>
+                  <div className="montserrat-semi-bold-white-14px">{contact}</div>
                 </div>
-                <Link to="/policy">
-                  <div className="privacy-policy-IlweIA montserrat-semi-bold-white-14px">{privacyPolicy2}</div>
-                </Link>
+                <div className="container-center-horizontal footer-items">
+                  <Link to="/policy">
+                    <p className="footer-items-devider">|</p>
+                    <div className="montserrat-semi-bold-white-14px">{privacyPolicy2}</div>
+                  </Link>
+                </div>
               </div>
             </div>
             <Fypsoundslogo2 {...fypsoundslogo2Props} />
@@ -90,12 +90,10 @@ class About extends React.Component {
     const { about } = this.props;
 
     return (
-      <div className="container-center-horizontal">
-        <div className="about-IlweIA">
+      <div className="container-center-horizontal footer-items">
           <a href="/about">
-            <div className="about-qv0Ulj montserrat-semi-bold-white-14px">{about}</div>
+            <div className="montserrat-semi-bold-white-14px">{about}</div>
           </a>
-        </div>
       </div>
     );
   }

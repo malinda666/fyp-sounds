@@ -58,12 +58,11 @@
 
 .newsound {
     background-color: var(--anakiwa);
-    background-size: 100% 100%;
     height: 100vh;
     margin: 0px;
-    min-height: 896px;
+    min-height: 879px;
     min-width: 414px;
-    position: relative;
+    position: absolute;
     width: 100%;
 }
 
@@ -74,7 +73,7 @@
     line-height: 17px;
     margin-left: 11px;
     margin-right: -11px;
-    position: fixed;
+    position: absolute;
     text-align: center;
     top: 502px;
     white-space: nowrap;
@@ -98,9 +97,8 @@
     background-color: transparent;
     display: flex;
     flex-direction: column;
-    height: auto;
+    height: 40px;
     justify-content: flex-start;
-    min-height: 100%;
     position: absolute;
     top: 29px;
     width: 381px;
@@ -113,6 +111,10 @@
     height: 40px;
     margin-right: 1px;
     width: 94px;
+}
+
+.newsound .dropzone {
+    display: none;
 }
 
 .newsound .group {
@@ -191,6 +193,15 @@
     width: 968px;
 }
 
+.newsound .bg-image1 {
+    background: no-repeat;
+    width: 185%;
+    height: 603px;
+    position: absolute;
+    top: 11px;
+    left: -351px;
+}
+
 .newsound .oval-6sb1qn {
     background-color: transparent;
     height: 746px;
@@ -198,6 +209,15 @@
     position: absolute;
     top: 539px;
     width: 1343px;
+}
+
+.newsound .bg-image3 {
+    background: no-repeat;
+    height: 682px;
+    left: -350px;
+    position: absolute;
+    top: 194px;
+    width: 185%;
 }
 
 .newsound .oval-BJQsbv {
@@ -209,6 +229,15 @@
     width: 1043px;
 }
 
+.newsound .bg-image2 {
+    background: no-repeat;
+    height: 722px;
+    left: -212px;
+    position: absolute;
+    top: -390px;
+    width: 151.5%;
+}
+
 .newsound .oval-ovOecM {
     background-color: transparent;
     height: 649px;
@@ -216,6 +245,15 @@
     position: absolute;
     top: 690px;
     width: 1240px;
+}
+
+.newsound .bg-image4 {
+    background: no-repeat;
+    height: 556px;
+    left: -415px;
+    position: absolute;
+    top: 320px;
+    width: 200%;
 }
 
 .newsound .overlap-group-C61RwL {
@@ -334,6 +372,7 @@
     left: 0px;
     letter-spacing: 0px;
     line-height: 24px;
+    outline: none;
     padding: 0;
     position: absolute;
     resize: none;

@@ -2,6 +2,10 @@ import React from "react";
 import './soundStep2.css'
 
 export default class SoundForm1b extends React.Component {
+  constructor(props) {
+    super(props);
+     
+    }
   render() {
     const {
       oval,
@@ -27,14 +31,24 @@ export default class SoundForm1b extends React.Component {
           <img className="oval-BJQsbv" src={oval2} />
           <img className="oval-6sb1qn" src={oval3} />
           <img className="oval-ovOecM" src={oval4} />
-          <div className="nexticon-copy- animate-enter smart-layers-pointers ">
+          <div className="nexticon-copy-1 animate-enter smart-layers-pointers" onClick={() => {
+                                                                                        this.props.history.push({
+                                                                                          pathname: '/soundStep3',
+                                                                                          state: { status: 'yes', coverImageURL : this.props.location.state.coverImageURL, albumcover: this.props.location.state.albumcover, title : this.props.location.state.title, email : this.props.location.state.email}
+                                                                                            });
+                                                                                        }}>
             <img className="rectangle-ViqXFw" src={rectangle} />
             
               <img className="rectangle" src={rectangle2} />
            
             <div className="yes-17Ixfr montserrat-semi-bold-white-20px">{yes}</div>
           </div>
-          <div className="nexticon-copy-2 animate-enter1">
+          <div className="nexticon-copy-2 animate-enter" onClick={() => {
+                                                              this.props.history.push({
+                                                                pathname: '/soundStep3',
+                                                                state: { status: 'no', coverImageURL : this.props.location.state.coverImageURL, albumcover: this.props.location.state.albumcover, title : this.props.location.state.title, email : this.props.location.state.email}
+                                                                  });
+                                                              }}>
             <img className="rectangle-ViqXFw" src={rectangle3} />
            
               <img className="rectangle" src={rectangle4} />
@@ -43,7 +57,7 @@ export default class SoundForm1b extends React.Component {
           </div>
         </div>
         <div className="container-center-horizontal">
-          <div className="nexticon-copy- animate-enter2 smart-layers-pointers ">
+          <div className="nexticon-copy-3 animate-enter2 smart-layers-pointers ">
             <div className="yes-YdXrBc montserrat-light-white-20px">{yes2}</div>
           </div>
         </div>

@@ -267,6 +267,9 @@ const RecoveryData = {
     fypsoundslogoProps: fypsoundslogoData,
     aboutProps: aboutData,
     fypsoundslogo2Props: fypsoundslogo2Data,
+    NoAccountFoundUn: <>*no account found under this email. <br/></>,
+    spanText: <><br/><br/>new user? join</>,
+    spanText2: " here",
 };
 
 
@@ -741,7 +744,45 @@ const MusicForm5Data = {
     fypcopyProps: fypcopyData,
 };
 
+const clearCachePasswordData = {
+   oldPassword: "New Password",
+    inputName: "text",
+    inputType: "password",
+    inputPlaceholder: "***********",
+    inputRequired: false,
+};
 
+const clearCachePassword2Data = {
+    oldPassword: "Confirm Password",
+    inputName: "text",
+    inputType: "password",
+    inputPlaceholder: "***********",
+    inputRequired: false,
+};
+
+const clearCachePassword3Data = {
+    oldPassword: "Verification Code",
+    inputName: "text8484848",
+    inputType: "number",
+    inputPlaceholder: "8484848",
+    inputRequired: false,
+};
+
+const RecoverPasswordData = {
+    backChevron: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/settings-back-chevron-4D4EBA69-F8DE-4C5A-99A9-3B9A99864776@2x.png",
+    password: "password",
+    spanText: <> password must include:<br/></>,
+    spanText2: <><br/></>,
+    spanText3: <>-at least one upper case character<br/>-at least one lower case character<br/>-at least one number<br/>-at least one special character<br/>-at least 8 characters</>,
+    nextIcon: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/music-form-5-rectangle-4AE56F57-DF50-4263-9FAF-A9FD319B1626@2x.png",
+    save: "save",
+    spanText4: "didn’t receive? click here to ",
+    spanText5: "re-send",
+    IncorrectCodeChe: "*incorrect code, check your email",
+    clearCacheCopyProps: clearCachePasswordData,
+    clearCacheCopy2Props: clearCachePassword2Data,
+    clearCacheCopy3Props: clearCachePassword3Data,
+};
 
 
 export {
@@ -771,5 +812,6 @@ export {
     MusicForm2Data,
     MusicForm3Data,
     MusicForm4Data,
-    MusicForm5Data
+    MusicForm5Data,
+    RecoverPasswordData
 }

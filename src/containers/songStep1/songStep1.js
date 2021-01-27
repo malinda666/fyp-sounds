@@ -36,7 +36,11 @@ export default class MusicForm2 extends React.Component {
           <img className="oval-ovOecM" src={oval4} />
         </div>
         <div className="container-center-horizontal">
-          <div className="nexticon-copy- animate-enter smart-layers-pointers ">
+          <div className="nexticon-copy- animate-enter smart-layers-pointers " onClick={()=>{
+                                                                                this.props.history.push({
+                                                                                pathname: '/songStep2',
+                                                                                state: { store: 'tiktok', coverImageURL : this.props.location.state.coverImageURL, albumcover: this.props.location.state.albumcover, title : this.props.location.state.title, email : this.props.location.state.email}})
+                                                                                }}>
             <img className="rectangle-C0bm8O" src={rectangle} />
          
               <img className="rectangle" src={rectangle2} />
@@ -45,7 +49,11 @@ export default class MusicForm2 extends React.Component {
           </div>
         </div>
         <div className="container-center-horizontal">
-          <div className="nexticon-copy-2 animate-enter1">
+          <div className="nexticon-copy-2 animate-enter" onClick={()=>{
+                                                                                this.props.history.push({
+                                                                                pathname: '/songStep2',
+                                                                                state: { store: 'allStores', coverImageURL : this.props.location.state.coverImageURL, albumcover: this.props.location.state.albumcover, title : this.props.location.state.title, email : this.props.location.state.email}})
+                                                                                }}>
             <img className="rectangle-C0bm8O" src={rectangle3} />
             
               <img className="rectangle" src={rectangle4} />
@@ -54,7 +62,7 @@ export default class MusicForm2 extends React.Component {
           </div>
         </div>
         <div className="container-center-horizontal">
-          <div className="nexticon-copy- animate-enter2 smart-layers-pointers ">
+          <div className="btn-yes nexticon-copy- animate-enter2 smart-layers-pointers ">
             <div className="yes montserrat-light-white-20px">{yes}</div>
           </div>
         </div>

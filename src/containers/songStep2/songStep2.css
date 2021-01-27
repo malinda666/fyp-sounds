@@ -118,7 +118,7 @@
     display: inline-flex;
     flex-direction: row;
     height: 58px;
-    justify-content: flex-start;
+    justify-content: center;
     left: 105px;
     min-width: 205px;
     padding: 7px 3.1px;
@@ -133,7 +133,7 @@
     display: inline-flex;
     flex-direction: row;
     height: 24px;
-    justify-content: flex-start;
+    justify-content: center;
     left: 161px;
     min-width: 88px;
     position: absolute;
@@ -147,7 +147,7 @@
     display: inline-flex;
     flex-direction: row;
     height: 58px;
-    justify-content: flex-start;
+    justify-content: center;
     left: 105px;
     min-width: 205px;
     padding: 7px 8.1px;
@@ -162,7 +162,7 @@
     display: inline-flex;
     flex-direction: row;
     height: 58px;
-    justify-content: flex-start;
+    justify-content: center;
     left: 86px;
     min-width: 243px;
     padding: 2px 8.1px;
@@ -185,6 +185,14 @@
     text-align: center;
     white-space: nowrap;
     width: 189px;
+}
+
+.musicform3 .text-field {
+    background-color: white;
+    border-radius: 24px;
+    height: 41px;
+    top: 60px;
+    width: 292px;
 }
 
 .musicform3 .oval-C61RwL {
@@ -303,18 +311,26 @@
 }
 
 .musicform3 .text- {
-    background-color: transparent;
     border: 0;
-    height: 30px;
-    left: 161px;
     letter-spacing: 0px;
     line-height: 24px;
+    outline: none;
     padding: 0;
     position: absolute;
     resize: none;
     text-align: center;
-    top: 427px;
-    width: 93px;
+}
+
+.musicform3 .text-1 {
+    border: 0;
+    letter-spacing: 0px;
+    line-height: 24px;
+    outline: none;
+    padding: 0;
+    position: absolute;
+    resize: none;
+    text-align: center;
+    top: 60px;
 }
 
 .musicform3 .text-::placeholder {

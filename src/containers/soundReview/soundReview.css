@@ -78,7 +78,6 @@
 
 .soundsub .clear-cache-copy- {
     background-color: white;
-    flex-shrink: 0;
     height: 68px;
     margin-top: 0px;
     position: relative;
@@ -135,19 +134,17 @@
 
 .soundsub .creator {
     background-color: transparent;
-    flex-shrink: 0;
     height: auto;
     letter-spacing: -0.12px;
     line-height: 24px;
     min-height: 24px;
     text-align: left;
     white-space: nowrap;
-    width: 109px;
+    width: 100%;
 }
 
 .soundsub .explicit {
     background-color: transparent;
-    flex-shrink: 0;
     height: auto;
     letter-spacing: -0.09px;
     line-height: 18px;
@@ -155,12 +152,11 @@
     min-height: 18px;
     text-align: right;
     white-space: nowrap;
-    width: 141px;
+    width: 100%;
 }
 
 .soundsub .funny {
     background-color: transparent;
-    flex-shrink: 0;
     height: auto;
     letter-spacing: -0.09px;
     line-height: 18px;
@@ -168,7 +164,7 @@
     min-height: 18px;
     text-align: right;
     white-space: nowrap;
-    width: 141px;
+    width: 100%;
 }
 
 .soundsub .mysoundwav {
@@ -274,14 +270,13 @@
 .soundsub .tik-tok {
     background-color: transparent;
     height: auto;
-    left: 213px;
     letter-spacing: -0.09px;
     line-height: 18px;
     position: absolute;
     text-align: right;
     top: 25px;
     white-space: nowrap;
-    width: 141px;
+    width: 94.5%;
 }
 
 :root {

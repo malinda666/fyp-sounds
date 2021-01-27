@@ -20,7 +20,7 @@ export default class About extends React.Component {
       fypsoundslogoProps,
       about2Props,
       fypsoundslogo2Props,
-    } = this.props;  
+    } = this.props;
 
     return (
       <div className="about">
@@ -45,17 +45,25 @@ export default class About extends React.Component {
             <div className="overlap-group">
               <img className="oval-4K0abD" src={oval3} />
               <div className="group-5">
-                <div className="container-center-horizontal">
-                  <p className="x montserrat-semi-bold-white-14px">{label1}</p>
-                </div>
                 <About2 {...about2Props} />
-                <div className="container-center-horizontal">
-                  <div className="faq montserrat-semi-bold-white-14px">{faq}</div>
+                <div className="container-center-horizontal  footer-items">
+                  <p className="footer-items-devider">|</p>
+                   <a href="/faq">
+                  <div className="montserrat-semi-bold-white-14px">{faq}</div>
+                  </a>
                 </div>
-                <div className="container-center-horizontal">
-                  <div className="contact montserrat-semi-bold-white-14px">{contact}</div>
+                <div className="container-center-horizontal  footer-items">
+                  <p className="footer-items-devider">|</p>
+                  <a href="/contact">
+                  <div className="montserrat-semi-bold-white-14px">{contact}</div>
+                  </a>
                 </div>
-                <div className="privacy-policy montserrat-semi-bold-white-14px">{privacyPolicy}</div>
+                <div className="container-center-horizontal footer-items">
+                  <p className="footer-items-devider">|</p>
+                   <a href="/policy">
+                  <div className="montserrat-semi-bold-white-14px">{privacyPolicy}</div>
+                  </a>
+                </div>
               </div>
             </div>
             <Fypsoundslogo2 {...fypsoundslogo2Props} />
@@ -83,13 +91,11 @@ class About2 extends React.Component {
     const { about } = this.props;
 
     return (
-      <div className="container-center-horizontal">
+      <div className="container-center-horizontal footer-items">
         <Link to="/about" className="full-height-a">
-          <div className="about-IlweIA">
             <Link to="/about">
-              <div className="about-qv0Ulj montserrat-semi-bold-white-14px">{about}</div>
+              <div className="montserrat-semi-bold-white-14px">{about}</div>
             </Link>
-          </div>
         </Link>
       </div>
     );

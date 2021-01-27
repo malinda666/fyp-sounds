@@ -54,26 +54,24 @@
 
 .musicsub .author {
     background-color: transparent;
-    flex-shrink: 0;
     height: auto;
     letter-spacing: -0.12px;
     line-height: 24px;
     min-height: 24px;
     text-align: left;
     white-space: nowrap;
-    width: 109px;
+    width: 100%;
 }
 
 .musicsub .category {
     background-color: transparent;
-    flex-shrink: 0;
     height: auto;
     letter-spacing: -0.12px;
     line-height: 24px;
     min-height: 24px;
     text-align: left;
     white-space: nowrap;
-    width: 109px;
+    width: 100%
 }
 
 .musicsub .charlotte--019-amelio {
@@ -140,14 +138,13 @@
 
 .musicsub .content {
     background-color: transparent;
-    flex-shrink: 0;
     height: auto;
     letter-spacing: -0.12px;
     line-height: 24px;
     min-height: 24px;
     text-align: left;
     white-space: nowrap;
-    width: 109px;
+    width: 100%;
 }
 
 .musicsub .creator {
@@ -172,7 +169,7 @@
     text-align: right;
     top: 25px;
     white-space: nowrap;
-    width: 141px;
+    width: 43%;
 }
 
 .musicsub .explicit {
@@ -198,7 +195,7 @@
     text-align: right;
     top: 25px;
     white-space: nowrap;
-    width: 141px;
+    width: 40.5%;
 }
 
 .musicsub .nexticon {
@@ -240,7 +237,7 @@
     text-align: left;
     top: 22px;
     white-space: nowrap;
-    width: 109px;
+    width: 50%;
 }
 
 .musicsub .rectangle-19-copy-gUmma6 {
@@ -296,15 +293,13 @@
     align-self: flex-end;
     background-color: transparent;
     border: 0;
-    flex-shrink: 0;
     height: 30px;
     letter-spacing: -0.09px;
     line-height: 18px;
-    margin-left: 116px;
     padding: 0;
     resize: none;
     text-align: right;
-    width: 141px;
+    width: 100%;
 }
 
 .musicsub .text-::placeholder {
@@ -329,7 +324,7 @@
     text-align: right;
     top: 25px;
     white-space: nowrap;
-    width: 141px;
+    width: 43%;
 }
 
 .sfprodisplay-regular-normal-granite-gray-20px {

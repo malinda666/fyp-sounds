@@ -16,6 +16,19 @@ class FileManagementService{
             })
         }
 
+    static async downloadFile(fileName){
+        let url = config.AWS_API;
+
+        return await axios.post(url + 'FileDownload', {
+            filePath : fileName
+        })
+            .then(res => {
+            return res;
+            }).catch(err => {
+                throw err;
+            })
+        }
+
 }
 
 export default FileManagementService;

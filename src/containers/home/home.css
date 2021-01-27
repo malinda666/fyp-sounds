@@ -271,7 +271,17 @@
     white-space: nowrap;
     width: 100px;
 }
-
+.footer-items {
+    width: fit-content !important;
+    display: inline-flex !important;
+    position: relative;
+    margin-left: 16px !important;
+}
+.footer-items-devider {
+    margin-right: 16px;
+    color: white;
+    font-size: 20px;
+}
 .landing .privacy-policy {
     background-color: transparent;
     height: auto;
@@ -382,6 +392,7 @@
     font-size: 14px;
     font-style: normal;
     font-weight: 600;
+    line-height: 21px;
 }
 
 .sofiapro-normal-white-25px {

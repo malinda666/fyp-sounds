@@ -1,6 +1,7 @@
 const Config =  {
-  AWS_API: "https://i1grtyg105.execute-api.ap-southeast-1.amazonaws.com/dev/",
-  CLIENT_ID : '776c79rdu18splrk61nbvc7a5q',
+  AWS_API: "https://jbetjm41fk.execute-api.us-east-1.amazonaws.com/dev/",
+  CLIENT_ID : '58v60l9nlbmepnjf5lbuq7rfde',
+  NEOS_BASE_URL : 'https://neos-ai.com/generator/'
 };
 
 export default Config;

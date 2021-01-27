@@ -151,6 +151,42 @@
     width: 102px;
 }
 
+.warn4 .bg-image1 {
+    background: no-repeat;
+    width: 185%;
+    height: 603px;
+    position: absolute;
+    top: 11px;
+    left: -351px;
+}
+
+.warn4 .bg-image3 {
+    background: no-repeat;
+    height: 682px;
+    left: -350px;
+    position: absolute;
+    top: 194px;
+    width: 185%;
+}
+
+.warn4 .bg-image2 {
+    background: no-repeat;
+    height: 722px;
+    left: -212px;
+    position: absolute;
+    top: -390px;
+    width: 151.5%;
+}
+
+.warn4 .bg-image4 {
+    background: no-repeat;
+    height: 556px;
+    left: -415px;
+    position: absolute;
+    top: 320px;
+    width: 200%;
+}
+
 .warn4 .oval-4eduM0 {
     background-color: transparent;
     height: 603px;
@@ -215,6 +251,7 @@
 }
 
 .warn4 .rectangle-IZxxJF {
+    display: none;
     background-color: transparent;
     height: 896px;
     left: 315px;

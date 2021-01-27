@@ -1,11 +1,112 @@
 import React from "react";
 import './newSound.css';
+import { v4 as uuid_v4 } from "uuid";
+import fileManagementService from "../../services/fileManagementService";
+import uploadManagementService from "../../services/uploadManagementService";
+import HashLoader from 'react-spinners/HashLoader'
+import LoadingOverlay from "react-loading-overlay";
 
 export default class NewSound extends React.Component {
 
     constructor(props) {
     super(props);
+     this.inputOpenFileRef = React.createRef()
+        this.state = {
+          loading : false,
+          coverImageSignedURL:'',
+          coverImageURL:'',
+          user_dir:'',
+          title:'',
+          s3Path:''
+        }
     }
+
+      componentDidMount(){
+      if(localStorage.getItem('user_dir')){
+        this.setState({user_dir : localStorage.getItem('user_dir')});
+      }
+    }
+
+  uploadCoverImage = () => {
+      this.setState({ loading: true });
+  console.log(this.uploadInput.files[0]);
+  let file = this.uploadInput.files[0]
+  var re = /(?:\.([^.]+))?$/;
+  var ext = re.exec(file.name);
+  let s3Path = this.state.user_dir + '/creative/coverImage/' + uuid_v4()+'.' +ext[1];
+  
+  fileManagementService
+      .uploadFile(s3Path, file.type)
+      .then((response) => {
+        if(response.status === 200){    
+        var signedRequest = response.data.signedRequest;
+        var url = response.data.url;
+        // this.setState({url: url})
+        console.log('Recieved a signed request ' + signedRequest);
+        // Put the fileType in the headers for the upload
+
+        uploadManagementService
+          .upload(signedRequest, file, file.type)
+          .then((result) => {
+            console.log('Response from s3');
+            if (result.status == 200) {
+              this.setState({coverImageURL : url, loading : true, s3Path : s3Path},() => this.setCoverImageSignedURL());
+            } else {
+              this.setState({ loading: false });
+             // toast.error('Unable to upload cover photo');
+            }
+          })
+          .catch((error) => {
+           this.setState({ loading: false });
+          // toast.error('Unable to upload cover photo');
+          });
+        }
+        else {
+         // toast.error('Unable to upload cover photo');
+          this.setState({ loading: false });
+        }
+        
+      })
+      .catch((error) => {
+        this.setState({ loading: false });
+       // toast.error('Unable to upload cover photo');
+      });
+  }
+
+  showOpenFileDlg = () => {
+        this.inputOpenFileRef.current.click()
+    }
+
+
+  setCoverImageSignedURL() {
+    let filename = this.state.coverImageURL.replace(/^.*[\\\/]/, "");
+    this.getSignedURL(this.state.user_dir + "/creative/coverImage/" + filename).then(
+      (result) => {
+        this.setState({ coverImageSignedURL: result });
+      }
+    );
+  }
+
+  getSignedURL(filepath) {
+    return fileManagementService
+      .downloadFile(filepath)
+      .then((res) => {
+        if (res.status === 200) {
+          return res.data;
+        }
+      })
+      .catch((err) => {
+        this.setState({ loading: false });
+      });
+  }
+
+    handleFieldChange(event){
+     if(event){
+     this.setState({
+      [event.target.id]: event.target.value,
+    });
+  }
+   }
     
   render() {
     const {
@@ -37,26 +138,40 @@ export default class NewSound extends React.Component {
     } = this.props;
 
     return (
-      <div className="newsound" >
-        <div className="overlap-group-C61RwL">
-          <img className="oval-4eduM0" src={oval} />
-          <img className="oval-BJQsbv" src={oval2} />
-          <img className="oval-6sb1qn" src={oval3} />
-          <img className="oval-ovOecM" src={oval4} />
+       <LoadingOverlay
+          active={this.state.loading}
+          spinner={<HashLoader color={"#f24b76"} size={100}/>}
+        >
+      <div className="newsound">
+        <div className="bg-image-wrap">
+          <div className="bg-image1" style={{ backgroundImage: `url(${oval})` }} ></div>
+          <div className="bg-image2" style={{ backgroundImage: `url(${oval2})` }} ></div>
+          <div className="bg-image3" style={{ backgroundImage: `url(${oval3})` }}></div>
+          <div className="bg-image4" style={{ backgroundImage: `url(${oval4})` }}></div>
         </div>
         <div className="container-center-horizontal">
           <h1 className="is-your-audio-a sofiapro-normal-white-30px">{isYourAudioA}</h1>
         </div>
         <div className="container-center-horizontal">
           <div className="group">
-            <div className="nexticon smart-layers-pointers" onClick={() => {this.props.history.push('/soundStep1')}}>
+            <div className="nexticon smart-layers-pointers" onClick={() => {
+                                                              this.props.history.push({
+                                                                pathname: '/soundStep1',
+                                                                state: { type: 'sound', coverImageURL : this.state.coverImageURL, albumcover: this.state.s3Path, title : this.state.title, email : this.props.location.state.email}
+                                                                  });
+                                                              }}>
               <img className="rectangle-bKk8JK" src={rectangle} />
               
                 <img className="rectangle-bKk8JK" src={rectangle2} />
               
               <div className="sound montserrat-semi-bold-white-20px">{sound}</div>
             </div>
-            <div className="nexticon-copy animate-enter smart-layers-pointers ">
+            <div className="nexticon-copy animate-enter smart-layers-pointers " onClick={() => {
+                                                              this.props.history.push({
+                                                                pathname: '/soundStep1',
+                                                                state: { type: 'song', coverImageURL : this.state.coverImageURL, albumcover: this.state.s3Path, title : this.state.title, email : this.props.location.state.email}
+                                                                  });
+                                                              }}>
               <img className="rectangle-bKk8JK" src={rectangle3} />
               
                 <img className="rectangle-bKk8JK" src={rectangle4} />
@@ -67,12 +182,33 @@ export default class NewSound extends React.Component {
         </div>
         <div className="container-center-horizontal">
           <div className="group-2-copy">
-            <div className="rectangle-2"></div>
+           
+             {this.state.coverImageURL ?
+             <img
+             className="oval-5"
+                    src={this.state.coverImageSignedURL}
+                    alt=""
+                    
+                  /> :
+            <div className="rectangle-2"></div>  }
+            {!this.state.coverImageURL ?
             <div className="upload smart-layers-pointers ">
-              <img className="shape-rlzqmL" src={shape} />
-              <img className="shape-UPUXXo" src={shape2} />
-              <img className="path" src={path} />
-            </div>
+              <label for="fileChoose">
+                <img className="shape-rlzqmL" src={shape} />
+                <img className="shape-UPUXXo" src={shape2} />
+                <img className="path" src={path} />
+              </label>
+              <input 
+                id="fileChoose"
+                className="dropzone"
+                              type='file'
+                              name='img_logo'
+                              ref={(ref) => {
+                                this.uploadInput = ref;
+                              }}
+                              onChange={this.uploadCoverImage.bind(this)}
+                            />       
+            </div> : null }
           </div>
         </div>
         <div className="container-center-horizontal">
@@ -90,11 +226,13 @@ export default class NewSound extends React.Component {
             <div className="overlap-group1">
               <img className="rectangle" src={rectangle5} />
               <input
-                className="text-type-here montserrat-light-mountain-mist-20px animate-enter1"
+              id="title"
+                className="text-type-here montserrat-light-mountain-mist-20px animate-enter"
                 name={inputName}
                 placeholder={inputPlaceholder}
                 type={inputType}
                 required={inputRequired}
+                onChange={this.handleFieldChange.bind(this)}
               />
             </div>
           </div>
@@ -103,6 +241,7 @@ export default class NewSound extends React.Component {
           <p className="artwork-ca-019t-inclu montserrat-light-gravel-14px">{ArtworkCanU2019TInclu}</p>
         </div>
       </div>
+      </LoadingOverlay>
     );
   }
 }

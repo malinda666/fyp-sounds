@@ -96,7 +96,7 @@
     width: 328px;
 }
 
-.soundform1b .nexticon-copy- {
+.soundform1b .nexticon-copy-1 {
     background-color: transparent;
     display: block;
     height: 41px;
@@ -104,6 +104,18 @@
     pointer-events: auto;
     position: absolute;
     top: 691px;
+    transition: all 0.2s ease-in-out;
+    width: 146px;
+}
+
+.soundform1b .nexticon-copy-3 {
+    background-color: transparent;
+    display: block;
+    height: 41px;
+    left: 155px;
+    pointer-events: auto;
+    position: absolute;
+    top: 210px;
     transition: all 0.2s ease-in-out;
     width: 146px;
 }

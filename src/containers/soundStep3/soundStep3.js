@@ -1,7 +1,136 @@
 import React from "react";
-import './soundStep3.css'
+import './soundStep3.css';
+import Select from 'react-select';
+import fileManagementService from "../../services/fileManagementService";
+import uploadManagementService from "../../services/uploadManagementService";
+import { v4 as uuid_v4 } from "uuid";
+import HashLoader from 'react-spinners/HashLoader'
+import LoadingOverlay from "react-loading-overlay";
 
 export default class SoundForm2b extends React.Component {
+   constructor(props) {     
+    super(props);
+    this.options = [
+      {label : "category", value : "category"},
+      {label : "brazilian", value : "brazilian"},
+      {label : "pop", value : "pop"},
+      {label : "blues", value : "blues"},
+      {label : "classical", value : "classical"},
+      {label : "world", value : "world"},
+      {label : "vocal", value : "vocal"},
+      {label : "r&b", value : "r&b"},
+      {label : "childrens music", value : "childrens music"},
+      {label : "international", value : "international"},      
+      {label : "miscellaneous / experimental music", value : "miscellaneous / experimental music"},
+      {label : "rock", value : "rock"},
+      {label : "arabic", value : "arabic"},
+      {label : "inspirational", value : "inspirational"},
+      {label : "miscellaneous", value : "miscellaneous"},      
+      {label : "holiday", value : "holiday"},
+      {label : "hip hop/rap", value : "hip hop/rap"},
+      {label : "electronic", value : "electronic"},
+      {label : "instrumental", value : "instrumental"},
+      {label : "chinese", value : "chinese"},       
+      {label : "comedy", value : "comedy"},
+      {label : "country", value : "country"},
+      {label : "dance", value : "dance"},
+      {label : "folk", value : "folk"},
+      {label : "indian", value : "indian"},
+      {label : "jazz", value : "jazz"}   
+    ]
+     this.inputOpenFileRef = React.createRef()
+    this.state = {
+      options: this.options,
+      category: {
+        value: 'category',
+        label: 'category',
+      },
+      name:'',
+      creativeURL:'',
+      fileName:'',
+      loading: false,
+      s3Path:''
+     
+    }
+  }
+
+   componentDidMount(){
+      if(localStorage.getItem('user_dir')){
+        this.setState({user_dir : localStorage.getItem('user_dir')});
+      }
+    }
+   showOpenFileDlg = () => {
+        this.inputOpenFileRef.current.click()
+    }
+  
+
+   handleFieldChange(event){
+     if(event){
+     this.setState({
+      [event.target.id]: event.target.value,
+    });
+  }
+   }
+
+  changeCategoryHandler = (value) => {
+    this.setState({ category: value });
+  };
+
+  uploadCreative = () => {
+  this.setState({loading : true});
+  console.log(this.uploadInput.files[0]);
+  let file = this.uploadInput.files[0]
+  var re = /(?:\.([^.]+))?$/;
+  var ext = re.exec(file.name);
+  if(ext[1] === 'wav' || ext[1] === 'mp3')
+  {
+  let s3Path = this.state.user_dir + '/creative/sound/' + uuid_v4()+'.' +ext[1];
+  this.setState({fileName : file.name});
+  fileManagementService
+      .uploadFile(s3Path, file.type)
+      .then((response) => {
+        if(response.status === 200){
+          this.setState({
+          loading: true
+        });
+        var signedRequest = response.data.signedRequest;
+        var url = response.data.url;
+        // this.setState({url: url})
+        console.log('Recieved a signed request ' + signedRequest);
+        // Put the fileType in the headers for the upload
+
+        uploadManagementService
+          .upload(signedRequest, file, file.type)
+          .then((result) => {
+            console.log('Response from s3');
+            if (result.status == 200) {
+              this.setState({creativeURL : url, loading: false, s3Path: s3Path })
+            } else {
+              this.setState({ loading: false });
+              //toast.error('ERROR : Unable to upload document');
+            }
+          })
+          .catch((error) => {
+            this.setState({ loading: false });
+           // toast.error('ERROR ' + JSON.stringify(error));
+          });
+        }
+        else {
+          this.setState({ loading: false });
+        }
+        
+      })
+      .catch((error) => {
+        this.setState({ loading: false });
+        //toast.error(JSON.stringify(error));
+      });
+    }
+    else{
+      // toast.error('ERROR ' + JSON.stringify(error));
+    }
+
+  }
+
   render() {
     const {
       oval,
@@ -32,6 +161,10 @@ export default class SoundForm2b extends React.Component {
     } = this.props;
 
     return (
+      <LoadingOverlay
+          active={this.state.loading}
+          spinner={<HashLoader color={"#f24b76"} size={100}/>}
+        >
       <div className="soundform2b">
         <div className="overlap-group-C61RwL">
           <img className="oval-4eduM0" src={oval} />
@@ -50,23 +183,56 @@ export default class SoundForm2b extends React.Component {
           <div className="nexticon-copy-7">
             <div className="upload-audio-file sofiapro-normal-white-30px">{uploadAudioFile}</div>
           </div>
-          <div className="nexticon-4eduM0">
+          <div className="nexticon-4eduM0" onClick={() => { this.props.history.push({
+                                                                pathname: '/soundReview',
+                                                                state: { 
+                                                                  name: this.state.name, 
+                                                                  coverImageURL : this.props.location.state.coverImageURL, 
+                                                                  title : this.props.location.state.title, 
+                                                                  creativeURL: this.state.creativeURL,
+                                                                  fileName : this.state.fileName,
+                                                                  category: this.state.category ? this.state.category.value : '',
+                                                                  content: this.props.location.state.status == 'yes' ? 'Explicit' : 'NonExplicit',
+                                                                  email : this.props.location.state.email,
+                                                                  albumcover: this.props.location.state.albumcover,
+                                                                  audiofile : this.state.s3Path
+                                                                }
+                                                                  });
+                                                              }}>
             <img className="rectangle-f4xscB" src={rectangle} />
             <img className="rectangle-JuxZGf" src={rectangle2} />
             <div className="next montserrat-semi-bold-white-20px">{next}</div>
           </div>
           <div className="nexticon-copy-2">
-            <div className="no montserrat-light-white-20px">{no}</div>
+            <div className="no montserrat-light-white-20px">{this.props.location?.state?.status}</div>
           </div>
+          <div>
+            <label for="fileChoose">
           <img className="rectangle-4eduM0" src={rectangle3} />
           <img className="rectangle-BJQsbv" src={rectangle4} />
           <img className="upload" src={upload} />
+          </label>
+          <input 
+                id="fileChoose"
+                className="dropzone"
+                              type='file'
+                              name='creative_file' 
+                              ref={(ref) => {
+                                this.uploadInput = ref;
+                              }}
+                onChange={this.uploadCreative.bind(this)}
+                accept={'.wav, .mp3'}
+                            />  
+          </div>
+          
           <input
+          id='name'
             className="text-type montserrat-light-mountain-mist-20px"
             name={inputName}
             placeholder={inputPlaceholder}
             type={inputType}
             required={inputRequired}
+            onChange={this.handleFieldChange.bind(this)}
           />
         </div>
         <div className="container-center-horizontal">
@@ -74,12 +240,18 @@ export default class SoundForm2b extends React.Component {
         </div>
         <div className="container-center-horizontal">
           <div className="nexticon-C61RwL">
-            <img className="rectangle-JuxZGf" src={rectangle5} />
-            <div className="category montserrat-semi-bold-white-20px">{category}</div>
+            {/* <img className="rectangle-JuxZGf" src={rectangle5} /> */}
+            <Select 
+              options={this.state.options}
+              value={this.state.category}
+              onChange={this.changeCategoryHandler}
+                        />
+            {/* <div className="category montserrat-semi-bold-white-20px">{category}</div> */}
             <img className="back-chevron" src={backChevron} />
           </div>
         </div>
       </div>
+      </LoadingOverlay>
     );
   }
 }

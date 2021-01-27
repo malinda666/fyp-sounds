@@ -199,6 +199,19 @@
     width: 1747px;
 }
 
+.footer-items {
+    width: fit-content !important;
+    display: inline-flex !important;
+    position: relative;
+    margin-left: 16px !important;
+}
+
+.footer-items-devider {
+    margin-right: 16px;
+    color: white;
+    font-size: 20px;
+}
+
 .about .privacy-policy {
     background-color: transparent;
     height: auto;

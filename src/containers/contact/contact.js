@@ -86,19 +86,25 @@ export default class Contact extends React.Component {
             <div className="overlap-group4">
               <img className="oval-FuOxjK" src={oval3} />
               <div className="group-5">
-                <div className="container-center-horizontal">
-                  <p className="x montserrat-semi-bold-white-14px">{label1}</p>
-                </div>
                 <About {...aboutProps} />
-                <div className="container-center-horizontal">
-                  <div className="faq montserrat-semi-bold-white-14px">{faq}</div>
+                <div className="container-center-horizontal footer-items">
+                  <p className="footer-items-devider">|</p>
+                  <a href="/faq">
+                  <div className="montserrat-semi-bold-white-14px">{faq}</div>
+                  </a>
                 </div>
-                <div className="container-center-horizontal">
+                <div className="container-center-horizontal footer-items">
                   <Link to="/contact" className="full-height-a">
-                    <div className="contact-e9FaNd montserrat-semi-bold-white-14px">{contact2}</div>
+                    <p className="footer-items-devider">|</p>
+                    <div className="montserrat-semi-bold-white-14px">{contact2}</div>
                   </Link>
                 </div>
-                <div className="privacy-policy montserrat-semi-bold-white-14px">{privacyPolicy}</div>
+                <div className="container-center-horizontal footer-items">
+                  <p className="footer-items-devider">|</p>
+                   <a href="/policy">
+                  <div className="montserrat-semi-bold-white-14px">{privacyPolicy}</div>
+                  </a>
+                </div>
               </div>
             </div>
             <Fypsoundslogo2 {...fypsoundslogo2Props} />
@@ -147,12 +153,10 @@ class About extends React.Component {
     const { about } = this.props;
 
     return (
-      <div className="container-center-horizontal">
-        <div className="about-e9FaNd">
+      <div className="container-center-horizontal footer-items">
           <a href="/about">
-            <div className="about-x2vL0s montserrat-semi-bold-white-14px">{about}</div>
+            <div className="montserrat-semi-bold-white-14px">{about}</div>
           </a>
-        </div>
       </div>
     );
   }

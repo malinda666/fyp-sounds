@@ -16,7 +16,9 @@ export default class Warn1 extends React.Component {
         <div className="container-center-horizontal">
           <div className="oops-sorry-we-only montserrat-bold-white-25px">{oopsSorryWeOnly}</div>
         </div>
-        <div className="container-center-horizontal">
+        <div className="container-center-horizontal"  onClick={() => this.props.history.push({
+                                                                                                pathname : "/dashboard",
+                                                                                                state: { email : this.props.location.state.email}})}>
           <div className="nexticon-copy-2 animate-enter">
             <img className="rectangle-pXVhQA" src={rectangle} />
            

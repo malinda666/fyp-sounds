@@ -54,6 +54,38 @@ class UserManagementService{
                 throw err;
             })
     }
+
+    static async validate(email)
+    {
+            let url = config.AWS_API;
+             let auth = { Username: email }
+            return await axios.post(url + 'ValidateUser', auth )
+            .then(res => {
+                return res;
+            }).catch(err => {
+                throw err;
+            })
+    }
+
+    static async changePassword(auth){
+        let url = config.AWS_API;
+        return await axios.post(url + 'ForgetPassword', auth )
+            .then(res => {
+            return res;
+            }).catch(err => {
+                throw err;
+            })
+    }
+
+    static async resetPassword(auth){
+        let url = config.AWS_API;
+        return await axios.put(url + 'ResetPassword', auth )
+            .then(res => {
+            return res;
+            }).catch(err => {
+                throw err;
+            })
+    }
 }
 
 export default UserManagementService;

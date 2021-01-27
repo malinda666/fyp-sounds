@@ -1,11 +1,86 @@
 import React from "react";
 import './forgotPassword.css'
-import {
-  Link
-} from 'react-router-dom';
-
+import config from "../../config/index";
+import userManagementService from '../../services/userManagementService';
+import HashLoader from 'react-spinners/HashLoader'
+import LoadingOverlay from "react-loading-overlay";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default class Recovery extends React.Component {
+   constructor(props) {
+    super(props);
+
+    this.state = {
+      isInvalidUser : false,
+      email:'',
+      loading: false,
+      errorMessage:''
+    }
+  }
+
+  
+   handleFieldChange(event){
+     if(event){
+     this.setState({
+      [event.target.id]: event.target.value,
+    });
+  }
+   }
+
+   onSendClick(){
+     if(this.state.email && this.state.email != ''){
+         this.setState({
+        loading: true
+      });
+      let authObject = {
+        ClientId: config.CLIENT_ID,
+        Username: this.state.email,
+      };
+      userManagementService.validate(this.state.email).then(result => {
+        if(result.status === 200){
+          if(result.data){
+             userManagementService
+              .changePassword(authObject)
+              .then((res) => {
+                if (res.status === 200) {
+                  if (res.data.CodeDeliveryDetails == null) {
+                    this.setState({ loading: false, errorMessage: res.code });
+                  } else {
+
+                    this.props.history.push({
+                          pathname: '/verifyPassword',
+                          state: { email: this.state.email}
+                            });
+                    this.setState({ loading: false });
+                    toast.success('Confirmation code sent to ' + this.state.email);
+                  }
+                } else {
+                  this.setState({ loading: false });
+                  toast.error('Unable to change user password, please contact administrator');
+                }
+              })
+              .catch((err) => {
+                this.setState({ loading: false });
+                toast.error('Unable to change user password, please contact administrator.');
+              });
+          }
+          else{
+            this.setState({ loading: false , isInvalidUser : true});           
+          }
+        }
+        else{
+          this.setState({ loading: false });
+          toast.error('Unable to change user password, please contact administrator.');
+        }
+      }) .catch((err) => {
+                this.setState({ loading: false });
+                toast.error('Unable to change user password, please contact administrator.');
+              });
+     
+     }
+   }
+
   render() {
     const {
       forgotYourAccess,
@@ -28,9 +103,20 @@ export default class Recovery extends React.Component {
       fypsoundslogoProps,
       aboutProps,
       fypsoundslogo2Props,
+      NoAccountFoundUn,
+      spanText,
+      spanText2
     } = this.props;
 
     return (
+      // <DarkBackground disappear={this.state.loading}>
+        <LoadingOverlay
+          active={this.state.loading}
+          spinner={<HashLoader color={"#f24b76"} size={100}/>}
+        >
+           <ToastContainer
+            className="toast-top-right"
+          />
       <div className="recovery">
         <div className="container-center-horizontal">
           <div className="nexticon">
@@ -38,17 +124,27 @@ export default class Recovery extends React.Component {
             <div className="overlap-group">
               <img className="rectangle-NaDWhO" src={rectangle} />
               <input
+              id="email"
                 className="text-email montserrat-light-mountain-mist-14px"
                 name={inputName}
                 placeholder={inputPlaceholder}
                 type={inputType}
                 required={inputRequired}
+                onChange={this.handleFieldChange.bind(this)}
               />
             </div>
-            <div className="overlap-group1">
+            <div className="overlap-group1" onClick={this.onSendClick.bind(this)}>
               <img className="rectangle-3cn1mj" src={rectangle2} />
               <div className="send montserrat-semi-bold-white-20px">{send}</div>
             </div>
+            {this.state.isInvalidUser ? 
+            <div className="overlap-group2-C61RwL">
+              <p className="no-account-found-un montserrat-light-red-14px">{NoAccountFoundUn}</p>
+              <div className="new-user-join-here montserrat-light-gravel-14px">
+                <span className="span1">{spanText}</span>
+                <span className="span2" onClick={()=>{this.props.history.push('/login')}}>{spanText2}</span>
+              </div>
+            </div> : null }
           </div>
         </div>
         <div className="container-center-horizontal">
@@ -68,19 +164,25 @@ export default class Recovery extends React.Component {
             <div className="overlap-group2">
               <img className="oval-S4xVmX" src={oval3} />
               <div className="group-5">
-                <div className="container-center-horizontal">
-                  <Link to="/recovery" className="full-height-a">
-                    <p className="x montserrat-semi-bold-white-14px">{label1}</p>
-                  </Link>
-                </div>
                 <About {...aboutProps} />
-                <div className="container-center-horizontal">
-                  <div className="faq montserrat-semi-bold-white-14px">{faq}</div>
+                <div className="container-center-horizontal footer-items">
+                   <a href="/faq">
+                  <p className="footer-items-devider">|</p>                  
+                  <div className="montserrat-semi-bold-white-14px">{faq}</div>
+                  </a>
                 </div>
-                <div className="container-center-horizontal">
-                  <div className="contact montserrat-semi-bold-white-14px">{contact}</div>
+                <div className="container-center-horizontal footer-items">
+                   <a href="/contact">
+                  <p className="footer-items-devider">|</p>
+                  <div className="montserrat-semi-bold-white-14px">{contact}</div>
+                  </a>
                 </div>
-                <div className="privacy-policy montserrat-semi-bold-white-14px">{privacyPolicy}</div>
+                <div className="container-center-horizontal footer-items">
+                   <a href="/policy">
+                  <p className="footer-items-devider">|</p>
+                  <div className="montserrat-semi-bold-white-14px">{privacyPolicy}</div>
+                   </a>
+                </div>
               </div>
             </div>
             <Fypsoundslogo2 {...fypsoundslogo2Props} />
@@ -90,6 +192,9 @@ export default class Recovery extends React.Component {
           </div>
         </div>
       </div>
+      </LoadingOverlay>
+      // </DarkBackground>
+      
     );
   }
 }
@@ -109,12 +214,10 @@ class About extends React.Component {
     const { about } = this.props;
 
     return (
-      <div className="container-center-horizontal">
-        <div className="about-Tai3pd">
-          <a href="/about">
-            <div className="about-zEflc1 montserrat-semi-bold-white-14px">{about}</div>
-          </a>
-        </div>
+      <div className="container-center-horizontal footer-items">
+        <a href="/about">
+          <div className="montserrat-semi-bold-white-14px">{about}</div>
+        </a>
       </div>
     );
   }

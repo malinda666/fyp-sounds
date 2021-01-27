@@ -81,6 +81,17 @@
     width: 11px;
 }
 
+.soundform2b .dropzone {
+    background-color: transparent;
+    display: none;
+    height: 100px;
+    left: 508px;
+    position: absolute;
+    top: 1021px;
+    width: 30px;
+}
+
+
 .soundform2b .category {
     background-color: transparent;
     height: auto;
@@ -153,10 +164,32 @@
 
 .soundform2b .nexticon-C61RwL {
     background-color: transparent;
+    font-size: 20px;
+    font-family: "Montserrat", Helvetica, Arial, serif;
+    text-align: center;
     height: 54px;
     position: absolute;
     top: 508px;
-    width: 192px;
+    width: 294px;
+}
+
+.soundform2b .css-yk16xz-control {
+    border-radius: 24px;
+    height: 41px;
+}
+
+.soundform2b .css-1pahdxg-control {
+    border-color: white !important;
+    border-radius: 24px;
+    box-shadow: none !important;
+}
+
+.soundform2b .css-g1d714-ValueContainer {
+    padding-left: 16px !important;
+}
+
+.css-9gakcf-option {
+    background-color: rgb(41, 106, 202) !important;
 }
 
 .soundform2b .nexticon-copy-2 {

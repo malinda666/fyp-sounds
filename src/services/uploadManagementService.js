@@ -1,5 +1,4 @@
 import axios from 'axios';
-import config from "../config/index";
 
 class UploadManagementService{
     static async upload(signedRequest,file, fileType){

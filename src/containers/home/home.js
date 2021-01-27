@@ -2,6 +2,14 @@ import React from "react";
 import './home.css'
 
 export default class Landing extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      routePath: ''
+    }
+  }
+
   render() {
     const {
       oval,
@@ -62,23 +70,23 @@ export default class Landing extends React.Component {
             <div className="overlap-group">
               <img className="oval-4K0abD" src={oval4} />
               <div className="group-5">
-                <div className="container-center-horizontal">
-                  <p className="x montserrat-semi-bold-white-14px">{label1}</p>
-                </div>
                 <About {...aboutProps} />
-                <div className="container-center-horizontal">
+                <div className="container-center-horizontal footer-items">
+                  <p className="footer-items-devider">|</p>
                   <a href="/faq">
-                  <div className="faq montserrat-semi-bold-white-14px">{faq}</div>
+                  <div className="montserrat-semi-bold-white-14px">{faq}</div>
                   </a>
                 </div>
-                <div className="container-center-horizontal">
+                <div className="container-center-horizontal footer-items">
+                < p className="footer-items-devider">|</p>
                   <a href="/contact">
-                  <div className="contact montserrat-semi-bold-white-14px">{contact}</div>
+                  <div className="montserrat-semi-bold-white-14px">{contact}</div>
                   </a>
                 </div>
-                <div className="container-center-horizontal">
+                <div className="container-center-horizontal footer-items">
+                  <p className="footer-items-devider">|</p>
                    <a href="/policy">
-                <div className="privacy-policy montserrat-semi-bold-white-14px">{privacyPolicy}</div>
+                <div className="montserrat-semi-bold-white-14px">{privacyPolicy}</div>
                 </a>
                 </div>
               </div>
@@ -88,8 +96,8 @@ export default class Landing extends React.Component {
             </div>
           </div>
         </div>
-        <div className="container-center-horizontal">
-           <a href="/login">
+        <div className="container-center-horizontal" onClick={()=> this.props.history.push('/login')}>
+           
           <div className="nexticon smart-layers-pointers ">
             
             <img className="rectangle-rGr1Cp" src={rectangle} />
@@ -99,7 +107,7 @@ export default class Landing extends React.Component {
             <div className="upload-sounds montserrat-bold-white-20px">{uploadSounds}</div>
             
           </div>
-              </a>
+              
         </div>
       </div>
     );
@@ -126,7 +134,7 @@ class Fypcopy extends React.Component {
 
     return (
       <div className="container-center-horizontal">
-        <div className="fypsoundslogo animate-enter1" style={{ backgroundImage: `url(${fypsoundsLogo})` }}></div>
+        <div className="fypsoundslogo animate-enter4" style={{ backgroundImage: `url(${fypsoundsLogo})` }}></div>
       </div>
     );
   }
@@ -138,12 +146,10 @@ class About extends React.Component {
     const { about } = this.props;
 
     return (
-      <div className="container-center-horizontal">
-        <div className="about-IlweIA">
+      <div className="container-center-horizontal footer-items">
           <a href="/about">
-            <div className="about-qv0Ulj montserrat-semi-bold-white-14px">{about}</div>
+            <div className="montserrat-semi-bold-white-14px">{about}</div>
           </a>
-        </div>
       </div>
     );
   }
