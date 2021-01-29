@@ -36,12 +36,7 @@ export default class Warn5 extends React.Component {
           <h1 className="ud83cudf89 applecoloremoji-normal-white-60px">{Ud83CUdf89}</h1>
         </div>
         <div className="container-center-horizontal">
-          <div className="nexticon-copy-2 animate-enter" onClick={() => {this.props.history.push({
-                                                                          pathname : '/dashboard',
-                                                                          state: {
-                                                                              email : this.props.location.state.email
-                                                                            }
-                                                                          })}}>
+          <div className="nexticon-copy-2 animate-enter" onClick={() => {this.props.history.push('/dashboard')}}>
             <img className="rectangle-pXVhQA" src={rectangle2} />
             <a >
               <img className="rectangle-OxJunE" src={rectangle3} />

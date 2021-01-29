@@ -3,7 +3,7 @@ import './newSound.css';
 import { v4 as uuid_v4 } from "uuid";
 import fileManagementService from "../../services/fileManagementService";
 import uploadManagementService from "../../services/uploadManagementService";
-import HashLoader from 'react-spinners/HashLoader'
+import HashLoader from 'react-spinners/HashLoader';
 import LoadingOverlay from "react-loading-overlay";
 
 export default class NewSound extends React.Component {
@@ -15,15 +15,22 @@ export default class NewSound extends React.Component {
           loading : false,
           coverImageSignedURL:'',
           coverImageURL:'',
-          user_dir:'',
           title:'',
-          s3Path:''
+          s3Path:'',
+          auth:null
         }
     }
 
       componentDidMount(){
-      if(localStorage.getItem('user_dir')){
-        this.setState({user_dir : localStorage.getItem('user_dir')});
+       if(localStorage.getItem('auth')){
+        this.setState({auth : JSON.parse(localStorage.getItem('auth'))});
+      }
+
+      if(localStorage.getItem('data')){
+        let data = JSON.parse(localStorage.getItem('data'));
+        this.setState({s3Path : data.albumcover, title : data.title, coverImageURL : data.coverImageURL },()=>{
+          this.setCoverImageSignedURL();
+        });
       }
     }
 
@@ -33,7 +40,7 @@ export default class NewSound extends React.Component {
   let file = this.uploadInput.files[0]
   var re = /(?:\.([^.]+))?$/;
   var ext = re.exec(file.name);
-  let s3Path = this.state.user_dir + '/creative/coverImage/' + uuid_v4()+'.' +ext[1];
+  let s3Path = this.state.auth.user_dir + '/creative/coverImage/' + uuid_v4()+'.' +ext[1];
   
   fileManagementService
       .uploadFile(s3Path, file.type)
@@ -50,7 +57,7 @@ export default class NewSound extends React.Component {
           .then((result) => {
             console.log('Response from s3');
             if (result.status == 200) {
-              this.setState({coverImageURL : url, loading : true, s3Path : s3Path},() => this.setCoverImageSignedURL());
+              this.setState({coverImageURL : url, loading : false, s3Path : s3Path},() => this.setCoverImageSignedURL());
             } else {
               this.setState({ loading: false });
              // toast.error('Unable to upload cover photo');
@@ -80,7 +87,7 @@ export default class NewSound extends React.Component {
 
   setCoverImageSignedURL() {
     let filename = this.state.coverImageURL.replace(/^.*[\\\/]/, "");
-    this.getSignedURL(this.state.user_dir + "/creative/coverImage/" + filename).then(
+    this.getSignedURL(this.state.auth.user_dir + "/creative/coverImage/" + filename).then(
       (result) => {
         this.setState({ coverImageSignedURL: result });
       }
@@ -106,6 +113,32 @@ export default class NewSound extends React.Component {
       [event.target.id]: event.target.value,
     });
   }
+   }
+
+   navigateToSoundPage(){
+     let data = {
+       type : 'sound',
+       coverImageURL : this.state.coverImageURL,
+       albumcover: this.state.s3Path, 
+       title : this.state.title
+     }
+
+     localStorage.setItem('data', JSON.stringify(data));
+     this.props.history.push('/soundStep1');
+
+   }
+
+   navigateToSongPage(){
+     let data = {
+       type : 'song',
+       coverImageURL : this.state.coverImageURL,
+       albumcover: this.state.s3Path, 
+       title : this.state.title
+     }
+
+     localStorage.setItem('data', JSON.stringify(data));
+     this.props.history.push('/soundStep1');
+
    }
     
   render() {
@@ -154,24 +187,14 @@ export default class NewSound extends React.Component {
         </div>
         <div className="container-center-horizontal">
           <div className="group">
-            <div className="nexticon smart-layers-pointers" onClick={() => {
-                                                              this.props.history.push({
-                                                                pathname: '/soundStep1',
-                                                                state: { type: 'sound', coverImageURL : this.state.coverImageURL, albumcover: this.state.s3Path, title : this.state.title, email : this.props.location.state.email}
-                                                                  });
-                                                              }}>
+            <div className="nexticon smart-layers-pointers" onClick={this.navigateToSoundPage.bind(this)}>
               <img className="rectangle-bKk8JK" src={rectangle} />
               
                 <img className="rectangle-bKk8JK" src={rectangle2} />
               
               <div className="sound montserrat-semi-bold-white-20px">{sound}</div>
             </div>
-            <div className="nexticon-copy animate-enter smart-layers-pointers " onClick={() => {
-                                                              this.props.history.push({
-                                                                pathname: '/soundStep1',
-                                                                state: { type: 'song', coverImageURL : this.state.coverImageURL, albumcover: this.state.s3Path, title : this.state.title, email : this.props.location.state.email}
-                                                                  });
-                                                              }}>
+            <div className="nexticon-copy animate-enter smart-layers-pointers " onClick={this.navigateToSongPage.bind(this)}>
               <img className="rectangle-bKk8JK" src={rectangle3} />
               
                 <img className="rectangle-bKk8JK" src={rectangle4} />
@@ -232,6 +255,7 @@ export default class NewSound extends React.Component {
                 placeholder={inputPlaceholder}
                 type={inputType}
                 required={inputRequired}
+                value={this.state.title}
                 onChange={this.handleFieldChange.bind(this)}
               />
             </div>

@@ -10,21 +10,32 @@ export default class Warn4 extends React.Component {
     super(props);
     this.state = {
       returnURL : '',
-      loading : false
+      loading : false,
+      data: null,
+      auth: null
     }
    }
 
    componentDidMount(){
-      if(this.props.location.state.type == 'sound'){
+     if(localStorage.getItem('data')){
+       let data = JSON.parse(localStorage.getItem('data'));
+        this.setState({data : data });
+        if(data.type == 'sound'){
         this.setState({ returnURL : '/soundReview'});
       }
       else {
         this.setState({ returnURL : '/musicReview'});
       }
+      }
+        if(localStorage.getItem('auth')){
+       let auth = JSON.parse(localStorage.getItem('auth'));
+        this.setState({auth : auth });
+      }
+      
    }
 
    save = () =>{
-     if(this.props.location.state.type === 'sound')
+     if(this.state.data.type === 'sound')
         this.saveSoundData();
      else
         this.saveSongData();
@@ -33,32 +44,29 @@ export default class Warn4 extends React.Component {
 
   saveSongData = () => {
     let data = {
-      email : this.props.location.state.email,
-      creator : this.props.location.state.creatorName,
-      title : this.props.location.state.title,
-      category : this.props.location.state.category,
-      content : this.props.location.state.status,
-      stores : this.props.location.state.store,
-      audioFileURL : this.props.location.state.audiofile,
-      coverURL : this.props.location.state.albumcover,
-      type : this.props.location.state.type,
-      author : this.props.location.state.authorName,
-      producer : this.props.location.state.producerName,
-      featured_artist : this.props.location.state.featuringArtist,      
-      albumcover: this.props.location.state.albumcover,
-      audiofile : this.props.location.state.audiofile,
-      status : 'draft'
+      email : this.state.auth.email,
+      creator : this.state.data.name,
+      title : this.state.data.title,
+      category : this.state.data.category,
+      content : this.state.data.content,
+      stores : this.state.data.stores,
+      audioFileURL : this.state.data.audiofile,
+      coverURL : this.state.data.albumcover,
+      type : this.state.data.type,
+      author : this.state.data.authorName,
+      producer : this.state.data.producerName,
+      featured_artist : this.state.data.featuringArtist,      
+      albumcover: this.state.data.albumcover,
+      audiofile : this.state.data.audiofile,
+      fyp_status : 'pending',
+      dashgo_status : 'draft_complete'
      }
       this.setState({ loading: true });
      creativeManagementService.create(data).then((result) => {
         if (result.status == 200) 
-        {        
-            this.props.history.push({
-                 pathname:'/warn5',
-                 state: {
-                   email : this.props.location.state.email
-                 }
-               })       
+        {     
+          localStorage.removeItem('data');
+            this.props.history.push('/warn5');       
         }
         else
         {
@@ -74,18 +82,19 @@ export default class Warn4 extends React.Component {
 
   saveSoundData = () => {
     let data = {
-     email : this.props.location.state.email,
-     creator : this.props.location.state.name,
-     title : this.props.location.state.title,
-     category : this.props.location.state.category,
-     content : this.props.location.state.content == 'yes' ? 'Explicit' : 'NonExplicit',
-     stores : this.props.location.state.stores,
-     audioFileURL : this.props.location.state.audiofile,
-     coverURL : this.props.location.state.albumcover,
-     type : this.props.location.state.type,
-     albumcover: this.props.location.state.albumcover,
-     audiofile : this.props.location.state.audiofile,
-     status : 'draft'
+    email : this.state.auth.email,
+      creator : this.state.data.name,
+      title : this.state.data.title,
+      category : this.state.data.category,
+      content : this.state.data.content,
+      stores : this.state.data.stores,
+      audioFileURL : this.state.data.audiofile,
+      coverURL : this.state.data.albumcover,
+      type : this.state.data.type,
+     albumcover: this.state.data.albumcover,
+      audiofile : this.state.data.audiofile,
+     fyp_status : 'pending',
+     dashgo_status : 'draft_complete'
     }
      this.setState({ loading: true });
     creativeManagementService.create(data).then((result) => {
@@ -93,12 +102,8 @@ export default class Warn4 extends React.Component {
        {        
          neosAPIManagementService.create(data,'sound').then((res) => {
             if(res.status == 200){
-                this.props.history.push({
-                    pathname:'/warn5',
-                    state: {
-                      email : this.props.location.state.email
-                    }
-                  })
+              localStorage.removeItem('data');
+                this.props.history.push('/warn5');
                 
             }
             else{
@@ -181,19 +186,7 @@ export default class Warn4 extends React.Component {
             </div>
            
               <div className="nexticon-copy-2 animate-enter" onClick={() => {
-                                                              this.props.history.push({
-                                                                pathname: this.state.returnURL,
-                                                                state: { 
-                                                                  name: this.props.location.state.name, 
-                                                                  coverImageURL : this.props.location.state.coverImageURL, 
-                                                                  title : this.props.location.state.title, 
-                                                                  creativeURL: this.props.location.state.creativeURL,
-                                                                  category: this.props.location.state.category ? this.props.location.state.category : '',
-                                                                  content: this.props.location.state.content == 'Explicit' ? 'yes' : 'no',
-                                                                  email : this.props.location.state.email,
-                                                                  fileName : this.props.location.state.fileName,
-                                                                }
-                                                                  });
+                                                              this.props.history.push( this.state.returnURL);
                                                               }}>
                 <img className="rectangle-0Ttflx" src={rectangle4} />
                 <a >

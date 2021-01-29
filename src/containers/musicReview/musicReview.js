@@ -7,8 +7,15 @@ export default class Musicsub extends React.Component {
      this.state={
       creatorName : '',
       title: '',
-      featuringArtist: ''
+      featuringArtist: '',
+      data:null
      }
+    }
+
+    componentDidMount(){
+      if(localStorage.getItem('data')){
+        this.setState({data : JSON.parse(localStorage.getItem('data'))})
+      }
     }
 
     handleFieldChange(event){
@@ -44,55 +51,39 @@ export default class Musicsub extends React.Component {
     return (
       <div className="musicsub">
         <h1 className="review montserrat-bold-rose-pearl-24px">{review}</h1>
-        <ClearCacheCopy {...{...clearCacheCopyProps,  handleFieldChange : event => this.handleFieldChange(event), id : 'creatorName', value :this.props.location.state.creatorName}} />
-        <ClearCacheCopy {...{...clearCacheCopy2Props,  handleFieldChange : event => this.handleFieldChange(event), id : 'title', value :this.props.location.state.title}} className="clear-cache-copy-VMr6Om" />
-        <ClearCacheCopy {...{...clearCacheCopy3Props, handleFieldChange : event => this.handleFieldChange(event), id : 'featuringArtist', value : this.props.location.state.featuringArtist}} className="clear-cache-copy-2" />
+        <ClearCacheCopy {...{...clearCacheCopyProps,  handleFieldChange : event => this.handleFieldChange(event), id : 'creatorName', value :this.state.data ? this.state.data.name : ''}} />
+        <ClearCacheCopy {...{...clearCacheCopy2Props,  handleFieldChange : event => this.handleFieldChange(event), id : 'title', value :this.state.data ? this.state.data.title :''}} className="clear-cache-copy-VMr6Om" />
+        <ClearCacheCopy {...{...clearCacheCopy3Props, handleFieldChange : event => this.handleFieldChange(event), id : 'featuringArtist', value : this.state.data ? this.state.data.featuringArtist : ''}} className="clear-cache-copy-2" />
         <div className="clear-cache-copy-sXGHus">
           <div className="category sfprodisplay-regular-normal-granite-gray-20px">{category}</div>
-          <div className="pop sfprodisplay-regular-normal-pink-swan-15px">{this.props.location.state.category}</div>
+          <div className="pop sfprodisplay-regular-normal-pink-swan-15px">{this.state.data ? this.state.data.category: ''}</div>
         </div>
         <div className="clear-cache-copy-sXGHus">
           <div className="content sfprodisplay-regular-normal-granite-gray-20px">{content}</div>
-          <div className="explicit sfprodisplay-regular-normal-pink-swan-15px">{this.props.location.state.status == 'yes' ? 'Explicit' : 'NonExplicit'}</div>
+          <div className="explicit sfprodisplay-regular-normal-pink-swan-15px">{this.state.data ? this.state.data.content : ''}</div>
         </div>
         <div className="clear-cache-copy-sXGHus">
           <div className="author sfprodisplay-regular-normal-granite-gray-20px">{author}</div>
           <div className="charlotte--019-amelio sfprodisplay-regular-normal-pink-swan-15px">
-            {this.props.location.state.authorName}
+            {this.state.data ? this.state.data.authorName : ''}
           </div>
         </div>
         <div className="clear-cache">
           <div className="rectangle-19-copy-gUmma6"></div>
           <div className="rectangle-19-copy-gUmma6"></div>
           <div className="producer sfprodisplay-regular-normal-granite-gray-20px">{producer}</div>
-          <div className="dj-sins sfprodisplay-regular-normal-pink-swan-15px">{this.props.location.state.producerName}</div>
+          <div className="dj-sins sfprodisplay-regular-normal-pink-swan-15px">{this.state.data ? this.state.data.producerName  :''}</div>
         </div>
-        <ClearCacheCopy3 {...{...clearCacheStoresProps, value: this.props.location.state.store}} />
+        <ClearCacheCopy3 {...{...clearCacheStoresProps, value: this.state.data ? this.state.data.stores : ''}} />
         <div className="clear-cache">
           <div className="rectangle-19-copy-gUmma6"></div>
           <div className="rectangle-19-copy-gUmma6"></div>
           <div className="audio-file sfprodisplay-regular-normal-granite-gray-20px">{audioFile}</div>
-          <div className="mysoundwav sfprodisplay-regular-normal-pink-swan-15px">{this.props.location.state.fileName}</div>
+          <div className="mysoundwav sfprodisplay-regular-normal-pink-swan-15px">{this.state.data ? this.state.data.fileName :''}</div>
         </div>
         <ClearCacheCopy3 {...{...clearCacheCopy32Props, value: 'song'}} className="clear-cache-copy-5" />
         <div className="nexticon" style={{ backgroundImage: `url(${nextIcon})` }} onClick={() => {
-                                                              this.props.history.push({
-                                                                pathname: '/warn4',
-                                                                state: { status: this.props.location.state.status,
-                                                                  store: this.props.location.state.store, 
-                                                                  coverImageURL : this.props.location.state.coverImageURL, 
-                                                                  title : this.props.location.state.title, 
-                                                                  email : this.props.location.state.email,
-                                                                  featuringArtist : this.props.location.state.featuringArtist,
-                                                                  producerName: this.props.location.state.producerName,
-                                                                  creativeURL: this.props.location.state.creativeURL,
-                                                                  creatorName: this.props.location.state.creatorName,
-                                                                  authorName: this.props.location.state.authorName,
-                                                                  audiofile : this.props.location.state.audiofile,
-                                                                  albumcover: this.props.location.state.albumcover,
-                                                                  category : this.props.location.state.category,
-                                                                  type: 'song'}
-                                                                  });
+                                                              this.props.history.push('/warn4');
                                                               }}>
           <div className="submit montserrat-semi-bold-white-20px">{submit}</div>
         </div>

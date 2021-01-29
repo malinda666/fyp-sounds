@@ -397,6 +397,14 @@
     width: auto;
 }
 
+._loading_overlay_wrapper {
+    position: inherit;
+}
+
+._loading_overlay_overlay {
+    position: fixed;
+}
+
 .newsound .upload {
     background-color: transparent;
     height: 59px;

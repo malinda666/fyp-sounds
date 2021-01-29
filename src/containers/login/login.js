@@ -179,26 +179,8 @@ export default class LoginErrorMessages extends React.Component {
                         email : this.state.loginEmail
                       }
                       localStorage.setItem('auth', JSON.stringify(auth) );
-                      localStorage.setItem(
-                        'refreshtoken',
-                        res.data.refreshToken
-                      );
-                      localStorage.setItem(
-                        'access_token',
-                        res.data.accessToken
-                      );
-                      localStorage.setItem(
-                        'id_token',
-                        res.data.idToken.jwtToken
-                      );
-                       localStorage.setItem(
-                        'user_dir',
-                        result.data.Item.user_dir
-                      );
-                       this.props.history.push({
-                    pathname: '/dashboard',
-                    state: { email: this.state.loginEmail}
-                      });
+                      //this.props.userHasAuthenticated(true);
+                       this.props.history.push('/dashboard');
                     }
                     this.setState({ loading: false });
                   } else {
@@ -268,7 +250,7 @@ export default class LoginErrorMessages extends React.Component {
             <h1 className="or sofiapro-normal-torch-red-25px">{or}</h1>
             <Overlapgroup  {... {...overlapgroupProps, handleFieldChange : event => this.handleFieldChange(event), id : 'loginEmail'}} />
             <Overlapgroup1 {... {...overlapgroup1Props, handleFieldChange : event => this.handleFieldChange(event), id : 'loginPassword'}} />
-            <div className="overlap-group-PVhVGJ"  onClick={this.login.bind(this)}>
+            <div className="overlap-group-PVhVGJ"  onClick={this.login}>
               <img className="rectangle-JWSful" src={rectangle} />
               <div className="login montserrat-bold-white-20px">{login}</div>
             </div>

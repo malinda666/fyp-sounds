@@ -49,15 +49,25 @@ export default class MusicForm5 extends React.Component {
      creativeURL:'',
      fileName:'',
      loading: false, 
-     s3Path:''
+     s3Path:'',
+     auth: null,
+     status:''
     
    }
   }
 
   componentDidMount(){
-    if(localStorage.getItem('user_dir')){
-      this.setState({user_dir : localStorage.getItem('user_dir')});
+    if(localStorage.getItem('auth')){
+      this.setState({auth : localStorage.getItem('auth')});
     }
+     if(localStorage.getItem('data')){
+        let data = JSON.parse(localStorage.getItem('data'));
+        this.setState({creativeURL : data.creativeURL, fileName : data.fileName, s3Path : data.audiofile, name : data.name, status : data.status}, () => {
+            let selectedCategory = this.options.filter(item => item.value == data.category);
+            if(selectedCategory.length >0)
+            this.setState({category: selectedCategory[0]});
+        });
+      }
   }
  showOpenFileDlg = () => {
       this.inputOpenFileRef.current.click()
@@ -84,7 +94,7 @@ var re = /(?:\.([^.]+))?$/;
 var ext = re.exec(file.name);
 if(ext[1] === 'wav' || ext[1] === 'mp3')
 {
-let s3Path = this.state.user_dir + '/creative/song/' + uuid_v4()+'.' +ext[1];
+let s3Path = this.state.auth.user_dir + '/creative/song/' + uuid_v4()+'.' +ext[1];
 
 fileManagementService
     .uploadFile(s3Path, file.type)
@@ -166,7 +176,7 @@ fileManagementService
         </div>
         <div className="container-center-horizontal">
           <div className="nexticon-copy-3 animate-enter smart-layers-pointers ">
-            <div className="yes montserrat-light-white-20px">{this.props.location.state.status}</div>
+            <div className="yes montserrat-light-white-20px">{this.state.status}</div>
           </div>
         </div>
         <div className="container-center-horizontal">
@@ -188,8 +198,9 @@ fileManagementService
         </div>
         <div className="container-center-horizontal">
         <label for="fileChoose">
-          {this.state.fileName != '' ? <span className="filename" >{this.state.fileName}</span> : 
-          <img className="upload" src={upload} /> }
+          {/* {this.state.fileName != '' ? <span className="filename" >{this.state.fileName}</span> :  */}
+          <img className="upload" src={upload} /> 
+          {/* } */}
           </label>
           <input 
                 id="fileChoose"
@@ -207,23 +218,16 @@ fileManagementService
           <div className="upload-audio-file sofiapro-normal-white-30px">{uploadAudioFile}</div>
         </div>
         <div className="container-center-horizontal" onClick={()=>{
-                                                                                this.props.history.push({
-                                                                                pathname: '/musicReview',
-                                                                                state: { status: this.props.location.state.status,
-                                                                                store: this.props.location.state.store, 
-                                                                                coverImageURL : this.props.location.state.coverImageURL, 
-                                                                                albumcover: this.props.location.state.albumcover,
-                                                                                title : this.props.location.state.title, 
-                                                                                email : this.props.location.state.email,
-                                                                                featuringArtist : this.props.location.state.featuringArtist,
-                                                                                producerName: this.props.location.state.producerName,
-                                                                                creativeURL: this.state.creativeURL,
-                                                                                creatorName: this.props.location.state.creatorName,
-                                                                                authorName: this.props.location.state.authorName,
-                                                                                category: this.state.category ? this.state.category.value : '',
-                                                                                audiofile : this.state.s3Path,
-                                                                                fileName : this.state.fileName}})
-                                                                                }}>
+           if(localStorage.getItem('data')){
+                  let data = JSON.parse(localStorage.getItem('data'));
+                  data.name = this.state.name;
+                  data.creativeURL = this.state.creativeURL;
+                  data.fileName = this.state.fileName;
+                  data.category = this.state.category ? this.state.category.value : '';
+                  data.audiofile = this.state.s3Path;
+                  localStorage.setItem('data', JSON.stringify(data));
+                  this.props.history.push('/musicReview');
+              } }}>
           <div className="nexticon-VMr6Om">
             <img className="rectangle-On3W7C" src={rectangle3} />
             <img className="rectangle-NnOCDr" src={rectangle4} />

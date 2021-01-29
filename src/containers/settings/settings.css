@@ -60,6 +60,15 @@
     width: 12px;
 }
 
+.settings .back-chevron-1VxUKy {
+    background-color: transparent;
+    height: 20px;
+    left: 12px;
+    position: absolute;
+    top: 340px;
+    width: 12px;
+}
+
 .settings .back-chevron-S8W5J0 {
     background-color: transparent;
     flex-shrink: 0;
@@ -98,6 +107,11 @@
 }
 
 .settings .text-email {
+    border: none;
+    text-align: right;
+}
+
+.settings .text-pay-pal {
     border: none;
     text-align: right;
 }
@@ -170,6 +184,7 @@
     padding: 18px 22px;
     width: auto;
 }
+
 
 .settings .email {
     background-color: transparent;
@@ -335,7 +350,7 @@
     color: rgba(186, 186, 186, 0.6);
 }
 
-.settings .text-emailemailcom::placeholder {
+.settings .text-pay-palpaylalcom::placeholder {
     color: rgba(186, 186, 186, 0.6);
 }
 

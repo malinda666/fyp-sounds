@@ -1,15 +1,23 @@
 import './app.css';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter as Router} from 'react-router-dom';
 import RouterConfig from  './navigation/RouterConfig'
+import React, {useEffect, useState} from 'react';
 
 function App() {
-  const childProps = {
-    };
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+   
+    const userHasAuthenticated = (authenticated) => {
+            setIsAuthenticated(authenticated);       
+      };
 
+ const childProps = {
+        isAuthenticated: isAuthenticated,
+        userHasAuthenticated: userHasAuthenticated,
+      }
   return (
-    <BrowserRouter>
-      <RouterConfig childProps={childProps}/>
-   </BrowserRouter>
+    <Router>
+      <RouterConfig isAuthenticated = {isAuthenticated} userHasAuthenticated= {userHasAuthenticated}/>
+   </Router>
   );
 }
 

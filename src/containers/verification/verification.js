@@ -2,6 +2,8 @@ import React from "react";
 import './verification.css'; 
 import userManagementService from '../../services/userManagementService'
 import profileManagementService from '../../services/profileManagementService'
+import HashLoader from 'react-spinners/HashLoader'
+import LoadingOverlay from "react-loading-overlay";
 
 export default class Verificationin extends React.Component {
 
@@ -31,14 +33,18 @@ export default class Verificationin extends React.Component {
             .signIn(this.props.location.state.email.trim(), this.props.location.state.password)
             .then((res) => {
               if(res.status === 200){
-              localStorage.setItem('refreshtoken', res.data.refreshToken);
-              localStorage.setItem('access_token', res.data.accessToken);
-              localStorage.setItem('id_token', res.data.idToken.jwtToken);    
+              let auth = {
+                        refreshtoken : res.data.refreshToken,
+                        access_token : res.data.accessToken,
+                        id_token : res.data.idToken.jwtToken,
+                        user_dir : profileResponse.data.user_dir,
+                        email : this.props.location.state.email
+                      }
+                      localStorage.setItem('auth', JSON.stringify(auth) );
+                      //this.props.userHasAuthenticated(true);
+  
                this.setState({ loading: false, user_dir: profileResponse.data.user_dir });
-                this.props.history.push({
-                    pathname: '/dashboard',
-                    state: { email: this.props.location.state.email}
-                      });        
+                this.props.history.push('/dashboard');        
               }
               else{
                 this.setState({ loading: false});
@@ -123,6 +129,10 @@ export default class Verificationin extends React.Component {
     } = this.props;
 
     return (
+        <LoadingOverlay
+      active={this.state.loading}
+      spinner={<HashLoader color={"#f24b76"} size={100}/>}
+    >
       <div className="verificationin">
         <div className="container-center-horizontal">
           <div className="nexticon">
@@ -193,6 +203,7 @@ export default class Verificationin extends React.Component {
         </div>
          : null }
       </div>
+      </LoadingOverlay>
     );
   }
 }

@@ -37,9 +37,12 @@ export default class MusicForm2 extends React.Component {
         </div>
         <div className="container-center-horizontal">
           <div className="nexticon-copy- animate-enter smart-layers-pointers " onClick={()=>{
-                                                                                this.props.history.push({
-                                                                                pathname: '/songStep2',
-                                                                                state: { store: 'tiktok', coverImageURL : this.props.location.state.coverImageURL, albumcover: this.props.location.state.albumcover, title : this.props.location.state.title, email : this.props.location.state.email}})
+                     if(localStorage.getItem('data')){
+                  let data = JSON.parse(localStorage.getItem('data'));                  
+                  data.stores = 'social media';                 
+                  localStorage.setItem('data', JSON.stringify(data));
+                  this.props.history.push('/songStep2');
+              }  
                                                                                 }}>
             <img className="rectangle-C0bm8O" src={rectangle} />
          
@@ -50,9 +53,13 @@ export default class MusicForm2 extends React.Component {
         </div>
         <div className="container-center-horizontal">
           <div className="nexticon-copy-2 animate-enter" onClick={()=>{
-                                                                                this.props.history.push({
-                                                                                pathname: '/songStep2',
-                                                                                state: { store: 'allStores', coverImageURL : this.props.location.state.coverImageURL, albumcover: this.props.location.state.albumcover, title : this.props.location.state.title, email : this.props.location.state.email}})
+             if(localStorage.getItem('data')){
+                  let data = JSON.parse(localStorage.getItem('data'));                  
+                  data.stores = 'allStores';                 
+                  localStorage.setItem('data', JSON.stringify(data));
+                  this.props.history.push('/songStep2');
+              }  
+                                                                               
                                                                                 }}>
             <img className="rectangle-C0bm8O" src={rectangle3} />
             

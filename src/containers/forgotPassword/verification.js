@@ -83,26 +83,15 @@ export default class Password extends React.Component {
                             }
                              this.setState({ loading: false});                       
                           } else {
-                            localStorage.setItem(
-                              'refreshtoken',
-                              res.data.refreshToken
-                            );
-                            localStorage.setItem(
-                              'access_token',
-                              res.data.accessToken
-                            );
-                            localStorage.setItem(
-                              'id_token',
-                              res.data.idToken.jwtToken
-                            );
-                             localStorage.setItem(
-                              'user_dir',
-                              result.data.Item.user_dir
-                            );
-                             this.props.history.push({
-                          pathname: '/dashboard',
-                          state: { email: this.props.location.state.email}
-                            });
+                            let auth = {
+                              refreshtoken : res.data.refreshToken,
+                              access_token : res.data.accessToken,
+                              id_token : res.data.idToken.jwtToken,
+                              user_dir : result.data.Item.user_dir,
+                              email : this.props.location.state.email
+                            }
+                            localStorage.setItem('auth', JSON.stringify(auth) );
+                             this.props.history.push('/dashboard');
                           }
                           this.setState({ loading: false });
                         } else {

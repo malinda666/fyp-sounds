@@ -49,15 +49,26 @@ export default class SoundForm2b extends React.Component {
       creativeURL:'',
       fileName:'',
       loading: false,
-      s3Path:''
+      s3Path:'',
+      auth: null
      
     }
   }
 
    componentDidMount(){
-      if(localStorage.getItem('user_dir')){
-        this.setState({user_dir : localStorage.getItem('user_dir')});
+      if(localStorage.getItem('auth')){
+        this.setState({auth : JSON.parse(localStorage.getItem('auth'))});
       }
+
+      if(localStorage.getItem('data')){
+        let data = JSON.parse(localStorage.getItem('data'));
+        this.setState({creativeURL : data.creativeURL, fileName : data.fileName, s3Path : data.audiofile, name : data.name}, () => {
+            let selectedCategory = this.options.filter(item => item.value == data.category);
+            if(selectedCategory.length >0)
+            this.setState({category: selectedCategory[0]});
+        });
+      }
+
     }
    showOpenFileDlg = () => {
         this.inputOpenFileRef.current.click()
@@ -84,7 +95,7 @@ export default class SoundForm2b extends React.Component {
   var ext = re.exec(file.name);
   if(ext[1] === 'wav' || ext[1] === 'mp3')
   {
-  let s3Path = this.state.user_dir + '/creative/sound/' + uuid_v4()+'.' +ext[1];
+  let s3Path = this.state.auth.user_dir + '/creative/sound/' + uuid_v4()+'.' +ext[1];
   this.setState({fileName : file.name});
   fileManagementService
       .uploadFile(s3Path, file.type)
@@ -129,6 +140,21 @@ export default class SoundForm2b extends React.Component {
       // toast.error('ERROR ' + JSON.stringify(error));
     }
 
+  }
+
+  navigateToNextPage(){
+    if(localStorage.getItem('data')){
+                  let data = JSON.parse(localStorage.getItem('data'));
+                  data.name = this.state.name;
+                  data.creativeURL = this.state.creativeURL;
+                  data.fileName = this.state.fileName;
+                  data.category = this.state.category ? this.state.category.value : '';
+                  data.content = data.status == 'yes' ? 'Explicit' : 'NonExplicit';
+                  data.stores = 'social media'
+                  data.audiofile = this.state.s3Path;
+                  localStorage.setItem('data', JSON.stringify(data));
+                  this.props.history.push('/soundReview');
+              }  
   }
 
   render() {
@@ -183,22 +209,7 @@ export default class SoundForm2b extends React.Component {
           <div className="nexticon-copy-7">
             <div className="upload-audio-file sofiapro-normal-white-30px">{uploadAudioFile}</div>
           </div>
-          <div className="nexticon-4eduM0" onClick={() => { this.props.history.push({
-                                                                pathname: '/soundReview',
-                                                                state: { 
-                                                                  name: this.state.name, 
-                                                                  coverImageURL : this.props.location.state.coverImageURL, 
-                                                                  title : this.props.location.state.title, 
-                                                                  creativeURL: this.state.creativeURL,
-                                                                  fileName : this.state.fileName,
-                                                                  category: this.state.category ? this.state.category.value : '',
-                                                                  content: this.props.location.state.status == 'yes' ? 'Explicit' : 'NonExplicit',
-                                                                  email : this.props.location.state.email,
-                                                                  albumcover: this.props.location.state.albumcover,
-                                                                  audiofile : this.state.s3Path
-                                                                }
-                                                                  });
-                                                              }}>
+          <div className="nexticon-4eduM0" onClick={this.navigateToNextPage.bind(this)}>
             <img className="rectangle-f4xscB" src={rectangle} />
             <img className="rectangle-JuxZGf" src={rectangle2} />
             <div className="next montserrat-semi-bold-white-20px">{next}</div>
@@ -232,6 +243,7 @@ export default class SoundForm2b extends React.Component {
             placeholder={inputPlaceholder}
             type={inputType}
             required={inputRequired}
+            value={this.state.name}
             onChange={this.handleFieldChange.bind(this)}
           />
         </div>

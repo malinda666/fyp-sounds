@@ -4,8 +4,8 @@ import './soundStep2.css'
 export default class SoundForm1b extends React.Component {
   constructor(props) {
     super(props);
-     
     }
+
   render() {
     const {
       oval,
@@ -32,10 +32,12 @@ export default class SoundForm1b extends React.Component {
           <img className="oval-6sb1qn" src={oval3} />
           <img className="oval-ovOecM" src={oval4} />
           <div className="nexticon-copy-1 animate-enter smart-layers-pointers" onClick={() => {
-                                                                                        this.props.history.push({
-                                                                                          pathname: '/soundStep3',
-                                                                                          state: { status: 'yes', coverImageURL : this.props.location.state.coverImageURL, albumcover: this.props.location.state.albumcover, title : this.props.location.state.title, email : this.props.location.state.email}
-                                                                                            });
+                                                                                        if(localStorage.getItem('data')){
+                                                                                          let data = JSON.parse(localStorage.getItem('data'));
+                                                                                          data.status = 'yes'
+                                                                                          localStorage.setItem('data', JSON.stringify(data));
+                                                                                          this.props.history.push('/soundStep3');
+                                                                                        }                                                                                        
                                                                                         }}>
             <img className="rectangle-ViqXFw" src={rectangle} />
             
@@ -44,10 +46,12 @@ export default class SoundForm1b extends React.Component {
             <div className="yes-17Ixfr montserrat-semi-bold-white-20px">{yes}</div>
           </div>
           <div className="nexticon-copy-2 animate-enter" onClick={() => {
-                                                              this.props.history.push({
-                                                                pathname: '/soundStep3',
-                                                                state: { status: 'no', coverImageURL : this.props.location.state.coverImageURL, albumcover: this.props.location.state.albumcover, title : this.props.location.state.title, email : this.props.location.state.email}
-                                                                  });
+                                                              if(localStorage.getItem('data')){
+                                                                                          let data = JSON.parse(localStorage.getItem('data'));
+                                                                                          data.status = 'no'
+                                                                                          localStorage.setItem('data', JSON.stringify(data));
+                                                                                          this.props.history.push('/soundStep3');
+                                                                                        }       
                                                               }}>
             <img className="rectangle-ViqXFw" src={rectangle3} />
            

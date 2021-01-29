@@ -5,8 +5,20 @@ export default class SoundReview extends React.Component {
    constructor(props) {     
     super(props);
     this.state={
-      name :''
-    }
+          category: '',
+          content: '',
+          fileName: '',
+          name:'',
+          title: '',
+          type: ''
+        }
+   }
+
+   componentDidMount(){
+     if(localStorage.getItem('data')){
+       let data = JSON.parse(localStorage.getItem('data'));
+        this.setState({category : data.category, content : data.content, fileName: data.fileName, name : data.name, title : data.title, type : data.type });
+      }
    }
   render() {
     const {
@@ -28,42 +40,26 @@ export default class SoundReview extends React.Component {
     return (
       <div className="soundsub">
         <h1 className="review montserrat-bold-rose-pearl-24px">{review}</h1>
-        <ClearCacheCopy {...{...clearCacheCopyProps, id:'creator', value : this.props.location?.state?.name}} />
-        <ClearCacheCopy {...{...clearCacheCopy2Props, id:'title', value : this.props.location?.state?.title}} className="clear-cache-copy-VMr6Om" />
+        <ClearCacheCopy {...{...clearCacheCopyProps, id:'creator', value : this.state?.name}} />
+        <ClearCacheCopy {...{...clearCacheCopy2Props, id:'title', value : this.state?.title}} className="clear-cache-copy-VMr6Om" />
         <div className="clear-cache-copy-awedTk">
           <div className="category sfprodisplay-regular-normal-granite-gray-20px">{category}</div>
-          <div className="funny sfprodisplay-regular-normal-pink-swan-15px">{this.props.location?.state?.category}</div>
+          <div className="funny sfprodisplay-regular-normal-pink-swan-15px">{this.state?.category}</div>
         </div>
         <div className="clear-cache-copy-awedTk">
           <div className="content sfprodisplay-regular-normal-granite-gray-20px">{content}</div>
-          <div className="explicit sfprodisplay-regular-normal-pink-swan-15px">{this.props.location?.state?.content}</div>
+          <div className="explicit sfprodisplay-regular-normal-pink-swan-15px">{this.state?.content}</div>
         </div>
-        <ClearCacheCopy3 {...{...clearCacheCopy3Props,  value : 'TikTok'}} />
+        <ClearCacheCopy3 {...{...clearCacheCopy3Props,  value : 'social media'}} />
         <div className="clear-cache-copy-">
           <div className="rectangle-19-copy-W5x3Ae"></div>
           <div className="rectangle-19-copy-W5x3Ae"></div>
           <div className="audio-file sfprodisplay-regular-normal-granite-gray-20px">{audioFile}</div>
-          <div className="mysoundwav sfprodisplay-regular-normal-pink-swan-15px">{this.props.location?.state?.fileName}</div>
+          <div className="mysoundwav sfprodisplay-regular-normal-pink-swan-15px">{this.state?.fileName}</div>
         </div>
         <ClearCacheCopy3 {...{...clearCacheCopy32Props,  value : 'sound'}} className="clear-cache-copy-5" />
         <div className="nexticon" style={{ backgroundImage: `url(${nextIcon})` }}  onClick={() => {
-                                                              this.props.history.push({
-                                                                pathname: '/warn4',
-                                                                state: {
-                                                                  name: this.props.location.state.name, 
-                                                                  coverImageURL : this.props.location.state.coverImageURL, 
-                                                                  title : this.props.location.state.title, 
-                                                                  creativeURL: this.props.location.state.creativeURL,
-                                                                  fileName : this.props.location.state.fileName,
-                                                                  category: this.props.location.state.category,
-                                                                  content: this.props.location.state.content,
-                                                                  email : this.props.location.state.email,
-                                                                  albumcover: this.props.location.state.albumcover,
-                                                                  audiofile : this.props.location.state.audiofile,
-                                                                  type: 'sound',
-                                                                  stores: 'TikTok'
-                                                                }
-                                                                  });
+                                                              this.props.history.push("/warn4");
                                                               }}>
           <div className="submit montserrat-semi-bold-white-20px">{submit}</div>
         </div>

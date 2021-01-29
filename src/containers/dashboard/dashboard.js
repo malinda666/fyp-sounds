@@ -153,7 +153,7 @@ export default class Soundsnewuser extends React.Component {
   let file = this.uploadInput.files[0]
   var re = /(?:\.([^.]+))?$/;
   var ext = re.exec(file.name);
-  let s3Path = this.state.user_dir + '/profile/' + uuid_v4()+'.' +ext[1];
+  let s3Path = this.state.auth.user_dir + '/profile/' + uuid_v4()+'.' +ext[1];
   
   fileManagementService
       .uploadFile(s3Path, file.type)
@@ -174,7 +174,7 @@ export default class Soundsnewuser extends React.Component {
             console.log('Response from s3');
             if (result.status === 200) {
               profileManagementService
-                .updateProfileImage(s3Path,this.props.location.state.email)
+                .updateProfileImage(s3Path,this.state.auth.email)
                 .then((profileUpdateResult) => {
                   if (profileUpdateResult.status == 200) {  
                     this.getUserProfile();               
@@ -212,10 +212,7 @@ export default class Soundsnewuser extends React.Component {
   }
 
   onSettingsClick(){
-     this.props.history.push({
-                    pathname: '/settigns',
-                    state: { email: this.props.location.state.email}
-                      });
+     this.props.history.push('/settigns');
    }
 
 
@@ -259,7 +256,7 @@ export default class Soundsnewuser extends React.Component {
         <div className="container-center-horizontal">
           <div className="buttons">
             <ul class="nav nav-tabs">
-                <li class="active">
+                <li class="active nav-item">
                   <a data-toggle="tab" href="#sounds">
                    <div className="sounds-Gt7Q7B">
                     <h1 className="ud83cudfb5 applecoloremoji-normal-granite-gray-30px">{Ud83CUdfb5}</h1>
@@ -268,7 +265,7 @@ export default class Soundsnewuser extends React.Component {
                    </div>
                   </a>
                 </li>
-                <li>
+                <li className="nav-item">
                   <a data-toggle="tab" href="#trends">
                      <div className="trends-Gt7Q7B smart-layers-pointers ">
                       <div className="trends-45jQMT sfprodisplay-regular-normal-mountain-mist-15px">{trends}</div>
@@ -276,7 +273,7 @@ export default class Soundsnewuser extends React.Component {
                     </div>
                   </a>
                 </li>
-                <li>
+                <li className="nav-item">
                   <a data-toggle="tab" href="#earnings">                    
                   <div className="earnings-Gt7Q7B smart-layers-pointers ">
                     <div className="earnings-pxqN5N sfprodisplay-regular-normal-mountain-mist-15px">{earnings}</div>
@@ -289,42 +286,48 @@ export default class Soundsnewuser extends React.Component {
               <div id="sounds" class="tab-pane fade in active">
                 <br/>
                  <div className="overlap-group3">
-          <div className="sound-5 smart-layers-pointers "></div>
-          <div className="sound-5-copy smart-layers-pointers "></div>
-          <div className="list animate-enter">
-            <div className="overlap-group1">
-              <div className="container">
-                <div className="row">                 
-               
-               {
-                 this.state.creativeList.map((creative) => {
-               
-                  return (
-                     <div className="col">
-                      <div className={`sound-${creative.index} smart-layers-pointers`} style={{ backgroundImage: `url(${creative.signedCoverURL})` }}>
-                        <img className="shape-1" src={creative.statusImageURL} />
+                  <div className="sound-5 smart-layers-pointers "></div>
+                  <div className="sound-5-copy smart-layers-pointers "></div>
+                  <div className="list animate-enter">
+                    <div className="overlap-group1">
+                      <div className="container">
+                        <div className="row">                 
+                      
+                      {
+                        this.state.creativeList.map((creative) => {
+                      
+                          return (
+                            <div className="col sound-wrap">
+                              <div className={`sound-${creative.index} smart-layers-pointers sound-inner-wrap`} style={{ backgroundImage: `url(${creative.signedCoverURL})` }}>
+                                <img className="shape-1" src={creative.statusImageURL} />
+                              </div>
+                            </div>
+                          );
+                        
+                        })}
+                        </div>
                       </div>
+                    
+                      {/* <div className="sound-2 smart-layers-pointers " style={{ backgroundImage: `url(${sound2})` }}>
+                        <img className="shape-1" src={shapeCopy3} />
+                      </div> */}
                     </div>
-                  );
-                 
-                })}
-                 </div>
-              </div>
-             
-              {/* <div className="sound-2 smart-layers-pointers " style={{ backgroundImage: `url(${sound2})` }}>
-                <img className="shape-1" src={shapeCopy3} />
-              </div> */}
-            </div>
-            {/* <div className="sound-3 smart-layers-pointers " style={{ backgroundImage: `url(${sound3})` }}>
-              <img className="shape-1" src={shapeCopy2} />
-            </div>
-            <div className="sound-4 smart-layers-pointers " style={{ backgroundImage: `url(${sound4})` }}>
-              <img className="shape-1" src={shapeCopy} />
-            </div>
-            <div className="sound-5-1 smart-layers-pointers " style={{ backgroundImage: `url(${sound5})` }}></div>
-            <div className="sound-6 smart-layers-pointers " style={{ backgroundImage: `url(${sound6})` }}></div> */}
+                      {/* <div className="sound-3 smart-layers-pointers " style={{ backgroundImage: `url(${sound3})` }}>
+                        <img className="shape-1" src={shapeCopy2} />
+                      </div>
+                      <div className="sound-4 smart-layers-pointers " style={{ backgroundImage: `url(${sound4})` }}>
+                        <img className="shape-1" src={shapeCopy} />
+                      </div>
+                      <div className="sound-5-1 smart-layers-pointers " style={{ backgroundImage: `url(${sound5})` }}></div>
+                      <div className="sound-6 smart-layers-pointers " style={{ backgroundImage: `url(${sound6})` }}></div> */}
+                    </div>
+                  </div>
+                   <div className="container-center-horizontal" onClick={() => {this.props.history.push('/newSound')}}>
+          <div className="new-sound-button animate-enter smart-layers-pointers ">
+            <img className="rectangle" src={rectangle} />
+            <div className="new-sound montserrat-semi-bold-white-20px">{NewSound}</div>
           </div>
-         </div>
+        </div>
               </div>
               <div id="trends" class="tab-pane fade">
                 <br/>
@@ -351,15 +354,7 @@ export default class Soundsnewuser extends React.Component {
             </div>
           </div>
         </div>
-        <div className="container-center-horizontal">
-          <div className="new-sound-button animate-enter smart-layers-pointers " onClick={() => {this.props.history.push({
-                                                                                                    pathname :'/newSound',
-                                                                                                    state : {email : this.props.location.state.email}
-                                                                                                    })}}>
-            <img className="rectangle" src={rectangle} />
-            <div className="new-sound montserrat-semi-bold-white-20px">{NewSound}</div>
-          </div>
-        </div>
+       
         {this.state.creativeList.length === 0 ?
         <div className="container-center-horizontal">
           <div className="upload-your-first-so montserrat-semi-bold-violet-red-25px">

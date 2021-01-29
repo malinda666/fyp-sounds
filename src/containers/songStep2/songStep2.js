@@ -12,8 +12,15 @@ export default class MusicForm3 extends React.Component {
       creatorName :'',
       authorName: '',
       producerName:'',
-      featuringArtist:''
+      featuringArtist:'',
+      stores:''
 
+    }
+  }
+  componentDidMount(){
+    if(localStorage.getItem('data')){
+        let data = JSON.parse(localStorage.getItem('data'));  
+        this.setState({stores : data.stores, creatorName : data.name, authorName: data.authorName, producerName: data.producerName, featuringArtist : data.featuringArtist})  ;  
     }
   }
 
@@ -73,7 +80,7 @@ export default class MusicForm3 extends React.Component {
         <h1 className="publish-audio-to sofiapro-normal-white-30px">{publishAudioTo}</h1>
         <img className="oval-QxM5SU" src={oval4} />
         <div className="nexticon-copy-2">
-          <div className="all-stores montserrat-light-white-20px">{this.props.location?.state?.store}</div>
+          <div className="all-stores montserrat-light-white-20px">{this.state?.stores}</div>
         </div>
         <div className="nexticon-copy-5">
           <div className="yes montserrat-light-white-20px">{yes}</div>
@@ -91,6 +98,7 @@ export default class MusicForm3 extends React.Component {
           type={inputType}
           required={inputRequired}
           onChange={this.handleFieldChange.bind(this)}
+          value={this.state.creatorName}
         />
           </div>
        
@@ -105,31 +113,28 @@ export default class MusicForm3 extends React.Component {
           type={inputType2}
           required={inputRequired2}
           onChange={this.handleFieldChange.bind(this)}
+          value={this.state.authorName}
         />
           </div>
        
-        <NexticonCopy7 {...{...nexticonCopy7Props, handleFieldChange : event => this.handleFieldChange(event), id: 'producerName'}} />
+        <NexticonCopy7 {...{...nexticonCopy7Props, handleFieldChange : event => this.handleFieldChange(event), id: 'producerName', value: this.state.producerName}} />
         <div className="nexticon" onClick={()=>{
-                                                                                this.props.history.push({
-                                                                                pathname: '/songStep3',
-                                                                                state: { 
-                                                                                  store: this.props.location.state.store, 
-                                                                                  coverImageURL : this.props.location.state.coverImageURL, 
-                                                                                  albumcover: this.props.location.state.albumcover,
-                                                                                  title : this.props.location.state.title, 
-                                                                                  email : this.props.location.state.email,
-                                                                                  featuringArtist : this.state.featuringArtist,
-                                                                                  producerName: this.state.producerName,
-                                                                                  creatorName: this.state.creatorName,
-                                                                                  authorName: this.state.authorName
-                                                                                }})
+          if(localStorage.getItem('data')){
+            let data = JSON.parse(localStorage.getItem('data')); 
+             data.featuringArtist = this.state.featuringArtist;
+             data.authorName = this.state.authorName;
+             data.producerName = this.state.producerName;
+             data.name = this.state.creatorName;
+             localStorage.setItem('data', JSON.stringify(data));
+             this.props.history.push('/songStep3');
+          }
                                                                                 }}>
           <img className="rectangle-rGr1Cp" src={rectangle} />
           <img className="rectangle-xd37is" src={rectangle2} />
           <div className="next montserrat-semi-bold-white-20px">{next}</div>
         </div>
        
-        <NexticonCopy7 {...{...nexticonCopy72Props, handleFieldChange : event => this.handleFieldChange(event), id: 'featuringArtist'}} className="nexticon-copy-8" />    
+        <NexticonCopy7 {...{...nexticonCopy72Props, handleFieldChange : event => this.handleFieldChange(event), id: 'featuringArtist', value: this.state.featuringArtist}} className="nexticon-copy-8" />    
       
       </div>
     );
@@ -161,6 +166,7 @@ class NexticonCopy7 extends React.Component {
           type='text'
           required={true}
           onChange={this.props.handleFieldChange}
+          value={this.props.value}
         />
         </div>
     );

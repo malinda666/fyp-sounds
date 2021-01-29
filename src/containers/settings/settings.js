@@ -1,6 +1,12 @@
 import React from "react";
 import './settings.css'
 import profileManagementService from "../../services/profileManagementService";
+import userManagementService from '../../services/userManagementService';
+import HashLoader from 'react-spinners/HashLoader';
+import LoadingOverlay from "react-loading-overlay";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import config from "../../config/index";
 
 export default class Settings extends React.Component {
 
@@ -13,20 +19,20 @@ export default class Settings extends React.Component {
           name: '',
           dateOfBirth: '',
           tikTokUser:'',
-          payPal:''
+          payPal:'',
+          auth: null
         }
     }
   
   componentDidMount(){
-     if(localStorage.getItem('user_dir')){
-        this.setState({user_dir : localStorage.getItem('user_dir')});
+     if(localStorage.getItem('auth')){
+        this.setState({auth : JSON.parse(localStorage.getItem('auth'))}, () =>  this.getUserProfile());
       }
-      this.getUserProfile();
   }
 
       getUserProfile() {
     profileManagementService
-      .get(this.props.location?.state?.email)
+      .get(this.state.auth.email)
       .then((res) => {
         if (res.status === 200) {
           if (res.data.Item != null){
@@ -62,7 +68,7 @@ export default class Settings extends React.Component {
    save = () => {
      this.setState({ loading: true });
       profileManagementService
-      .updateProfile(this.props.location.state.email, this.state.name, this.state.dateOfBirth, this.state.payPal, this.state.tikTokUser)
+      .updateProfile(this.state.auth.email, this.state.name, this.state.dateOfBirth, this.state.payPal, this.state.tikTokUser)
         .then((result) => {
           if (result.status === 200) {
             if (result.data.Item != null) {
@@ -84,6 +90,40 @@ export default class Settings extends React.Component {
    logout(){
      localStorage.clear();
      this.props.history.push('/login')
+   }
+
+   changePassword(){
+      this.setState({
+        loading: true
+      });
+      let authObject = {
+        ClientId: config.CLIENT_ID,
+        Username: this.state.auth.email,
+      };
+           userManagementService
+              .changePassword(authObject)
+              .then((res) => {
+                if (res.status === 200) {
+                  if (res.data.CodeDeliveryDetails == null) {
+                    this.setState({ loading: false, errorMessage: res.code });
+                  } else {
+
+                    this.props.history.push({
+                          pathname: '/verifyPassword',
+                          state: { email: this.state.auth.email}
+                            });
+                    this.setState({ loading: false });
+                    toast.success('Confirmation code sent to ' + this.state.email);
+                  }
+                } else {
+                  this.setState({ loading: false });
+                  toast.error('Unable to change user password, please contact administrator');
+                }
+              })
+              .catch((err) => {
+                this.setState({ loading: false });
+                toast.error('Unable to change user password, please contact administrator.');
+              });
    }
 
   render() {
@@ -127,13 +167,14 @@ export default class Settings extends React.Component {
     let defaultDate= new Date();
 
     return (
+       <LoadingOverlay
+          active={this.state.loading}
+          spinner={<HashLoader color={"#f24b76"} size={100}/>}
+        >
       <form className="settings" name="form1" action="form1" method="post">
         <div className="auto-flex-C61RwL">
           <div className="top-bar">
-            <div className="back-icon" onClick={ () => { this.props.history.push({
-                    pathname: '/dashboard',
-                    state: { email: this.props.location.state.email}
-                      })}}>
+            <div className="back-icon" onClick={ () => { this.props.history.push('/dashboard')}}>
               <img className="back-chevron-S8W5J0" src={backChevron}  />
             </div>
           </div>
@@ -153,24 +194,22 @@ export default class Settings extends React.Component {
             defaultValue={defaultDate}
             onChange={this.handleFieldChange.bind(this)}></input>
         </div>
-        <ClearCacheCopy {...{...clearCacheCopyProps, handleFieldChange : event => this.handleFieldChange(event), value : this.props.location?.state?.email, id : 'email', readOnly: true}} />
-        <ClearCacheCopy {...{...clearCacheCopy2Props, handleFieldChange : event => this.handleFieldChange(event), value : this.state.tikTokUser, id:'tikTokUser', readOnly: false}} />
+        <ClearCacheCopy {...{...clearCacheCopyProps, handleFieldChange : event => this.handleFieldChange(event), value : this.state.auth? this.state.auth.email : '', id : 'email', readOnly: true}} />
+        <ClearCacheCopy {...{...clearCacheCopy2Props, handleFieldChange : event => this.handleFieldChange(event), value : this.state.tikTokUser , id:'tikTokUser', readOnly: false}} />
         <div className="clear-cache-copy-Brk1wZ">
-          <div className="password-wrap sfprodisplay-regular-normal-granite-gray-20px">{password}</div>
-          <input
-            className="text-9XXxfm sfprodisplay-regular-normal-pink-swan-15px password-input"
-            name={inputName4}
-            placeholder={inputPlaceholder4}
-            type='password'
-            required={inputRequired4}
-            readOnly
-          />
+          <div className="password-wrap sfprodisplay-regular-normal-granite-gray-20px">Change Password</div>
+           <a >
+            <div className="group" onClick={this.changePassword.bind(this)}>
+              <img className="back-chevron-1VxUKy" src={backChevron2} />
+              <div className="rectangle-10 hidden "></div>
+            </div>
+          </a>
         </div>
         <div className="clear-cache">
           <div className="rectangle-19-copy"></div>
           <div className="rectangle-19-copy"></div>
           <div className="paypal sfprodisplay-regular-normal-granite-gray-20px">{paypal}</div>
-            <input type="text" id="name" name="name"
+            <input type="text" id="payPal" name="payPal" className="text-pay-pal paylalcom sfprodisplay-regular-normal-pink-swan-15px"
             value={this.state.payPal}
             onChange={this.handleFieldChange.bind(this)}></input>
           {/* <input
@@ -182,7 +221,7 @@ export default class Settings extends React.Component {
             required={inputRequired5}
             value={this.state.payPal}
           /> */}
-          <img className="shape" src={shape} />
+          {/* <img className="shape" src={shape} /> */}
         </div>
         <div className="clear-cache">
           <div className="rectangle-19-copy"></div>
@@ -201,6 +240,7 @@ export default class Settings extends React.Component {
           </div>
       
       </form>
+      </LoadingOverlay>
     );
   }
 }
