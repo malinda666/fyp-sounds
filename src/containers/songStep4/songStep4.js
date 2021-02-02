@@ -90,6 +90,7 @@ uploadCreative = () => {
 this.setState({loading : true});
 console.log(this.uploadInput.files[0]);
 let file = this.uploadInput.files[0]
+ if(file != null && file != undefined && file!= {} ) {
 var re = /(?:\.([^.]+))?$/;
 var ext = re.exec(file.name);
 if(ext[1] === 'wav' || ext[1] === 'mp3')
@@ -138,6 +139,9 @@ fileManagementService
   else{
     // toast.error('ERROR ' + JSON.stringify(error));
   }
+  }
+  else this.setState({loading : false});
+
 
 }
 

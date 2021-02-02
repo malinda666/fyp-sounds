@@ -3,6 +3,7 @@ import './soundStep3.css';
 import Select from 'react-select';
 import fileManagementService from "../../services/fileManagementService";
 import uploadManagementService from "../../services/uploadManagementService";
+import creativeManagementService from '../../services/creativeManagementService';
 import { v4 as uuid_v4 } from "uuid";
 import HashLoader from 'react-spinners/HashLoader'
 import LoadingOverlay from "react-loading-overlay";
@@ -50,7 +51,8 @@ export default class SoundForm2b extends React.Component {
       fileName:'',
       loading: false,
       s3Path:'',
-      auth: null
+      auth: null,
+      coverURL :''
      
     }
   }
@@ -62,7 +64,7 @@ export default class SoundForm2b extends React.Component {
 
       if(localStorage.getItem('data')){
         let data = JSON.parse(localStorage.getItem('data'));
-        this.setState({creativeURL : data.creativeURL, fileName : data.fileName, s3Path : data.audiofile, name : data.name}, () => {
+        this.setState({creativeURL : data.creativeURL, fileName : data.fileName ? data.fileName : '', s3Path : data.audiofile, name : data.name, coverURL : data.albumcover}, () => {
             let selectedCategory = this.options.filter(item => item.value == data.category);
             if(selectedCategory.length >0)
             this.setState({category: selectedCategory[0]});
@@ -91,6 +93,7 @@ export default class SoundForm2b extends React.Component {
   this.setState({loading : true});
   console.log(this.uploadInput.files[0]);
   let file = this.uploadInput.files[0]
+  if(file != null && file != undefined && file!= {} ) {
   var re = /(?:\.([^.]+))?$/;
   var ext = re.exec(file.name);
   if(ext[1] === 'wav' || ext[1] === 'mp3')
@@ -139,13 +142,17 @@ export default class SoundForm2b extends React.Component {
     else{
       // toast.error('ERROR ' + JSON.stringify(error));
     }
+  }
+  else this.setState({loading : false});
 
   }
 
   navigateToNextPage(){
+    this.setState({loading : true});
     if(localStorage.getItem('data')){
                   let data = JSON.parse(localStorage.getItem('data'));
                   data.name = this.state.name;
+                  data.creator = this.state.name;
                   data.creativeURL = this.state.creativeURL;
                   data.fileName = this.state.fileName;
                   data.category = this.state.category ? this.state.category.value : '';
@@ -153,7 +160,47 @@ export default class SoundForm2b extends React.Component {
                   data.stores = 'social media'
                   data.audiofile = this.state.s3Path;
                   localStorage.setItem('data', JSON.stringify(data));
-                  this.props.history.push('/soundReview');
+                  data.fyp_status = 'draft';
+                  data.dashgo_status = 'draft';
+                  data.email = this.state.auth.email;
+                  data.audioFileURL = this.state.s3Path;
+                  data.coverURL = this.state.coverURL;
+                  if(data.id != '' && data.id != null && data.id != undefined){
+                       creativeManagementService.updateCreative( data, 'soundUpdate')
+                        .then(res => {
+                          if(res.status === 200){
+                            this.setState({loading : false});  
+                            this.props.history.push('/soundReview');  
+                          }
+                          else{
+                              this.setState({ loading: false });
+                            }
+                        }).catch((error) => {
+                        this.setState({ loading: false });
+                      });      
+                  }
+                  else {
+                  creativeManagementService.create(data).then((result) => {
+                    if (result.status == 200) 
+                    {   
+                      
+                       let data = JSON.parse(localStorage.getItem('data'));
+                       data.id = result.data.creativeId;
+                      localStorage.setItem('data', JSON.stringify(data));
+                      this.setState({loading : false});  
+                       this.props.history.push('/soundReview');     
+                    }
+                    else
+                    {
+                      //toast.error('ERROR : Unable to upload document');  
+                      this.setState({ loading: false });
+                    }
+                }).catch((error) => {
+                    this.setState({ loading: false });
+                    //// toast.error('ERROR ' + JSON.stringify(error));
+                  });
+              }
+                 
               }  
   }
 
@@ -221,7 +268,8 @@ export default class SoundForm2b extends React.Component {
             <label for="fileChoose">
           <img className="rectangle-4eduM0" src={rectangle3} />
           <img className="rectangle-BJQsbv" src={rectangle4} />
-          <img className="upload" src={upload} />
+          {this.state.fileName != '' ? <span className ="filename">{this.state.fileName}</span> :  <img className="upload" src={upload} />}
+         
           </label>
           <input 
                 id="fileChoose"

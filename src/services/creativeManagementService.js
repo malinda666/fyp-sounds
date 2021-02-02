@@ -24,10 +24,33 @@ class CreativeManagementService{
             })
     }
 
+    static async updateCreative(data, type){
+        let url = config.AWS_API;
+        data.type  = type;
+       
+        return await axios.put(url + 'Creative', data )
+            .then(res => {
+            return res;
+            }).catch(err => {
+                throw err;
+            })
+    }
+
     static async get(email){
         let url = config.AWS_API;
        
         return await axios.get(url + 'Creative?email=' + email)
+         .then(res => {
+            return res;
+            }).catch(err => {
+                throw err;
+            })
+    }
+
+    static async getById(id){
+        let url = config.AWS_API;
+       
+        return await axios.get(url + 'Creative/' + encodeURIComponent(id))
          .then(res => {
             return res;
             }).catch(err => {

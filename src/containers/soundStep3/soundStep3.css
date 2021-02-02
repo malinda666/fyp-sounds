@@ -347,7 +347,7 @@
     background-color: transparent;
     border: 0;
     height: 30px;
-    left: 494px;
+    left: 398px;
     letter-spacing: 0px;
     line-height: 24px;
     padding: 0;
@@ -355,7 +355,7 @@
     resize: none;
     text-align: center;
     top: 798px;
-    width: 57px;
+    width: 250px;
 }
 
 .soundform2b .text-type::placeholder {
@@ -368,6 +368,15 @@
     left: 508px;
     position: absolute;
     top: 1021px;
+    width: 28px;
+}
+
+.soundform2b .filename {
+    background-color: transparent;
+    height: 28px;
+    left: 430px;
+    position: absolute;
+    top: 1025px;
     width: 28px;
 }
 

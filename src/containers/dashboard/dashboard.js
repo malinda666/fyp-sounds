@@ -33,6 +33,7 @@ export default class Soundsnewuser extends React.Component {
         this.setState({auth : JSON.parse(localStorage.getItem('auth'))}, () => {
           this.getDashboardItems();
           this.getUserProfile();
+          localStorage.setItem('data','');
         });
       }
       if(localStorage.getItem('user_dir')){
@@ -215,6 +216,48 @@ export default class Soundsnewuser extends React.Component {
      this.props.history.push('/settigns');
    }
 
+  selectCreative(id, status) {
+    if(status === 'draft'){
+    this.setState({loading : true});
+    creativeManagementService.getById(id)
+    .then((res) => {
+      if(res.status === 200){
+         if(res.data.Items != null && res.data.Items.length > 0){ 
+           let item = res.data.Items[0];
+           let data = {
+             id : item.SK,
+             name : item.creator,
+             title : item.title,
+             category : item.category,
+             content : item.content,
+             stores : item.stores,
+             audiofile : item.audioFileURL,
+             albumcover : item.coverURL,
+             type : item.type,
+             authorName : item.author,
+             producerName : item.producer,
+             featuringArtist: item.featured_artist,
+             fileName : item.fileName
+           }
+
+           localStorage.setItem('data',JSON.stringify(data));
+           this.props.history.push('/newSound');
+           this.setState({loading : false});
+
+         }
+         else
+          this.setState({loading : true});
+        }
+        else
+        this.setState({loading : true});
+      
+    }).catch((error) => {
+        this.setState({ loading: false });
+        //toast.error(JSON.stringify(error));
+      });
+    }
+  }
+
 
   render() {
     const {
@@ -297,7 +340,9 @@ export default class Soundsnewuser extends React.Component {
                         this.state.creativeList.map((creative) => {
                       
                           return (
-                            <div className="col sound-wrap">
+                            <div className="col sound-wrap" onClick={() => {
+                                     this.selectCreative(creative.SK, creative.fyp_status);
+                                 }}>
                               <div className={`sound-${creative.index} smart-layers-pointers sound-inner-wrap`} style={{ backgroundImage: `url(${creative.signedCoverURL})` }}>
                                 <img className="shape-1" src={creative.statusImageURL} />
                               </div>
@@ -367,6 +412,7 @@ export default class Soundsnewuser extends React.Component {
           <div className="group">
             <img className="path-3" src={path3} />
             <img className="path-3-copy" src={path3Copy} />
+            <label for="fileChoose">
             {this.state.profileURL ?
              <img
              className="oval-5"
@@ -379,14 +425,20 @@ export default class Soundsnewuser extends React.Component {
                     }}
                   /> :
             <img className="oval-5" src={oval5} />  }
+             
              {!this.state.profileURL ?
             <div className="upload smart-layers-pointers ">
-            <label for="fileChoose">
+           
               <img className="shape-uBeRw7" src={shape} />
               <img className="shape-vFHiyd" src={shape2} />
               <img className="path" src={path} />
-            </label>
-               <input 
+           
+                  
+            </div> : null}
+             </label>
+            <Settingiconwhite {...{...settingiconwhiteProps , onSettingsClick : () => this.onSettingsClick()}}  />
+          </div>
+          <input 
                 id="fileChoose"
                 className="dropzone"
                               type='file'
@@ -395,10 +447,7 @@ export default class Soundsnewuser extends React.Component {
                                 this.uploadInput = ref;
                               }}
                               onChange={this.uploadProfileImage.bind(this)}
-                            />              
-            </div> : null}
-            <Settingiconwhite {...{...settingiconwhiteProps , onSettingsClick : () => this.onSettingsClick()}}  />
-          </div>
+                            />           
         </div>
         <div className="container-center-horizontal">
           <div className="footer">

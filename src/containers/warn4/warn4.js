@@ -20,12 +20,7 @@ export default class Warn4 extends React.Component {
      if(localStorage.getItem('data')){
        let data = JSON.parse(localStorage.getItem('data'));
         this.setState({data : data });
-        if(data.type == 'sound'){
-        this.setState({ returnURL : '/soundReview'});
-      }
-      else {
-        this.setState({ returnURL : '/musicReview'});
-      }
+     
       }
         if(localStorage.getItem('auth')){
        let auth = JSON.parse(localStorage.getItem('auth'));
@@ -58,11 +53,28 @@ export default class Warn4 extends React.Component {
       featured_artist : this.state.data.featuringArtist,      
       albumcover: this.state.data.albumcover,
       audiofile : this.state.data.audiofile,
+      filename : this.state.data.fileName,
+       id : this.state.data.id,
       fyp_status : 'pending',
       dashgo_status : 'draft_complete'
      }
-      this.setState({ loading: true });
-     creativeManagementService.create(data).then((result) => {
+    this.setState({ loading: true });
+    if(this.state.data != '' && this.state.data.id != '' && this.state.data.id != null){
+      creativeManagementService.updateCreative( data, 'SongUpdate')
+        .then(res => {
+          if(res.status === 200){
+             localStorage.removeItem('data');
+                this.props.history.push('/warn5');
+          }
+           else{
+              this.setState({ loading: false });
+            }
+        }).catch((error) => {
+        this.setState({ loading: false });
+      });      
+    }
+    else {
+      creativeManagementService.create(data).then((result) => {
         if (result.status == 200) 
         {     
           localStorage.removeItem('data');
@@ -78,6 +90,9 @@ export default class Warn4 extends React.Component {
          //// toast.error('ERROR ' + JSON.stringify(error));
        });
  
+
+    }
+     
    }
 
   saveSoundData = () => {
@@ -93,11 +108,28 @@ export default class Warn4 extends React.Component {
       type : this.state.data.type,
      albumcover: this.state.data.albumcover,
       audiofile : this.state.data.audiofile,
+      id : this.state.data.id,
+      fileName : this.state.data.fileName,
      fyp_status : 'pending',
      dashgo_status : 'draft_complete'
     }
-     this.setState({ loading: true });
-    creativeManagementService.create(data).then((result) => {
+this.setState({ loading: true });
+    if(this.state.data != '' && this.state.data.id != '' && this.state.data.id != null){
+        creativeManagementService.updateCreative(data, 'soundUpdate')
+        .then(res => {
+          if(res.status === 200){
+             localStorage.removeItem('data');
+                this.props.history.push('/warn5');
+          }
+           else{
+              this.setState({ loading: false });
+            }
+        }).catch((error) => {
+        this.setState({ loading: false });
+      });      
+    }
+    else {
+      creativeManagementService.create(data).then((result) => {
        if (result.status == 200) 
        {        
          neosAPIManagementService.create(data,'sound').then((res) => {
@@ -124,6 +156,11 @@ export default class Warn4 extends React.Component {
         this.setState({ loading: false });
         //// toast.error('ERROR ' + JSON.stringify(error));
       });
+
+    }
+
+     
+    
 
     
   }
@@ -186,7 +223,7 @@ export default class Warn4 extends React.Component {
             </div>
            
               <div className="nexticon-copy-2 animate-enter" onClick={() => {
-                                                              this.props.history.push( this.state.returnURL);
+                                                              this.props.history.push( '/dashboard');
                                                               }}>
                 <img className="rectangle-0Ttflx" src={rectangle4} />
                 <a >
