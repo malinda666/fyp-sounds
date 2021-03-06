@@ -3,6 +3,8 @@ import './faq.css'
 import {
   Link
 } from 'react-router-dom';
+import Header from '../../components/header'
+import Footer from '../../components/footer'
 
 export default class FAQ extends React.Component {
   render() {
@@ -52,49 +54,10 @@ export default class FAQ extends React.Component {
           <div className="question-mzXdH9 montserrat-bold-rose-pearl-24px">{question3}</div>
         </div>
         <div className="container-center-horizontal">
-          <p className="lorem-ipsu--si-copy-3 montserrat-light-mountain-mist-14px">{loremIpsumDolorSiCopy3}</p>
+          <Header/>
         </div>
         <div className="container-center-horizontal">
-          <div className="question-QxM5SU montserrat-bold-rose-pearl-24px">{question4}</div>
-        </div>
-        <div className="container-center-horizontal">
-          <div className="group">
-            <img className="oval-NOXmfT" src={oval} />
-            <img className="oval-E582nk" src={oval2} />
-            <Fypsoundslogo {...fypsoundslogoProps} />
-          </div>
-        </div>
-        <div className="container-center-horizontal">
-          <div className="footer">
-            <div className="overlap-group">
-              <img className="oval-4K0abD" src={oval3} />
-              <div className="group-5">
-                <About {...aboutProps} />
-                <div className="container-center-horizontal footer-items">
-                  <Link to="/faq" className="full-height-a">
-                    <p className="footer-items-devider">|</p>
-                    <div className="montserrat-semi-bold-white-14px">{faq}</div>
-                  </Link>
-                </div>
-                <div className="container-center-horizontal footer-items">
-                   <Link to="/contact" className="full-height-a">
-                  <p className="footer-items-devider">|</p>
-                  <div className="montserrat-semi-bold-white-14px">{contact}</div>
-                  </Link>
-                </div>
-                <div className="container-center-horizontal footer-items">
-                   <Link to="/policy" className="full-height-a">
-                  <p className="footer-items-devider">|</p>
-                  <div className="montserrat-semi-bold-white-14px">{privacyPolicy}</div>
-                  </Link>
-                </div>
-              </div>
-            </div>
-            <Fypsoundslogo2 {...fypsoundslogo2Props} />
-            <div className="container-center-horizontal">
-              <p className="copyright--51-2021-al montserrat-normal-white-13px">{copyright2512021Al}</p>
-            </div>
-          </div>
+          <Footer/>
         </div>
       </div>
     );

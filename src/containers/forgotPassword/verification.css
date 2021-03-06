@@ -56,11 +56,10 @@
     background-color: white;
     display: flex;
     flex-direction: column;
-    height: auto;
+    height: 100vh;
     justify-content: flex-start;
-    min-height: 896px;
-    padding: 16px 0;
-    width: 414px;
+    width: 100vw;
+    overflow:hidden;
 }
 
 .password .auto-flex-C61RwL {
@@ -71,10 +70,13 @@
     flex-direction: row;
     flex-shrink: 0;
     height: 29px;
-    justify-content: flex-start;
-    margin-left: 26px;
-    min-width: 255px;
+    justify-content: center;
+    min-width: calc((100vw / 2) + 9rem);
     width: auto;
+    position:absolute;
+    left:50%;
+    top:30px;
+    transform:translateX(-50%);
 }
 
 .password .back-chevron {
@@ -91,11 +93,9 @@
     flex-direction: row;
     flex-shrink: 0;
     height: 68px;
-    justify-content: flex-start;
+    justify-content: space-between;
     margin-top: 15px;
-    min-width: 414px;
-    padding: 18px 22px;
-    width: auto;
+    width: calc((100vw / 2) + 9rem);
 }
 
 .password .clear-cache-copy-2 {
@@ -148,6 +148,9 @@
     min-width: 192px;
     padding: 0 72px;
     width: auto;
+    position:absolute;
+    z-index: 2;
+    cursor: pointer;
 }
 
 .password .old-password {
@@ -169,6 +172,7 @@
     margin-top: 0px;
     position: relative;
     width: 414px;
+    display:none;
 }
 
 .password .overlap-group1-C61RwL {
@@ -180,16 +184,15 @@
     width: 250px;
 }
 
-.password .password {
+.password .password-heading {
     background-color: transparent;
     flex-shrink: 0;
     height: auto;
     letter-spacing: 0px;
     line-height: 29px;
-    margin-left: 118px;
     min-height: 29px;
-    min-width: 135px;
-    text-align: left;
+    min-width: 75%;
+    text-align: center;
     white-space: nowrap;
     width: auto;
 }
@@ -266,7 +269,6 @@
 }
 
 .password .text {
-    align-self: flex-end;
     background-color: transparent;
     border: 0;
     flex-shrink: 0;

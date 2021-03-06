@@ -69,7 +69,7 @@ export default class MusicForm2 extends React.Component {
           </div>
         </div>
         <div className="container-center-horizontal">
-          <div className="btn-yes nexticon-copy- animate-enter2 smart-layers-pointers ">
+          <div className="nexticon-copy-text animate-enter2 smart-layers-pointers ">
             <div className="yes montserrat-light-white-20px">{yes}</div>
           </div>
         </div>

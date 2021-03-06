@@ -58,12 +58,22 @@
     background-color: var(--anakiwa);
     height: 100vh;
     margin: 0px;
-    min-height: 896px;
-    min-width: 414px;
+    overflow:hidden;
     position: relative;
     width: 100%;
 }
-
+.soundform1b .btn-wrapper{
+    position: absolute;
+    left:50%;
+    transform:translateX(-50%);
+    top:320px;
+    width:fit-content;
+    display:flex;
+    justify-content:space-between;
+}
+.soundform1b .btn-wrapper > div {
+    margin : 0 0.5rem;
+}
 .soundform1b .are-you-the-owner-of {
     background-color: transparent;
     height: auto;
@@ -100,10 +110,7 @@
     background-color: transparent;
     display: block;
     height: 41px;
-    left: 349px;
     pointer-events: auto;
-    position: absolute;
-    top: 691px;
     transition: all 0.2s ease-in-out;
     width: 146px;
 }
@@ -124,12 +131,9 @@
     background-color: transparent;
     display: block;
     height: 41px;
-    left: 549px;
-    position: absolute;
-    top: 691px;
+    pointer-events: auto;
+    transition: all 0.2s ease-in-out;
     width: 146px;
-    opacity: 0;
-    transform: scale(1.1);
 }
 
 .soundform1b .nexticon-copy-:hover {

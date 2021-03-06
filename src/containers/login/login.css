@@ -17,10 +17,10 @@
 
 .loginerrormessages {
     background-color: white;
-    height: 100vh;
+    height: 100%;
     margin: 0px;
-    min-height: 896px;
-    min-width: 414px;
+    min-height: 100vh;
+    overflow:hidden;
     position: relative;
     width: 100%;
 }
@@ -188,7 +188,7 @@
     line-height: 14px;
     position: fixed;
     text-align: center;
-    top: 500px;
+    top: 475px;
     width: 321px;
 }
 
@@ -273,14 +273,15 @@
     background-color: transparent;
     height: auto;
     letter-spacing: 0px;
-    line-height: 17px;
+    line-height: 1;
     margin-left: -0px;
     margin-right: 0px;
     position: fixed;
     text-align: center;
     top: 100px;
-    white-space: nowrap;
+    white-space: wrap;
     width: 309px;
+    font-size:12px;
 }
 
 .loginerrormessages .nexticon {
@@ -315,7 +316,6 @@
     height: auto;
     letter-spacing: 0px;
     line-height: 36px;
-    min-height: 36px;
     min-width: 37px;
     text-align: center;
     white-space: nowrap;
@@ -353,7 +353,6 @@
     background-color: transparent;
     flex-shrink: 0;
     height: 33px;
-    margin-top: 12px;
     position: relative;
     width: 311px;
 }
@@ -363,16 +362,17 @@
     flex-shrink: 0;
     height: 54px;
     margin-right: 1px;
-    margin-top: 18px;
+    margin-top: 12px;
     position: relative;
     width: 192px;
+    cursor:pointer;
 }
 
 .loginerrormessages .overlap-group1 {
     background-color: transparent;
     flex-shrink: 0;
     height: 33px;
-    margin-top: 24px;
+    margin-top: 12px;
     position: relative;
     width: 311px;
 }
@@ -440,6 +440,7 @@
     font-style: normal;
     font-weight: 700;
     line-height: 18px;
+    cursor:pointer;
 }
 
 .loginerrormessages .text {

@@ -77,17 +77,23 @@
 }
 
 .soundsnewuser {
+    align-items: center;
     background-color: white;
+    display: flex;
+    flex-direction: column;
     height: 100vh;
-    margin: 0px;
-    min-height: 896px;
-    min-width: 414px;
-    position: relative;
+    min-height:100vh;
+    justify-content: center;
+    padding: 16px 22px;
     width: 100%;
+    overflow:hidden;
 }
 
 .soundsnewuser .container {
     width: 100%;
+    padding:0;
+    margin: 0;
+    height:100%;
 }
 
 .soundsnewuser .about-IlweIA {
@@ -120,28 +126,53 @@
 .soundsnewuser .buttons {
     background-color: transparent;
     height: 73px;
-    margin-left: 3px;
-    margin-right: -3px;
     position: fixed;
     top: 119px;
-    width: auto;
+    width:calc((100vw / 2) + 5rem);
 }
 
 .soundsnewuser .nav-item {
     width: 33%;
 }
-
+.soundsnewuser .nav-item::after{
+    position: absolute;
+    content: "";
+    left:50%;
+    transform: translateX(-50%);
+    height: 4px;width: 40%;
+    bottom: 20%;
+    background-color: var(--bright-turquoise);
+    border-radius: 1rem;
+    opacity: 0;
+}
+.soundsnewuser .nav-item.active::after{
+    opacity: 1;
+}
+.soundsnewuser .nav-item.active > a > div > div {
+    font-weight: 900;
+    color: #000;
+}
 .soundsnewuser .sound-wrap .sound-inner-wrap{
- margin-right: 14px;
+ 
  left: auto;
  top: auto;
 }
 
 .soundsnewuser .sound-wrap{
-    margin: 10px;
-    display: inline-block;
-    width: 100px;
-    height: 100px;
+    position: relative;
+    height:100%;
+    width:100%;
+   }
+   .soundsnewuser .sound-wrap > div{
+    position: relative;
+    height:100%;
+    width:100%;
+    background-position:center;
+    background-size: cover;
+    margin: 0;
+    border-radius: .5rem;
+    transition: transform 0.2s ease-in-out;
+    z-index: inherit;
    }
 
 .soundsnewuser .contact {
@@ -181,8 +212,9 @@
     width: 54px;
 }
 
-.soundsnewuser .earnings-Gt7Q7B:hover {
-    transform: scale(1.1);
+.soundsnewuser .sound-wrap > div:hover {
+    transform: scale(1.05);
+    z-index: 2;
 }
 
 .soundsnewuser .earnings-pxqN5N {
@@ -245,11 +277,13 @@
 .soundsnewuser .group {
     background-color: transparent;
     height: 244px;
-    margin-left: 28px;
-    margin-right: -28px;
     position: fixed;
     top: -114px;
-    width: 1322px;
+    left:0;
+    width: 100%;
+    min-width:100vw;
+    display:flex;
+    justify-content:center;
 }
 
 .soundsnewuser .group-5 {
@@ -276,7 +310,7 @@
 
 .soundsnewuser .new-sound-button {
     background-color: transparent;
-    bottom: 135px;
+    bottom: 150px;
     display: block;
     height: 54px;
     pointer-events: auto;
@@ -285,6 +319,8 @@
     width: 192px;
     opacity: 0;
     transform: scale(1.1);
+    z-index:9;
+    cursor:pointer;
 }
 
 .soundsnewuser .new-sound-button:hover {
@@ -302,11 +338,12 @@
 
 .soundsnewuser .oval-5 {
     background-color: transparent;
-    height: 114px;
-    left: 577px;
+    height: 75px;
+    left: 50%;
+    transform:translate(-50%);
     position: absolute;
     top: 129px;
-    width: 114px;
+    width: 75px;
 }
 
 .soundsnewuser .overlap-group {
@@ -316,6 +353,7 @@
     position: absolute;
     top: 0px;
     width: 1747px;
+
 }
 
 .soundsnewuser .path {
@@ -336,11 +374,23 @@
     top: 0px;
     width: 30px;
 }
+.soundsnewuser .group-images-wrapper{
+    position:absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height:244px;
+    display: flex;
+    justify-content:center;
+}
+
+.soundsnewuser .group >  label > div {
+    position: absolute;top: 0;z-index: 99;
+}
 
 .soundsnewuser .path-3 {
     background-color: transparent;
     height: 241px;
-    left: 127px;
     position: absolute;
     top: 0px;
     width: 1195px;
@@ -349,7 +399,6 @@
 .soundsnewuser .path-3-copy {
     background-color: transparent;
     height: 242px;
-    left: 0px;
     position: absolute;
     top: 1px;
     width: 1205px;
@@ -377,6 +426,31 @@
     top: 0px;
     width: 192px;
 }
+.soundsnewuser .row {
+    background-color: transparent;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(65px, 1fr));
+    grid-template-rows: repeat(auto-fit, minmax(55px, 1fr));
+    margin: 0 !important;
+    grid-gap: .25rem;
+
+}
+.soundsnewuser .row::before , .soundsnewuser .row::after{
+    display:none;
+}
+.soundsnewuser .rectangle1 {
+    height: 54px;
+    left: 0px;
+    opacity: 0.85;
+    position: absolute;
+    top: 0px;
+    width: 192px;
+    z-index: -1;
+}
 
 .soundsnewuser .rectangle-10 {
     background-color: white;
@@ -398,6 +472,26 @@
     width: 40px;
 }
 
+.soundsnewuser .rectangle-4 {
+    background-color: var(--bright-turquoise);
+    border-radius: 2px;
+    flex-shrink: 0;
+    height: 4px;
+    margin-right: 1px;
+    margin-top: 10px;
+    width: 40px;
+}
+
+.soundsnewuser .rectangle-5 {
+    background-color: var(--bright-turquoise);
+    border-radius: 2px;
+    flex-shrink: 0;
+    height: 4px;
+    margin-right: 1px;
+    margin-top: 10px;
+    width: 40px;
+}
+
 .soundsnewuser .settingiconwhite-NOXmfT {
     align-items: flex-start;
     background-color: transparent;
@@ -405,7 +499,7 @@
     flex-direction: row;
     height: 30px;
     justify-content: flex-start;
-    left: 788px;
+    left: calc((100vw/2) + 9rem);
     min-width: 30px;
     position: absolute;
     top: 137px;
@@ -418,6 +512,7 @@
     height: 30px;
     position: relative;
     width: 30px;
+    cursor:pointer;
 }
 
 .soundsnewuser .shape-nrx20a {
@@ -492,131 +587,79 @@
     width: auto;
 }
 
-.soundsnewuser .sounds-Gt7Q7B {
-    align-items: center;
-    background-color: transparent;
-    display: flex;
-    flex-direction: column;
-    flex-shrink: 0;
-    height: auto;
-    justify-content: flex-start;
-    min-height: 73px;
-}
 
-.soundsnewuser .sound-1 {
-    background-size: 100% 100%;
-    border-radius: 6px;
-    height: 110px;
-    left: 0px;
-    overflow: hidden;
-    pointer-events: auto;
-    position: absolute;
-    top: 0px;
-    transition: all 0.2s ease-in-out;
-    width: 110px;
-}
-
-.soundsnewuser .sound-1:hover {
-    transform: scale(1.1);
-}
-
-.soundsnewuser .sound-2 {
-    background-size: 100% 100%;
-    border-radius: 6px;
-    height: 108px;
-    left: 108px;
-    overflow: hidden;
-    pointer-events: auto;
-    position: absolute;
-    top: 0px;
-    transition: all 0.2s ease-in-out;
-    width: 110px;
-}
-
-.soundsnewuser .sound-2:hover {
-    transform: scale(1.1);
-}
-
-.soundsnewuser .sound-3 {
-    background-size: 100% 100%;
-    border-radius: 6px;
-    height: 106px;
-    left: 216px;
-    overflow: hidden;
-    pointer-events: auto;
-    position: absolute;
-    top: 0px;
-    transition: all 0.2s ease-in-out;
-    width: 110px;
-}
-
-.soundsnewuser .sound-3:hover {
-    transform: scale(1.1);
-}
-
-.soundsnewuser .sound-4 {
-    background-size: 100% 100%;
-    border-radius: 6px;
-    height: 108px;
-    left: 0px;
-    overflow: hidden;
-    pointer-events: auto;
-    position: absolute;
-    top: 109px;
-    transition: all 0.2s ease-in-out;
-    width: 110px;
-}
-
-.soundsnewuser .sound-4:hover {
-    transform: scale(1.1);
-}
-
-.soundsnewuser .sound-5 {
-    background-size: 100% 100%;
-    border-radius: 6px;
-    height: 108px;
-    left: 108px;
-    pointer-events: auto;
-    position: absolute;
-    top: 109px;
-    transition: all 0.2s ease-in-out;
-    width: 110px;
-}
-
-.soundsnewuser .sound-5:hover {
-    transform: scale(1.1);
-}
-
-.soundsnewuser .sound-6 {
-    background-position: 50% 50%;
-    background-size: cover;
-    border-radius: 6px;
-    height: 90px;
-    left: 228px;
-    pointer-events: auto;
-    position: absolute;
-    top: 113px;
-    transition: all 0.2s ease-in-out;
-    width: 94px;
-}
-
-.soundsnewuser .sound-6:hover {
-    transform: scale(1.1);
-}
 
 .soundsnewuser .shape-1 {
     height: 17px;
-    left: 87px;
+    left: calc(100% - 1.5rem);
     position: absolute;
     top: 6px;
     width: 17px;
 }
 
 .soundsnewuser .overlap-group3 {
-    height: 245px;
+    height: 200px;
     margin-top: 9px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 614px;
+    display:grid;
+    grid-template-columns: repeat ( auto-fill,min-max(75px,1fr));
+}
+
+.soundsnewuser .group-3 {
+    align-items:flex-start;
+    background-size: 100% 100%;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    max-width: 614px;
+    padding: 0;
+}
+
+.soundsnewuser .group-30 {
+   align-items: flex-start;
+   display: flex;
+   height: 100%;
+   left: 0;
+   width: 100%;
+   position: absolute;
+   top: 0px;
+}
+
+.soundsnewuser .overlap-group1 {
+    height: 110%;
     position: relative;
-    width: 368px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2,minmax(130px,1fr));
+    grid-template-rows: repeat(2,1fr);
+}
+.soundsnewuser .overlap-group1>div:last-child{
+    grid-column: 1 / span 2;
+}
+.soundsnewuser .songs-Ernings {
+    align-items: flex-start;
+    background-size: 100% 100%;
+    border-radius: .5rem;
+    display: flex;
+    height: 100%;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+
+.soundsnewuser .bar-chart {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    min-width: 81px;
+    width: 100%;
+    height:100%;
 }
 
 .soundsnewuser .span1-SsBuiu {
@@ -646,13 +689,25 @@
     background-color: transparent;
     flex-shrink: 0;
     height: 59px;
-    margin-left: 24px;
+    margin:0 auto;
     min-height: 73px;
     pointer-events: auto;
     position: relative;
     transition: all 0.2s ease-in-out;
     width: 40px;
 }
+
+.soundsnewuser .sounds-Gt7Q7B {
+    align-items: center;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    height: auto;
+    justify-content: flex-start;
+    min-height: 73px;
+}
+
 
 .soundsnewuser .trends-Gt7Q7B:hover {
     transform: scale(1.1);
@@ -738,6 +793,206 @@
     width: auto;
 }
 
+.soundsnewuser .auto-flex {
+    align-items: center;
+    display: block;
+    flex-direction: column;
+    min-height: 202px;
+    width: 73px;
+}
+
+.soundsnewuser .auto-flex1 {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-left: 83px;
+    min-height: 189px;
+    width: 50px;
+}
+
+.soundsnewuser .auto-flex2 {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    margin-left: 78px;
+    min-height: 188px;
+    width: 49px;
+}
+
+.soundsnewuser .status {
+    letter-spacing: -0.09px;
+    line-height: 18px;
+    margin-left: 2.91px;
+    min-height: 18px;
+    min-width: 40px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.soundsnewuser .rectangle-2-copy {
+    height: 36px;
+    left: 0px;
+    opacity: 0.8;
+    position: absolute;
+    top: 0px;
+    width: 73px;
+}
+
+.soundsnewuser .overlap-group-1 {
+   height: 36px;
+   margin-top: 0px;
+   margin-bottom: -10px;
+   position: relative;
+   width: 73px;
+   left: 20px;
+}
+
+.soundsnewuser .overlap-group-10 {
+    height: 83px;
+    position: relative;
+    width: 81px;
+}
+
+.soundsnewuser .request-button {
+    background-color: transparent;
+    top: 250px;
+    display: block;
+    height: 54px;
+    pointer-events: auto;
+    position: relative;
+    transition: all 0.2s ease-in-out;
+    width: 192px;
+    margin: 0 auto;
+    opacity: 0;
+    z-index: 9;
+    cursor: pointer;
+}
+
+.soundsnewuser .request {
+    background-color: transparent;
+    display: block;
+    text-align: center;
+    pointer-events: auto;
+    position: relative;
+    transition: all 0.2s ease-in-out;
+   width: 100%;
+    color: #fff;
+    transform: scale(1.1);
+    z-index: 9;
+    cursor: pointer;
+}
+
+.soundsnewuser .overlap-group4 {
+    height: 54px;
+    left: 0px;
+    position: relative;
+    top: 0px;
+    display: flex;
+    align-items: center;justify-content: center;
+}
+
+.soundsnewuser .request-button:hover {
+    transform: scale(1.1);
+}
+
+.soundsnewuser .paid {
+    left: 25px;
+    letter-spacing: -0.09px;
+    line-height: 18px;
+    position: absolute;
+    text-align: center;
+    top: 5px;
+    white-space: nowrap;
+}
+
+.soundsnewuser .borderless td,
+.borderless th {
+    border:none;
+    
+}
+
+.soundsnewuser .ready {
+    left: 21px;
+    letter-spacing: -0.09px;
+    line-height: 18px;
+    position: absolute;
+    text-align: center;
+    top: 5px;
+    white-space: nowrap;
+}
+
+.soundsnewuser .period {
+    letter-spacing: -0.09px;
+    line-height: 18px;
+    min-height: 18px;
+    min-width: 43px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.soundsnewuser .price {
+    letter-spacing: -0.09px;
+    line-height: 18px;
+    margin-left: 5px;
+    margin-top: 15px;
+    min-height: 18px;
+    min-width: 31px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.soundsnewuser .date {
+    letter-spacing: -0.08px;
+    line-height: 14px;
+    margin-left: 1px;
+    margin-top: 18px;
+    min-height: 14px;
+    min-width: 48px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.soundsnewuser .amount {
+    letter-spacing: -0.09px;
+    line-height: 18px;
+    min-height: 18px;
+    min-width: 50px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.sfprodisplay-normal-black-15px {
+    color: black;
+    font-family: "SFProDisplay-Semibold", Helvetica, Arial, serif;
+    font-size: 15px;
+}
+
+.sfprodisplay-regular-normal-mountain-mist-12px {
+    color: var(--mountain-mist);
+    font-family: "SFProDisplay-Regular", Helvetica, Arial, serif;
+    font-size: 12px;
+}
+
+.sfprodisplay-italic-normal-black-15px {
+    color: black;
+    font-family: "SFProDisplay-Italic", Helvetica, Arial, serif;
+    font-size: 15px;
+}
+
+.sfprodisplay-normal-white-15px {
+    color: white;
+    font-family: "SFProDisplay-Semibold", Helvetica, Arial, serif;
+    font-size: 15px;
+}
+
+.montserratheading20pxsemiboldcenter-aligngray-900 {
+    font-family: "Montserrat", Helvetica, Arial, serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    letter-spacing: 0px;
+}
+
 :root {
     --bright-turquoise: rgba(0, 242, 234, 1);
     --granite-gray: rgba(102, 102, 102, 1);
@@ -780,4 +1035,29 @@
 .auto-animated .container-center-vertical,
 .auto-animated .container-center-horizontal {
     opacity: 1;
+}
+
+.nav-tabs {
+    border-bottom: 0px solid transparent;
+    border-top: 0px solid transparent;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.nav-tabs .nav-link {
+    border: 0px solid transparent;
+}
+
+.nav-tabs>li.active>a,
+.nav-tabs>li.active>a:focus,
+.nav-tabs>li.active>a:hover {
+    border: 0;
+}
+.nav > li{
+    display:flex;align-items:center;justify-content:center;
+}
+.table>thead:first-child>tr:first-child>th {
+    border-top: 0;
+    border-bottom: 0;
 }

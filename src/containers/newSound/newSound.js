@@ -5,6 +5,8 @@ import fileManagementService from "../../services/fileManagementService";
 import uploadManagementService from "../../services/uploadManagementService";
 import HashLoader from 'react-spinners/HashLoader';
 import LoadingOverlay from "react-loading-overlay";
+import LoadingProgress from 'react-js-loading-progress-bar';
+import LazyLoad from 'react-lazyload';
 
 export default class NewSound extends React.Component {
 
@@ -36,7 +38,7 @@ export default class NewSound extends React.Component {
     }
 
   uploadCoverImage = () => {
-      this.setState({ loading: true });
+      this.setState({ loading: false });
   console.log(this.uploadInput.files[0]);
   let file = this.uploadInput.files[0]
   var re = /(?:\.([^.]+))?$/;
@@ -214,7 +216,7 @@ export default class NewSound extends React.Component {
         </div>
         <div className="container-center-horizontal">
           <div className="group">
-            <div className="nexticon smart-layers-pointers" onClick={this.navigateToSoundPage.bind(this)}>
+            <div className="nexticon animate-enter smart-layers-pointers" onClick={this.navigateToSoundPage.bind(this)}>
               <img className="rectangle-bKk8JK" src={rectangle} />
               
                 <img className="rectangle-bKk8JK" src={rectangle2} />
@@ -235,12 +237,24 @@ export default class NewSound extends React.Component {
           <div className="group-2-copy">
             <label for="fileChoose">
              {this.state.s3Path ?
+              <>
+              <LoadingProgress
+                visualOnly
+                useSpinner
+                active={true}
+                total={1}
+                title="profileImage"
+                current={this.state.profileSignedURL}
+                showCompact       
+              />
              <img style={{width:'244px', height: '233px'}}
              className="oval-5"
                     src={this.state.coverImageSignedURL}
                     alt=""
                     
-                  /> :
+                  />
+                  </>
+                   :
             <div className="rectangle-2"></div>  }
             {!this.state.s3Path ?
             <div className="upload smart-layers-pointers ">
@@ -265,6 +279,7 @@ export default class NewSound extends React.Component {
                                 this.uploadInput = ref;
                               }}
                               onChange={this.uploadCoverImage.bind(this)}
+                              accept=".png, .jpg, .jpeg"
                             />  
         </div>
         <div className="container-center-horizontal">

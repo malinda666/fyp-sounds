@@ -243,74 +243,80 @@ export default class SoundForm2b extends React.Component {
           <img className="oval-4eduM0" src={oval} />
           <img className="oval-BJQsbv" src={oval2} />
           <img className="oval-6sb1qn" src={oval3} />
-          <h1 className="is-this-content-expl sofiapro-normal-white-30px">{isThisContentExpl}</h1>
+          
           <img className="oval-ovOecM" src={oval4} />
-          <div className="nexticon-copy-5">
-            <div className="yes montserrat-light-white-20px">{yes}</div>
-          </div>
-          <Fypsoundslogo {...fypsoundslogoProps} />
-          <div className="are-you-the-owner-of sofiapro-normal-white-30px">{areYouTheOwnerOf}</div>
-          <div className="nexticon-copy-3">
-            <div className="creator-name sofiapro-normal-white-30px">{creatorName}</div>
-          </div>
-          <div className="nexticon-copy-7">
-            <div className="upload-audio-file sofiapro-normal-white-30px">{uploadAudioFile}</div>
-          </div>
-          <div className="nexticon-4eduM0" onClick={this.navigateToNextPage.bind(this)}>
-            <img className="rectangle-f4xscB" src={rectangle} />
-            <img className="rectangle-JuxZGf" src={rectangle2} />
-            <div className="next montserrat-semi-bold-white-20px">{next}</div>
-          </div>
-          <div className="nexticon-copy-2">
-            <div className="no montserrat-light-white-20px">{this.props.location?.state?.status}</div>
-          </div>
-          <div>
-            <label for="fileChoose">
-          <img className="rectangle-4eduM0" src={rectangle3} />
-          <img className="rectangle-BJQsbv" src={rectangle4} />
-          {this.state.fileName != '' ? <span className ="filename">{this.state.fileName}</span> :  <img className="upload" src={upload} />}
          
-          </label>
-          <input 
-                id="fileChoose"
-                className="dropzone"
-                              type='file'
-                              name='creative_file' 
-                              ref={(ref) => {
-                                this.uploadInput = ref;
-                              }}
-                onChange={this.uploadCreative.bind(this)}
-                accept={'.wav, .mp3'}
-                            />  
+          
           </div>
           
-          <input
-          id='name'
-            className="text-type montserrat-light-mountain-mist-20px"
-            name={inputName}
-            placeholder={inputPlaceholder}
-            type={inputType}
-            required={inputRequired}
-            value={this.state.name}
-            onChange={this.handleFieldChange.bind(this)}
-          />
-        </div>
         <div className="container-center-horizontal">
-          <p className="wav-or-mp3-format montserrat-light-gravel-14px">{wavOrMp3Format}</p>
+         
         </div>
-        <div className="container-center-horizontal">
-          <div className="nexticon-C61RwL">
-            {/* <img className="rectangle-JuxZGf" src={rectangle5} /> */}
-            <Select 
+        <div className="container-center-horizontal step4-container">
+            <Fypsoundslogo {...fypsoundslogoProps} />
+             <div className="are-you-the-owner-of sofiapro-normal-white-30px">{areYouTheOwnerOf}</div>
+            <div className="nexticon-copy-5">
+              <div className="yes montserrat-light-white-20px">{yes}</div>
+            </div>
+            <h1 className="is-this-content-expl sofiapro-normal-white-30px">{isThisContentExpl}</h1>
+            
+            
+              
+              <Select 
               options={this.state.options}
               value={this.state.category}
               onChange={this.changeCategoryHandler}
                         />
-            {/* <div className="category montserrat-semi-bold-white-20px">{category}</div> */}
-            <img className="back-chevron" src={backChevron} />
-          </div>
+              <div className="nexticon-copy-3">
+                <div className="creator-name sofiapro-normal-white-30px">{creatorName}</div>
+              </div>
+              <input
+                id='name'
+                  className="text-type montserrat-light-mountain-mist-20px"
+                  name={inputName}
+                  placeholder={inputPlaceholder}
+                  type={inputType}
+                  required={inputRequired}
+                  value={this.state.name}
+                  onChange={this.handleFieldChange.bind(this)}
+                />
+                <img className="rectangle-BJQsbv" src={rectangle4} />
+              <div className="nexticon-copy-7">
+                <div className="upload-audio-file sofiapro-normal-white-30px">{uploadAudioFile}</div>
+              </div>
+              <div className="nexticon-copy-8">
+                <img className="rectangle-4eduM0" src={rectangle3} />
+                  <label for="fileChoose">
+                    
+                  {this.state.fileName != '' ? <span className ="filename">{this.state.fileName}</span> :  <img className="upload" src={upload} />}
+                  </label>
+                  <input 
+                        id="fileChoose"
+                        className="dropzone"
+                                      type='file'
+                                      name='creative_file' 
+                                      ref={(ref) => {
+                                        this.uploadInput = ref;
+                                      }}
+                        onChange={this.uploadCreative.bind(this)}
+                        accept={'.wav, .mp3'}
+                                    />  
+
+              </div>
+               <p className="wav-or-mp3-format montserrat-light-gravel-14px">{wavOrMp3Format}</p>
+              <div className="nexticon-4eduM0" onClick={this.navigateToNextPage.bind(this)}>
+                <img className="rectangle-f4xscB" src={rectangle} />
+                <img className="rectangle-JuxZGf" src={rectangle2} />
+                <div className="next montserrat-semi-bold-white-20px">{next}</div>
+              </div>
+              <div className="nexticon-copy-2">
+                <div className="no montserrat-light-white-20px">{this.props.location?.state?.status}</div>
+              </div>
+              
+          
         </div>
-      </div>
+        </div>
+        
       </LoadingOverlay>
     );
   }

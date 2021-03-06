@@ -53,14 +53,14 @@ export default class Warn4 extends React.Component {
       featured_artist : this.state.data.featuringArtist,      
       albumcover: this.state.data.albumcover,
       audiofile : this.state.data.audiofile,
-      filename : this.state.data.fileName,
+      fileName : this.state.data.fileName,
        id : this.state.data.id,
       fyp_status : 'pending',
       dashgo_status : 'draft_complete'
      }
     this.setState({ loading: true });
     if(this.state.data != '' && this.state.data.id != '' && this.state.data.id != null){
-      creativeManagementService.updateCreative( data, 'SongUpdate')
+      creativeManagementService.updateCreative( data, 'songUpdate')
         .then(res => {
           if(res.status === 200){
              localStorage.removeItem('data');

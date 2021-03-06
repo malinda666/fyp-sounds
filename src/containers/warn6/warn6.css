@@ -47,10 +47,11 @@
 
 .warn6 {
     background-color: var(--onahau);
-    height: 100vh;
+    height: 100%;
     margin: 0px;
-    min-height: 896px;
-    min-width: 414px;
+    min-height: 100vh;
+    min-width: 100vw;
+    overflow:hidden;
     position: relative;
     width: 100%;
 }
@@ -129,7 +130,12 @@
     white-space: nowrap;
     width: 102px;
 }
-
+.warn6 .bg-image-wrap{
+    position:absolute;
+    height:100%;
+    width:150%;
+    overflow:hidden;
+}
 .warn6 .bg-image1 {
     background: no-repeat;
     width: 185%;

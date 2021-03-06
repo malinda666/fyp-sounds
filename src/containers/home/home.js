@@ -1,5 +1,6 @@
 import React from "react";
 import './home.css'
+import LazyLoad from 'react-lazyload';
 
 export default class Landing extends React.Component {
   constructor(props) {
@@ -36,6 +37,7 @@ export default class Landing extends React.Component {
       <div className="landing animate-enter4">
         <div className="container-center-horizontal">
           <div className="rectangle-C61RwL animate-enter">
+            <LazyLoad height={200}>
             <video
               src="https://anima-uploads.s3.amazonaws.com/projects/5f77aacbd0b4690151d39ead/files/fyp-bg-video.mov"
               loop
@@ -43,6 +45,7 @@ export default class Landing extends React.Component {
               playsinline
               muted
             ></video>
+            </LazyLoad>
           </div>
         </div>
         <div className="container-center-horizontal">
@@ -66,6 +69,7 @@ export default class Landing extends React.Component {
           </div>
         </div>
         <div className="container-center-horizontal">
+          
           <div className="footer">
             <div className="overlap-group">
               <img className="oval-4K0abD" src={oval4} />
@@ -95,6 +99,7 @@ export default class Landing extends React.Component {
               <p className="copyright--51-2021-al montserrat-normal-white-13px">{copyright2512021Al}</p>
             </div>
           </div>
+
         </div>
         <div className="container-center-horizontal" onClick={()=> this.props.history.push('/login')}>
            

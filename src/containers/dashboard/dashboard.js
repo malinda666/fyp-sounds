@@ -5,8 +5,19 @@ import fileManagementService from "../../services/fileManagementService";
 import uploadManagementService from "../../services/uploadManagementService";
 import profileManagementService from "../../services/profileManagementService";
 import creativeManagementService from "../../services/creativeManagementService";
+import earningManagementService from "../../services/erningManagementService";
 import HashLoader from 'react-spinners/HashLoader'
 import LoadingOverlay from "react-loading-overlay";
+import ReactApexCharts from 'react-apexcharts';
+import {isMobile} from '../../utils/isMobile';
+import placeHolderImage from '../../assets/img/music-form-5b-upload-EDE27472-10E7-4344-A151-5922502B697A@2x.png'
+import Header from '../../components/header'
+import Footer from '../../components/footer'
+import Imagesloaded from '../../components/imagesloaded'
+import LoadingProgress from 'react-js-loading-progress-bar';
+import LazyLoad from 'react-lazyload';
+import {Link} from 'react-router-dom'
+
 
 export default class Soundsnewuser extends React.Component {
 
@@ -24,15 +35,177 @@ export default class Soundsnewuser extends React.Component {
           profileURL:'',
           user_dir:'',
           auth: null,
-          creativeList:[]
-        }
+          creativeList:[],
+          earningList :[],
+          series:[],
+          series1:[42, 47, 52, 58, 65],
+          series2: [{
+              data: ["13%", "45%", "44%", "1%", "80%"]
+            }],
+            series3: [{
+              data: ["23%", "5%", "94%", "15%", "80%"]
+            }],
+          payPal:'',
+          // options: {
+          //     chart: {
+          //       type: 'polarArea',
+          //       height: "100%",
+          //       width: "100%"
+          //     },
+          //     labels: ['Rose A', 'Rose B', 'Rose C', 'Rose D', 'Rose E'],
+          //     plotOptions: {
+          //       bar: {
+          //         borderRadius: 15,
+          //         horizontal: true,
+          //       }
+          //     },
+          //     dataLabels: {
+          //       enabled: true
+          //     },
+          //     xaxis: {
+          //       categories: [],
+          //     },
+          //     grid: {
+          //       xaxis: {
+          //         lines: {
+          //           show: true
+          //         }
+          //       }
+          //     },
+          //     yaxis: {
+          //       reversed: true,
+          //       axisTicks: {
+          //         show: true
+          //       }
+          //     }
+          //   },
+            options1: {
+              chart: {
+                width: 380,
+                type: 'polarArea'
+              },
+              labels: ['Rose A', 'Rose B', 'Rose C', 'Rose D', 'Rose E'],
+              fill: {
+                opacity: 1
+              },
+              stroke: {
+                width: 1,
+                colors: undefined
+              },
+              yaxis: {
+                show: false
+              },
+              legend: {
+                show:isMobile?false:true
+              },
+              plotOptions: {
+                polarArea: {
+                  rings: {
+                    strokeWidth: 0
+                  }
+                }
+              },
+              theme: {
+                monochrome: {
+                  enabled: true,
+                  shadeTo: 'light',
+                  shadeIntensity: 0.6
+                }
+              },
+            },
+        options2: {
+              chart: {
+                type: 'bar',
+                width: 350,
+                offsetY: -15,
+                toolbar:{
+                  show:false
+                }
+              },
+              
+              plotOptions: {
+                bar: {
+                  borderRadius: 15,
+                  horizontal: true,
+                }
+              },
+              dataLabels: {
+                show:false
+              },
+              stroke: {
+                show:false
+              },
+              xaxis: {
+                categories: ['USA', 'Mexico', 'UK', 'Canada', 'Others'],
+                labels:{
+                  show:false
+                }
+              },
+              yaxis: {
+                labels:{
+                  show:true
+                }
+              },
+              grid:{
+                show:false
+              },
+              theme: {
+                palette: 'palette6'
+              },
+              stroke:{
+                show:false
+              }
+      },
+      options3: {
+              chart: {
+                width: 250,
+                type: 'bar',
+                toolbar:{
+                  show:false
+                }
+              },
+              labels: ['Others', 'Tik-Tok', 'FB/IG', 'Soptify', 'Deezer'],
+              fill: {
+                opacity: 1
+              },
+              stroke: {
+                show:false
+              },
+              xaxis: {
+                show:false,
+              },
+              yaxis: {
+                labels:{
+                  show:false
+                }
+              },
+              grid:{
+                show:false
+              },
+              legend: {
+                show:true,
+                position: 'bottom',
+                horizontalAlign: 'right', 
+              },
+              plotOptions: {
+                bar: {
+                  borderRadius: 15,
+                  horizontal: false,
+                }
+              },
+              theme: {
+                palette: 'palette0'
+              }
+        },
+     
     }
-
+}
     componentDidMount(){
        if(localStorage.getItem('auth')){
         this.setState({auth : JSON.parse(localStorage.getItem('auth'))}, () => {
           this.getDashboardItems();
           this.getUserProfile();
+          this.getUserEarnings();
           localStorage.setItem('data','');
         });
       }
@@ -56,7 +229,7 @@ export default class Soundsnewuser extends React.Component {
               let updatedList =  await this.setCreativeSignedURL(res.data.Items);
               Promise.all(updatedList)
               .then(result => {
-                this.setState({creativeList :result});
+                this.setState({creativeList :result.reverse()});
                   this.setState({ loading: false});
               }).catch(e => {
                   this.setState({ loading: false});
@@ -110,7 +283,7 @@ export default class Soundsnewuser extends React.Component {
         if (res.status === 200) {
           if (res.data.Item != null){
           this.setState({
-            profileURL: res.data.Item.profileImagePath
+            profileURL: res.data.Item.profileImagePath, payPal :res.data.Item.payPal 
           }, () => this.setProfileSignedURL());
         
           //this.setState({ loading: false });
@@ -125,6 +298,53 @@ export default class Soundsnewuser extends React.Component {
         //toast.error("Unable to get user information");
        // this.setState({ loading: false });
       });
+  }
+
+  getUserEarnings() {
+    earningManagementService
+      .get(this.state.auth.email)
+      .then((res) => {
+        if (res.status === 200) {
+          if (res.data.Items != null){
+            let data =[];
+            let categories =[];
+            res.data.Items.forEach(element => {
+              data.push(element.amount);
+              categories.push(("0" + element.month).slice(-2) + '/' + element.year);              
+            });
+            
+          this.setState(({series}) => ({
+              series: [
+                  ...series.slice(0,1),
+                  {
+                      ...series[1],
+                      data: data,
+                  },
+                  ...series.slice(2)
+              ]
+          }));
+          this.updateCategories(categories);
+          this.setState({
+            earningList: res.data.Items
+          });
+        
+          //this.setState({ loading: false });
+        }
+        } else {
+         // toast.error("Unable to get user information");
+         // this.setState({ loading: false });
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        //toast.error("Unable to get user information");
+       // this.setState({ loading: false });
+      });
+  }
+
+  updateCategories(list){
+  const newObj = { ...this.state.options, xaxis: {categories : list}  } // create a new object by spreading in the this.state.car and overriding features with our new array 
+  this.setState({ options: newObj }) // set this.state.car to our new object
   }
 
   setProfileSignedURL() {
@@ -177,9 +397,12 @@ export default class Soundsnewuser extends React.Component {
               profileManagementService
                 .updateProfileImage(s3Path,this.state.auth.email)
                 .then((profileUpdateResult) => {
+                  window.alert(s3Path)
+                  // this.props.setProfileImage(s3path);
                   if (profileUpdateResult.status == 200) {  
                     this.getUserProfile();               
                     this.setState({ loading: false });
+                    
                   } else {
                     this.setState({ loading: false });
                     //toast.error('ERROR : Unable to upload document');
@@ -258,6 +481,16 @@ export default class Soundsnewuser extends React.Component {
     }
   }
 
+  onPaymentRequest(){
+    if(this.state.payPal === undefined || this.state.payPal === ''){
+      this.props.history.push('/warn3');
+    }
+    else {
+       this.props.history.push('/warn7');
+    }
+
+  }
+
 
   render() {
     const {
@@ -286,9 +519,22 @@ export default class Soundsnewuser extends React.Component {
       settingiconwhiteProps,
       aboutProps,
       fypsoundslogoProps,
+      rectangle21Copy,
+      rectangle2Copy,
+      paid,
+      period,
+      amount,
+      group3,
+      status,
+      request,
+      songsEarning,
+      setProfileImage,
+      profileImage
     } = this.props;
 
     return (
+      <>
+       
        <LoadingOverlay
           active={this.state.loading}
           spinner={<HashLoader color={"#f24b76"} size={100}/>}
@@ -303,24 +549,26 @@ export default class Soundsnewuser extends React.Component {
                   <a data-toggle="tab" href="#sounds">
                    <div className="sounds-Gt7Q7B">
                     <h1 className="ud83cudfb5 applecoloremoji-normal-granite-gray-30px">{Ud83CUdfb5}</h1>
-                    <div className="sounds-EiSkUu sfprodisplay-normal-black-15px">{sounds}</div>
-                    <div className="rectangle-3"></div>
+                    <div className="sounds-EiSkUu sfprodisplay-regular-normal-mountain-mist-15px">{sounds}</div>
+                    {/* <div className="rectangle-3"></div> */}
                    </div>
                   </a>
                 </li>
                 <li className="nav-item">
                   <a data-toggle="tab" href="#trends">
-                     <div className="trends-Gt7Q7B smart-layers-pointers ">
+                     <div className="trends-Gt7Q7B ">
                       <div className="trends-45jQMT sfprodisplay-regular-normal-mountain-mist-15px">{trends}</div>
                       <div className="ud83dudd25 applecoloremoji-normal-granite-gray-30px">{Ud83DUdd25}</div>
+                      {/* <div className="rectangle-4"></div> */}
                     </div>
                   </a>
                 </li>
                 <li className="nav-item">
                   <a data-toggle="tab" href="#earnings">                    
-                  <div className="earnings-Gt7Q7B smart-layers-pointers ">
+                  <div className="earnings-Gt7Q7B ">
                     <div className="earnings-pxqN5N sfprodisplay-regular-normal-mountain-mist-15px">{earnings}</div>
                     <div className="ud83dudcb0 applecoloremoji-normal-granite-gray-30px">{Ud83DUdcb0}</div>
+                    {/* <div className="rectangle-5"></div> */}
                   </div> 
                   </a>
                 </li>
@@ -343,8 +591,10 @@ export default class Soundsnewuser extends React.Component {
                             <div className="col sound-wrap" onClick={() => {
                                      this.selectCreative(creative.SK, creative.fyp_status);
                                  }}>
-                              <div className={`sound-${creative.index} smart-layers-pointers sound-inner-wrap`} style={{ backgroundImage: `url(${creative.signedCoverURL})` }}>
+                              <div className={`sound-${creative.index} smart-layers-pointers sound-inner-wrap`} style={{ backgroundImage: `url(${creative.signedCoverURL?creative.signedCoverURL:placeHolderImage})` }}>
+                                  <LazyLoad height="100%">                              
                                 <img className="shape-1" src={creative.statusImageURL} />
+                                </LazyLoad> 
                               </div>
                             </div>
                           );
@@ -353,18 +603,18 @@ export default class Soundsnewuser extends React.Component {
                         </div>
                       </div>
                     
-                      {/* <div className="sound-2 smart-layers-pointers " style={{ backgroundImage: `url(${sound2})` }}>
+                      {/* <div className="sound smart-layers-pointers " style={{ backgroundImage: `url(${sound2})` }}>
                         <img className="shape-1" src={shapeCopy3} />
                       </div> */}
                     </div>
-                      {/* <div className="sound-3 smart-layers-pointers " style={{ backgroundImage: `url(${sound3})` }}>
+                      {/* <div className="sound smart-layers-pointers " style={{ backgroundImage: `url(${sound3})` }}>
                         <img className="shape-1" src={shapeCopy2} />
                       </div>
-                      <div className="sound-4 smart-layers-pointers " style={{ backgroundImage: `url(${sound4})` }}>
+                      <div className="sound smart-layers-pointers " style={{ backgroundImage: `url(${sound4})` }}>
                         <img className="shape-1" src={shapeCopy} />
                       </div>
-                      <div className="sound-5-1 smart-layers-pointers " style={{ backgroundImage: `url(${sound5})` }}></div>
-                      <div className="sound-6 smart-layers-pointers " style={{ backgroundImage: `url(${sound6})` }}></div> */}
+                      <div className="sound smart-layers-pointers " style={{ backgroundImage: `url(${sound5})` }}></div>
+                      <div className="sound smart-layers-pointers " style={{ backgroundImage: `url(${sound6})` }}></div> */}
                     </div>
                   </div>
                    <div className="container-center-horizontal" onClick={() => {this.props.history.push('/newSound')}}>
@@ -376,25 +626,117 @@ export default class Soundsnewuser extends React.Component {
               </div>
               <div id="trends" class="tab-pane fade">
                 <br/>
+                {this.state.creativeList.length > 0 ?
                 <div className="overlap-group3">
-                   <div className="overlap-group1">
-                  <p>trends</p>
-                  <br/>
-                
+                  <div className="group-30">
+                    <div className="overlap-group1">
+                      <div className="songs-Ernings" style={{ backgroundImage: `url(${songsEarning})` }}>
+                        <div className="bar-chart">
+                          <div id="chart" style={{position: 'relative', width: '100%', height:"100%"}}>                           
+                              <ReactApexCharts options={this.state.options1} series={this.state.series1} type="polarArea" height="100%" />
+                          </div>                   
+    
+                        </div>
+                      </div>
+                      <div className="songs-Ernings" style={{ backgroundImage: `url(${songsEarning})` }}>
+                        <div className="bar-chart">
+                          <div id="chart" style={{position: 'relative', width: '100%', height:"100%"}}>                           
+                              <ReactApexCharts options={this.state.options2} series={this.state.series2} type="bar" height="100%" />
+                          </div>                   
+    
+                        </div>
+                      </div>
+                      <div className="songs-Ernings" style={{ backgroundImage: `url(${songsEarning})` }}>
+                        <div className="bar-chart">
+                          <div id="chart" style={{position: 'relative', width: '100%', height:"100%"}}>                           
+                              <ReactApexCharts options={this.state.options3} series={this.state.series3} type="bar" height="100%" />
+                          </div>                   
+    
+                        </div>
+                      </div>
+                    </div>
+                  </div>                
                 </div>
-                </div>
-              
+               : null}
               </div>
               <div id="earnings" class="tab-pane fade">
                 <br/>
+                {this.state.creativeList.length > 0 ?
+                  <>
                 <div className="overlap-group3">
-                    <div className="overlap-group1">
-                  <p>earnings</p>
-                  <br/>
-                 
+                  <div className="group-3" style={{ backgroundImage: `url(${group3})` }}>
+                     <table class="table borderless">
+                      <thead>
+                        <tr>
+                          <th scope="col" className="status sfprodisplay-italic-normal-black-15px" >{status}</th>
+                          <th scope="col" className="period sfprodisplay-italic-normal-black-15px">{period}</th>
+                          <th scope="col" className="amount sfprodisplay-italic-normal-black-15px">{amount}</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                     
+                    {
+                       this.state.earningList.map((earning) => {
+                         let status = earning.status == 'Ready' ? 'ready' : 'paid';
+                      
+                          return (
+                            <tr>
+                              <td>
+                                <div className="overlap-group-1">
+                                   <img className="rectangle-2-copy" src={ status === 'ready' ? rectangle2Copy : rectangle21Copy} />
+                                   <div className={ status + " sfprodisplay-normal-white-15px"}>{status}</div>
+                                </div>
+                                </td>
+                              <td className="date sfprodisplay-regular-normal-mountain-mist-12px">{("0" + earning.month).slice(-2) + '/' + earning.year}</td>
+                              <td className="price sfprodisplay-normal-black-15px">${earning.amount}</td>
+                            </tr>
+
+                            // <div className="row">
+                            //   <div className="auto-flex">                             
+                            //     <div className="overlap-group-1">
+                            //       <img className="rectangle-2-copy" src={rectangle2Copy} />
+                            //       <div className="paid sfprodisplay-normal-white-15px">{earning.status}</div>
+                            //     </div>
+                            //     </div>
+                            //     <div className="auto-flex2">
+                            //       <div className="date sfprodisplay-regular-normal-mountain-mist-12px">{earning.month + '/' + earning.year}</div>
+                            //     </div>
+                            //     <div className="auto-flex1">
+                            //       <div className="price sfprodisplay-normal-black-15px">${earning.amount}</div>
+                            //     </div>
+                            // </div>
+                          )})
+                    }
+                    </tbody>
+                    </table>
+                    {/* <div className="auto-flex">
+                      <div className="status sfprodisplay-italic-normal-black-15px">{status}</div>
+                      <div className="overlap-group-1">
+                        <img className="rectangle-2-copy" src={rectangle2Copy} />
+                        <div className="paid sfprodisplay-normal-white-15px">{paid}</div>
+                      </div>
+                    </div>
+                    <div className="auto-flex2">
+                      <div className="period sfprodisplay-italic-normal-black-15px">{period}</div>
+                      <div className="date sfprodisplay-regular-normal-mountain-mist-12px">09/2020</div>
+                    </div>
+                    <div className="auto-flex1">
+                      <div className="amount sfprodisplay-italic-normal-black-15px">{amount}</div>
+                      <div className="price sfprodisplay-normal-black-15px">$8</div>
+                    </div> */}
+                  </div>
+                  
                 </div>
-                </div>
-              
+                <div className="request-button animate-enter smart-layers-pointers " onClick={() => {
+                                     this.onPaymentRequest();
+                                 }}>
+                      <div className="overlap-group4">
+                        <img className="rectangle1" src={rectangle} />
+                        <div className="request montserratheading20pxsemiboldcenter-aligngray-900">{request}</div>
+                      </div>
+                    </div>
+                </>
+              : null }
               </div>
             </div>
           </div>
@@ -410,22 +752,32 @@ export default class Soundsnewuser extends React.Component {
         : null}
         <div className="container-center-horizontal">
           <div className="group">
-            <img className="path-3" src={path3} />
-            <img className="path-3-copy" src={path3Copy} />
+            <div className="group-images-wrapper">
+              <img className="path-3" src={path3} />
+              <img className="path-3-copy" src={path3Copy} />
+            </div>
             <label for="fileChoose">
-            {this.state.profileURL ?
-             <img
-             className="oval-5"
-                    src={this.state.profileSignedURL}
-                    alt=""
-                    style={{
-                      borderRadius: "100%",
-                      width: "100px",
-                      height: "100px",
-                    }}
-                  /> :
-            <img className="oval-5" src={oval5} />  }
-             
+              <LoadingProgress
+                visualOnly
+                useSpinner
+                active={this.state.loading}
+                total={1}
+                title="profileImage"
+                current={this.state.profileSignedURL}
+                showCompact       
+              />
+                <LazyLoad height={200}>
+                {this.state.profileURL ?
+               <img
+               className="oval-5"
+                      src={this.state.profileSignedURL}
+                      alt=""
+                      style={{
+                        borderRadius: "100%",
+                      }}
+                    /> :
+              <img className="oval-5" src={profileImage} />  }
+             </LazyLoad>
              {!this.state.profileURL ?
             <div className="upload smart-layers-pointers ">
            
@@ -450,33 +802,11 @@ export default class Soundsnewuser extends React.Component {
                             />           
         </div>
         <div className="container-center-horizontal">
-          <div className="footer">
-            <div className="overlap-group">
-              <img className="oval" src={oval} />
-              <div className="group-5">
-                <About {...aboutProps} />
-                <div className="container-center-horizontal footer-items">
-                  <p className="footer-items-devider">|</p>
-                  <div className="montserrat-semi-bold-white-14px">{faq}</div>
-                </div>
-                <div className="container-center-horizontal footer-items">
-                  <p className="footer-items-devider">|</p>
-                  <div className="montserrat-semi-bold-white-14px">{contact}</div>
-                </div>
-                <div className="container-center-horizontal footer-items">
-                  <p className="footer-items-devider">|</p>
-                  <div className="montserrat-semi-bold-white-14px">{privacyPolicy}</div>
-                </div>
-              </div>
-            </div>
-            <Fypsoundslogo {...fypsoundslogoProps} />
-            <div className="container-center-horizontal">
-              <p className="copyright--51-2021-al montserrat-normal-white-13px">{copyright2512021Al}</p>
-            </div>
-          </div>
+          <Footer/>
         </div>
       </div>
       </LoadingOverlay>
+    </>
     );
   }
 }
@@ -487,11 +817,11 @@ class Settingiconwhite extends React.Component {
     const { shape } = this.props;
 
     return (
-      <div className="settingiconwhite-NOXmfT" onClick = {this.props.onSettingsClick}>
-        <div className="settingiconwhite-u3qPnF">
+      <div className="settingiconwhite-NOXmfT">
+        <Link to='/settigns' className="settingiconwhite-u3qPnF">
           <img className="shape-nrx20a" src={shape} />
           <div className="rectangle-10 hidden "></div>
-        </div>
+        </Link>
       </div>
     );
   }

@@ -9,10 +9,9 @@
     background-color: white;
     height: 100vh;
     margin: 0px;
-    min-height: 896px;
-    min-width: 414px;
     position: relative;
     width: 100%;
+    overflow:hidden;
 }
 
 .about .about-C61RwL {

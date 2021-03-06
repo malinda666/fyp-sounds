@@ -3,6 +3,7 @@ import './songStep4.css'
 import Select from 'react-select';
 import fileManagementService from "../../services/fileManagementService";
 import uploadManagementService from "../../services/uploadManagementService";
+import creativeManagementService from '../../services/creativeManagementService';
 import { v4 as uuid_v4 } from "uuid";
 import HashLoader from 'react-spinners/HashLoader'
 import LoadingOverlay from "react-loading-overlay";
@@ -51,18 +52,19 @@ export default class MusicForm5 extends React.Component {
      loading: false, 
      s3Path:'',
      auth: null,
-     status:''
+     status:'',
+     coverURL:''
     
    }
   }
 
   componentDidMount(){
     if(localStorage.getItem('auth')){
-      this.setState({auth : localStorage.getItem('auth')});
+      this.setState({auth : JSON.parse(localStorage.getItem('auth'))});
     }
      if(localStorage.getItem('data')){
         let data = JSON.parse(localStorage.getItem('data'));
-        this.setState({creativeURL : data.creativeURL, fileName : data.fileName, s3Path : data.audiofile, name : data.name, status : data.status}, () => {
+        this.setState({creativeURL : data.creativeURL, fileName : data.fileName, s3Path : data.audiofile, name : data.name, status : data.status, coverURL :  data.albumcover}, () => {
             let selectedCategory = this.options.filter(item => item.value == data.category);
             if(selectedCategory.length >0)
             this.setState({category: selectedCategory[0]});
@@ -145,6 +147,64 @@ fileManagementService
 
 }
 
+navigateToNextPage(){
+    this.setState({loading : true});
+    if(localStorage.getItem('data')){
+                  let data = JSON.parse(localStorage.getItem('data'));
+                  data.name = this.state.name;
+                  data.creator = this.state.name;
+                  data.creativeURL = this.state.creativeURL;
+                  data.fileName = this.state.fileName;
+                  data.category = this.state.category ? this.state.category.value : '';
+                  data.audiofile = this.state.s3Path;
+                  localStorage.setItem('data', JSON.stringify(data));
+                  data.fyp_status = 'draft';
+                  data.dashgo_status = 'draft';
+                  data.author = data.authorName;
+                  data.producer = data.producerName;
+                  data.featured_artist = data.featuringArtist;
+                  data.email = this.state.auth.email;
+                  data.audioFileURL = this.state.s3Path;
+                  data.coverURL = this.state.coverURL;
+                  if(data.id != '' && data.id != null && data.id != undefined){
+                       creativeManagementService.updateCreative( data, 'songUpdate')
+                        .then(res => {
+                          if(res.status === 200){
+                            this.setState({loading : false});  
+                            this.props.history.push('/musicReview');  
+                          }
+                          else{
+                              this.setState({ loading: false });
+                            }
+                        }).catch((error) => {
+                        this.setState({ loading: false });
+                      });      
+                  }
+                  else {
+                  creativeManagementService.create(data).then((result) => {
+                    if (result.status == 200) 
+                    {   
+                      
+                       let data = JSON.parse(localStorage.getItem('data'));
+                       data.id = result.data.creativeId;
+                      localStorage.setItem('data', JSON.stringify(data));
+                      this.setState({loading : false});  
+                       this.props.history.push('/musicReview');     
+                    }
+                    else
+                    {
+                      //toast.error('ERROR : Unable to upload document');  
+                      this.setState({ loading: false });
+                    }
+                }).catch((error) => {
+                    this.setState({ loading: false });
+                    //// toast.error('ERROR ' + JSON.stringify(error));
+                  });
+              }
+                 
+              }  
+  }
+
   render() {
     const {
       oval,
@@ -202,9 +262,7 @@ fileManagementService
         </div>
         <div className="container-center-horizontal">
         <label for="fileChoose">
-          {/* {this.state.fileName != '' ? <span className="filename" >{this.state.fileName}</span> :  */}
-          <img className="upload" src={upload} /> 
-          {/* } */}
+          {this.state.fileName  === undefined || this.state.fileName  === '' ? <img className="upload" src={upload}/>  : <span className ="filename">{this.state.fileName}</span> }
           </label>
           <input 
                 id="fileChoose"
@@ -221,17 +279,7 @@ fileManagementService
         <div className="container-center-horizontal">
           <div className="upload-audio-file sofiapro-normal-white-30px">{uploadAudioFile}</div>
         </div>
-        <div className="container-center-horizontal" onClick={()=>{
-           if(localStorage.getItem('data')){
-                  let data = JSON.parse(localStorage.getItem('data'));
-                  data.name = this.state.name;
-                  data.creativeURL = this.state.creativeURL;
-                  data.fileName = this.state.fileName;
-                  data.category = this.state.category ? this.state.category.value : '';
-                  data.audiofile = this.state.s3Path;
-                  localStorage.setItem('data', JSON.stringify(data));
-                  this.props.history.push('/musicReview');
-              } }}>
+        <div className="container-center-horizontal" onClick={this.navigateToNextPage.bind(this)}>
           <div className="nexticon-VMr6Om">
             <img className="rectangle-On3W7C" src={rectangle3} />
             <img className="rectangle-NnOCDr" src={rectangle4} />

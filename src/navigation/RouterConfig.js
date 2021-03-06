@@ -16,7 +16,9 @@ import Warn5 from '../containers/warn5/warn5'
 import Terms from '../containers/terms/terms'
 import Warn4 from '../containers/warn4/warn4'
 import Warn2 from '../containers/warn2/warn2'
+import Warn3 from '../containers/warn3/warn3'
 import Warn6 from '../containers/warn6/warn6'
+import Warn7 from '../containers/warn7/warn7'
 import Review from '../containers/musicReview/musicReview'
 import NewSound from '../containers/newSound/newSound'
 import SoundStep1 from '../containers/soundStep1/soundStep1'
@@ -29,7 +31,6 @@ import SongStep2 from '../containers/songStep2/songStep2'
 import SongStep3 from '../containers/songStep3/songStep3'
 import SongStep4 from '../containers/songStep4/songStep4'
 import VerifyPassword from '../containers/forgotPassword/verification'
-import { v4 as uuid_v4 } from "uuid";
 import { AboutData, 
          FAQData, 
          LandingData, 
@@ -57,10 +58,12 @@ import { AboutData,
          MusicForm3Data,
          MusicForm4Data,
          MusicForm5Data,
-         RecoverPasswordData
+         RecoverPasswordData,
+         Warn3Data,
+         Warn7Data
         } from './CONSTANTS'
 
-const RouterConfig = ({ userHasAuthenticated, isAuthenticated }) => 
+const RouterConfig = ({ userHasAuthenticated, isAuthenticated, setProfileImage,profileImage }) => 
 <Switch>
     <UnauthenticatedRoute path="/login" exact component={Login} props={{...LoginData, userHasAuthenticated : event => userHasAuthenticated, isAuthenticated: isAuthenticated}} />
     <UnauthenticatedRoute path="/" exact component={Home} props={LandingData} />
@@ -77,7 +80,9 @@ const RouterConfig = ({ userHasAuthenticated, isAuthenticated }) =>
     <UnauthenticatedRoute path="/warn5" exact component={Warn5} props = {Warn5Data}/>
     <UnauthenticatedRoute path="/warn4" exact component={Warn4} props = {Warn4Data}/>
     <UnauthenticatedRoute path="/warn2" exact component={Warn2} props = {Warn2Data}/>
+    <UnauthenticatedRoute path="/warn3" exact component={Warn3} props = {Warn3Data}/>
     <UnauthenticatedRoute path="/warn6" exact component={Warn6} props = {Warn6Data}/>
+    <UnauthenticatedRoute path="/warn7" exact component={Warn7} props = {Warn7Data}/>
     <UnauthenticatedRoute path="/terms" exact component={Terms} props = {TermsData}/>
     <UnauthenticatedRoute path="/musicReview" exact component={Review} props = {MusicsubData}/>
     <UnauthenticatedRoute path="/newSound" exact component={NewSound} props = {NewSoundData}/>
@@ -92,4 +97,4 @@ const RouterConfig = ({ userHasAuthenticated, isAuthenticated }) =>
     <UnauthenticatedRoute path="/songStep4" exact component={SongStep4} props = {MusicForm5Data}/>
 </Switch>;
 
-export default RouterConfig;
+export default RouterConfig; 

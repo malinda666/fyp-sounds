@@ -13,8 +13,7 @@
     background-color: white;
     height: 100vh;
     margin: 0px;
-    min-height: 896px;
-    min-width: 414px;
+    overflow:hidden;
     position: relative;
     width: 100%;
 }
@@ -187,10 +186,11 @@
     line-height: 14px;
     position: fixed;
     text-align: center;
-    top: 500px;
+    top: 480px;
     width: 354px;
+    display: block;
 }
-
+.contact .or-shoot-us-an-email > span {display:inline-block;}
 .contact .oval-E582nk {
     background-color: transparent;
     height: 242px;
@@ -244,7 +244,7 @@
     flex-shrink: 0;
     height: 54px;
     margin-right: 1px;
-    margin-top: 18px;
+    margin-top: 8px;
     position: relative;
     width: 192px;
 }
@@ -292,7 +292,7 @@
 .contact .rectangle-zlebQ8 {
     background-color: white;
     border-radius: 27px;
-    height: 142px;
+    height: 132px;
     left: 0px;
     position: absolute;
     top: 0px;

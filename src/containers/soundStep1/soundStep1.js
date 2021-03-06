@@ -53,8 +53,14 @@ export default class SoundForm1 extends React.Component {
           <img className="oval-4eduM0" src={oval} />
           <img className="oval-BJQsbv" src={oval2} />
           <img className="oval-6sb1qn" src={oval3} />
-          <h1 className="are-you-the-owner-of sofiapro-normal-white-30px">{areYouTheOwnerOf}</h1>
           <img className="oval-ovOecM" src={oval4} />
+          
+        </div>
+        <div className="heading">
+           <h1 className="are-you-the-owner-of sofiapro-normal-white-30px">{areYouTheOwnerOf}</h1>
+
+        </div>
+        <div className="btn-group">
           <div className="btn-yes nexticon animate-enter smart-layers-pointers " onClick={() => this.props.history.push(this.state.routePath)}>
             <img className="rectangle-Zkpfmi" src={rectangle} />
         

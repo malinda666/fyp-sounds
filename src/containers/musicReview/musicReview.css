@@ -34,20 +34,18 @@
     flex-direction: column;
     height: auto;
     justify-content: flex-start;
-    min-height: 896px;
+    min-height: 100vh;
     padding: 16px 0;
-    width: 414px;
+    width: 100vw;
 }
 
 .musicsub .audio-file {
     background-color: transparent;
     height: auto;
-    left: 22px;
     letter-spacing: -0.12px;
     line-height: 24px;
     position: absolute;
     text-align: left;
-    top: 22px;
     white-space: nowrap;
     width: 109px;
 }
@@ -76,15 +74,13 @@
 
 .musicsub .charlotte--019-amelio {
     background-color: transparent;
-    flex-shrink: 0;
     height: auto;
+    position: relative;
+    width: 100%;
     letter-spacing: -0.09px;
     line-height: 18px;
-    margin-left: 106px;
-    min-height: 18px;
     text-align: right;
     white-space: nowrap;
-    width: 141px;
 }
 
 .musicsub .clear-cache {
@@ -93,7 +89,8 @@
     height: 68px;
     margin-top: 0px;
     position: relative;
-    width: 414px;
+    width: 100%;
+
 }
 
 .musicsub .clear-cache-copy-2 {
@@ -113,7 +110,7 @@
     height: 68px;
     justify-content: flex-start;
     margin-top: 15px;
-    min-width: 414px;
+    min-width: 100vw;
     padding: 18px 22px;
     width: auto;
 }
@@ -125,15 +122,15 @@
 .musicsub .clear-cache-copy-sXGHus {
     align-items: center;
     background-color: white;
-    display: inline-flex;
+    display: flex;
     flex-direction: row;
     flex-shrink: 0;
-    height: 68px;
-    justify-content: flex-start;
+    height: 50px;
+    justify-content: space-between;
     margin-top: 0px;
-    min-width: 414px;
     padding: 0 22px;
-    width: auto;
+    width: 100%;
+    max-width: 414px;
 }
 
 .musicsub .content {
@@ -162,40 +159,37 @@
 .musicsub .dj-sins {
     background-color: transparent;
     height: auto;
-    left: 215px;
+    position:relative;
+    width:100%;
     letter-spacing: -0.09px;
     line-height: 18px;
-    position: absolute;
     text-align: right;
-    top: 25px;
     white-space: nowrap;
-    width: 43%;
 }
 
 .musicsub .explicit {
     background-color: transparent;
-    flex-shrink: 0;
     height: auto;
+    position: relative;
+    width: 100%;
     letter-spacing: -0.09px;
     line-height: 18px;
-    margin-left: 92px;
-    min-height: 18px;
     text-align: right;
     white-space: nowrap;
-    width: 141px;
 }
 
 .musicsub .mysoundwav {
     background-color: transparent;
     height: auto;
-    left: 225px;
+    position: absolute;
+    right: 22px;
+    width: 50%;
     letter-spacing: -0.09px;
     line-height: 18px;
-    position: absolute;
     text-align: right;
-    top: 25px;
     white-space: nowrap;
-    width: 40.5%;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .musicsub .nexticon {
@@ -208,7 +202,7 @@
     height: 54px;
     justify-content: flex-end;
     margin-right: 16px;
-    margin-top: 52px;
+    margin-top: 42px;
     min-width: 192px;
     padding: 0 58px;
     width: auto;
@@ -216,26 +210,22 @@
 
 .musicsub .pop {
     background-color: transparent;
-    flex-shrink: 0;
     height: auto;
+    position: relative;
+    width: 100%;
     letter-spacing: -0.09px;
     line-height: 18px;
-    margin-left: 94px;
-    min-height: 18px;
     text-align: right;
     white-space: nowrap;
-    width: 141px;
 }
 
 .musicsub .producer {
     background-color: transparent;
     height: auto;
-    left: 22px;
     letter-spacing: -0.12px;
     line-height: 24px;
     position: absolute;
     text-align: left;
-    top: 22px;
     white-space: nowrap;
     width: 50%;
 }
@@ -243,10 +233,8 @@
 .musicsub .rectangle-19-copy-gUmma6 {
     background-color: white;
     height: 68px;
-    left: 0px;
     position: absolute;
-    top: 0px;
-    width: 414px;
+    width: fit-content;
 }
 
 .musicsub .review {
@@ -255,23 +243,18 @@
     height: auto;
     letter-spacing: 0px;
     line-height: 29px;
-    margin-left: 3px;
-    min-height: 29px;
-    min-width: 97px;
-    text-align: left;
+    text-align: center;
     white-space: nowrap;
-    width: auto;
+    width: 100%;
 }
 
 .musicsub .stores {
     background-color: transparent;
     height: auto;
-    left: 22px;
     letter-spacing: -0.12px;
     line-height: 24px;
     position: absolute;
     text-align: left;
-    top: 22px;
     white-space: nowrap;
     width: 109px;
 }
@@ -290,7 +273,7 @@
 }
 
 .musicsub .text- {
-    align-self: flex-end;
+    align-self: center;
     background-color: transparent;
     border: 0;
     height: 30px;
@@ -317,14 +300,12 @@
 .musicsub .tik-tok {
     background-color: transparent;
     height: auto;
-    left: 213px;
     letter-spacing: -0.09px;
     line-height: 18px;
-    position: absolute;
+    position: relative;
     text-align: right;
-    top: 25px;
     white-space: nowrap;
-    width: 43%;
+    width: 100%;
 }
 
 .sfprodisplay-regular-normal-granite-gray-20px {

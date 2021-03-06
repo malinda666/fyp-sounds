@@ -2,6 +2,14 @@ import React from "react";
 import './changePassword.css';
 
 export default class Password extends React.Component {
+
+  constructor(){
+    super(this.props);
+    Array.from(document.querySelectorAll("input")).forEach(
+      input => (input.value = "")
+    );
+  }
+
   render() {
     const {
       password,

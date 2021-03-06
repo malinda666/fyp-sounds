@@ -11,19 +11,24 @@ export default class Password extends React.Component {
 
     constructor(props) {
     super(props);
-
     this.state = {
       email:'',
       loading: false,
       confirmationCode:'',
-      password:'',
+      password:'12',
       confirmPassword:'',
       invalidCode: false
     }
   }
-
+  componentDidMount(){
+    Array.from(document.querySelectorAll("input")).forEach(
+          input => (input.value = "")
+        );
+    
+  }
   
    handleFieldChange(event){
+    this.setState({password:'1235'})
      if(event){
      this.setState({
       [event.target.id]: event.target.value,
@@ -154,7 +159,7 @@ export default class Password extends React.Component {
           <div className="top-bar" onClick={()=>{this.props.history.push('/forgotPassword')}}>
             <img className="back-chevron" src={backChevron} />
           </div>
-          <h1 className="password montserrat-bold-rose-pearl-24px">{password}</h1>
+          <h1 className="password-heading montserrat-bold-rose-pearl-24px">{password}</h1>
         </div>
         <ClearCacheCopy {...{...clearCacheCopyProps, handleFieldChange: (event)=> this.handleFieldChange(event), id:'password'}} />
         <ClearCacheCopy {...{...clearCacheCopy2Props, handleFieldChange: (event)=> this.handleFieldChange(event), id:'confirmPassword'}} className="clear-cache-copy-2" />
@@ -168,6 +173,7 @@ export default class Password extends React.Component {
             </p>
           </div>
         </div>
+        
        
           <div className="nexticon" style={{ backgroundImage: `url(${nextIcon})` }}  onClick={this.verify.bind(this)}>
             <div className="save montserrat-semi-bold-white-20px">{save}</div>
@@ -196,7 +202,7 @@ class ClearCacheCopy extends React.Component {
         <div className="old-password sfprodisplay-regular-normal-granite-gray-20px">{oldPassword}</div>
         <input
         id={this.props.id}
-          className="text sfprodisplay-regular-normal-pink-swan-15px"
+          className="text"
           name={inputName}
           placeholder={inputPlaceholder}
           type={inputType}

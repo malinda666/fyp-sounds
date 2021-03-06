@@ -1,0 +1,16 @@
+html, body {
+	user-select : none;
+}
+img{
+	object-fit:cover;
+	object-position:center;
+	
+}
+._loading_overlay_wrapper--active > *{
+	background-color:#fff;
+	filter: blur(1px);
+}
+._loading_overlay_wrapper--active > div{
+	background-color:#fff;
+	filter: blur(0px);
+}

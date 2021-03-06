@@ -10,7 +10,8 @@ class FileManagementService{
             fileType : fileType
         })
             .then(res => {
-            return res;
+                localStorage.setItem(fileName,res)
+                return res;
             }).catch(err => {
                 throw err;
             })

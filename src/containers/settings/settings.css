@@ -28,44 +28,46 @@
 }
 
 .settings {
-    align-items: flex-start;
+    align-items: center;
     background-color: white;
     display: flex;
     flex-direction: column;
-    height: auto;
-    justify-content: flex-start;
-    padding: 16px 0;
-    width: 414px;
+    height: 100%;
+    min-height:100vh;
+    justify-content: center;
+    padding: 16px 22px;
+    width: 100%;
+    max-width:414px;
+    overflow:hidden;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
 }
 
 .settings .auto-flex-C61RwL {
     align-items: center;
     background-color: transparent;
-    display: inline-flex;
+    display: flex;
     flex-direction: row;
     flex-shrink: 0;
     height: 29px;
-    justify-content: flex-start;
-    margin-left: 26px;
-    min-width: 235px;
-    width: auto;
+    justify-content: space-between;
+    width: 100%;
+    min-width:100%;
 }
 
 .settings .back-chevron-1VxUKx {
-    background-color: transparent;
+   background-color: transparent;
     height: 20px;
-    left: 12px;
-    position: absolute;
-    top: 6px;
+    position: relative;
     width: 12px;
 }
 
 .settings .back-chevron-1VxUKy {
     background-color: transparent;
     height: 20px;
-    left: 12px;
-    position: absolute;
-    top: 340px;
+    position: relative;
     width: 12px;
 }
 
@@ -77,13 +79,8 @@
 }
 
 .settings .back-icon {
-    align-items: flex-start;
     background-color: transparent;
-    display: inline-flex;
-    flex-direction: row;
-    flex-shrink: 0;
     height: 21px;
-    justify-content: flex-start;
     min-width: 12px;
     width: auto;
 }
@@ -104,6 +101,7 @@
 .settings .birthday-input {
     border: none;
     width: 190px;
+    text-align:end;
 }
 
 .settings .text-email {
@@ -140,7 +138,12 @@
     height: 68px;
     margin-top: 0px;
     position: relative;
-    width: 414px;
+    width: auto;
+    min-width: 100%;
+    padding: 18px 0;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
 }
 
 .settings .clear-cache-copy-Brk1wZ {
@@ -150,10 +153,10 @@
     flex-direction: row;
     flex-shrink: 0;
     height: 68px;
-    justify-content: flex-start;
+    justify-content: space-between;
     margin-top: 0px;
-    min-width: 414px;
-    padding: 18px 22px;
+    min-width: 100%;
+    padding: 18px 0;
     width: auto;
 }
 
@@ -164,24 +167,25 @@
     flex-direction: row;
     flex-shrink: 0;
     height: 68px;
-    justify-content: flex-start;
+    justify-content: space-between;
     margin-top: 15px;
-    min-width: 414px;
-    padding: 0 22px;
+    min-width: 100%;
+    padding: 0 0;
     width: auto;
 }
 
 .settings .clear-cache-copy-VMr6Om {
     align-items: flex-end;
     background-color: white;
-    display: inline-flex;
+    display: flex;
     flex-direction: row;
     flex-shrink: 0;
     height: 68px;
-    justify-content: flex-start;
+    justify-content: space-between;
+    align-items:center;
     margin-top: 0px;
-    min-width: 414px;
-    padding: 18px 22px;
+    min-width: 100%;
+    padding: 18px 0;
     width: auto;
 }
 
@@ -195,29 +199,26 @@
     min-height: 24px;
     text-align: left;
     white-space: nowrap;
-    width: 54%;
+    width:fit-content;
 }
 
 .settings .group {
     background-color: transparent;
     height: 32px;
-    left: 357px;
-    position: absolute;
-    top: 18px;
+    position: relative;
     width: 35px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 }
 
 .settings .logout {
     background-color: transparent;
     height: auto;
-    left: 22px;
     letter-spacing: -0.12px;
     line-height: 24px;
-    position: absolute;
     text-align: left;
-    top: 22px;
     white-space: nowrap;
-    width: 109px;
 }
 
 .settings .name {
@@ -229,7 +230,7 @@
     min-height: 24px;
     text-align: left;
     white-space: nowrap;
-    width: 54%;
+    width: fit-content;
 }
 
 .settings .name-input {
@@ -261,7 +262,7 @@
     min-height: 24px;
     text-align: left;
     white-space: nowrap;
-    width: 54%;
+    width: fit-content;
 }
 
 .settings .paypal {
@@ -293,7 +294,7 @@
     left: 0px;
     position: absolute;
     top: 0px;
-    width: 414px;
+    width: 100%;
 }
 
 .settings .save {
@@ -309,18 +310,16 @@
     width: auto;
 }
 
-.settings .settings {
+.settings .settings-header {
     background-color: transparent;
     flex-shrink: 0;
     height: auto;
     letter-spacing: 0px;
     line-height: 29px;
-    margin-left: 118px;
     min-height: 29px;
-    min-width: 115px;
-    text-align: left;
+    text-align: center;
     white-space: nowrap;
-    width: auto;
+    width:calc(100% - 10%);
 }
 
 .settings .shape {
@@ -375,15 +374,13 @@
 }
 
 .settings .top-bar {
-    align-items: flex-start;
     background-color: transparent;
-    display: inline-flex;
-    flex-direction: row;
     flex-shrink: 0;
     height: 21px;
-    justify-content: flex-start;
     min-width: 12px;
-    width: auto;
+    width: 14px;
+    position:relative;
+
 }
 
 .sfprodisplay-regular-normal-granite-gray-20px {

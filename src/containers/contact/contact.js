@@ -3,7 +3,8 @@ import {
   Link
 } from 'react-router-dom';
 import './contact.css'
-
+import Header from '../../components/header'
+import Footer from '../../components/footer'
 
 export default class Contact extends React.Component {
   render() {
@@ -75,43 +76,10 @@ export default class Contact extends React.Component {
           </form>
         </div>
         <div className="container-center-horizontal">
-          <form className="group" name="none" action="none" method="post">
-            <img className="oval-NOXmfT" src={oval} />
-            <img className="oval-E582nk" src={oval2} />
-            <Fypsoundslogo {...fypsoundslogoProps} />
-          </form>
+          <Header/>
         </div>
         <div className="container-center-horizontal">
-          <form className="footer" name="none" action="none" method="post">
-            <div className="overlap-group4">
-              <img className="oval-FuOxjK" src={oval3} />
-              <div className="group-5">
-                <About {...aboutProps} />
-                <div className="container-center-horizontal footer-items">
-                  <p className="footer-items-devider">|</p>
-                  <a href="/faq">
-                  <div className="montserrat-semi-bold-white-14px">{faq}</div>
-                  </a>
-                </div>
-                <div className="container-center-horizontal footer-items">
-                  <Link to="/contact" className="full-height-a">
-                    <p className="footer-items-devider">|</p>
-                    <div className="montserrat-semi-bold-white-14px">{contact2}</div>
-                  </Link>
-                </div>
-                <div className="container-center-horizontal footer-items">
-                  <p className="footer-items-devider">|</p>
-                   <a href="/policy">
-                  <div className="montserrat-semi-bold-white-14px">{privacyPolicy}</div>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <Fypsoundslogo2 {...fypsoundslogo2Props} />
-            <div className="container-center-horizontal">
-              <p className="copyright--51-2021-al montserrat-normal-white-13px">{copyright2512021Al}</p>
-            </div>
-          </form>
+          <Footer/>
         </div>
       </div>
     );
@@ -127,7 +95,7 @@ class Overlapgroup1 extends React.Component {
       <div className={`overlap-group1 ${className || ""}`}>
         <img className="rectangle-copy" src={rectangleCopy} />
         <input
-          className="text- montserrat-light-mountain-mist-14px"
+          className="text- "
           name={inputName}
           placeholder={inputPlaceholder}
           type={inputType}

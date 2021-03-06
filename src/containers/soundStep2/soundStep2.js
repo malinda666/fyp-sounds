@@ -31,34 +31,7 @@ export default class SoundForm1b extends React.Component {
           <img className="oval-BJQsbv" src={oval2} />
           <img className="oval-6sb1qn" src={oval3} />
           <img className="oval-ovOecM" src={oval4} />
-          <div className="nexticon-copy-1 animate-enter smart-layers-pointers" onClick={() => {
-                                                                                        if(localStorage.getItem('data')){
-                                                                                          let data = JSON.parse(localStorage.getItem('data'));
-                                                                                          data.status = 'yes'
-                                                                                          localStorage.setItem('data', JSON.stringify(data));
-                                                                                          this.props.history.push('/soundStep3');
-                                                                                        }                                                                                        
-                                                                                        }}>
-            <img className="rectangle-ViqXFw" src={rectangle} />
-            
-              <img className="rectangle" src={rectangle2} />
-           
-            <div className="yes-17Ixfr montserrat-semi-bold-white-20px">{yes}</div>
-          </div>
-          <div className="nexticon-copy-2 animate-enter" onClick={() => {
-                                                              if(localStorage.getItem('data')){
-                                                                                          let data = JSON.parse(localStorage.getItem('data'));
-                                                                                          data.status = 'no'
-                                                                                          localStorage.setItem('data', JSON.stringify(data));
-                                                                                          this.props.history.push('/soundStep3');
-                                                                                        }       
-                                                              }}>
-            <img className="rectangle-ViqXFw" src={rectangle3} />
-           
-              <img className="rectangle" src={rectangle4} />
-     
-            <div className="no montserrat-semi-bold-white-20px">{no}</div>
-          </div>
+          
         </div>
         <div className="container-center-horizontal">
           <div className="nexticon-copy-3 animate-enter2 smart-layers-pointers ">
@@ -72,6 +45,39 @@ export default class SoundForm1b extends React.Component {
         <div className="container-center-horizontal">
           <div className="is-this-content-expl sofiapro-normal-white-30px">{isThisContentExpl}</div>
         </div>
+        <div className="container-center-horizontal">
+          <div className="btn-wrapper">
+            <div className="nexticon-copy-1 animate-enter smart-layers-pointers" onClick={() => {
+                                                                                        if(localStorage.getItem('data')){
+                                                                                          let data = JSON.parse(localStorage.getItem('data'));
+                                                                                          data.status = 'yes'
+                                                                                          localStorage.setItem('data', JSON.stringify(data));
+                                                                                          this.props.history.push('/soundStep3');
+                                                                                        }                                                                                        
+                                                                                        }}>
+              <img className="rectangle-ViqXFw" src={rectangle} />
+              
+                <img className="rectangle" src={rectangle2} />
+             
+              <div className="yes-17Ixfr montserrat-semi-bold-white-20px">{yes}</div>
+            </div>
+            <div className="nexticon-copy-2 animate-enter smart-layers-pointers" onClick={() => {
+                                                                if(localStorage.getItem('data')){
+                                                                                            let data = JSON.parse(localStorage.getItem('data'));
+                                                                                            data.status = 'no'
+                                                                                            localStorage.setItem('data', JSON.stringify(data));
+                                                                                            this.props.history.push('/soundStep3');
+                                                                                          }       
+                                                                }}>
+              <img className="rectangle-ViqXFw" src={rectangle3} />
+             
+                <img className="rectangle" src={rectangle4} />
+       
+              <div className="no montserrat-semi-bold-white-20px">{no}</div>
+          </div>
+          </div>
+        </div>
+        
       </div>
     );
   }

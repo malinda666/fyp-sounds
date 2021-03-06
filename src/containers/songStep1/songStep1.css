@@ -50,14 +50,22 @@
 
 .musicform2 {
     background-color: var(--anakiwa);
-    height: 100vh;
+    height: 100%;
     margin: 0px;
-    min-height: 896px;
-    min-width: 414px;
+    min-height:100vh;
     position: relative;
     width: 100%;
+    overflow:hidden;
 }
-
+.musicform2 .nexticon-copy-text{
+    position:absolute;
+    left:0;
+    top:200px;
+    width:100%;
+    min-width:100vw;
+    height:50px;
+    display:flex;align-items:center;justify-content:center;
+}
 .musicform2 .all-stores {
     background-color: transparent;
     height: auto;
@@ -220,12 +228,9 @@
 .musicform2 .yes {
     background-color: transparent;
     height: auto;
-    left: 0px;
     letter-spacing: 0px;
     line-height: 24px;
-    position: absolute;
     text-align: center;
-    top: 0px;
     white-space: nowrap;
     width: 88px;
 }

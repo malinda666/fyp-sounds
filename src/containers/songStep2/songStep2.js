@@ -77,9 +77,11 @@ export default class MusicForm3 extends React.Component {
         <img className="oval-C61RwL" src={oval} />
         <img className="oval-VMr6Om" src={oval2} />
         <img className="oval-mzXdH9" src={oval3} />
-        <h1 className="publish-audio-to sofiapro-normal-white-30px">{publishAudioTo}</h1>
+        
         <img className="oval-QxM5SU" src={oval4} />
-        <div className="nexticon-copy-2">
+        <div className="musicform2-wrapper">
+          <h1 className="publish-audio-to sofiapro-normal-white-30px">{publishAudioTo}</h1>
+          <div className="nexticon-copy-2">
           <div className="all-stores montserrat-light-white-20px">{this.state?.stores}</div>
         </div>
         <div className="nexticon-copy-5">
@@ -136,6 +138,8 @@ export default class MusicForm3 extends React.Component {
        
         <NexticonCopy7 {...{...nexticonCopy72Props, handleFieldChange : event => this.handleFieldChange(event), id: 'featuringArtist', value: this.state.featuringArtist}} className="nexticon-copy-8" />    
       
+        </div>
+        
       </div>
     );
   }

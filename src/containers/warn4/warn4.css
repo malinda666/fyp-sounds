@@ -57,10 +57,9 @@
     background-color: var(--onahau);
     height: 100vh;
     margin: 0px;
-    min-height: 896px;
-    min-width: 414px;
     position: relative;
-    width: 100%;
+    width: 100vw;
+    overflow:hidden;
 }
 
 .warn4 .accept {
@@ -150,20 +149,24 @@
     white-space: nowrap;
     width: 102px;
 }
-
+.warn4 .bg-image-wrap{
+    position:absolute;
+    height:100%;
+    width:100%;
+}
 .warn4 .bg-image1 {
     background: no-repeat;
     width: 185%;
     height: 603px;
     position: absolute;
     top: 11px;
-    left: -351px;
+    left:-100px;
 }
 
 .warn4 .bg-image3 {
     background: no-repeat;
     height: 682px;
-    left: -350px;
+    left: -300px;
     position: absolute;
     top: 194px;
     width: 185%;
@@ -172,7 +175,7 @@
 .warn4 .bg-image2 {
     background: no-repeat;
     height: 722px;
-    left: -212px;
+    left: -185px;
     position: absolute;
     top: -390px;
     width: 151.5%;
@@ -181,7 +184,7 @@
 .warn4 .bg-image4 {
     background: no-repeat;
     height: 556px;
-    left: -415px;
+    left: -350px;
     position: absolute;
     top: 320px;
     width: 200%;

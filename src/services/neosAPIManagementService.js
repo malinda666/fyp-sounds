@@ -5,7 +5,7 @@ class NeosAPIManagementService{
     static async create(data, type){
         let url = config.NEOS_BASE_URL;
         var bodyFormData = new FormData();
-        if(type == 'sound'){
+        if(type === 'sound'){
                 url = config.NEOS_BASE_URL + 'fypsoundv1';
                 bodyFormData.append('creator', data.creator );
                 bodyFormData.append('title', data.title );

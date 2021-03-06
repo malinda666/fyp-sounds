@@ -1,0 +1,44 @@
+.wrapper{
+	background-color: transparent;
+	height: 452px;
+	margin-left: 96px;
+	margin-right: -96px;
+	position: fixed;
+	top: -333px;
+	width: 776px;
+}
+.wrapper > div > img {
+	position: absolute;
+	background-position:center;background-size: cover;
+}
+.imageOne{
+	background-color: transparent;
+	height: 410px;
+	left: 15px;
+	position: absolute;
+	top: 0px;
+	width: 592px;
+}
+.imageOne > img {
+	top: 210px;left: 0;
+}
+.imageTwo{
+	background-color: transparent;
+	height: 242px;
+	left: 0px;
+	position: absolute;
+	top: 210px;
+	width: 775px;
+}
+.imageTwo > img {
+	top: -470px;left: 0;
+}
+.logo{
+	background-color: transparent;
+	background-size: 100% 100%;
+	height: 40px;
+	left: 245px;
+	position: absolute;
+	top: 359px;
+	width: 94px;
+}

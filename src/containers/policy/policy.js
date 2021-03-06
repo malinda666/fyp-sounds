@@ -3,6 +3,8 @@ import {
   Link
 } from 'react-router-dom';
 import './policy.css'
+import Header from '../../components/header'
+import Footer from '../../components/footer'
 
 export default class PrivacyPolicy extends React.Component {
   render() {
@@ -34,41 +36,10 @@ export default class PrivacyPolicy extends React.Component {
           <p className="lorem-ipsum-dolor-si montserrat-light-mountain-mist-14px">{loremIpsumDolorSi}</p>
         </div>
         <div className="container-center-horizontal">
-          <div className="group">
-            <img className="oval-NOXmfT" src={oval} />
-            <img className="oval-E582nk" src={oval2} />
-            <Fypsoundslogo {...fypsoundslogoProps} />
-          </div>
+          <Header/>
         </div>
         <div className="container-center-horizontal">
-          <div className="footer">
-            <div className="overlap-group">
-              <img className="oval-4K0abD" src={oval3} />
-              <div className="group-5">
-                <About {...aboutProps} />
-                  <Link to="/faq">
-                <div className="container-center-horizontal footer-items">
-                  <p className="footer-items-devider">|</p>
-                  <div className="montserrat-semi-bold-white-14px">{faq}</div>
-                </div>
-                      </Link>
-                <div className="container-center-horizontal footer-items">
-                  <p className="footer-items-devider">|</p>
-                  <div className="montserrat-semi-bold-white-14px">{contact}</div>
-                </div>
-                <div className="container-center-horizontal footer-items">
-                  <Link to="/policy">
-                    <p className="footer-items-devider">|</p>
-                    <div className="montserrat-semi-bold-white-14px">{privacyPolicy2}</div>
-                  </Link>
-                </div>
-              </div>
-            </div>
-            <Fypsoundslogo2 {...fypsoundslogo2Props} />
-            <div className="container-center-horizontal">
-              <p className="copyright--51-2021-al montserrat-normal-white-13px">{copyright2512021Al}</p>
-            </div>
-          </div>
+          <Footer/>
         </div>
       </div>
     );

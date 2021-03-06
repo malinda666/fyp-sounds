@@ -50,14 +50,15 @@
 .landing {
     background-color: var(--anakiwa);
     display: block;
-    height: 100vh;
+    height: 100%;
     margin: 0px;
-    min-height: 896px;
+    min-height: 100vh;
     min-width: 414px;
     position: relative;
     width: 100%;
     opacity: 0;
     filter: blur(50px);
+    overflow:hidden;
 }
 
 .landing .about-IlweIA {
@@ -354,6 +355,7 @@
     top: 15px;
     white-space: nowrap;
     width: auto;
+    cursor:pointer;
 }
 
 .landing .x {

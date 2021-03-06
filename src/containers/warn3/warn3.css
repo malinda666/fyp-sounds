@@ -1,0 +1,123 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:700,600,300,400");
+
+* {
+    box-sizing: border-box;
+}
+
+.animate-enter {
+    animation: animate-enter-frames 0.5s ease-in-out 0.2s 1 normal forwards;
+    display: block;
+    opacity: 0;
+    transform: scale(1.1);
+}
+
+.applecoloremoji-normal-white-60px {
+    color: white;
+    font-family: "AppleColorEmoji", Helvetica, Arial, serif;
+    font-size: 60px;
+}
+
+.montserrat-bold-white-25px {
+    color: white;
+    font-family: "Montserrat", Helvetica, Arial, serif;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.montserratheading20pxsemiboldcenter-aligngray-900 {
+    font-family: "Montserrat", Helvetica, Arial, serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    letter-spacing: 0px;
+}
+
+.warn3 {
+    align-items: center;
+    background-color: var(--bright-turquoise);
+    background-size: 100% 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding: 90px 17.1px;
+    width: 100vw;
+    overflow:hidden;
+}
+
+.warn3 .dismiss {
+    color: rgba(255, 255, 255, 1);
+    left: 27px;
+    line-height: 24px;
+    position: absolute;
+    text-align: center;
+    top: 9px;
+    white-space: nowrap;
+    width: 88px;
+}
+
+.warn3 .nexticon-copy-2 {
+    height: 41px;
+    margin-top: 70px;
+    width: 146px;
+    opacity: 0;
+    transform: scale(1.1);
+}
+
+.warn3 .overlap-group {
+    height: 41px;
+    left: 0px;
+    position: relative;
+    top: 0px;
+}
+
+.warn3 .please-add-a-paypal {
+    align-self: flex-start;
+    letter-spacing: -0.16px;
+    line-height: 30px;
+    margin-top: 12px;
+    min-height: 100px;
+    text-align: center;
+    padding:0 22px;
+}
+
+.warn3 .rectangle {
+    height: 31px;
+    left: 17px;
+    position: absolute;
+    top: 9px;
+    width: 112px;
+}
+
+.warn3 .rectangle-1 {
+    height: 41px;
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    width: 146px;
+}
+
+.warn3 .textlabel {
+    letter-spacing: -0.38px;
+    line-height: 79px;
+    margin-right: 2.38px;
+    min-height: 79px;
+    min-width: 62px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+
+
+@keyframes animate-enter-frames {
+    from {
+        opacity: 0;
+        transform: scale(1.1);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

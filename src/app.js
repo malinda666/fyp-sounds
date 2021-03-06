@@ -5,7 +5,7 @@ import React, {useEffect, useState} from 'react';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-   
+   const [profileImage, setProfileImage] = useState(null);
     const userHasAuthenticated = (authenticated) => {
             setIsAuthenticated(authenticated);       
       };
@@ -16,9 +16,14 @@ function App() {
       }
   return (
     <Router>
-      <RouterConfig isAuthenticated = {isAuthenticated} userHasAuthenticated= {userHasAuthenticated}/>
+      <RouterConfig 
+        isAuthenticated = {isAuthenticated} 
+        userHasAuthenticated= {userHasAuthenticated}
+        setProfileImage = {setProfileImage}
+        profileImage = {profileImage}
+      />
    </Router>
-  );
+  ); 
 }
 
 export default App;

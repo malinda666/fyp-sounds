@@ -18,7 +18,7 @@ const AboutData = {
     oval3: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9cb0c225cce9e6c83edec/img/landing-oval-083AEC00-4CBB-4E35-AC1A-D6E8ADC06CFE.png",
     label1: "                   |                     |                             |",
     faq: "FAQ",
-    contact: "Contact",
+    contact: "Contact", 
     privacyPolicy: "Privacy Policy",
     copyright2512021Al: "Copyright © 2021. All Rights Reserved By Emuq Tech Inc.",
     fypsoundslogoProps: fypsoundslogoData,
@@ -226,6 +226,7 @@ const dashboardData = {
     earnings: "earnings",
     Ud83DUdcb0: "💰",
     rectangle: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/music-form-5-rectangle-4AE56F57-DF50-4263-9FAF-A9FD319B1626@2x.png",
+    request: "request ",
     NewSound: "+ new sound",
     spanText: "upload your first sound & make",
     spanText2: "💰",
@@ -236,6 +237,15 @@ const dashboardData = {
     shape2: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/trendsnewuser-shape-36F27973-3CC0-40F3-A142-FC06F9D34180@2x.png",
     path: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/trendsnewuser-path-F9B355BD-1E85-4676-AE3E-353FD9A10936@2x.png",
     oval: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9cb0c225cce9e6c83edec/img/landing-oval-083AEC00-4CBB-4E35-AC1A-D6E8ADC06CFE.png",
+    status: "status",
+    rectangle2Copy: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/earnings-rectangle-2-copy-77E2DC18-875E-468C-B94C-58B60D4A46D8@2x.png",
+    songsEarning: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/trends-rectangle-2-D4E81228-FB9C-423F-AE85-EF9284AD55C4@2x.png",
+    ready: "ready",
+    paid: "paid",
+    period: "period",
+    amount: "amount",
+    group3: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/earnings-rectangle-2-29C7AB24-0C2E-4C02-B081-70DCD042CB20.png",
+    rectangle21Copy: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/earnings-rectangle-2-copy-76EA6D65-FF13-4BE0-B55D-61C9172C9952@2x.png",
     label1: "                   |                     |                             |",
     faq: "FAQ",
     contact: "Contact",
@@ -310,7 +320,7 @@ const SettingsData = {
     password: "Password",
     inputName4: "text",
     inputType4: "password",
-    inputPlaceholder4: "***********",
+    inputPlaceholder4: "********",
     inputRequired4: false,
     paypal: "Paypal",
     inputName5: "textemailemailcom",
@@ -330,7 +340,7 @@ const clearCacheCopyData = {
     oldPassword: "Old Password",
     inputName: "text",
     inputType: "password",
-    inputPlaceholder: "***********",
+    inputPlaceholder: "********",
     inputRequired: false,
 };
 
@@ -338,7 +348,7 @@ const clearCacheCopy2Data = {
     oldPassword: "New Password",
     inputName: "text",
     inputType: "password",
-    inputPlaceholder: "***********",
+    inputPlaceholder: "********",
     inputRequired: false,
 };
 
@@ -748,7 +758,7 @@ const clearCachePasswordData = {
    oldPassword: "New Password",
     inputName: "text",
     inputType: "password",
-    inputPlaceholder: "***********",
+    inputPlaceholder: "********",
     inputRequired: false,
 };
 
@@ -756,7 +766,7 @@ const clearCachePassword2Data = {
     oldPassword: "Confirm Password",
     inputName: "text",
     inputType: "password",
-    inputPlaceholder: "***********",
+    inputPlaceholder: "********",
     inputRequired: false,
 };
 
@@ -783,6 +793,24 @@ const RecoverPasswordData = {
     clearCacheCopy2Props: clearCachePassword2Data,
     clearCacheCopy3Props: clearCachePassword3Data,
 };
+
+const Warn3Data = {
+    warn3: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/new-sound-rectangle-3A3D54E8-D979-49C3-A838-1040FF4C72B9.png",
+    textLabel:"💰",
+    pleaseAddAPaypal : "please add a paypal email to your settings tab in order to request.",
+    rectangle : "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/music-form-1-rectangle-F44A733F-3C97-4AB9-BCB6-5073AA49C42C@2x.png",
+    rectangle2 :"https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/warn3-rectangle-7170A44A-6C2A-4282-833B-DEB8905E7703@2x.png",
+    dismiss :"dismiss"
+}
+
+const Warn7Data = {
+    warn3Copy : "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/new-sound-rectangle-3A3D54E8-D979-49C3-A838-1040FF4C72B9.png",
+    textLabel: "💰",
+    youGotSomeCh :"you got some $$$, check your paypal!",
+    rectangle : "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/music-form-1-rectangle-F44A733F-3C97-4AB9-BCB6-5073AA49C42C@2x.png",
+    rectangle2: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/warn3-rectangle-7170A44A-6C2A-4282-833B-DEB8905E7703@2x.png",
+    dismiss : "dismiss"
+}
 
 
 
@@ -814,5 +842,7 @@ export {
     MusicForm3Data,
     MusicForm4Data,
     MusicForm5Data,
-    RecoverPasswordData
+    RecoverPasswordData,
+    Warn3Data,
+    Warn7Data
 }

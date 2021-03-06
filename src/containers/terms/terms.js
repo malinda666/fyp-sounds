@@ -1,10 +1,8 @@
 import React from "react";
-import './terms.css'
+import './terms.css';
+import { withRouter } from 'react-router-dom';
 
-export default class Terms extends React.Component {
-  render() {
-    const {
-      oval,
+const Terms = ({oval,
       oval2,
       oval3,
       oval4,
@@ -16,8 +14,8 @@ export default class Terms extends React.Component {
       rectangle3,
       dismiss,
       terms,
-      fypsoundslogoProps,
-    } = this.props;
+      fypsoundslogoProps,history,}) => {
+  
 
     return (
       <div className="terms">
@@ -28,7 +26,9 @@ export default class Terms extends React.Component {
           <img className="oval-ovOecM" src={oval4} />
           <img className="rectangle-IZxxJF" src={rectangle} />
           <img className="rectangle-IZxxJF" src={rectangleCopy} />
-          <Fypsoundslogo {...fypsoundslogoProps} />
+        </div>
+        <div className="container-center-horizontal">
+          <Fypsoundslogo {...fypsoundslogoProps} />          
         </div>
         <div className="container-center-horizontal">
           <p className="lorem-ipsu-or-si-copy montserrat-light-white-14px">{loremIpsumDolorSiCopy}</p>
@@ -42,15 +42,15 @@ export default class Terms extends React.Component {
             <a >
               <img className="rectangle-OxJunE" src={rectangle3} />
             </a>
-            <div className="dismiss montserrat-semi-bold-white-20px">{dismiss}</div>
+            <div className="dismiss montserrat-semi-bold-white-20px"  onClick={() => history.goBack()}>{dismiss}</div>
           </div>
         </div>
         <div className="container-center-horizontal">
-          <h1 className="terms montserrat-bold-white-24px">{terms}</h1>
+          <h1 className="terms-content montserrat-bold-white-24px">{terms}</h1>
         </div>
       </div>
     );
-  }
+  
 }
 
 
@@ -62,4 +62,4 @@ class Fypsoundslogo extends React.Component {
   }
 }
 
-
+export default withRouter(Terms);

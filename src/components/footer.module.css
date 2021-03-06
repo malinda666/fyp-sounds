@@ -1,0 +1,32 @@
+.footer{
+	background-color: transparent;
+	bottom: -136px;
+	height: 296px;
+	position: fixed;
+	width: 1748px;
+	display: flex;align-items: center;justify-content: center;
+}
+.footerLogo{
+	position: absolute;top: 53px;left: 50%;transform: translateX(-50%);width: 57px;height: 24px;
+}
+.footerLogo > img {
+	position: absolute;top: 0;left: 0;height: 100%;width: 100%;
+}
+.footerImg{
+	position: absolute;top: 0;left: 0;width: 1747px;height: 296px;
+}
+.footerImg > img {
+	position: absolute;top: 0;left: 0;height: 295px;width: 1747px;
+	background-size: contain;background-position: center;
+}
+.footerLinks{
+	position: absolute;top: 90px;left: 692px;width: 362px;height: 18px;
+	display: flex;align-items: center;justify-content: space-between;
+}
+.footerLinks a {
+	position: relative;
+	margin-left: 15px;
+}
+.copyrightNotice{
+	height: auto;letter-spacing: 0;line-height: 16px;position: absolute;text-align: center;top: 131px;white-space: nowrap;width: 100%;
+}

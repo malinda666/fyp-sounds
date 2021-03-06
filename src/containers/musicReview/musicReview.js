@@ -52,8 +52,8 @@ export default class Musicsub extends React.Component {
       <div className="musicsub">
         <h1 className="review montserrat-bold-rose-pearl-24px">{review}</h1>
         <ClearCacheCopy {...{...clearCacheCopyProps,  handleFieldChange : event => this.handleFieldChange(event), id : 'creatorName', value :this.state.data ? this.state.data.name : ''}} />
-        <ClearCacheCopy {...{...clearCacheCopy2Props,  handleFieldChange : event => this.handleFieldChange(event), id : 'title', value :this.state.data ? this.state.data.title :''}} className="clear-cache-copy-VMr6Om" />
-        <ClearCacheCopy {...{...clearCacheCopy3Props, handleFieldChange : event => this.handleFieldChange(event), id : 'featuringArtist', value : this.state.data ? this.state.data.featuringArtist : ''}} className="clear-cache-copy-2" />
+        <ClearCacheCopy {...{...clearCacheCopy2Props,  handleFieldChange : event => this.handleFieldChange(event), id : 'title', value :this.state.data ? this.state.data.title :''}} className="clear-cache-copy-sXGHus" />
+        <ClearCacheCopy {...{...clearCacheCopy3Props, handleFieldChange : event => this.handleFieldChange(event), id : 'featuringArtist', value : this.state.data ? this.state.data.featuringArtist : ''}} className="clear-cache-copy-sXGHus" />
         <div className="clear-cache-copy-sXGHus">
           <div className="category sfprodisplay-regular-normal-granite-gray-20px">{category}</div>
           <div className="pop sfprodisplay-regular-normal-pink-swan-15px">{this.state.data ? this.state.data.category: ''}</div>
@@ -68,20 +68,20 @@ export default class Musicsub extends React.Component {
             {this.state.data ? this.state.data.authorName : ''}
           </div>
         </div>
-        <div className="clear-cache">
+        <div className="clear-cache-copy-sXGHus">
           <div className="rectangle-19-copy-gUmma6"></div>
           <div className="rectangle-19-copy-gUmma6"></div>
           <div className="producer sfprodisplay-regular-normal-granite-gray-20px">{producer}</div>
           <div className="dj-sins sfprodisplay-regular-normal-pink-swan-15px">{this.state.data ? this.state.data.producerName  :''}</div>
         </div>
         <ClearCacheCopy3 {...{...clearCacheStoresProps, value: this.state.data ? this.state.data.stores : ''}} />
-        <div className="clear-cache">
+        <div className="clear-cache-copy-sXGHus">
           <div className="rectangle-19-copy-gUmma6"></div>
           <div className="rectangle-19-copy-gUmma6"></div>
           <div className="audio-file sfprodisplay-regular-normal-granite-gray-20px">{audioFile}</div>
           <div className="mysoundwav sfprodisplay-regular-normal-pink-swan-15px">{this.state.data ? this.state.data.fileName :''}</div>
         </div>
-        <ClearCacheCopy3 {...{...clearCacheCopy32Props, value: 'song'}} className="clear-cache-copy-5" />
+        <ClearCacheCopy3 {...{...clearCacheCopy32Props, value: 'song'}} className="clear-cache-copy-sXGHus" />
         <div className="nexticon" style={{ backgroundImage: `url(${nextIcon})` }} onClick={() => {
                                                               this.props.history.push('/warn4');
                                                               }}>
@@ -98,7 +98,7 @@ class ClearCacheCopy extends React.Component {
     const { creator, inputName, inputType, inputPlaceholder, inputRequired, className } = this.props;
 
     return (
-      <div className={`clear-cache-copy-C61RwL ${className || ""}`}>
+      <div className={`clear-cache-copy-sXGHus ${className || ""}`}>
         <div className="creator sfprodisplay-regular-normal-granite-gray-20px">{creator}</div>
         <input
         id ={this,this.props.id}
@@ -121,7 +121,7 @@ class ClearCacheCopy3 extends React.Component {
     const { stores, tiktok, className } = this.props;
 
     return (
-      <div className={`clear-cache ${className || ""}`}>
+      <div className={`clear-cache-copy-sXGHus ${className || ""}`}>
         <div className="rectangle-19-copy-gUmma6"></div>
         <div className="rectangle-19-copy-gUmma6"></div>
         <div className="stores sfprodisplay-regular-normal-granite-gray-20px">{stores}</div>

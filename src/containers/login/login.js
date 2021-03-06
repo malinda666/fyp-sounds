@@ -4,6 +4,8 @@ import userManagementService from '../../services/userManagementService'
 import ProfileManagementService from "../../services/profileManagementService";
 import HashLoader from 'react-spinners/HashLoader'
 import LoadingOverlay from "react-loading-overlay";
+import Header from '../../components/header'
+import Footer from '../../components/footer'
 
 export default class LoginErrorMessages extends React.Component { 
 
@@ -243,8 +245,11 @@ export default class LoginErrorMessages extends React.Component {
           active={this.state.loading}
           spinner={<HashLoader color={"#f24b76"} size={100}/>}
         >
-
-      <form className="loginerrormessages" name="form1" action="form1" method="post">
+<meta 
+     name='viewport' 
+     content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' 
+/>
+      <form className="loginerrormessages" name="form1" action="form1" method="post" >
         <div className="container-center-horizontal">
           <div className="nexticon-copy">
             <h1 className="or sofiapro-normal-torch-red-25px">{or}</h1>
@@ -278,37 +283,10 @@ export default class LoginErrorMessages extends React.Component {
           </div>
         </div>
         <div className="container-center-horizontal">
-          <div className="group">
-            <img className="oval-NOXmfT" src={oval} />
-            <img className="oval-E582nk" src={oval2} />
-            <Fypsoundslogo {...fypsoundslogoProps} />
-          </div>
+           <Header/>
         </div>
         <div className="container-center-horizontal">
-          <div className="footer">
-            <div className="overlap-group6">
-              <img className="oval-ipjwHu" src={oval3} />
-              <div className="group-5">
-                <About {...{...aboutProps, handleAboutClick : event => this.handleAboutClick(event)}} />
-                <div className="container-center-horizontal footer-items">
-                  <p className="footer-items-devider">|</p>
-                  <div className="montserrat-semi-bold-white-14px" onClick={() => {this.props.history.push('/faq')}}>{faq}</div>
-                </div>
-                <div className="container-center-horizontal footer-items">
-                  <p className="footer-items-devider">|</p>
-                  <div className="montserrat-semi-bold-white-14px" onClick={() => {this.props.history.push('/contact')}}>{contact}</div>
-                </div>
-                <div className="container-center-horizontal footer-items">
-                  <p className="footer-items-devider">|</p>
-                  <div className="montserrat-semi-bold-white-14px" onClick={() => {this.props.history.push('/policy')}}>{privacyPolicy}</div>
-                </div>
-              </div>
-            </div>
-            <Fypsoundslogo2 {...fypsoundslogo2Props} />
-            <div className="container-center-horizontal">
-              <p className="copyright--51-2021-al montserrat-normal-white-13px">{copyright2512021Al}</p>
-            </div>
-          </div>
+          <Footer/>
         </div>
         {this.state.isLoginEmailRequired ? 
         <div className="container-center-horizontal">
