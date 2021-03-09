@@ -38,7 +38,7 @@ export default class MusicForm5 extends React.Component {
       {label : "folk", value : "folk"},
       {label : "indian", value : "indian"},
       {label : "jazz", value : "jazz"}   
-    ]
+    ];
     this.inputOpenFileRef = React.createRef()
    this.state = {
      options: this.options,
@@ -253,6 +253,8 @@ navigateToNextPage(){
               options={this.state.options}
               value={this.state.category}
               onChange={this.changeCategoryHandler}
+              classNamePrefix="react-select"
+              className='react-select-container'
                         />
             <img className="back-chevron" src={backChevron} />
           </div>

@@ -23,7 +23,7 @@ const Imagesloaded = ({url,children}) => {
 	        onProgress={handleOnProgress}
 	        onFail={handleOnFail}
 	        done={handleDone}
-	        background=".image" // true or child selector
+	        background=".i" // true or child selector
 	      >
 	        {children}
 	      </ImagesLoaded>

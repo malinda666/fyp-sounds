@@ -176,7 +176,7 @@
 
 .soundform2b .css-yk16xz-control {
     border-radius: 24px;
-    height: 41px;
+    height: 36px;
 }
 
 .soundform2b .css-1pahdxg-control {
@@ -189,9 +189,6 @@
     padding-left: 16px !important;
 }
 
-.css-9gakcf-option {
-    background-color: rgb(41, 106, 202) !important;
-}
 
 .soundform2b .nexticon-copy-2 {
     align-items: flex-start;
@@ -374,7 +371,7 @@
     color: rgba(151, 151, 151, 0.6);
 }
 .soundform2b .css-2b097c-container{
-    width:294px;
+    width:192px;
     position: absolute;
     top: 35%;
 }
@@ -388,10 +385,15 @@
 .soundform2b .filename {
     background-color: transparent;
     height: 28px;
-    left: 430px;
     position: absolute;
-    top: 1025px;
-    width: 28px;
+    top: 422px;
+    width: 100%;
+    text-align:center;
+    white-space:nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    left:0;
+    padding:0 5rem;
 }
 
 .soundform2b .upload-audio-file {

@@ -398,7 +398,6 @@ export default class Soundsnewuser extends React.Component {
                 .updateProfileImage(s3Path,this.state.auth.email)
                 .then((profileUpdateResult) => {
                   window.alert(s3Path)
-                  // this.props.setProfileImage(s3path);
                   if (profileUpdateResult.status == 200) {  
                     this.getUserProfile();               
                     this.setState({ loading: false });
@@ -528,7 +527,6 @@ export default class Soundsnewuser extends React.Component {
       status,
       request,
       songsEarning,
-      setProfileImage,
       profileImage
     } = this.props;
 
@@ -756,17 +754,9 @@ export default class Soundsnewuser extends React.Component {
               <img className="path-3" src={path3} />
               <img className="path-3-copy" src={path3Copy} />
             </div>
+            <LazyLoad height={200}>
             <label for="fileChoose">
-              <LoadingProgress
-                visualOnly
-                useSpinner
-                active={this.state.loading}
-                total={1}
-                title="profileImage"
-                current={this.state.profileSignedURL}
-                showCompact       
-              />
-                <LazyLoad height={200}>
+                
                 {this.state.profileURL ?
                <img
                className="oval-5"
@@ -777,17 +767,15 @@ export default class Soundsnewuser extends React.Component {
                       }}
                     /> :
               <img className="oval-5" src={profileImage} />  }
-             </LazyLoad>
+             
              {!this.state.profileURL ?
             <div className="upload smart-layers-pointers ">
-           
               <img className="shape-uBeRw7" src={shape} />
               <img className="shape-vFHiyd" src={shape2} />
               <img className="path" src={path} />
-           
-                  
             </div> : null}
              </label>
+             </LazyLoad>
             <Settingiconwhite {...{...settingiconwhiteProps , onSettingsClick : () => this.onSettingsClick()}}  />
           </div>
           <input 

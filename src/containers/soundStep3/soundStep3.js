@@ -266,6 +266,8 @@ export default class SoundForm2b extends React.Component {
               options={this.state.options}
               value={this.state.category}
               onChange={this.changeCategoryHandler}
+              classNamePrefix="react-select"
+              className='react-select-container'
                         />
               <div className="nexticon-copy-3">
                 <div className="creator-name sofiapro-normal-white-30px">{creatorName}</div>

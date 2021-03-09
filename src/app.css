@@ -14,3 +14,68 @@ img{
 	background-color:#fff;
 	filter: blur(0px);
 }
+
+.react-select-container{
+	background: rgb(210,43,108);
+background: linear-gradient(62deg, rgba(210,43,108,1) 0%, rgba(85,163,182,1) 100%); 
+	width: 100%;
+	border-radius:3rem !important;
+}
+.react-select__control{
+	border-radius:3rem !important;
+	background-color: transparent !important;
+	border:none !important;
+	min-height: 36px !important;
+	z-index: 2 !important;
+}
+.react-select__value-container{
+	background: rgb(210,43,108);
+background: linear-gradient(62deg, rgba(210,43,108,1) 0%,  rgba(85,163,182,1) 100%); 
+	border-radius: 2rem 0px 0px 2rem;
+	justify-content: center !important;
+}
+.react-select__indicator  > svg {
+	transform:scale(1.4) !important;
+	stroke : #fff !important;fill : #fff !important;
+}
+.react-select__indicator-seperator{
+	display: none;
+}
+.react-select__single-value {
+	color : #fff !important;
+	margin-left: 22px !important;
+	position: relative !important;
+	transform: translateY(0) !important;
+	text-align: center !important;
+	font-family: "Montserrat", Helvetica, Arial, serif !important;
+    font-size: 20px !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+    letter-spacing: 0px !important;
+}
+.react-select__menu{
+	margin: 0 !important;
+	 background: rgb(210,43,108);
+background: linear-gradient(62deg, rgba(210,43,108,1) 0%, rgba(85,163,182,1) 100%); 
+	top: 0 !important;
+	border-radius:1.5rem !important;
+}
+.react-select__menu-list{
+	margin: 0 !important;
+	 background: rgb(210,43,108);
+background: linear-gradient(62deg, rgba(210,43,108,1) 0%, rgba(85,163,182,1) 100%); 
+	max-height: 350px !important;
+	border-radius:1.5rem !important;
+	padding-top: 36px !important;
+}
+.react-select__option{
+	background-color: transparent !important;
+	color: #fff !important;
+	text-align: center !important;
+	font-family: "Montserrat", Helvetica, Arial, serif !important;
+    font-size: 20px !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+    letter-spacing: 0px !important;
+
+}

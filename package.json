@@ -25,21 +25,28 @@
     "react-spinners": "^0.10.4",
     "react-toastify": "^6.2.0",
     "save": "^2.4.0",
+    "serve": "^11.3.2",
     "styled-components": "^5.2.1",
     "uuidv4": "^6.2.6",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "dev": "react-scripts start",
+    "start": "serve -s build",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "heroku-postbuild": "npm run build"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
       "react-app/jest"
     ]
+  },
+  "engines": {
+    "node": "=12.19.0",
+    "npm": "=7.6.0"
   },
   "browserslist": {
     "production": [

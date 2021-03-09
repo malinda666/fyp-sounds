@@ -63,7 +63,7 @@ import { AboutData,
          Warn7Data
         } from './CONSTANTS'
 
-const RouterConfig = ({ userHasAuthenticated, isAuthenticated, setProfileImage,profileImage }) => 
+const RouterConfig = ({ userHasAuthenticated, isAuthenticated}) => 
 <Switch>
     <UnauthenticatedRoute path="/login" exact component={Login} props={{...LoginData, userHasAuthenticated : event => userHasAuthenticated, isAuthenticated: isAuthenticated}} />
     <UnauthenticatedRoute path="/" exact component={Home} props={LandingData} />

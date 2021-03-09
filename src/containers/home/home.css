@@ -50,10 +50,9 @@
 .landing {
     background-color: var(--anakiwa);
     display: block;
-    height: 100%;
+    height: 100vh;
     margin: 0px;
-    min-height: 100vh;
-    min-width: 414px;
+    /*min-height: 100vh;*/
     position: relative;
     width: 100%;
     opacity: 0;

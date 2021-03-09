@@ -59,14 +59,14 @@
     line-height: 42px;
     position: absolute;
     text-align: center;
-    top: 120px;
+    top: 220px;
     white-space: nowrap;
     width: 100%;
     text-align:center;
 }
 .musicform4 .button_wrapper{
     position:absolute;
-    top:200px;
+    top:300px;
     left:50%;
     transform:translateX(-50%);
     width:fit-content;
