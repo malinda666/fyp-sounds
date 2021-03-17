@@ -51,6 +51,28 @@
     width: 100%;
 }
 
+.musicform5 .error-message {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: -0.19px;
+    line-height: 42px;
+    position: absolute;
+    text-align: center;
+    top: 580px;
+    white-space: nowrap;
+    width: auto;
+    left: 110px;
+}
+
+
+.montserrat-light-red-14px {
+    color: red;
+    font-family: "Montserrat", Helvetica, Arial, serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+}
+
 .musicform5 .back-chevron {
     background-color: transparent;
     height: 20px;

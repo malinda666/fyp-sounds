@@ -5,18 +5,28 @@ import React, {useEffect, useState} from 'react';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-    const userHasAuthenticated = (authenticated) => {
+
+  useEffect(() => {
+  if(localStorage.getItem('auth')){
+    let data = JSON.parse(localStorage.getItem('auth'));
+    if(data.access_token){
+      setIsAuthenticated(true);
+    }
+  }
+  else {
+    setIsAuthenticated(false);
+
+  }
+});
+    const userHasAuthenticated = authenticated => {
             setIsAuthenticated(authenticated);       
       };
 
- const childProps = {
-        isAuthenticated: isAuthenticated,
-        userHasAuthenticated: userHasAuthenticated,
-      }
+
   return (
     <Router>
       <RouterConfig 
-        isAuthenticated = {isAuthenticated} 
+        isAuthenticated = {isAuthenticated}
         userHasAuthenticated= {userHasAuthenticated}
       />
    </Router>

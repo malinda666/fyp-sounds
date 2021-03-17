@@ -254,6 +254,7 @@ const dashboardData = {
     settingiconwhiteProps: settingiconwhiteData,
     aboutProps: aboutData,
     fypsoundslogoProps: fypsoundslogoData,
+    backChevron: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/sound-form-2b-back-chevron-46B448B4-008B-4B6C-A6E5-039C06DF2258@2x.png",
 };
 
 const RecoveryData = {

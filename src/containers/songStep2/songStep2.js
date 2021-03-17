@@ -13,7 +13,8 @@ export default class MusicForm3 extends React.Component {
       authorName: '',
       producerName:'',
       featuringArtist:'',
-      stores:''
+      stores:'',
+      errorMessage:''
 
     }
   }
@@ -31,6 +32,26 @@ export default class MusicForm3 extends React.Component {
     });
   }
    }
+
+   validateForm =() =>{
+    if(!this.state.creatorName || this.state.creatorName === ''){
+      this.setState({errorMessage : 'Creator name field is required'});
+      return false;
+    }
+    if(!this.state.authorName || this.state.authorName === ''){
+      this.setState({errorMessage : 'Author name field is required'});
+      return false;
+    }
+    if(!this.state.producerName || this.state.producerName === ''){
+      this.setState({errorMessage : 'Producer name field is required'});
+      return false;
+    }
+    if(!this.state.featuringArtist || this.state.featuringArtist === ''){
+      this.setState({errorMessage : 'Featuring artist name field is required'});
+      return false;
+    }
+    return true;
+  }
 
   render() {
     const {
@@ -121,7 +142,9 @@ export default class MusicForm3 extends React.Component {
        
         <NexticonCopy7 {...{...nexticonCopy7Props, handleFieldChange : event => this.handleFieldChange(event), id: 'producerName', value: this.state.producerName}} />
         <div className="nexticon" onClick={()=>{
-          if(localStorage.getItem('data')){
+          this.setState({errorMessage : ''});
+          if(this.validateForm()){
+            if(localStorage.getItem('data')){
             let data = JSON.parse(localStorage.getItem('data')); 
              data.featuringArtist = this.state.featuringArtist;
              data.authorName = this.state.authorName;
@@ -130,10 +153,14 @@ export default class MusicForm3 extends React.Component {
              localStorage.setItem('data', JSON.stringify(data));
              this.props.history.push('/songStep3');
           }
+        }
                                                                                 }}>
           <img className="rectangle-rGr1Cp" src={rectangle} />
           <img className="rectangle-xd37is" src={rectangle2} />
           <div className="next montserrat-semi-bold-white-20px">{next}</div>
+          <div>
+            {this.state.errorMessage != '' ? <span className="error-message montserrat-light-red-14px">{this.state.errorMessage}</span> : null}
+            </div>
         </div>
        
         <NexticonCopy7 {...{...nexticonCopy72Props, handleFieldChange : event => this.handleFieldChange(event), id: 'featuringArtist', value: this.state.featuringArtist}} className="nexticon-copy-8" />    

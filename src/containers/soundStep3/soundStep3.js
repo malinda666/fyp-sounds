@@ -13,31 +13,12 @@ export default class SoundForm2b extends React.Component {
     super(props);
     this.options = [
       {label : "category", value : "category"},
-      {label : "brazilian", value : "brazilian"},
-      {label : "pop", value : "pop"},
-      {label : "blues", value : "blues"},
-      {label : "classical", value : "classical"},
-      {label : "world", value : "world"},
-      {label : "vocal", value : "vocal"},
-      {label : "r&b", value : "r&b"},
-      {label : "childrens music", value : "childrens music"},
-      {label : "international", value : "international"},      
-      {label : "miscellaneous / experimental music", value : "miscellaneous / experimental music"},
-      {label : "rock", value : "rock"},
-      {label : "arabic", value : "arabic"},
-      {label : "inspirational", value : "inspirational"},
-      {label : "miscellaneous", value : "miscellaneous"},      
-      {label : "holiday", value : "holiday"},
-      {label : "hip hop/rap", value : "hip hop/rap"},
-      {label : "electronic", value : "electronic"},
-      {label : "instrumental", value : "instrumental"},
-      {label : "chinese", value : "chinese"},       
       {label : "comedy", value : "comedy"},
-      {label : "country", value : "country"},
-      {label : "dance", value : "dance"},
-      {label : "folk", value : "folk"},
-      {label : "indian", value : "indian"},
-      {label : "jazz", value : "jazz"}   
+      {label : "animal sounds", value : "animal sounds"},
+      {label : "inspirational", value : "inspirational"},
+      {label : "anime", value : "anime"},
+      {label : "sound effects", value : "sound effects"},
+      {label : "vocal", value : "vocal"}
     ]
      this.inputOpenFileRef = React.createRef()
     this.state = {
@@ -76,6 +57,20 @@ export default class SoundForm2b extends React.Component {
         this.inputOpenFileRef.current.click()
     }
   
+    validateForm =() =>{
+      if(!this.state.name || this.state.name === ''){
+        this.setState({errorMessage : 'Creator name field is required'});
+        return false;
+      }else if (!this.state.creativeURL || this.state.creativeURL === ''){
+        this.setState({errorMessage : 'Please upload creative file'});
+        return false;
+      }else if (!this.state.category || this.state.category.value === 'category'){
+        this.setState({errorMessage : 'Category field required'});
+        return false;
+      }
+
+      return true;
+    }
 
    handleFieldChange(event){
      if(event){
@@ -148,6 +143,8 @@ export default class SoundForm2b extends React.Component {
   }
 
   navigateToNextPage(){
+    this.setState({errorMessage : ''});
+    if(this.validateForm()){
     this.setState({loading : true});
     if(localStorage.getItem('data')){
                   let data = JSON.parse(localStorage.getItem('data'));
@@ -201,7 +198,8 @@ export default class SoundForm2b extends React.Component {
                   });
               }
                  
-              }  
+              } 
+            } 
   }
 
   render() {
@@ -310,6 +308,9 @@ export default class SoundForm2b extends React.Component {
                 <img className="rectangle-f4xscB" src={rectangle} />
                 <img className="rectangle-JuxZGf" src={rectangle2} />
                 <div className="next montserrat-semi-bold-white-20px">{next}</div>
+                <div>
+            {this.state.errorMessage != '' ? <span className="error-message montserrat-light-red-14px">{this.state.errorMessage}</span> : null}
+            </div>
               </div>
               <div className="nexticon-copy-2">
                 <div className="no montserrat-light-white-20px">{this.props.location?.state?.status}</div>

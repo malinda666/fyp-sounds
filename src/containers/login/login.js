@@ -181,7 +181,8 @@ export default class LoginErrorMessages extends React.Component {
                         email : this.state.loginEmail
                       }
                       localStorage.setItem('auth', JSON.stringify(auth) );
-                      //this.props.userHasAuthenticated(true);
+                      this.props.userHasAuthenticated(true);
+                    
                        this.props.history.push('/dashboard');
                     }
                     this.setState({ loading: false });

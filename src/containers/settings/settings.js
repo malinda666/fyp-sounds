@@ -98,6 +98,7 @@ export default class Settings extends React.Component {
 
    logout(){
      localStorage.clear();
+     this.props.userHasAuthenticated(false);
      this.props.history.push('/login')
    }
 

@@ -19,6 +19,15 @@
     font-weight: 300;
 }
 
+
+.montserrat-light-red-14px {
+    color: red;
+    font-family: "Montserrat", Helvetica, Arial, serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+}
+
 .montserrat-light-mountain-mist-20px {
     color: var(--mountain-mist);
     font-family: "Montserrat", Helvetica, Arial, serif;
@@ -80,6 +89,19 @@
     top: 19px;
     transform: rotate(-90deg);
     width: 11px;
+}
+
+.soundform2b .error-message {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: -0.19px;
+    line-height: 42px;
+    position: absolute;
+    text-align: center;
+    top: 50px;
+    white-space: nowrap;
+    width: auto;
+    left: 100px;
 }
 
 .soundform2b .dropzone {

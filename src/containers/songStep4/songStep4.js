@@ -53,7 +53,8 @@ export default class MusicForm5 extends React.Component {
      s3Path:'',
      auth: null,
      status:'',
-     coverURL:''
+     coverURL:'',
+     errorMessage:''
     
    }
   }
@@ -147,7 +148,21 @@ fileManagementService
 
 }
 
+validateForm =() =>{
+   if (!this.state.creativeURL || this.state.creativeURL === ''){
+    this.setState({errorMessage : 'Please upload creative file'});
+    return false;
+  }else if (!this.state.category || this.state.category.value === 'category'){
+    this.setState({errorMessage : 'Category field required'});
+    return false;
+  }
+
+  return true;
+}
+
 navigateToNextPage(){
+  this.setState({errorMessage :''});
+  if(this.validateForm()){
     this.setState({loading : true});
     if(localStorage.getItem('data')){
                   let data = JSON.parse(localStorage.getItem('data'));
@@ -203,6 +218,7 @@ navigateToNextPage(){
               }
                  
               }  
+            }
   }
 
   render() {
@@ -287,6 +303,9 @@ navigateToNextPage(){
             <img className="rectangle-NnOCDr" src={rectangle4} />
             <div className="next montserrat-semi-bold-white-20px">{next}</div>
           </div>
+          <div>
+            {this.state.errorMessage != '' ? <span className="error-message montserrat-light-red-14px">{this.state.errorMessage}</span> : null}
+            </div>
         </div>
         <div className="container-center-horizontal">
           <p className="wav-or-mp3-format montserrat-light-gravel-14px">{wavOrMp3Format}</p>

@@ -32,6 +32,11 @@
     font-weight: 300;
 }
 
+.reactEasyCrop_CropArea {
+  border-radius:6px;
+  width: 200px !important;
+  height: 200px !important;
+}
 .montserrat-light-mountain-mist-20px {
     color: var(--mountain-mist);
     font-family: "Montserrat", Helvetica, Arial, serif;
@@ -89,6 +94,19 @@
     top: 440px;
     white-space: nowrap;
     width: auto;
+}
+
+.newsound .error-message {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: -0.19px;
+    line-height: 42px;
+    position: absolute;
+    text-align: center;
+    top: 50px;
+    white-space: nowrap;
+    width: auto;
+    left: 100px;
 }
 
 .newsound .bar {
@@ -185,7 +203,30 @@
 .newsound .nexticon:hover {
     transform: scale(1.1);
 }
-
+.newsound .btn-ok {
+    background-color: transparent;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    top: 85%;
+    border: 0;
+    outline: 0;
+    width: 20%;
+    padding: .25rem 0;
+    border-radius : 0.25rem;
+    background: var(--rose-pearl);
+    color: var(--white);
+    font-weight: 900;
+}
+.newsound .oval-5 {
+    background-color: transparent;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 0;
+}
 .newsound .oval-4eduM0 {
     background-color: transparent;
     height: 603px;
@@ -437,6 +478,13 @@
     font-size: 30px;
 }
 
+.montserrat-light-red-14px {
+    color: red;
+    font-family: "Montserrat", Helvetica, Arial, serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+}
 :root {
     --anakiwa: rgba(145, 255, 251, 1);
     --gravel: rgba(74, 73, 74, 1);

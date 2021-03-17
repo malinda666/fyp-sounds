@@ -100,7 +100,7 @@ class ClearCacheCopy3 extends React.Component {
         <div className="rectangle-19-copy-W5x3Ae"></div>
         <div className="rectangle-19-copy-W5x3Ae"></div>
         <div className="stores sfprodisplay-regular-normal-granite-gray-20px">{stores}</div>
-        <div className="tik-tok sfprodisplay-regular-normal-pink-swan-15px">{tiktok}</div>
+        <div className="tik-tok sfprodisplay-regular-normal-pink-swan-15px">social media</div>
       </div>
     );
   }

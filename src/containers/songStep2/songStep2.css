@@ -19,6 +19,15 @@
     font-weight: 300;
 }
 
+
+.montserrat-light-red-14px {
+    color: red;
+    font-family: "Montserrat", Helvetica, Arial, serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+}
+
 .montserrat-light-white-20px {
     color: white;
     font-family: "Montserrat", Helvetica, Arial, serif;
@@ -133,6 +142,18 @@
     width: auto;
 }
 
+.musicform3 .error-message {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: -0.19px;
+    line-height: 42px;
+    position: absolute;
+    text-align: center;
+    top: 50px;
+    white-space: nowrap;
+    width: auto;
+    left: 0px;
+}
 .musicform3 .nexticon-copy-5 {
     align-items: flex-start;
     background-color: transparent;
