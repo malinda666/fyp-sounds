@@ -12,6 +12,8 @@ import Cropper from 'react-easy-crop'
 
 import getCroppedImg from '../../utils/cropImage'
 
+const CONTAINER_HEIGHT = 200;
+
 export default class NewSound extends React.Component {
 
     constructor(props) {
@@ -53,10 +55,9 @@ export default class NewSound extends React.Component {
           errorMessage:'',
 
           crop: { x: 0, y: 0 },
-          zoom: 1.4,
+          zoom: 1,
           aspect: 1,
           croppedAreaPixels: {},
-          rotation:0,
           croppedImage : null
 
         }
@@ -81,6 +82,7 @@ export default class NewSound extends React.Component {
         }, () =>{
           this.drawImage();
         })
+
       }
 
       onZoomChange = zoom => {
@@ -88,20 +90,25 @@ export default class NewSound extends React.Component {
       }
 
       showCroppedImage = async () => {
-        const { croppedAreaPixels , rotation , coverImageSignedURL} = this.state;
+        const { croppedAreaPixels , coverImageSignedURL} = this.state;
           try {
             const croppedImage = await getCroppedImg(
               coverImageSignedURL,
-              croppedAreaPixels,
-              rotation
+              croppedAreaPixels
             )
-            console.log('donee', { croppedImage })
+            console.log('done', { croppedImage })
             this.setState({ croppedImage})
             this.image.src = croppedImage;
             this.image.style.display = 'block';
             this.image.style.zIndex = 10;
+            
           } catch (e) {
             console.error(e)
+          } finally{
+            this.image.addEventListener('click',(e)=>{
+                this.image.style.display = 'none';
+                  this.image.style.zIndex = 0;
+            })
           }
         }
 
@@ -1117,11 +1124,16 @@ export default class NewSound extends React.Component {
               image={coverImageSignedURL}
               crop={crop}
               zoom={zoom}
-              aspect={aspect}
+              aspect={1}
               showGrid={false}
+              cropShape="rect"
+              cropSize={{width:200,height:200}}
               onCropChange={this.onCropChange}
               onCropComplete={this.onCropComplete}
               onZoomChange={this.onZoomChange}
+              onMediaLoaded={(mediaSize) => {
+                this.onZoomChange(mediaSize.naturalHeight / mediaSize.naturalWidth)
+              }}
             />
 
                   </>

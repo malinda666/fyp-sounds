@@ -32,11 +32,11 @@
     font-weight: 300;
 }
 
-.reactEasyCrop_CropArea {
+/*.reactEasyCrop_CropArea {
   border-radius:6px;
   width: 200px !important;
   height: 200px !important;
-}
+}*/
 .montserrat-light-mountain-mist-20px {
     color: var(--mountain-mist);
     font-family: "Montserrat", Helvetica, Arial, serif;
@@ -117,7 +117,7 @@
     height: 40px;
     justify-content: flex-start;
     position: absolute;
-    top: 29px;
+    top: 5%;
     width: 381px;
 }
 

@@ -34,9 +34,10 @@
     margin-right: -6px;
     position: fixed;
     text-align: center;
-    top: 412px;
+    top: 390px;
     white-space: nowrap;
     width: 309px;
+    font-size: 10px !important;
 }
 
 .loginerrormessages .a-password-is-requi-VMr6Om {
@@ -48,9 +49,10 @@
     margin-right: -6px;
     position: fixed;
     text-align: center;
-    top: 210px;
+    top: 195px;
     white-space: nowrap;
     width: 309px;
+    font-size: 10px !important;
 }
 
 .loginerrormessages .about-7pmZoB {
@@ -89,9 +91,10 @@
     margin-right: -6px;
     position: fixed;
     text-align: center;
-    top: 358px;
+    top: 345px;
     white-space: nowrap;
     width: 309px;
+    font-size: 10px !important;
 }
 
 .loginerrormessages .an-email-is-require-VMr6Om {
@@ -103,9 +106,10 @@
     margin-right: 0px;
     position: fixed;
     text-align: center;
-    top: 156px;
+    top: 150px;
     white-space: nowrap;
     width: 309px;
+    font-size: 10px !important;
 }
 
 .loginerrormessages .an-error-VMr6Om {
@@ -118,9 +122,10 @@
     margin-top: 5px;
     position: fixed;
     text-align: center;
-    top: 320px;
+    top: 340px;
     white-space: nowrap;
     width: 309px;
+    font-size: 10px !important;
 }
 
 .loginerrormessages .bar {
@@ -273,15 +278,15 @@
     background-color: transparent;
     height: auto;
     letter-spacing: 0px;
-    line-height: 1;
+    line-height: 17px;
     margin-left: -0px;
     margin-right: 0px;
     position: fixed;
     text-align: center;
-    top: 100px;
+    top: 150px;
     white-space: wrap;
     width: 309px;
-    font-size:12px;
+    font-size:10px !important;
 }
 
 .loginerrormessages .nexticon {

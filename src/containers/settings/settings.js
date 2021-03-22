@@ -205,7 +205,13 @@ export default class Settings extends React.Component {
             onChange={this.handleFieldChange.bind(this)}></input>
         </div>
         <ClearCacheCopy {...{...clearCacheCopyProps, handleFieldChange : event => this.handleFieldChange(event), value : this.state.auth? this.state.auth.email?this.state.auth.email:"" : '', id : 'email', readOnly: true}} />
-        <ClearCacheCopy {...{...clearCacheCopy2Props, handleFieldChange : event => this.handleFieldChange(event), value : this.state.tikTokUser?this.state.tikTokUser:"Your TikTok Id" , id:'tikTokUser', readOnly: false}} />
+        {/* <ClearCacheCopy {...{...clearCacheCopy2Props, handleFieldChange : event => this.handleFieldChange(event), value : this.state.tikTokUser?this.state.tikTokUser:"" , id:'tikTokUser', readOnly: false,inputPlaceholder:this.state.tikTokUser?this.state.tikTokUser:"Your TikTok Id"}} /> */}
+         <div className="clear-cache-copy-Brk1wZ">
+          <div className="email sfprodisplay-regular-normal-granite-gray-20px">TikTok User</div>
+            <input type="text" id="tikTokUser" name="textcharlidamelio" className="text-email emailcom sfprodisplay-regular-normal-pink-swan-15px" placeholder={this.state.tikTokUser?this.state.tikTokUser:"Your TikTok Id"}
+            value={this.state.tikTokUser}
+            onChange={this.handleFieldChange.bind(this)}></input>
+        </div>
         <div className="clear-cache">
           <div className="password-wrap sfprodisplay-regular-normal-granite-gray-20px">Change Password</div>
            <a >

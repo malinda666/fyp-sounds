@@ -531,7 +531,7 @@ const NewSoundData = {
     path: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/new-sound-path-4E429FB4-FA55-4DE0-83E0-A8B02C6F7E04@2x.png",
     uploadACoverImage: "upload a cover image",
     audioTitle: "audio title",
-    tiktokAudioSubmiss: "TikTok audio submission",
+    tiktokAudioSubmiss: "Audio Content Submission",
     rectangle5: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/new-sound-rectangle-ECDF7695-8163-43AF-94B3-9B85AC288F7E.png",
     inputName: "texttypehere",
     inputType: "text",

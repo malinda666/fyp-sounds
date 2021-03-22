@@ -872,32 +872,6 @@ export default class Soundsnewuser extends React.Component {
                               onChange={this.uploadProfileImage.bind(this)}
                             />           
         </div>
-        <div className="container-center-horizontal">
-          <div className="footer">
-            <div className="overlap-group">
-              <img className="oval" src={oval} />
-              <div className="group-5">
-                <About {...aboutProps} />
-                <div className="container-center-horizontal footer-items">
-                  <p className="footer-items-devider">|</p>
-                  <div className="montserrat-semi-bold-white-14px">{faq}</div>
-                </div>
-                <div className="container-center-horizontal footer-items">
-                  <p className="footer-items-devider">|</p>
-                  <div className="montserrat-semi-bold-white-14px">{contact}</div>
-                </div>
-                <div className="container-center-horizontal footer-items">
-                  <p className="footer-items-devider">|</p>
-                  <div className="montserrat-semi-bold-white-14px">{privacyPolicy}</div>
-                </div>
-              </div>
-            </div>
-            <Fypsoundslogo {...fypsoundslogoProps} />
-            <div className="container-center-horizontal">
-              <p className="copyright--51-2021-al montserrat-normal-white-13px">{copyright2512021Al}</p>
-            </div>
-          </div>
-        </div>
       </div>
       </LoadingOverlay>
     );
