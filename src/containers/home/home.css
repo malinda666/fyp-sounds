@@ -74,7 +74,17 @@
     top: 0px;
     width: auto;
 }
-
+.landing .home-video{
+    position: absolute;
+    height: 100%;
+    width: 600px;
+    left: 50%;transform: translateX(-50%);
+}
+@media only screen and (max-width: 600px) {
+  .landing .home-video{
+        width: 100%;
+    }
+}
 .landing .about-qv0Ulj {
     background-color: transparent;
     flex-shrink: 0;
@@ -159,8 +169,12 @@
     position: absolute;
     top: 90px;
     width: 362px;
+    display: flex;align-items: center;
+    justify-content: center;
 }
-
+.landing .group-5 a {
+    margin: 0 0.5rem;position: relative;display: inline-block;
+}
 .landing .nexticon {
     background-color: transparent;
     height: 54px;

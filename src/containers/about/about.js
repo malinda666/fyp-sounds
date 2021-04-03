@@ -33,7 +33,14 @@ export default class About extends React.Component {
           <h1 className="about-C61RwL montserrat-bold-rose-pearl-24px">{about}</h1>
         </div>
         <div className="container-center-horizontal">
-          <p className="lorem-ipsum-dolor-si montserrat-light-mountain-mist-14px">{loremIpsumDolorSi}</p>
+          <p className="lorem-ipsum-dolor-si montserrat-light-mountain-mist-14px">in a 🌎 where anything can go viral, #fypsounds helps users from all over the world to monetize their audio creations via social media and audio streaming services.  🙌🏽
+<br/><br/>
+whether your content is music 🎵 or just a sound 🔈 we distribute your content to tiktok, facebook, instagram, reels and all other music platforms  like spotify, apple music, youtube and amazon. 🎉
+<br/><br/>
+#fypsounds is 100% free to join, if your audio get streams, you get paid. and the best part, you don’t need to be tiktok famous or a big artist to make 💰💰💰
+<br/><br/>
+#️⃣fypsounds + 🔈your sounds = 💵 
+</p>
         </div>
         <div className="container-center-horizontal">
           <Header/>

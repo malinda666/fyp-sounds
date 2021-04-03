@@ -86,6 +86,16 @@ class UserManagementService{
                 throw err;
             })
     }
+
+    static async userPoolData(){
+        let url = config.AWS_API;
+        return await axios.get(url + 'UserPoolData')
+          .then(res => {
+            return res;
+          }).catch(err => {
+              throw err;
+          })
+      }
 }
 
 export default UserManagementService;

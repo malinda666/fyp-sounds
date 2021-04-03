@@ -7,6 +7,7 @@ import creativeManagementService from '../../services/creativeManagementService'
 import { v4 as uuid_v4 } from "uuid";
 import HashLoader from 'react-spinners/HashLoader'
 import LoadingOverlay from "react-loading-overlay";
+import removeEmojis from '../../utils/removeemoji'
 
 export default class SoundForm2b extends React.Component {
    constructor(props) {     
@@ -33,7 +34,9 @@ export default class SoundForm2b extends React.Component {
       loading: false,
       s3Path:'',
       auth: null,
-      coverURL :''
+      coverURL :'',
+      finalImage :'',
+      thumbnailImage :''
      
     }
   }
@@ -45,7 +48,7 @@ export default class SoundForm2b extends React.Component {
 
       if(localStorage.getItem('data')){
         let data = JSON.parse(localStorage.getItem('data'));
-        this.setState({creativeURL : data.creativeURL, fileName : data.fileName ? data.fileName : '', s3Path : data.audiofile, name : data.name, coverURL : data.albumcover}, () => {
+        this.setState({creativeURL : data.creativeURL, fileName : data.fileName ? data.fileName : '', s3Path : data.audiofile, name : data.name, status : data.status, coverURL : data.albumcover, finalImage : data.finalImage, thumbnailImage : data.thumbnailImage}, () => {
             let selectedCategory = this.options.filter(item => item.value == data.category);
             if(selectedCategory.length >0)
             this.setState({category: selectedCategory[0]});
@@ -59,16 +62,19 @@ export default class SoundForm2b extends React.Component {
   
     validateForm =() =>{
       if(!this.state.name || this.state.name === ''){
-        this.setState({errorMessage : 'Creator name field is required'});
+        this.setState({errorMessage : 'creator name field is required'});
         return false;
-      }else if (!this.state.creativeURL || this.state.creativeURL === ''){
-        this.setState({errorMessage : 'Please upload creative file'});
+      }else if (!this.state.s3Path || this.state.s3Path === ''){
+        this.setState({errorMessage : 'please upload creative file'});
         return false;
       }else if (!this.state.category || this.state.category.value === 'category'){
-        this.setState({errorMessage : 'Category field required'});
+        this.setState({errorMessage : 'category field required'});
         return false;
       }
-
+      if(removeEmojis(this.state.name)){
+        this.setState({errorMessage : 'sorry emojis are not allowed'});
+        return false;
+      }
       return true;
     }
 
@@ -91,12 +97,12 @@ export default class SoundForm2b extends React.Component {
   if(file != null && file != undefined && file!= {} ) {
   var re = /(?:\.([^.]+))?$/;
   var ext = re.exec(file.name);
-  if(ext[1] === 'wav' || ext[1] === 'mp3')
+  if(ext[1] === 'wav' || ext[1] === 'mp3' || ext[1] === 'm4a' || ext[1] === 'flac')
   {
   let s3Path = this.state.auth.user_dir + '/creative/sound/' + uuid_v4()+'.' +ext[1];
   this.setState({fileName : file.name});
   fileManagementService
-      .uploadFile(s3Path, file.type)
+      .uploadCreative(s3Path, file.type)
       .then((response) => {
         if(response.status === 200){
           this.setState({
@@ -162,6 +168,8 @@ export default class SoundForm2b extends React.Component {
                   data.email = this.state.auth.email;
                   data.audioFileURL = this.state.s3Path;
                   data.coverURL = this.state.coverURL;
+                  data.finalImage = this.state.finalImage;
+                  data.thumbnailImage = this.state.thumbnailImage;
                   if(data.id != '' && data.id != null && data.id != undefined){
                        creativeManagementService.updateCreative( data, 'soundUpdate')
                         .then(res => {
@@ -252,12 +260,17 @@ export default class SoundForm2b extends React.Component {
         </div>
         <div className="container-center-horizontal step4-container">
             <Fypsoundslogo {...fypsoundslogoProps} />
-             <div className="are-you-the-owner-of sofiapro-normal-white-30px">{areYouTheOwnerOf}</div>
-            <div className="nexticon-copy-5">
+
+            <div className="owner">
+              <h1 className="are-you-the-owner-of sofiapro-normal-white-30px">{areYouTheOwnerOf}</h1>
               <div className="yes montserrat-light-white-20px">{yes}</div>
             </div>
-            <h1 className="is-this-content-expl sofiapro-normal-white-30px">{isThisContentExpl}</h1>
-            
+             
+
+            <div className="explicit">
+              <h1 className="is-this-content-expl sofiapro-normal-white-30px">{isThisContentExpl}</h1>
+              <div className="yes montserrat-light-white-20px">{this.state.status}</div>
+            </div>
             
               
               <Select 
@@ -267,43 +280,46 @@ export default class SoundForm2b extends React.Component {
               classNamePrefix="react-select"
               className='react-select-container'
                         />
-              <div className="nexticon-copy-3">
-                <div className="creator-name sofiapro-normal-white-30px">{creatorName}</div>
-              </div>
-              <input
-                id='name'
-                  className="text-type montserrat-light-mountain-mist-20px"
-                  name={inputName}
-                  placeholder={inputPlaceholder}
-                  type={inputType}
-                  required={inputRequired}
-                  value={this.state.name}
-                  onChange={this.handleFieldChange.bind(this)}
-                />
-                <img className="rectangle-BJQsbv" src={rectangle4} />
-              <div className="nexticon-copy-7">
-                <div className="upload-audio-file sofiapro-normal-white-30px">{uploadAudioFile}</div>
-              </div>
-              <div className="nexticon-copy-8">
-                <img className="rectangle-4eduM0" src={rectangle3} />
-                  <label for="fileChoose">
-                    
-                  {this.state.fileName != '' ? <span className ="filename">{this.state.fileName}</span> :  <img className="upload" src={upload} />}
-                  </label>
-                  <input 
-                        id="fileChoose"
-                        className="dropzone"
-                                      type='file'
-                                      name='creative_file' 
-                                      ref={(ref) => {
-                                        this.uploadInput = ref;
-                                      }}
-                        onChange={this.uploadCreative.bind(this)}
-                        accept={'.wav, .mp3'}
-                                    />  
 
+              <div className="creator">
+                <div className="creator-name sofiapro-normal-white-30px">{creatorName}</div>
+                <input
+                  id='name'
+                    className="text-type montserrat-light-mountain-mist-20px"
+                    name={inputName}
+                    placeholder={inputPlaceholder}
+                    type={inputType}
+                    required={inputRequired}
+                    value={this.state.name}
+                    onChange={this.handleFieldChange.bind(this)}
+                  />
+                  <img className="rectangle-BJQsbv" src={rectangle4} />
               </div>
-               <p className="wav-or-mp3-format montserrat-light-gravel-14px">{wavOrMp3Format}</p>
+              
+              <div className="upload-container">
+                <div className="upload-audio-file sofiapro-normal-white-30px">{uploadAudioFile}</div>
+                <div className="nexticon-copy-8">
+                  <img className="rectangle-4eduM0" src={rectangle3} />
+                    <label for="fileChoose">
+                      
+                    {this.state.fileName != '' ? <span className ="filename montserrat-light-mountain-mist-20px">{this.state.fileName}</span> :  <img className="upload" src={upload} />}
+                    </label>
+                    <input 
+                          id="fileChoose"
+                          className="dropzone"
+                                        type='file'
+                                        name='creative_file' 
+                                        ref={(ref) => {
+                                          this.uploadInput = ref;
+                                        }}
+                          onChange={this.uploadCreative.bind(this)}
+                          accept={'.wav, .mp3, .m4a, .flac'}
+                                      />  
+
+                </div>
+                 <p className="wav-or-mp3-format montserrat-light-gravel-14px">{wavOrMp3Format}</p>
+              </div>
+              
               <div className="nexticon-4eduM0" onClick={this.navigateToNextPage.bind(this)}>
                 <img className="rectangle-f4xscB" src={rectangle} />
                 <img className="rectangle-JuxZGf" src={rectangle2} />

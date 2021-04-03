@@ -45,7 +45,7 @@ export default class Contact extends React.Component {
         <div className="container-center-horizontal">
           <a href="mailto:contact@fypsounds.com" className="full-height-a">
             <p className="or-shoot-us-an-email montserrat-light-gravel-14px">
-              <span className="span1-YPZk8k">{spanText}</span>
+              <span className="span1-YPZk8k">{spanText}</span><br/>
               <span className="span2-YPZk8k">{spanText2}</span>
             </p>
           </a>
@@ -57,7 +57,7 @@ export default class Contact extends React.Component {
             <div className="overlap-group2">
               <div className="rectangle-zlebQ8 border-class-1"></div>
               <textarea
-                className="text- montserrat-light-mountain-mist-14px"
+                className="text-area montserrat-light-mountain-mist-14px"
                 name={inputName}
                 placeholder={inputPlaceholder}
                 type={inputType}

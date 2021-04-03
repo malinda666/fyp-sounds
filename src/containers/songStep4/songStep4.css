@@ -58,10 +58,10 @@
     line-height: 42px;
     position: absolute;
     text-align: center;
-    top: 580px;
+    top: 50%;
     white-space: nowrap;
-    width: auto;
-    left: 110px;
+    width: 100%;
+    left: 0px;
 }
 
 
@@ -86,9 +86,8 @@
 
 .musicform5 .filename {
     background-color: transparent;
-    height: 28px;
     position: absolute;
-    top: 422px;
+    top: calc(55px + 0.5rem);
     width: 100%;
     text-align:center;
     white-space:nowrap;
@@ -129,15 +128,22 @@
     top: 29px;
     width: 94px;
 }
-
+.musicform5 .explicit,
+.musicform5 .category-wrapper,
+.musicform5 .upload-wrapper{
+    position: absolute;display: flex;align-items: center;justify-content: center;flex-direction: column; width: 100%;
+}
+.musicform5 .explicit{
+    
+   top: 15%;
+}
 .musicform5 .is-this-content-expl {
     background-color: transparent;
     height: auto;
     letter-spacing: -0.19px;
     line-height: 42px;
-    position: absolute;
+    position: relative;
     text-align: center;
-    top: 120px;
     white-space: nowrap;
     width: auto;
 }
@@ -154,12 +160,13 @@
     white-space: nowrap;
     width: auto;
 }
-
+.musicform5 .category-wrapper{
+    top: 25%;
+}
 .musicform5 .nexticon-C61RwL {
     background-color: transparent;
     height: 54px;
-    position: absolute;
-    top: 260px;
+    position: relative;
     width: 192px;
     font-size: 20px;
     font-family: "Montserrat", Helvetica, Arial, serif;
@@ -170,7 +177,7 @@
     background-color: transparent;
     height: 54px;
     position: absolute;
-    top: 520px;
+    top: 45%;
     width: 192px;
 }
 
@@ -239,8 +246,7 @@
 .musicform5 .rectangle-C61RwL {
     background-color: transparent;
     height: 41px;
-    position: absolute;
-    top: 410px;
+    position: relative;
     width: 294px;
 }
 
@@ -272,18 +278,20 @@
     transform: translateX(-50%);
 }
 
-
+.musicform5 .upload-wrapper{
+    top: 30%;
+}
 
 .musicform5 .upload-audio-file {
     background-color: transparent;
     height: auto;
     letter-spacing: -0.19px;
     line-height: 42px;
-    position: absolute;
+    position: relative;
     text-align: center;
-    top: 339px;
     white-space: nowrap;
     width: auto;
+    margin-bottom: 0.5rem;
 }
 
 .musicform5 .wav-or-mp3-format {
@@ -291,22 +299,20 @@
     height: auto;
     letter-spacing: 0px;
     line-height: 17px;
-    position: fixed;
+    position: relative;
     text-align: center;
-    top: 472px;
     white-space: nowrap;
     width: 354px;
+    margin-top: 0.5rem;
 }
 
 .musicform5 .yes {
     background-color: transparent;
     height: auto;
-    left: 0px;
     letter-spacing: 0px;
     line-height: 24px;
-    position: absolute;
+    position: relative;
     text-align: center;
-    top: 0px;
     white-space: nowrap;
     width: 88px;
 }
@@ -357,4 +363,23 @@
 .auto-animated .container-center-vertical,
 .auto-animated .container-center-horizontal {
     opacity: 1;
+}
+@media only screen and (max-width: 600px) {
+    .musicform5 .explicit {
+        top: 15%;
+    }
+
+    .musicform5 .category-wrapper {
+        top: 30%;
+    }
+
+    .musicform5 .upload-wrapper {
+        top: 40%;
+    }
+    .musicform5 .nexticon-VMr6Om {
+        top: 65%;
+    }
+    .musicform5 .error-message {
+        top: 75%;
+    }
 }

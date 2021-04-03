@@ -181,9 +181,8 @@
 .musicsub .mysoundwav {
     background-color: transparent;
     height: auto;
-    position: absolute;
-    right: 22px;
-    width: 50%;
+    position: relative;
+    width: 100%;
     letter-spacing: -0.09px;
     line-height: 18px;
     text-align: right;

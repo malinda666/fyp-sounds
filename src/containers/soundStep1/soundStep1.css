@@ -48,13 +48,16 @@
     min-width:100vw;
     min-height:100vh;
 }
+.soundform1 .wrapper{
+    position: absolute;display: flex;align-items: center;justify-content: center;flex-direction: column;
+    top: 15%;
+    width: 100%;
+}
 .soundform1 .heading{
-    position:absolute;
-    top:136px;
-    left : 50%;
-    transform:translateX(-50%);
+    position:relative;
     width:fit-content;
     text-align:center;
+    margin-bottom: 3rem;
 }
 .soundform1 .are-you-the-owner-of {
     background-color: transparent;
@@ -86,10 +89,7 @@
     width: 94px;
 }
 .soundform1 .btn-group{
-    position:absolute;
-    top: 65%;
-    left : 50%;
-    transform:translate(-50%,-75%);
+    position:relative;
     width:100%;
     max-width: 414px;
     display:flex;

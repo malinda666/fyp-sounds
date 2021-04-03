@@ -12,11 +12,13 @@ import HashLoader from 'react-spinners/HashLoader'
 import LoadingOverlay from "react-loading-overlay";
 import ReactApexCharts from 'react-apexcharts';
 import Select from 'react-select';
+import Cropper from 'react-easy-crop'
+import getCroppedImg from '../../utils/cropImage'
 
 export default class Soundsnewuser extends React.Component {
 
-   constructor() {
-        super({})
+   constructor(props) {
+        super(props)
         this.inputOpenFileRef = React.createRef()
         this.onlineImage = 'https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/sounds-shape-0F2FDFDC-9F3F-482B-A7B4-821C123911EA@2x.png';
         this.draftImage = 'https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/sounds-shape-copy-2-1185B937-BA8C-4D90-86C0-62F3200611D4@2x.png';
@@ -37,7 +39,7 @@ export default class Soundsnewuser extends React.Component {
           payPal:'', 
           isPendingPaymentExixts : false,
           isDisplayLabel: false,
-          monthOptions : [],  
+          monthOptions : [],
           selectedMonth : {
             value: 'month',
             label: 'month',
@@ -161,9 +163,24 @@ export default class Soundsnewuser extends React.Component {
       },
         }
     }
-
+        
+        dataURLtoFile(dataurl, filename) {
+ 
+        var arr = dataurl.split(','),
+            mime = arr[0].match(/:(.*?);/)[1],
+            bstr = atob(arr[1]), 
+            n = bstr.length, 
+            u8arr = new Uint8Array(n);
+            
+        while(n--){
+            u8arr[n] = bstr.charCodeAt(n);
+        }
+        
+        return new File([u8arr], filename, {type:mime});
+    }
     componentDidMount(){
        if(localStorage.getItem('auth')){
+        // this.props.userHasAuthenticated(true);
         this.setState({auth : JSON.parse(localStorage.getItem('auth'))}, () => {
           this.getDashboardItems();
           this.getUserProfile();
@@ -172,10 +189,16 @@ export default class Soundsnewuser extends React.Component {
           this.setMonthDropDown();
           localStorage.setItem('data','');
         });
+
+        if(localStorage.getItem('user_dir')){
+          this.setState({user_dir : localStorage.getItem('user_dir')});
+        }
+
       }
-      if(localStorage.getItem('user_dir')){
-        this.setState({user_dir : localStorage.getItem('user_dir')});
+      else {
+       // this.props.userHasAuthenticated(false);
       }
+     
       
     }
 
@@ -323,17 +346,17 @@ export default class Soundsnewuser extends React.Component {
      return data.map(async item => {
       
                 item.index = ++index;
-                item.signedCoverURL = await this.getSignedURL(item.coverURL);
-                if(item.fyp_status === 'draft'){
+                item.signedCoverURL = await this.getCoverThumbnailSignedURL(item.thumbnailImage);
+                if(item.fyp_status.toUpperCase() === 'DRAFT'){
                   item.statusImageURL = this.draftImage;
                 }
-                else if(item.fyp_status === 'online'){
+                else if(item.fyp_status.toUpperCase() === 'ONLINE'){
                    item.statusImageURL = this.onlineImage;
                 }
-                else if(item.fyp_status === 'offline'){
+                else if(item.fyp_status.toUpperCase() === 'OFFLINE'){
                    item.statusImageURL = this.offline;
                   
-                }else if(item.fyp_status === 'pending'){
+                }else if(item.fyp_status.toUpperCase() === 'PENDING'){
                    item.statusImageURL = this.pendingImage;
                 }
               
@@ -374,7 +397,7 @@ export default class Soundsnewuser extends React.Component {
       .then((res) => {
         if (res.status === 200) {
           if (res.data.Items != null && res.data.Items.length > 0){
-            let pendingPaymentList = res.data.Items.map(item => {return item.earning_status === 'Ready'})
+            let pendingPaymentList = res.data.Items.filter(item => item.earning_status === 'Ready')
             if(pendingPaymentList.length > 0){
               this.setState({isPendingPaymentExixts : true})
             }
@@ -402,16 +425,59 @@ export default class Soundsnewuser extends React.Component {
   }
 
   setProfileSignedURL() {
+    // this.getSignedURL(this.state.profileURL).then(
+    //   (result) => {
+    //     this.setState({ profileSignedURL: result });
+    //   }
+    // );
+    let current = this;
+    this.setState({loading : true})
+    // let filename = this.state.coverImageURL.replace(/^.*[\\\/]/, "");
     this.getSignedURL(this.state.profileURL).then(
       (result) => {
-        this.setState({ profileSignedURL: result });
+        this.setState({ profileSignedURL: result }, () => {
+          this.toDataURL(result, function(dataUrl) {
+            // console.log(dataUrl)
+            current.setState({imagePreviewUrl : dataUrl, cropedImageFile : current.dataURLtoFile(dataUrl, "profile.jpeg")})
+            console.log(current.state.cropedImageFile)
+          })
+        });
+         this.setState({loading : false})
       }
-    );
+    ) .catch((err) => {
+        this.setState({ loading: false });
+      });
   }
 
+  toDataURL(url, callback) {
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function() {
+      var reader = new FileReader();
+      reader.onloadend = function() {
+        callback(reader.result);
+      }
+      reader.readAsDataURL(xhr.response);
+    };
+    xhr.open('GET', url);
+    xhr.responseType = 'blob';
+    xhr.send();
+  }
   async getSignedURL(filepath) {
     return fileManagementService
-      .downloadFile(filepath)
+      .downloadProfileImage(filepath)
+      .then((res) => {
+        if (res.status === 200) {
+          return res.data;
+        }
+      })
+      .catch((err) => {
+        this.setState({ loading: false });
+      });
+  }
+
+  async getCoverThumbnailSignedURL(filepath) {
+    return fileManagementService
+      .downloadCoverThumbnail(filepath)
       .then((res) => {
         if (res.status === 200) {
           return res.data;
@@ -424,14 +490,18 @@ export default class Soundsnewuser extends React.Component {
 
   uploadProfileImage = () => {
   this.setState({ loading: true });
-  console.log(this.uploadInput.files[0]);
+  // console.log(this.uploadInput.files[0]);
   let file = this.uploadInput.files[0]
+  console.log(file)
   var re = /(?:\.([^.]+))?$/;
+  if (file == null || file == undefined) {
+     return
+ }
   var ext = re.exec(file.name);
-  let s3Path = this.state.auth.user_dir + '/profile/' + uuid_v4()+'.' +ext[1];
-  
+  let newFileName = uuid_v4();
+  let s3Path = this.state.auth.user_dir + '/profile/' + newFileName+'.' +ext[1];
   fileManagementService
-      .uploadFile(s3Path, file.type)
+      .uploadProfileImage(s3Path, file.type)
       .then((response) => {
         if(response.status === 200){
           this.setState({
@@ -554,6 +624,9 @@ export default class Soundsnewuser extends React.Component {
           //toast.error(JSON.stringify(error));
         });
       }
+      else{
+        this.setState({ loading: false });
+      }
        
     }
 
@@ -605,6 +678,7 @@ export default class Soundsnewuser extends React.Component {
       songsEarning,
       backChevron
     } = this.props;
+    const { imagePreviewUrl, croppedAreaPixels, crop, zoom, aspect , croppedImage} = this.state;
 
     return (
        <LoadingOverlay
@@ -612,8 +686,6 @@ export default class Soundsnewuser extends React.Component {
           spinner={<HashLoader color={"#f24b76"} size={100}/>}
         >
       <div className="soundsnewuser">
-        <div className="sound-5 smart-layers-pointers "></div>
-        <div className="sound-5-copy smart-layers-pointers "></div>
         <div className="container-center-horizontal">
           <div className="buttons">
             <ul class="nav nav-tabs">
@@ -649,10 +721,9 @@ export default class Soundsnewuser extends React.Component {
               <div id="sounds" class="tab-pane fade in active">
                 <br/>
                  <div className="overlap-group3">
-                  <div className="sound-5 smart-layers-pointers "></div>
-                  <div className="sound-5-copy smart-layers-pointers "></div>
-                  <div className="list animate-enter">
-                    <div className="overlap-group1">
+                  <div className="group-30 ">
+                  <div className="overlap-group1">
+                    <div className="list animate-enter">
                       <div className="container">
                         <div className="row">                 
                       
@@ -686,17 +757,23 @@ export default class Soundsnewuser extends React.Component {
                       <div className="sound-5-1 smart-layers-pointers " style={{ backgroundImage: `url(${sound5})` }}></div>
                       <div className="sound-6 smart-layers-pointers " style={{ backgroundImage: `url(${sound6})` }}></div> */}
                     </div>
-                  </div>
+                  
                    <div className="container-center-horizontal" onClick={() => {this.props.history.push('/newSound')}}>
           <div className="new-sound-button animate-enter smart-layers-pointers ">
             <img className="rectangle" src={rectangle} />
             <div className="new-sound montserrat-semi-bold-white-20px">{NewSound}</div>
           </div>
-        </div>
-              </div>
+        </div></div>
+              </div></div>
               <div id="trends" class="tab-pane fade">
                 <br/>
                 {this.state.creativeList.length > 0 ?
+                  (this.state.countriesSeries.length===0 || this.state.dspSeries.length===0||this.state.trackSeries===0)?(
+                    <div className="no-earnings montserrat-semi-bold-violet-red-25px">
+                      <span>No Data Available.</span>
+                    </div>
+                    ):
+                  <>
                 <div className="overlap-group3">
                   <div className="group-30">
                     <div className="overlap-group1">
@@ -723,29 +800,39 @@ export default class Soundsnewuser extends React.Component {
                           </div>                   
     
                         </div>
-                      </div>
+                      </div></div>
                       <div className="container-center-horizontal">
+                        <div className="trends-button  animate-enter smart-layers-pointers ">
                     <div className="nexticon-C61RwL">
                       {/* <img className="rectangle-JuxZGf" src={rectangle5} /> */}
                       <Select 
                         options={this.state.monthOptions}
                         value={this.state.selectedMonth}
                         onChange={this.changeMonthHandler}
+                        classNamePrefix="react-select"
+                        className='react-select-container'
+                        isSearchable = {false}
                                   />
                       {/* <div className="category montserrat-semi-bold-white-20px">{category}</div> */}
                       <img className="back-chevron" src={backChevron} />
                     </div>
-                  </div>   
+                  </div>   </div>
                     </div>
                    
                   </div> 
-                             
-                </div>
+                    </>         
+                
                : null}
               </div>
               <div id="earnings" class="tab-pane fade">
                 <br/>
                 {this.state.creativeList.length > 0 ?
+                  this.state.earningList.length===0?(
+                    <div className="no-earnings montserrat-semi-bold-violet-red-25px">
+                      <span>No Earnings Yet.</span>
+                    </div>
+                    ):
+                  <>
                 <div className="overlap-group3">
                   <div className="group-3" style={{ backgroundImage: `url(${group3})` }}>
                      <table class="table borderless">
@@ -808,15 +895,18 @@ export default class Soundsnewuser extends React.Component {
                       <div className="price sfprodisplay-normal-black-15px">$8</div>
                     </div> */}
                   </div>
-                  <div className="request-button animate-enter smart-layers-pointers " onClick={() => {
+                  
+                </div>
+                {this.state.isPendingPaymentExixts ? 
+                <div className="container-center-horizontal " onClick={() => {
                                      this.onPaymentRequest();
                                  }}>
-                      <div className="overlap-group4">
+                      <div className="request-button animate-enter smart-layers-pointers ">
                         <img className="rectangle1" src={rectangle} />
-                        <div className="request montserratheading20pxsemiboldcenter-aligngray-900">{request}</div>
+                        <div className="request montserrat-semi-bold-white-20px">{request}</div>
                       </div>
-                    </div>
-                </div>
+                    </div> : null }
+                    </>
               : null }
               </div>
             </div>
@@ -835,8 +925,11 @@ export default class Soundsnewuser extends React.Component {
           <div className="group">
             <img className="path-3" src={path3} />
             <img className="path-3-copy" src={path3Copy} />
+            <div className="profile-pic">
             <label for="fileChoose">
-            {this.state.profileURL ?
+
+            {this.state.profileSignedURL ?
+              <>
              <img
              className="oval-5"
                     src={this.state.profileSignedURL}
@@ -846,7 +939,39 @@ export default class Soundsnewuser extends React.Component {
                       width: "100px",
                       height: "100px",
                     }}
-                  /> :
+                  /> 
+            {/*   <img  */}
+            {/*   ref={imageRef => this.image = imageRef} */}
+            {/*   id="source" */}
+            {/*   style={{width:'100%', height: '100%',display: 'none'}} */}
+            {/*   className="oval-5" */}
+            {/*   src={this.state.profileSignedURL} /> */}
+            {/* <canvas */}
+            {/*   ref={canvas => { */}
+            {/*     this.canvas = canvas; */}
+            {/*     canvas && (this.ctx = canvas.getContext('2d')) */}
+            {/*   }} */}
+            {/*   width={croppedAreaPixels.width} */}
+            {/*   height={croppedAreaPixels.height} */}
+            {/* /> */}
+            {/* <Cropper */}
+            {/*   image={this.state.profileSignedURL} */}
+            {/*   crop={crop} */}
+            {/*   zoom={zoom} */}
+            {/*   aspect={1} */}
+            {/*   showGrid={false} */}
+            {/*   cropShape="round" */}
+            {/*   cropSize={{width:100,height:100}} */}
+            {/*   onCropChange={this.onCropChange} */}
+            {/*   onCropComplete={this.onCropComplete} */}
+            {/*   onZoomChange={this.onZoomChange} */}
+            {/*   onMediaLoaded={(mediaSize) => { */}
+            {/*     this.onZoomChange(mediaSize.naturalHeight / mediaSize.naturalWidth) */}
+            {/*   }} */}
+            {/* /> */}
+                 </>
+
+                  :
             <img className="oval-5" src={oval5} />  }
              
              {!this.state.profileURL ?
@@ -859,6 +984,7 @@ export default class Soundsnewuser extends React.Component {
                   
             </div> : null}
              </label>
+</div>
             <Settingiconwhite {...{...settingiconwhiteProps , onSettingsClick : () => this.onSettingsClick()}}  />
           </div>
           <input 
@@ -870,7 +996,7 @@ export default class Soundsnewuser extends React.Component {
                                 this.uploadInput = ref;
                               }}
                               onChange={this.uploadProfileImage.bind(this)}
-                            />           
+                            />         
         </div>
       </div>
       </LoadingOverlay>

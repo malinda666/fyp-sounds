@@ -35,51 +35,47 @@ export default class MusicForm2 extends React.Component {
           <img className="oval-6sb1qn" src={oval3} />
           <img className="oval-ovOecM" src={oval4} />
         </div>
-        <div className="container-center-horizontal">
-          <div className="nexticon-copy- animate-enter smart-layers-pointers " onClick={()=>{
-                     if(localStorage.getItem('data')){
-                  let data = JSON.parse(localStorage.getItem('data'));                  
-                  data.stores = 'social media';                 
-                  localStorage.setItem('data', JSON.stringify(data));
-                  this.props.history.push('/songStep2');
-              }  
-                                                                                }}>
-            <img className="rectangle-C0bm8O" src={rectangle} />
-         
-              <img className="rectangle" src={rectangle2} />
-      
-            <div className="tik-tok montserrat-semi-bold-white-20px">{tiktok}</div>
-          </div>
-        </div>
-        <div className="container-center-horizontal">
-          <div className="nexticon-copy-2 animate-enter" onClick={()=>{
-             if(localStorage.getItem('data')){
-                  let data = JSON.parse(localStorage.getItem('data'));                  
-                  data.stores = 'allStores';                 
-                  localStorage.setItem('data', JSON.stringify(data));
-                  this.props.history.push('/songStep2');
-              }  
-                                                                               
-                                                                                }}>
-            <img className="rectangle-C0bm8O" src={rectangle3} />
-            
-              <img className="rectangle" src={rectangle4} />
-          
-            <div className="all-stores montserrat-semi-bold-white-20px">{allStores}</div>
-          </div>
-        </div>
-        <div className="container-center-horizontal">
-          <div className="nexticon-copy-text animate-enter2 smart-layers-pointers ">
-            <div className="yes montserrat-light-white-20px">{yes}</div>
-          </div>
-        </div>
-        <Fypcopy {...fypcopyProps} />
-        <div className="container-center-horizontal">
+        <div className="ownership">
           <h1 className="are-you-the-owner-of sofiapro-normal-white-30px">{areYouTheOwnerOf}</h1>
+          <div className="yes montserrat-light-white-20px">{yes}</div>
         </div>
-        <div className="container-center-horizontal">
+
+        <div className="publish-wrapper">
           <div className="publish-audio-to sofiapro-normal-white-30px">{publishAudioTo}</div>
+          <div className="button-wrapper">
+            <div className="nexticon-copy- animate-enter smart-layers-pointers " onClick={()=>{
+                       if(localStorage.getItem('data')){
+                    let data = JSON.parse(localStorage.getItem('data'));                  
+                    data.stores = 'social media';                 
+                    localStorage.setItem('data', JSON.stringify(data));
+                    this.props.history.push('/songStep2');
+                }  
+                                                                                  }}>
+              <img className="rectangle-C0bm8O" src={rectangle} />
+           
+                <img className="rectangle" src={rectangle2} />
+        
+              <div className="tik-tok montserrat-semi-bold-white-20px">{tiktok}</div>
+            </div>
+            <div className="nexticon-copy-2 animate-enter" onClick={()=>{
+               if(localStorage.getItem('data')){
+                    let data = JSON.parse(localStorage.getItem('data'));                  
+                    data.stores = 'allStores';                 
+                    localStorage.setItem('data', JSON.stringify(data));
+                    this.props.history.push('/songStep2');
+                }  
+                                                                                 
+                                                                                  }}>
+              <img className="rectangle-C0bm8O" src={rectangle3} />
+              
+                <img className="rectangle" src={rectangle4} />
+            
+              <div className="all-stores montserrat-semi-bold-white-20px">{allStores}</div>
+            </div>
+          </div>
         </div>
+        
+        <Fypcopy {...fypcopyProps} />
       </div>
     );
   }

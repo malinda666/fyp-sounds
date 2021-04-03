@@ -23,21 +23,25 @@ function App() {
     setIsAuthenticated(false);
 
   }
-});
+}, []);
     const userHasAuthenticated = authenticated => {
             setIsAuthenticated(authenticated);       
       };
 
+    const isUserAuthenticated = () => {
+      return isAuthenticated;
+    }
 
-  return (
-    <Router>
-      <RouterConfig  
-        ref={el=>main=el}
-        isAuthenticated = {isAuthenticated}
-        userHasAuthenticated= {userHasAuthenticated}
-      />
-   </Router>
-  ); 
+
+    return (
+      <Router>
+        <RouterConfig  
+          ref={el=>main=el}
+          isAuthenticated = {isAuthenticated}
+          userHasAuthenticated= {userHasAuthenticated}
+        />
+     </Router>
+    ); 
 }
 
 export default App;

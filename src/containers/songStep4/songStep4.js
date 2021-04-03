@@ -10,7 +10,7 @@ import LoadingOverlay from "react-loading-overlay";
 
 export default class MusicForm5 extends React.Component {
   constructor(props) {
-    super(props);
+    super(props); 
     this.options = [
       {label : "category", value : "category"},
       {label : "brazilian", value : "brazilian"},
@@ -54,7 +54,9 @@ export default class MusicForm5 extends React.Component {
      auth: null,
      status:'',
      coverURL:'',
-     errorMessage:''
+     errorMessage:'',
+     finalImage :'',
+     thumbnailImage :''
     
    }
   }
@@ -65,7 +67,7 @@ export default class MusicForm5 extends React.Component {
     }
      if(localStorage.getItem('data')){
         let data = JSON.parse(localStorage.getItem('data'));
-        this.setState({creativeURL : data.creativeURL, fileName : data.fileName, s3Path : data.audiofile, name : data.name, status : data.status, coverURL :  data.albumcover}, () => {
+        this.setState({creativeURL : data.creativeURL, fileName : data.fileName, s3Path : data.audiofile, name : data.name, status : data.status, coverURL :  data.albumcover, finalImage : data.finalImage, thumbnailImage : data.thumbnailImage}, () => {
             let selectedCategory = this.options.filter(item => item.value == data.category);
             if(selectedCategory.length >0)
             this.setState({category: selectedCategory[0]});
@@ -96,12 +98,12 @@ let file = this.uploadInput.files[0]
  if(file != null && file != undefined && file!= {} ) {
 var re = /(?:\.([^.]+))?$/;
 var ext = re.exec(file.name);
-if(ext[1] === 'wav' || ext[1] === 'mp3')
+if(ext[1] === 'wav' || ext[1] === 'mp3' || ext[1] === 'm4a' || ext[1] === 'flac')
 {
 let s3Path = this.state.auth.user_dir + '/creative/song/' + uuid_v4()+'.' +ext[1];
 
 fileManagementService
-    .uploadFile(s3Path, file.type)
+    .uploadCreative(s3Path, file.type)
     .then((response) => {
       if(response.status == 200){
         this.setState({
@@ -149,7 +151,7 @@ fileManagementService
 }
 
 validateForm =() =>{
-   if (!this.state.creativeURL || this.state.creativeURL === ''){
+   if (!this.state.s3Path || this.state.s3Path === ''){
     this.setState({errorMessage : 'Please upload creative file'});
     return false;
   }else if (!this.state.category || this.state.category.value === 'category'){
@@ -181,6 +183,8 @@ navigateToNextPage(){
                   data.email = this.state.auth.email;
                   data.audioFileURL = this.state.s3Path;
                   data.coverURL = this.state.coverURL;
+                  data.finalImage = this.state.finalImage;
+                  data.thumbnailImage = this.state.thumbnailImage;
                   if(data.id != '' && data.id != null && data.id != undefined){
                        creativeManagementService.updateCreative( data, 'songUpdate')
                         .then(res => {
@@ -254,16 +258,13 @@ navigateToNextPage(){
           <img className="oval-6sb1qn" src={oval3} />
           <img className="oval-ovOecM" src={oval4} />
         </div>
-        <div className="container-center-horizontal">
-          <div className="nexticon-copy-3 animate-enter smart-layers-pointers ">
+          <div className="explicit">
+            <h1 className="is-this-content-expl sofiapro-normal-white-30px">{isThisContentExpl}</h1>
             <div className="yes montserrat-light-white-20px">{this.state.status}</div>
-          </div>
-        </div>
-        <div className="container-center-horizontal">
-          <h1 className="is-this-content-expl sofiapro-normal-white-30px">{isThisContentExpl}</h1>
+
         </div>
         <Fypcopy {...fypcopyProps} />
-        <div className="container-center-horizontal">
+        <div className="category-wrapper">
           <div className="nexticon-C61RwL">
           <Select 
               options={this.state.options}
@@ -271,16 +272,17 @@ navigateToNextPage(){
               onChange={this.changeCategoryHandler}
               classNamePrefix="react-select"
               className='react-select-container'
+              isMenuOpen={true}
                         />
             <img className="back-chevron" src={backChevron} />
           </div>
         </div>
-        <div className="container-center-horizontal">
+
+        <div className="upload-wrapper">
+          <div className="upload-audio-file sofiapro-normal-white-30px">{uploadAudioFile}</div>
           <img className="rectangle-C61RwL" src={rectangle2} />
-        </div>
-        <div className="container-center-horizontal">
-        <label for="fileChoose">
-          {this.state.fileName  === undefined || this.state.fileName  === '' ? <img className="upload" src={upload}/>  : <span className ="filename">{this.state.fileName}</span> }
+          <label for="fileChoose">
+            {this.state.fileName  === undefined || this.state.fileName  === '' ? <img className="upload" src={upload}/>  : <span className ="filename montserrat-light-gravel-14px">{this.state.fileName}</span> }
           </label>
           <input 
                 id="fileChoose"
@@ -291,12 +293,12 @@ navigateToNextPage(){
                                 this.uploadInput = ref;
                               }}
                 onChange={this.uploadCreative.bind(this)}
-                accept={'.wav, .mp3'}
+                accept={'.wav, .mp3, .m4a, .flac'}
                             />  
+          
+          <p className="wav-or-mp3-format montserrat-light-gravel-14px">{wavOrMp3Format}</p>
         </div>
-        <div className="container-center-horizontal">
-          <div className="upload-audio-file sofiapro-normal-white-30px">{uploadAudioFile}</div>
-        </div>
+
         <div className="container-center-horizontal" onClick={this.navigateToNextPage.bind(this)}>
           <div className="nexticon-VMr6Om">
             <img className="rectangle-On3W7C" src={rectangle3} />
@@ -308,7 +310,7 @@ navigateToNextPage(){
             </div>
         </div>
         <div className="container-center-horizontal">
-          <p className="wav-or-mp3-format montserrat-light-gravel-14px">{wavOrMp3Format}</p>
+          
         </div>
       </div>
       </LoadingOverlay>

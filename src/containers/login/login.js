@@ -6,6 +6,29 @@ import HashLoader from 'react-spinners/HashLoader'
 import LoadingOverlay from "react-loading-overlay";
 import Header from '../../components/header'
 import Footer from '../../components/footer'
+import { IconContext } from "react-icons";
+import { BsFillInfoCircleFill } from "react-icons/bs";
+import { Popover } from 'react-tiny-popover'
+
+
+const popOverTriggerStyles = {
+    position:"absolute",
+    top:"50px",
+    right:"-25px ",
+    padding: "1px",
+    borderRadius: "50%",
+    margin: "0 0 0 0",
+}
+
+const popOverStyles = {
+    backgroundColor: "#fff",
+    padding: "8px",
+    border: "1px solid rgba(150, 150, 150, 1)",
+    borderRadius: "8px",
+    margin:"0 4px",
+    fontFamily:' "Montserrat", Helvetica, Arial, serif',
+    fontSize:"11px"
+}
 
 export default class LoginErrorMessages extends React.Component { 
 
@@ -28,11 +51,24 @@ export default class LoginErrorMessages extends React.Component {
       isLoginEmailRequired: false,
       isLoginPasswordRequired: false,
       joinErrorMessage:'',
+      isPopoverOpen:false,
+      passwordPolicy: Object.assign({}, props.passwordPolicy),
+      passwordValidation: {
+        hasUpperCase: "rgba(255, 0, 80, 1)",
+        hasLowerCase: "rgba(255, 0, 80, 1)",
+        hasNumeric: "rgba(255, 0, 80, 1)",
+        hasSpecialCharacter: "rgba(255, 0, 80, 1)",
+        hasCorrectLength: "rgba(255, 0, 80, 1)",
+        isSuccess: false,
+      },
     };
 
     this.handleFieldChange = this.handleFieldChange.bind(this);
   }
 
+  componentDidMount() {
+    this.getPasswordPolicy();
+  }
   validateLoginForm() {
     const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
@@ -62,6 +98,30 @@ export default class LoginErrorMessages extends React.Component {
     return true;
   }
 
+  getPasswordPolicy() {
+    this.setState({ loading: true });
+    userManagementService
+      .userPoolData()
+      .then((res) => {
+        if (res.status == 200) {
+          this.setState({ loading: false });
+          if (res.data.UserPool.Policies.PasswordPolicy != null) {
+            this.setState({
+              passwordPolicy: res.data.UserPool.Policies.PasswordPolicy,
+            });
+          } else {
+            this.setState({ loading: false });
+          }
+        } else {
+          this.setState({ loading: false });
+        }
+      })
+      .catch((err) => {
+        this.setState({ loading: false });
+      });
+  }
+
+
   validateJoinForm(formType) {
     const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
@@ -74,6 +134,12 @@ export default class LoginErrorMessages extends React.Component {
       this.setState({isJoinPasswordRequired : true});
       return false;
     }
+
+    if (!this.state.passwordValidation.isSuccess) {
+      this.setState({isJoinPasswordRequired : true});
+      return false;
+    }
+
 
     // if(!re.test(this.state.email)){
     //   return false;
@@ -88,6 +154,147 @@ export default class LoginErrorMessages extends React.Component {
 
     return true;
   }
+
+  _validateJoinPassword = (event) => {
+    this.setState({
+      [event.target.id]: event.target.value,
+    });
+
+    this.setState((prevState) => ({
+      passwordValidation: {
+        ...prevState.passwordValidation,
+        hasCorrectLength: 'red',
+        hasLowerCase: 'red',
+        hasNumeric: 'red',
+        hasSpecialCharacter: 'red',
+        hasUpperCase: 'red',
+        isSuccess: false,
+      },
+    }));
+
+    let password = event.target.value;
+    var anUpperCase = /[A-Z]/;
+    var aLowerCase = /[a-z]/;
+    var aNumber = /[0-9]/;
+    var aSpecial = /[!|@|#|$|%|^|&|*|(|)|-|_]/;
+
+    if (password.length > this.state.passwordPolicy.MinimumLength) {
+      this.setState((prevState) => ({
+        passwordValidation: {
+          ...prevState.passwordValidation,
+          hasCorrectLength: 'green',
+        },
+      }));
+    }
+
+    var numUpper = 0;
+    var numLower = 0;
+    var numNums = 0;
+    var numSpecials = 0;
+
+    let passUpper = 0;
+    let passLower = 0;
+    let passNums = 0;
+    let passSpecials = 0;
+
+    for (var i = 0; i < password.length; i++) {
+      if (anUpperCase.test(password[i])) numUpper++;
+      else if (aLowerCase.test(password[i])) numLower++;
+      else if (aNumber.test(password[i])) numNums++;
+      else if (aSpecial.test(password[i])) numSpecials++;
+    }
+
+    if (numUpper >= 1) {
+      this.setState((prevState) => ({
+        passwordValidation: {
+          ...prevState.passwordValidation,
+          hasUpperCase: 'green',
+        },
+      }));
+    }
+
+    if (numLower >= 1) {
+      this.setState((prevState) => ({
+        passwordValidation: {
+          ...prevState.passwordValidation,
+          hasLowerCase: 'green',
+        },
+      }));
+    }
+
+    if (numNums >= 1) {
+      this.setState((prevState) => ({
+        passwordValidation: {
+          ...prevState.passwordValidation,
+          hasNumeric: 'green',
+        },
+      }));
+    }
+
+    if (numSpecials >= 1) {
+      this.setState((prevState) => ({
+        passwordValidation: {
+          ...prevState.passwordValidation,
+          hasSpecialCharacter: 'green',
+        },
+      }));
+    }
+
+    if (this.state.passwordPolicy.RequireUppercase) {
+      if (numUpper >= 1) {
+        passUpper = true;
+      } else {
+        passUpper = false;
+      }
+    } else {
+      passUpper = true;
+    }
+
+    if (this.state.passwordPolicy.RequireLowercase) {
+      if (numLower >= 1) {
+        passLower = true;
+      } else {
+        passLower = false;
+      }
+    } else {
+      passLower = true;
+    }
+
+    if (this.state.passwordPolicy.RequireNumbers) {
+      if (numNums >= 1) {
+        passNums = true;
+      } else {
+        passNums = false;
+      }
+    } else {
+      passNums = true;
+    }
+
+    if (this.state.passwordPolicy.RequireSymbols) {
+      if (numSpecials >= 1) {
+        passSpecials = true;
+      } else {
+        passSpecials = false;
+      }
+    } else {
+      passSpecials = true;
+    }
+
+    if (
+      passUpper &&
+      passLower &&
+      passNums &&
+      passSpecials &&
+      password.length > this.state.passwordPolicy.MinimumLength
+    ) {
+      this.setState((prevState) => ({
+        passwordValidation: {
+          ...prevState.passwordValidation,
+          isSuccess: true,
+        },
+      }));
+    }
+  };
 
    signUp = () => {
          this.setState({isJoinEmailRequired : false, isJoinPasswordRequired : false});
@@ -110,7 +317,7 @@ export default class LoginErrorMessages extends React.Component {
               //   });
               // } else {
                //toast.error('Signup process failed');
-               this.setState({loading: false, joinErrorMessage : 'Username aleady exists'});
+               this.setState({loading: false, joinErrorMessage : 'username aleady exists'});
                }
             } else {
                this.props.history.push({
@@ -121,17 +328,17 @@ export default class LoginErrorMessages extends React.Component {
             }
             this.setState({ loading: false });
           } else {
-            this.setState({ loading: false, joinErrorMessage : 'Signup process failed, please contact administrator' });
+            this.setState({ loading: false, joinErrorMessage : 'signup process failed, please contact administrator' });
             //toast.error('Signup process failed');
           }
         })
         .catch((err) => {
           if (err.response.data.code === 'UsernameExistsException') 
           {
-              this.setState({ loading: false, joinErrorMessage : 'Username aleady exists' });
+              this.setState({ loading: false, joinErrorMessage : 'username aleady exists' });
           }
           else{
-              this.setState({ loading: false, joinErrorMessage : 'Signup process failed, please contact administrator' });
+              this.setState({ loading: false, joinErrorMessage : 'signup process failed, please contact administrator' });
           }
         });
       }
@@ -167,9 +374,9 @@ export default class LoginErrorMessages extends React.Component {
                   if (res.status === 200) {
                     if (res.data.code != null) {
                       if (res.data.code === 'NotAuthorizedException') {
-                         this.setState({errorMessage : 'Invalid Email/Password'});
+                         this.setState({errorMessage : 'invalid Email/Password'});
                       } else {
-                        this.setState({errorMessage :'Invalid Email/Password'});
+                        this.setState({errorMessage :'invalid Email/Password'});
                       }
                        this.setState({ loading: false});                       
                     } else {
@@ -187,25 +394,25 @@ export default class LoginErrorMessages extends React.Component {
                     }
                     this.setState({ loading: false });
                   } else {
-                     this.setState({errorMessage :'Login failed, please contact administrator'});
+                     this.setState({errorMessage :'login failed, please contact administrator'});
                     this.setState({ loading: false });
                   }
                 });
               }else {               
-                this.setState({errorMessage :'No account found under this email'});
+                this.setState({errorMessage :'no account found under this email'});
                 this.setState({loading:false})
               }
 
             } else{
-               this.setState({errorMessage :'Login failed, please contact administrator'});
+               this.setState({errorMessage :'login failed, please contact administrator'});
               this.setState({loading:false})
             }
           }).catch((err) => {
-              this.setState({errorMessage :'Login failed, please contact administrator'});
+              this.setState({errorMessage :'login failed, please contact administrator'});
               this.setState({ loading: false });
             });
             } else {
-              this.setState({errorMessage :'Login failed, please contact administrator'});
+              this.setState({errorMessage :'login failed, please contact administrator'});
               this.setState({ loading: false });
             }
         
@@ -240,6 +447,75 @@ export default class LoginErrorMessages extends React.Component {
       aboutProps,
       fypsoundslogo2Props,
     } = this.props;
+        const { isPopoverOpen } = this.state;
+    const popover = (
+        <div style={popOverStyles}>
+                          <span style={{ display: 'block' }}>
+                           
+                            <ul>
+                              {this.state.passwordPolicy.RequireUppercase ? (
+                                <li
+                                  style={{
+                                    fontSize: '80%',
+                                    color: this.state.passwordValidation
+                                      .hasUpperCase,
+                                  }}
+                                >
+                                  Should include atleast one upper case
+                                  character
+                                </li>
+                              ) : null}
+                              {this.state.passwordPolicy.RequireLowercase ? (
+                                <li
+                                  style={{
+                                    fontSize: '80%',
+                                    color: this.state.passwordValidation
+                                      .hasLowerCase,
+                                  }}
+                                >
+                                  Should include atleast one lower case
+                                  character
+                                </li>
+                              ) : null}
+                              {this.state.passwordPolicy.RequireNumbers ? (
+                                <li
+                                  style={{
+                                    fontSize: '80%',
+                                    color: this.state.passwordValidation
+                                      .hasNumeric,
+                                  }}
+                                >
+                                  Should include atlease one number
+                                </li>
+                              ) : null}
+                              {this.state.passwordPolicy.RequireSymbols ? (
+                                <li
+                                  style={{
+                                    fontSize: '80%',
+                                    color: this.state.passwordValidation
+                                      .hasSpecialCharacter,
+                                  }}
+                                >
+                                  Should include atleast one special character
+                                </li>
+                              ) : null}
+                              {this.state.passwordPolicy.MinimumLength > 0 ? (
+                                <li
+                                  style={{
+                                    fontSize: '80%',
+                                    color: this.state.passwordValidation
+                                      .hasCorrectLength,
+                                  }}
+                                >
+                                  Should include{' '}
+                                  {this.state.passwordPolicy.MinimumLength}{' '}
+                                  characters
+                                </li>
+                              ) : null}
+                            </ul>
+                          </span>
+                        </div>
+    );
 
     return (
        <LoadingOverlay
@@ -251,38 +527,61 @@ export default class LoginErrorMessages extends React.Component {
      content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' 
 />
       <form className="loginerrormessages" name="form1" action="form1" method="post" >
-        <div className="container-center-horizontal">
-          <div className="nexticon-copy">
-            <h1 className="or sofiapro-normal-torch-red-25px">{or}</h1>
-            <Overlapgroup  {... {...overlapgroupProps, handleFieldChange : event => this.handleFieldChange(event), id : 'loginEmail'}} />
-            <Overlapgroup1 {... {...overlapgroup1Props, handleFieldChange : event => this.handleFieldChange(event), id : 'loginPassword'}} />
-            <div className="overlap-group-PVhVGJ"  onClick={this.login}>
-              <img className="rectangle-JWSful" src={rectangle} />
-              <div className="login montserrat-bold-white-20px">{login}</div>
+        <div className="form-container">
+          <div className="container-center-horizontal">
+            <div className="nexticon-copy">
+              <h1 className="or sofiapro-normal-torch-red-25px">{or}</h1>
+              <Overlapgroup  {... {...overlapgroupProps, handleFieldChange : event => this.handleFieldChange(event), id : 'loginEmail'}} />
+              <Overlapgroup1 {... {...overlapgroup1Props, handleFieldChange : event => this.handleFieldChange(event), id : 'loginPassword'}} />
+              <div className="overlap-group-PVhVGJ"  onClick={this.login}>
+                <img className="rectangle-JWSful" src={rectangle} />
+                <div className="login montserrat-bold-white-20px">{login}</div>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="container-center-horizontal">
-          <div className="bar"></div>
-        </div>
-        <div className="container-center-horizontal">
-          <p className="forgot-your-access montserrat-light-gravel-14px">
-            <span className="span1-VhPCr0">{spanText}</span>
-            <span className="span2-VhPCr0" onClick = {() => this.props.history.push("/forgotPassword")}>{spanText2}</span>
-          </p>
-        </div>
-        <div className="container-center-horizontal">
-          <div className="nexticon">
-            <Overlapgroup {...{...overlapgroup2Props, handleFieldChange : event => this.handleFieldChange(event), id: 'joinEmail'}} className="overlap-group3" />
-            <Overlapgroup1 {...{...overlapgroup12Props, handleFieldChange : event => this.handleFieldChange(event), id: 'joinPassword'}} />
-            <div className="overlap-group-PVhVGJ" onClick={this.signUp.bind(this)}>
-              <img className="rectangle-JWSful" src={rectangle2} />
-              <a href="javascript:SubmitForm('form1')">
-                <div className="join montserrat-bold-white-20px">{join}</div>
-              </a>
+
+          <div className="container-center-horizontal">
+            <p className="forgot-your-access montserrat-light-gravel-14px">
+              <span className="span1-VhPCr0">{spanText}</span>
+              <span className="span2-VhPCr0" onClick = {() => this.props.history.push("/forgotPassword")}>{spanText2}</span>
+            </p>
+          </div>
+
+          <div className="container-center-horizontal">
+            <div className="nexticon">
+              <Overlapgroup {...{...overlapgroup2Props, handleFieldChange : event => this.handleFieldChange(event), id: 'joinEmail'}} className="overlap-group3" />
+              <Overlapgroup1 {...{...overlapgroup12Props, handleFieldChange : event => this._validateJoinPassword(event), id: 'joinPassword'}} />
+              
+              <Popover
+                  isOpen={isPopoverOpen}
+                  padding={10}
+                  positions={['top']}
+                  content={popover}
+                >
+                <div style={popOverTriggerStyles}onClick={() => {
+                            this.setState({ isPopoverOpen: !isPopoverOpen });
+                          }}>
+                          <IconContext.Provider value={{ color: "rgba(255, 0, 80, 1)",size:'1.3em' }}>
+                             <BsFillInfoCircleFill/>
+                          </IconContext.Provider>
+                 
+                </div>
+              </Popover>
+              <div className="overlap-group-PVhVGJ" onClick={this.signUp.bind(this)}>
+                <img className="rectangle-JWSful" src={rectangle2} />
+                <a href="javascript:SubmitForm('form1')">
+                  <div className="join montserrat-bold-white-20px">{join}</div>
+                </a>
+              </div>
             </div>
           </div>
+
+          
         </div>
+        
+        
+        
+        
         <div className="container-center-horizontal">
            <Header/>
         </div>

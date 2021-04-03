@@ -24,7 +24,10 @@
     position: relative;
     width: 100%;
 }
-
+.loginerrormessages .form-container{
+    position: absolute;left: 50%;top: 50%;transform: translate(-50%,-50%);
+    height: 700px;width: 414px;
+}
 .loginerrormessages .a-password-is-requi-C61RwL {
     background-color: transparent;
     height: auto;
@@ -479,6 +482,15 @@
 .loginerrormessages .text::placeholder {
     color: rgba(151, 151, 151, 0.6);
 }
+
+.loginerrormessages .btn {
+    display:block;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    border: 1px solid black;
+    
+  }
 
 .loginerrormessages .x {
     background-color: transparent;

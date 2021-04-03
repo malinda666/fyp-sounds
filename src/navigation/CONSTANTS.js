@@ -12,7 +12,7 @@ const fypsoundslogo2Data = {
 
 const AboutData = {
     about: "about",
-    loremIpsumDolorSi: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin at vestibulum erat, id interdum diam. Phasellus bibendum neque velit, eget consectetur urna cursus commodo. Pellentesque sollicitudin purus arcu, at tristique nisl malesuada vitae. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod diam nec gravida gravida. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Maecenas commodo orci eu eros mollis pharetra. Mauris magna eros, fermentum quis facilisis vitae, ullamcorper vitae diam. Nulla nec eros at ipsum hendrerit consectetur et a lacus. Proin viverra diam et dolor malesuada tristique. Suspendisse sollicitudin neque leo, sed fermentum tellus rutrum non.",
+    loremIpsumDolorSi: "",
     oval: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9b135225cce9e6c83ec9e/img/login-oval-37692DBC-7C66-488D-9C3E-C248CABCFAFC.png",
     oval2: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9b135225cce9e6c83ec9e/img/login-oval-FF512D72-33D2-4971-AF51-774DB977A674.png",
     oval3: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9cb0c225cce9e6c83edec/img/landing-oval-083AEC00-4CBB-4E35-AC1A-D6E8ADC06CFE.png",
@@ -23,7 +23,7 @@ const AboutData = {
     copyright2512021Al: "Copyright © 2021. All Rights Reserved By Emuq Tech Inc.",
     fypsoundslogoProps: fypsoundslogoData,
     about2Props: about2Data,
-    fypsoundslogo2Props: fypsoundslogo2Data,
+    fypsoundslogo2Props: fypsoundslogo2Data, 
 };
 
 
@@ -99,10 +99,24 @@ const overlapgroup1Data = {
     inputRequired: true,
 };
 
+const overlapgroupContactData = {
+    inputName: "text",
+    inputType: "text",
+    inputPlaceholder: "username",
+    inputRequired: true,
+};
+
 const overlapgroup2Data = {
     rectangle: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9b135225cce9e6c83ec9e/img/login-rectangle-801AD367-31CD-48BB-AAF9-F5C042AC1CE4.png",
     inputName: "textemail",
     inputType: "email",
+    inputPlaceholder: "email",
+    inputRequired: true,
+};
+
+const overlapgroupContact1Data = {
+    inputName: "text",
+    inputType: "text",
     inputPlaceholder: "email",
     inputRequired: true,
 };
@@ -190,8 +204,8 @@ const ContactData = {
     contact2: "Contact",
     privacyPolicy: "Privacy Policy",
     copyright2512021Al: "Copyright © 2021. All Rights Reserved By Emuq Tech Inc.",
-    overlapgroup1Props: overlapgroup1Data,
-    overlapgroup12Props: overlapgroup12Data,
+    overlapgroup1Props: overlapgroupContactData,
+    overlapgroup12Props: overlapgroupContact1Data,
     fypsoundslogoProps: fypsoundslogoData,
     aboutProps: aboutData,
     fypsoundslogo2Props: fypsoundslogo2Data,
@@ -529,7 +543,7 @@ const NewSoundData = {
     shape: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/new-sound-shape-B0198C0B-C7C5-4AED-A33C-5327E23B9D77@2x.png",
     shape2: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/new-sound-shape-515ECF6F-700F-4416-8763-E1866068FDA3@2x.png",
     path: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/new-sound-path-4E429FB4-FA55-4DE0-83E0-A8B02C6F7E04@2x.png",
-    uploadACoverImage: "upload a cover image",
+    uploadACoverImage: "cover image",
     audioTitle: "audio title",
     tiktokAudioSubmiss: "Audio Content Submission",
     rectangle5: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/new-sound-rectangle-ECDF7695-8163-43AF-94B3-9B85AC288F7E.png",
@@ -661,7 +675,7 @@ const MusicForm2Data = {
     oval4: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/warn5-oval-1444CE1B-527A-46B8-B16D-9AF575A2E6BC.png",
     rectangle: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/music-form-1-rectangle-F44A733F-3C97-4AB9-BCB6-5073AA49C42C@2x.png",
     rectangle2: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/warn6-rectangle-9F2AD481-C04F-48C2-8CCD-816AF2EC0E30@2x.png",
-    tiktok: "TikTok",
+    tiktok: "social media",
     rectangle3: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/music-form-1-rectangle-F44A733F-3C97-4AB9-BCB6-5073AA49C42C@2x.png",
     rectangle4: "https://anima-uploads.s3.amazonaws.com/projects/5fa9b05f2e946f434f245a4f/releases/5fa9c2ee225cce9e6c83ed86/img/warn3-rectangle-7170A44A-6C2A-4282-833B-DEB8905E7703@2x.png",
     allStores: "all stores",

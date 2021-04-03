@@ -35,7 +35,7 @@
 .montserrat-light-white-20px {
     color: white;
     font-family: "Montserrat", Helvetica, Arial, serif;
-    font-size: 20px;
+    font-size: 1rem !important;
     font-style: normal;
     font-weight: 300;
 }
@@ -43,7 +43,7 @@
 .montserrat-semi-bold-white-20px {
     color: white;
     font-family: "Montserrat", Helvetica, Arial, serif;
-    font-size: 20px;
+    font-size: 1rem !important;
     font-style: normal;
     font-weight: 600;
 }
@@ -77,6 +77,7 @@
     top: 9px;
     white-space: nowrap;
     width: 102px;
+    font-size: 1rem;
 }
 
 .musicform2 .are-you-the-owner-of {
@@ -84,12 +85,14 @@
     height: auto;
     letter-spacing: -0.19px;
     line-height: 42px;
-    position: absolute;
+    position: relative;
     text-align: center;
-    top: 116px;
     width: 262px;
 }
-
+.musicform2 .ownership{
+    position: absolute;display: flex;align-items: center;justify-content: center;width: 100%;flex-direction: column;                                                                                                                                                            
+    top: 15%;
+}
 .musicform2 .fypsoundslogo {
     background-color: transparent;
     background-size: 100% 100%;
@@ -98,16 +101,28 @@
     top: 29px;
     width: 94px;
 }
+.musicform2 .publish-wrapper{
+    position: absolute;display: flex;align-items: center;justify-content: center;flex-direction: column;width: 100%;
+    top: 30%;
+}
+@media only screen and (max-width: 600px) {
+  .musicform2 .publish-wrapper{
+    top: 40%;
+  }
+}
+.musicform2 .button-wrapper{
+    position: relative;display: flex;align-items: center;justify-content: space-between;flex-direction: row;
 
+}
+.musicform2 .button-wrapper > div {
+    margin:1rem;
+}
 .musicform2 .nexticon-copy- {
     background-color: transparent;
     display: block;
     height: 41px;
-    margin-left: -100px;
-    margin-right: 100px;
     pointer-events: auto;
-    position: absolute;
-    top: 320px;
+    position: relative;
     transition: all 0.2s ease-in-out;
     width: 146px;
 }
@@ -120,13 +135,9 @@
     background-color: transparent;
     display: block;
     height: 41px;
-    margin-left: 100px;
-    margin-right: -100px;
-    position: absolute;
-    top: 320px;
+    position: relative;
     width: 146px;
     opacity: 0;
-    transform: scale(1.1);
 }
 
 .musicform2 .nexticon-copy-:hover {
@@ -187,9 +198,8 @@
     height: auto;
     letter-spacing: -0.19px;
     line-height: 42px;
-    position: absolute;
+    position: relative;
     text-align: center;
-    top: 260px;
     white-space: nowrap;
     width: 328px;
 }
@@ -215,7 +225,8 @@
 .musicform2 .tik-tok {
     background-color: transparent;
     height: auto;
-    left: 27px;
+    left: 50%;
+    transform: translateX(-50%);
     letter-spacing: 0px;
     line-height: 24px;
     position: absolute;
@@ -223,6 +234,7 @@
     top: 9px;
     white-space: nowrap;
     width: 88px;
+    font-size: 1rem;
 }
 
 .musicform2 .yes {
@@ -233,6 +245,7 @@
     text-align: center;
     white-space: nowrap;
     width: 88px;
+    font-size: 1rem;
 }
 
 .sofiapro-normal-white-30px {

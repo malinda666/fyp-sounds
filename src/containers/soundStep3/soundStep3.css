@@ -66,6 +66,17 @@
     position: relative;
     width: 100%;
 }
+.soundform2b .owner{
+    top: 15%;
+}
+.soundform2b .explicit{
+    top: 25%;
+}
+.soundform2b .owner,
+.soundform2b .explicit{
+    position: absolute;
+    display: flex;align-items: center;justify-content: center;flex-direction: column;
+}
 .soundform2b .step4-container{
     flex-direction:column;
     align-items:center;
@@ -75,7 +86,7 @@
     height: auto;
     letter-spacing: -0.19px;
     line-height: 1;
-    position: absolute;
+    position: relative;
     top: 15%;
     text-align: center;
     width: 269px;
@@ -100,8 +111,8 @@
     text-align: center;
     top: 50px;
     white-space: nowrap;
-    width: auto;
-    left: 100px;
+    width: 100%;
+    left: 0px;
 }
 
 .soundform2b .dropzone {
@@ -139,7 +150,10 @@
     white-space: nowrap;
     width: 189px;
 }
-
+.soundform2b .creator{
+    position: absolute;top: 45%;
+    display: flex;align-items: center;justify-content: center;flex-direction: column;
+}
 .soundform2b .fypsoundslogo {
     background-color: transparent;
     background-size: 100% 100%;
@@ -154,7 +168,7 @@
     height: auto;
     letter-spacing: -0.19px;
     line-height: 42px;
-    position: absolute;
+    position: relative;
     top: 28%;
     text-align: center;
     white-space: nowrap;
@@ -209,6 +223,7 @@
 
 .soundform2b .css-g1d714-ValueContainer {
     padding-left: 16px !important;
+    flex-wrap : nowrap !important;
 }
 
 
@@ -236,7 +251,7 @@
     min-width: 205px;
     padding: 7px 3.1px;
     position: absolute;
-    top:42%;
+    top:46%;
     width: auto;
 }
 
@@ -252,7 +267,18 @@
     top: 25%;
     width: auto;
 }
-
+.soundform2b .nexticon-copy-4 {
+    align-items: flex-start;
+    background-color: transparent;
+    display: inline-flex;
+    flex-direction: row;
+    height: 24px;
+    justify-content: flex-start;
+    min-width: 88px;
+    position: absolute;
+    top: 35%;
+    width: auto;
+}
 .soundform2b .nexticon-copy-7 {
     align-items: flex-end;
     background-color: transparent;
@@ -274,7 +300,7 @@
     height: 58px;
     justify-content: center;
     padding: 2px 1.1px;
-    position: absolute;
+    position: relative;
     top:65%;
     width: 100%;
 }
@@ -354,9 +380,9 @@
 .soundform2b .rectangle-BJQsbv {
     background-color: transparent;
     height: 41px;
-    position: absolute;
+    position: relative;
     width: 294px;
-    top:50%;
+    top:53%;
 }
 
 .soundform2b .rectangle-JuxZGf {
@@ -384,7 +410,7 @@
     position: absolute;
     resize: none;
     text-align: center;
-    top: 50%;
+    top: 53%;
     width: 250px;
     z-index : 3;
 }
@@ -397,6 +423,10 @@
     position: absolute;
     top: 35%;
 }
+.soundform2b .upload-container{
+    position: absolute;
+    top: 60%;display: flex;align-items: center;justify-content: center;flex-direction: column;
+}
 .soundform2b .upload {
     background-color: transparent;
     height: 28px;
@@ -406,9 +436,7 @@
 
 .soundform2b .filename {
     background-color: transparent;
-    height: 28px;
     position: absolute;
-    top: 422px;
     width: 100%;
     text-align:center;
     white-space:nowrap;
@@ -424,7 +452,6 @@
     height: auto;
     letter-spacing: -0.19px;
     line-height: 42px;
-    min-height: 49px;
     text-align: center;
     white-space: nowrap;
     width: 232px;
@@ -435,7 +462,7 @@
     height: auto;
     letter-spacing: 0px;
     line-height: 17px;
-    position: absolute;
+    position: relative;
     top:75%;
     text-align: center;
     white-space: nowrap;

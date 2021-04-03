@@ -89,16 +89,29 @@
     overflow:hidden;
 }
 
+.soundsnewuser .profile-pic{
+    position: absolute;
+    top: 129px;
+    height: 100px;width: 100px;
+    left: 50%;transform: translateX(-50%);
+    overflow: hidden;
+    border-radius : 50%;
+}
 .soundsnewuser .container {
     width: 350px;
     padding:0;
     margin: 0;
-    height:275px;
+    height:100%;
     position: fixed;
     overflow-y: scroll;
     overflow-x: hidden;
     left: 50%;
     transform: translateX(-50%);
+}
+.soundsnewuser .list{
+    height: 100%;
+    position: absolute;
+    width: 100%;
 }
 .container {
     overflow-y: scroll;
@@ -225,10 +238,6 @@
     width: 54px;
 }
 
-.soundsnewuser .sound-wrap > div:hover {
-    transform: scale(1.05);
-    z-index: 2;
-}
 
 .soundsnewuser .earnings-pxqN5N {
     background-color: transparent;
@@ -307,7 +316,8 @@
     width: 362px;
 }
 
-.soundsnewuser .new-sound {
+.soundsnewuser .new-sound 
+ {
     background-color: transparent;
     height: auto;
     left: 32px;
@@ -320,7 +330,7 @@
     width: auto;
 }
 
-.soundsnewuser .new-sound-button {
+.soundsnewuser .request-button {
     background-color: transparent;
     bottom: 50px;
     display: block;
@@ -331,13 +341,28 @@
     width: 192px;
     opacity: 0;
     transform: scale(1.1);
+    z-index: 9;
+    cursor: pointer;
+}
+.soundsnewuser .new-sound-button ,
+.soundsnewuser .trends-button{
+    background-color:transparent;
+    display: block;
+    height: 54px;
+    pointer-events: auto;
+    position: relative;
+    transition: all 0.2s ease-in-out;
+    width: 192px;
+    opacity: 0;
+    transform: scale(1.1);
     z-index:9;
     cursor:pointer;
+    margin-top: 1.5rem;
+}
+.soundsnewuser .trends-button{
+    width: 250px;
 }
 
-.soundsnewuser .new-sound-button:hover {
-    transform: scale(1.1);
-}
 
 .soundsnewuser .oval {
     background-color: transparent;
@@ -351,10 +376,9 @@
 .soundsnewuser .oval-5 {
     background-color: transparent;
     height: 75px;
-    left: 50%;
-    transform:translate(-50%);
+    left: 0;
     position: absolute;
-    top: 129px;
+    top: 0;
     width: 75px;
 }
 
@@ -577,13 +601,6 @@
     width: 368px;
 }
 
-.soundsnewuser .sound-5-copy:hover {
-    transform: scale(1.1);
-}
-
-.soundsnewuser .sound-5:hover {
-    transform: scale(1.1);
-}
 
 .soundsnewuser .sounds-EiSkUu {
     background-color: transparent;
@@ -611,22 +628,25 @@
 }
 
 .soundsnewuser .overlap-group3 {
-    height: 200px;
+    height: 35vw;
     margin-top: 9px;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
     max-width: 614px;
-    display:grid;
-    grid-template-columns: repeat ( auto-fill,min-max(75px,1fr));
+    display: flex;flex-direction: column;align-items: center;
 }
-
+@media only screen and (max-width: 600px) {
+  .soundsnewuser .overlap-group3  {
+    height: 355px;
+  }
+}
 .soundsnewuser .group-3 {
     align-items:flex-start;
     background-size: 100% 100%;
     display: flex;
-    height: 100%;
+    height: 85%;
     width: 100%;
     margin: 0;
     max-width: 614px;
@@ -641,12 +661,13 @@
    width: 100%;
    position: absolute;
    top: 0px;
+   flex-direction: column;align-items: center;
 }
 
 .soundsnewuser .overlap-group1 {
-    height: 110%;
+    height: 100%;
     position: relative;
-    width: 100%;
+    width: 350px;
     display: grid;
     grid-template-columns: repeat(2,minmax(130px,1fr));
     grid-template-rows: repeat(2,1fr);
@@ -665,7 +686,9 @@
     position: relative;
     width: 100%;
 }
-
+.soundsnewuser .songs-Ernings:nth-child(3) {
+    grid-column: 1 / span 2;
+}
 .soundsnewuser .bar-chart {
     align-items: center;
     justify-content: center;
@@ -721,9 +744,6 @@
 }
 
 
-.soundsnewuser .trends-Gt7Q7B:hover {
-    transform: scale(1.1);
-}
 
 .soundsnewuser .ud83cudfb5 {
     background-color: transparent;
@@ -784,9 +804,6 @@
     width: 212px;
 }
 
-.soundsnewuser .upload:hover {
-    transform: scale(1.1);
-}
 
 .soundsnewuser .x {
     background-color: transparent;
@@ -862,35 +879,21 @@
     width: 81px;
 }
 
-.soundsnewuser .request-button {
-    background-color: transparent;
-    top: 250px;
-    display: block;
-    height: 54px;
-    pointer-events: auto;
-    position: relative;
-    transition: all 0.2s ease-in-out;
-    width: 192px;
-    margin: 0 auto;
-    opacity: 0;
-    z-index: 9;
-    cursor: pointer;
-}
 
 .soundsnewuser .request {
     background-color: transparent;
-    display: block;
+    height: auto;
+    letter-spacing: 0px;
+    line-height: 24px;
+    position: absolute;
     text-align: center;
-    pointer-events: auto;
-    position: relative;
-    transition: all 0.2s ease-in-out;
-   width: 100%;
-    color: #fff;
-    transform: scale(1.1);
-    z-index: 9;
-    cursor: pointer;
+    top: 15px;
+    white-space: nowrap;
+    width: 100%;
 }
-
+.soundsnewuser .no-earnings{
+    width: 100%;text-align: center;
+}
 .soundsnewuser .overlap-group4 {
     height: 54px;
     left: 0px;
@@ -900,9 +903,6 @@
     align-items: center;justify-content: center;
 }
 
-.soundsnewuser .request-button:hover {
-    transform: scale(1.1);
-}
 
 .soundsnewuser .paid {
     left: 25px;

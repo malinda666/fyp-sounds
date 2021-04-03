@@ -58,7 +58,20 @@
     left:50%;
     transform:translateX(-50%);
     width:415px;
+    display: flex;justify-content: center;
 }
+.musicform3 .publish-sec, 
+.musicform3 .ownership{
+    position: absolute;display: flex;align-items: center;justify-content: center;width: 100%;
+    flex-direction: column;
+}
+.musicform3 .publish-sec{
+    top: 20%;
+}
+.musicform3 .ownership{
+    top: 10%;
+}
+
 .musicform3 .all-stores {
     background-color: transparent;
     flex-shrink: 0;
@@ -74,12 +87,10 @@
 .musicform3 .are-you-the-owner-of {
     background-color: transparent;
     height: auto;
-    left: 73px;
     letter-spacing: -0.19px;
     line-height: 1;
-    position: absolute;
+    position: relative;
     text-align: center;
-    top: 90px;
     width: 269px;
 }
 
@@ -111,7 +122,7 @@
     height: 54px;
     left: 111px;
     position: absolute;
-    top: 600px;
+    top: 50%;
     width: 192px;
 }
 
@@ -138,7 +149,7 @@
     left: 105px;
     min-width: 205px;
     position: absolute;
-    top:250px;
+    top:30%;
     width: auto;
 }
 
@@ -151,8 +162,8 @@
     text-align: center;
     top: 50px;
     white-space: nowrap;
-    width: auto;
-    left: 0px;
+    width: 100%;
+    text-align: center;
 }
 .musicform3 .nexticon-copy-5 {
     align-items: flex-start;
@@ -177,7 +188,7 @@
     left: 105px;
     min-width: 205px;
     position: absolute;
-    top: 335px;
+    top: 40%;
     width: auto;
 }
 
@@ -269,12 +280,10 @@
 .musicform3 .publish-audio-to {
     background-color: transparent;
     height: auto;
-    left: 92px;
     letter-spacing: -0.19px;
     line-height: 42px;
-    position: absolute;
+    position: relative;
     text-align: center;
-    top: 180px;
     white-space: nowrap;
     width: 226px;
 }
@@ -398,4 +407,23 @@
 a {
     text-decoration: none;
     display: contents;
+}
+@media only screen and (max-width: 600px) {
+    .musicform3 .ownership {
+        top: 15%;
+    }
+
+    .musicform3 .publish-sec {
+        top: 30%;
+    }
+
+    .musicform3 .nexticon-copy-3 {
+        top: 40%;
+    }
+    .musicform3 .nexticon-copy-6 {
+        top: 55%;
+    }
+    .musicform3 .nexticon {
+        top: 75%;
+    }
 }

@@ -6,6 +6,13 @@ import HashLoader from 'react-spinners/HashLoader'
 import LoadingOverlay from "react-loading-overlay";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Header from '../../components/header'
+import Footer from '../../components/footer'
+import { IconContext } from "react-icons";
+import { BsFillInfoCircleFill } from "react-icons/bs";
+import { Popover } from 'react-tiny-popover'
+
+
 
 export default class Recovery extends React.Component {
    constructor(props) {
@@ -49,7 +56,7 @@ export default class Recovery extends React.Component {
                   } else {
 
                     this.props.history.push({
-                          pathname: '/verifyPassword',
+                          pathname: '/changePassword',
                           state: { email: this.state.email}
                             });
                     this.setState({ loading: false });
@@ -153,43 +160,10 @@ export default class Recovery extends React.Component {
           </h1>
         </div>
         <div className="container-center-horizontal">
-          <div className="group">
-            <img className="oval-NOXmfT" src={oval} />
-            <img className="oval-E582nk" src={oval2} />
-            <Fypsoundslogo {...fypsoundslogoProps} />
-          </div>
+          <Header/>
         </div>
         <div className="container-center-horizontal">
-          <div className="footer">
-            <div className="overlap-group2">
-              <img className="oval-S4xVmX" src={oval3} />
-              <div className="group-5">
-                <About {...aboutProps} />
-                <div className="container-center-horizontal footer-items">
-                   <a href="/faq">
-                  <p className="footer-items-devider">|</p>                  
-                  <div className="montserrat-semi-bold-white-14px">{faq}</div>
-                  </a>
-                </div>
-                <div className="container-center-horizontal footer-items">
-                   <a href="/contact">
-                  <p className="footer-items-devider">|</p>
-                  <div className="montserrat-semi-bold-white-14px">{contact}</div>
-                  </a>
-                </div>
-                <div className="container-center-horizontal footer-items">
-                   <a href="/policy">
-                  <p className="footer-items-devider">|</p>
-                  <div className="montserrat-semi-bold-white-14px">{privacyPolicy}</div>
-                   </a>
-                </div>
-              </div>
-            </div>
-            <Fypsoundslogo2 {...fypsoundslogo2Props} />
-            <div className="container-center-horizontal">
-              <p className="copyright--51-2021-al montserrat-normal-white-13px">{copyright2512021Al}</p>
-            </div>
-          </div>
+          <Footer/>
         </div>
       </div>
       </LoadingOverlay>

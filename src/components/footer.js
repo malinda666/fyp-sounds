@@ -51,12 +51,13 @@ const Footer = () => {
           <div className={s.footerImg}>
             <img src={FaqOvalfrom} alt=""/>
           </div>
-          <div className={s.footerLogo}>
-            <img src={EarningsFypcopy} alt=""/>
-          </div>
+          <Link to="/">
+              <div className={s.footerLogo}>
+                <img src={EarningsFypcopy} alt=""/>
+              </div>
+          </Link>
           <div className={s.footerLinks}>
             <Link to="/about"><span className="montserrat-semi-bold-white-14px">About</span></Link>
-            <Link to="/faq"><span className="montserrat-semi-bold-white-14px">FAQ</span></Link>
             <Link to="/contact"><span className="montserrat-semi-bold-white-14px">Contact</span></Link>
             <Link to="/policy"><span className="montserrat-semi-bold-white-14px">Privacy Policy</span></Link>
           </div>

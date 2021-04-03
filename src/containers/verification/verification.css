@@ -38,7 +38,7 @@
 .montserrat-normal-white-13px {
     color: white;
     font-family: "Montserrat", Helvetica, Arial, serif;
-    font-size: 13px;
+    font-size: 11px !important;
     font-style: normal;
     font-weight: 400;
 }

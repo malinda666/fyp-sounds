@@ -2,7 +2,8 @@ import React from "react";
 import './songStep2.css';
 import {
   Link
-} from 'react-router-dom';
+} from 'react-router-dom'; 
+import removeEmojis from '../../utils/removeemoji'
 
 export default class MusicForm3 extends React.Component {
   constructor(props) {
@@ -21,7 +22,7 @@ export default class MusicForm3 extends React.Component {
   componentDidMount(){
     if(localStorage.getItem('data')){
         let data = JSON.parse(localStorage.getItem('data'));  
-        this.setState({stores : data.stores, creatorName : data.name, authorName: data.authorName, producerName: data.producerName, featuringArtist : data.featuringArtist})  ;  
+        this.setState({stores : data.stores, creatorName : data.name, authorName: data.authorName,})  ;  
     }
   }
 
@@ -42,12 +43,8 @@ export default class MusicForm3 extends React.Component {
       this.setState({errorMessage : 'Author name field is required'});
       return false;
     }
-    if(!this.state.producerName || this.state.producerName === ''){
-      this.setState({errorMessage : 'Producer name field is required'});
-      return false;
-    }
-    if(!this.state.featuringArtist || this.state.featuringArtist === ''){
-      this.setState({errorMessage : 'Featuring artist name field is required'});
+    if(removeEmojis(this.state.creatorName) || removeEmojis(this.state.authorName)){
+      this.setState({errorMessage : 'sorry emojis are not allowed'});
       return false;
     }
     return true;
@@ -101,15 +98,19 @@ export default class MusicForm3 extends React.Component {
         
         <img className="oval-QxM5SU" src={oval4} />
         <div className="musicform2-wrapper">
-          <h1 className="publish-audio-to sofiapro-normal-white-30px">{publishAudioTo}</h1>
-          <div className="nexticon-copy-2">
-          <div className="all-stores montserrat-light-white-20px">{this.state?.stores}</div>
-        </div>
-        <div className="nexticon-copy-5">
-          <div className="yes montserrat-light-white-20px">{yes}</div>
-        </div>
+
+           <div className="ownership">
+            <div className="are-you-the-owner-of sofiapro-normal-white-30px">{areYouTheOwnerOf}</div>
+            <div className="yes montserrat-light-white-20px">{yes}</div>
+          </div>
+
+          <div className="publish-sec">
+            <h1 className="publish-audio-to sofiapro-normal-white-30px">{publishAudioTo}</h1>
+            <div className="all-stores montserrat-light-white-20px">{this.state?.stores}</div>
+          </div>
+          
         <Fypcopy {...fypcopyProps} />
-        <div className="are-you-the-owner-of sofiapro-normal-white-30px">{areYouTheOwnerOf}</div>
+        
         
           <div className="nexticon-copy-3">
             <div className="or-name sofiapro-normal-white-30px">{creatorName}</div>
@@ -140,15 +141,12 @@ export default class MusicForm3 extends React.Component {
         />
           </div>
        
-        <NexticonCopy7 {...{...nexticonCopy7Props, handleFieldChange : event => this.handleFieldChange(event), id: 'producerName', value: this.state.producerName}} />
         <div className="nexticon" onClick={()=>{
           this.setState({errorMessage : ''});
           if(this.validateForm()){
             if(localStorage.getItem('data')){
             let data = JSON.parse(localStorage.getItem('data')); 
-             data.featuringArtist = this.state.featuringArtist;
              data.authorName = this.state.authorName;
-             data.producerName = this.state.producerName;
              data.name = this.state.creatorName;
              localStorage.setItem('data', JSON.stringify(data));
              this.props.history.push('/songStep3');
@@ -162,9 +160,6 @@ export default class MusicForm3 extends React.Component {
             {this.state.errorMessage != '' ? <span className="error-message montserrat-light-red-14px">{this.state.errorMessage}</span> : null}
             </div>
         </div>
-       
-        <NexticonCopy7 {...{...nexticonCopy72Props, handleFieldChange : event => this.handleFieldChange(event), id: 'featuringArtist', value: this.state.featuringArtist}} className="nexticon-copy-8" />    
-      
         </div>
         
       </div>

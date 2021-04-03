@@ -154,28 +154,21 @@ export default class Password extends React.Component {
           spinner={<HashLoader color={"#f24b76"} size={100}/>}
         >
 
-      <div className="password">
+      <div className="verification">
         <div className="auto-flex-C61RwL">
-          <div className="top-bar" onClick={()=>{this.props.history.push('/forgotPassword')}}>
+          <div className="top-bar" onClick={()=>{this.props.history.push('/settigns')}}>
             <img className="back-chevron" src={backChevron} />
           </div>
           <h1 className="password-heading montserrat-bold-rose-pearl-24px">{password}</h1>
         </div>
-        <ClearCacheCopy {...{...clearCacheCopyProps, handleFieldChange: (event)=> this.handleFieldChange(event), id:'password'}} />
-        <ClearCacheCopy {...{...clearCacheCopy2Props, handleFieldChange: (event)=> this.handleFieldChange(event), id:'confirmPassword'}} className="clear-cache-copy-2" />
-        <div className="overlap-group-C61RwL">
-          <ClearCacheCopy {...{...clearCacheCopy3Props, handleFieldChange: (event)=> this.handleFieldChange(event), id:'confirmationCode'}} className="clear-cache-copy-3" />
-          <div className="password-policy">
-            <p className="password-must-includ montserrat-bold-gravel-14px">
-              <span className="span1-8xxcLV">{spanText}</span>
-              <span className="span2-8xxcLV">{spanText2}</span>
-              <span className="span3">{spanText3}</span>
-            </p>
-          </div>
-        </div>
+
+        <div className="field-wrapper">
+          <ClearCacheCopy {...{...clearCacheCopyProps, handleFieldChange: (event)=> this.handleFieldChange(event), id:'password'}} />
+          <ClearCacheCopy {...{...clearCacheCopy2Props, handleFieldChange: (event)=> this.handleFieldChange(event), id:'confirmPassword'}} />
         
-       
-          <div className="nexticon" style={{ backgroundImage: `url(${nextIcon})` }}  onClick={this.verify.bind(this)}>
+        </div>
+
+        <div className="nexticon" style={{ backgroundImage: `url(${nextIcon})` }}  onClick={this.verify.bind(this)}>
             <div className="save montserrat-semi-bold-white-20px">{save}</div>
           </div>
        {this.state.invalidCode ? 

@@ -79,9 +79,10 @@
     line-height: 17px;
     position: absolute;
     text-align: center;
-    top: 420px;
+    top: 350px;
     white-space: nowrap;
     width: 354px;
+    font-size: 10px !important;
 }
 
 .newsound .audio-title {
@@ -103,10 +104,11 @@
     line-height: 42px;
     position: absolute;
     text-align: center;
-    top: 50px;
+    top: 40px;
     white-space: nowrap;
     width: auto;
-    left: 100px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .newsound .bar {
@@ -143,7 +145,7 @@
     justify-content: flex-start;
     min-width: 346px;
     position: absolute;
-    top: 580px;
+    top: 590px;
     width: auto;
 }
 
@@ -153,7 +155,7 @@
     height: 200px;
     overflow: hidden;
     position: absolute;
-    top: 200px;
+    top: 150px;
     width: 200px;
     display:flex;
     align-items:center;
@@ -167,10 +169,11 @@
     line-height: 42px;
     position: absolute;
     text-align: center;
-    top: 530px;
+    top: 540px;
     white-space: nowrap;
     width: auto;
 }
+
 
 .newsound .nexticon {
     background-color: transparent;
@@ -312,7 +315,7 @@
     background-color: transparent;
     flex-shrink: 0;
     height: 41px;
-    margin-top: 419px;
+    margin-top: 390px;
     position: relative;
     width: 309px;
     display:flex;
@@ -333,7 +336,7 @@
     height: 41px;
     left: 0px;
     position: absolute;
-    top: 0px;
+    top: 20px;
     width: 309px;
 }
 
@@ -422,6 +425,7 @@
     text-align: center;
     width: 100%;
     opacity: 0;
+    top: 20px;
 }
 
 .newsound .text-type-here::placeholder {
@@ -463,13 +467,43 @@
     line-height: 42px;
     position: absolute;
     text-align: center;
-    top: 150px;
+    top: 100px;
     white-space: nowrap;
     width: auto;
 }
 
 .newsound .upload:hover {
     transform: scale(1.1);
+}
+
+.newsound .upload-div{
+    background-color: transparent;
+    height: 41px;
+    left: -50px;
+    position: absolute;
+    top: 412px;
+    width: 250px;
+}
+
+.newsound .upload-button {
+    background-color: transparent;
+    position: absolute;
+    display: block;
+    flex-shrink: 0;
+    height: 41px;
+    pointer-events: auto;
+    top: 380px;
+    
+    /*left: 50%;
+    transform: scale(1.1) translateX(-50%) !important;
+    -ms-transform: translateX(-50%) !important;
+    -webkit-transform: translateX(-50%) !important;
+    -moz-transform: translateX(-50%) !important;
+    -o-transform: translateX(-50%) !important;*/
+    transition: all 0.2s ease-in-out;
+    width: 146px;
+    opacity: 0;
+    cursor: pointer;
 }
 
 .sofiapro-normal-white-30px {

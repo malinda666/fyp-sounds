@@ -70,7 +70,66 @@
     top: 40px;
     width: 94px;
 }
+.terms .terms-wrapper{
+   position: absolute;
+    width: 100%;max-width: 414px;
+    margin-top: 150px;
+    overflow: hidden;
+    height: 75vh;
+     overflow-y: scroll;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+}
+@media only screen and (max-width: 600px) {
+  .terms .terms-wrapper {
+    height: 350px;
+    max-width: 288px;
+    
+  }
+  .terms .nexticon-copy-2{
+    top: 556px;
+  }
+}
 
+
+.terms .nexticon-copy-2 {
+    background-color: transparent;
+    display: block;
+    height: 41px;
+    position: fixed;
+    top: 85vh;
+    width: 146px;
+    opacity: 0;
+    transform: scale(1.1);
+    z-index: 3;
+    cursor:pointer;
+}
+.terms .terms-container{
+    position: relative;
+    width: 100%;
+    padding: 1rem 0;
+    text-align: left;
+    font-size: 10px !important;
+    line-height: 12px;
+    color: #333;
+    font-family: "Montserrat", Helvetica, Arial, serif;
+    font-style: normal;
+    font-weight: 300;
+    padding-top: 20px;
+}
+.terms .terms-container > h4 {
+    padding: 5px 0;
+    color: #222;
+    font-weight: 400;
+}
+.terms .terms-container > h2 {
+    color: #111;
+    font-weight: 500;
+    padding: 8px 0;
+}
+.terms .terms-container .desc {
+    font-weight: 400;
+}
 .terms .lorem-ipsu-or-si-copy {
     background-color: transparent;
     height: auto;
@@ -81,20 +140,8 @@
     top: 179px;
     width: 288px;
     z-index: 2;
-    background-color: linear-gradient(to-top, var(--onahau),transparent)
-}
-
-.terms .nexticon-copy-2 {
-    background-color: transparent;
-    display: block;
-    height: 41px;
-    position: fixed;
-    top: 556px;
-    width: 146px;
-    opacity: 0;
-    transform: scale(1.1);
-    z-index: 3;
-    cursor:pointer;
+    background-color: linear-gradient(to-top, var(--onahau),transparent);
+    
 }
 
 .terms .oval-4eduM0 {
@@ -123,7 +170,60 @@
     top: 0px;
     width: 1043px;
 }
+.terms .bg-image-wrap{
+    position:absolute;
+    height:100%;
+    width:100%;
+}
+.terms .bg-image1 {
+    background: no-repeat;
+    width: 185%;
+    height: 603px;
+    position: absolute;
+    top: 11px;
+    left:-100px;
+}
+.terms .gradient{
+    position: absolute;
+    bottom: 0;height: 25vw;
+    width: 100%;
+     background: rgb(2,0,36);
+background: -moz-linear-gradient(180deg, rgba(2,0,36,0) 0%, rgba(0,242,234,0.01) 0%, rgba(0,212,255,1) 100%);
+background: -webkit-linear-gradient(180deg, rgba(2,0,36,0) 0%, rgba(0,242,234,0.01) 0%, rgba(0,212,255,1) 100%);
+background: linear-gradient(180deg, rgba(2,0,36,0) 0%, rgba(0,242,234,0.01) 0%, rgba(0,212,255,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#020024",endColorstr="#00d4ff",GradientType=1); 
+}
+@media only screen and (max-width: 600px) {
+  .terms .gradient{
+    height: 50vh;
+  }
+}
+.terms .bg-image3 {
+    background: no-repeat;
+    height: 682px;
+    left: -300px;
+    position: absolute;
+    top: 194px;
+    width: 185%;
+}
 
+.terms .bg-image2 {
+    background: no-repeat;
+    height: 722px;
+    left: -185px;
+    position: absolute;
+    top: -390px;
+    width: 151.5%;
+}
+
+.terms .bg-image4 {
+    background: no-repeat;
+    height: 556px;
+    left: -350px;
+    position: absolute;
+    top: 320px;
+    width: 200%;
+}
 .terms .oval-ovOecM {
     background-color: transparent;
     height: 649px;
@@ -135,11 +235,9 @@
 
 .terms .overlap-group-C61RwL {
     background-color: transparent;
-    height: 1339px;
-    left: -315px;
+    height:100%;
     position: absolute;
-    top: -371px;
-    width: 1381px;
+    width: 100%;
 }
 
 .terms .rectangle-IZxxJF {
@@ -162,11 +260,11 @@
 
 .terms .rectangle-copy {
     background-color: transparent;
-    bottom: 0px;
+    bottom: -250px;
     height: 533px;
     position: fixed;
     width: 414px;
-    z-index: 1;
+    z-index: unset;
 }
 
 .terms .rectangle-pXVhQA {
@@ -185,7 +283,7 @@
     line-height: 29px;
     position: fixed;
     text-align: left;
-    top: 108px;
+    top: 88px;
     white-space: nowrap;
     width: auto;
 }
