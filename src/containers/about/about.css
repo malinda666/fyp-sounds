@@ -1,0 +1,313 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:600,300,700,400");
+
+* {
+    box-sizing: border-box;
+}
+
+.about {
+    background-color: white;
+    height: 100vh;
+    margin: 0px;
+    position: relative;
+    width: 100%;
+    overflow:hidden;
+}
+
+.about .about-C61RwL {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: 0px;
+    line-height: 29px;
+    position: fixed;
+    text-align: left;
+    top: 108px;
+    white-space: nowrap;
+    width: auto;
+}
+
+.about .about-IlweIA {
+    align-items: flex-start;
+    background-color: transparent;
+    display: inline-flex;
+    flex-direction: row;
+    height: 18px;
+    justify-content: flex-start;
+    margin-left: -137px;
+    margin-right: 137px;
+    min-width: 66px;
+    position: absolute;
+    top: 0px;
+    width: auto;
+}
+
+.about .about-qv0Ulj {
+    background-color: transparent;
+    flex-shrink: 0;
+    height: auto;
+    letter-spacing: 0px;
+    line-height: 18px;
+    min-height: 18px;
+    text-align: left;
+    white-space: nowrap;
+    width: 66px;
+}
+
+.about .bar {
+    background-color: transparent;
+    height: 40px;
+    margin-left: -0px;
+    margin-right: 0px;
+    position: fixed;
+    top: 29px;
+    width: 94px;
+}
+
+.about .contact {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: 0px;
+    line-height: 18px;
+    margin-left: 23px;
+    margin-right: -23px;
+    position: absolute;
+    text-align: center;
+    top: 0px;
+    white-space: nowrap;
+    width: 100px;
+}
+
+.about .copyright--51-2021-al {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: 0px;
+    line-height: 16px;
+    position: absolute;
+    text-align: center;
+    top: 131px;
+    white-space: nowrap;
+    width: 372px;
+}
+
+.about .faq {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: 0px;
+    line-height: 18px;
+    margin-left: -66px;
+    margin-right: 66px;
+    position: absolute;
+    text-align: center;
+    top: 0px;
+    white-space: nowrap;
+    width: 73px;
+}
+
+.about .footer {
+    background-color: transparent;
+    bottom: -136px;
+    height: 296px;
+    position: fixed;
+    width: 1748px;
+}
+
+.about .fypsoundslogo-NOXmfT {
+    background-color: transparent;
+    background-size: 100% 100%;
+    height: 40px;
+    left: 245px;
+    position: absolute;
+    top: 359px;
+    width: 94px;
+}
+
+.about .fypsoundslogo-iPe1yZ {
+    background-color: transparent;
+    background-size: 100% 100%;
+    height: 24px;
+    position: absolute;
+    top: 53px;
+    width: 57px;
+}
+
+.about .group {
+    background-color: transparent;
+    height: 452px;
+    margin-left: 96px;
+    margin-right: -96px;
+    position: fixed;
+    top: -333px;
+    width: 776px;
+}
+
+.about .group-5 {
+    background-color: transparent;
+    height: 18px;
+    left: 692px;
+    position: absolute;
+    top: 90px;
+    width: 362px;
+}
+
+.about .lorem-ipsum-dolor-si {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: 0px;
+    line-height: 17px;
+    margin-left: 1px;
+    margin-right: -1px;
+    position: fixed;
+    text-align: justify;
+    top: 179px;
+    width: 288px;
+    text-align: center;
+    font-size: 14px;
+}
+@media only screen and (max-width: 320px) {
+
+    .about .lorem-ipsum-dolor-si {
+        font-size: 12px;line-height: 1
+    }
+}
+.about .oval-4K0abD {
+    background-color: transparent;
+    height: 295px;
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    width: 1747px;
+}
+
+.about .oval-E582nk {
+    background-color: transparent;
+    height: 242px;
+    left: 0px;
+    position: absolute;
+    top: 210px;
+    width: 775px;
+}
+
+.about .oval-NOXmfT {
+    background-color: transparent;
+    height: 410px;
+    left: 15px;
+    position: absolute;
+    top: 0px;
+    width: 592px;
+}
+
+.about .overlap-group {
+    background-color: transparent;
+    height: 295px;
+    left: 1px;
+    position: absolute;
+    top: 0px;
+    width: 1747px;
+}
+
+.footer-items {
+    width: fit-content !important;
+    display: inline-flex !important;
+    position: relative;
+    margin-left: 16px !important;
+}
+
+.footer-items-devider {
+    margin-right: 16px;
+    color: white;
+    font-size: 20px;
+}
+
+.about .privacy-policy {
+    background-color: transparent;
+    height: auto;
+    left: 262px;
+    letter-spacing: 0px;
+    line-height: 18px;
+    position: absolute;
+    text-align: center;
+    top: 0px;
+    white-space: nowrap;
+    width: 100px;
+}
+
+.about .x {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: 0px;
+    line-height: 18px;
+    margin-left: -48px;
+    margin-right: 48px;
+    position: absolute;
+    text-align: center;
+    top: 0px;
+    white-space: nowrap;
+    width: auto;
+}
+
+.montserrat-bold-rose-pearl-24px {
+    color: var(--rose-pearl);
+    font-family: "Montserrat", Helvetica, Arial, serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.montserrat-light-mountain-mist-14px {
+    color: var(--mountain-mist);
+    font-family: "Montserrat", Helvetica, Arial, serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+}
+
+.montserrat-normal-white-13px {
+    color: white;
+    font-family: "Montserrat", Helvetica, Arial, serif;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.montserrat-semi-bold-white-14px {
+    color: white;
+    font-family: "Montserrat", Helvetica, Arial, serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+}
+
+:root {
+    --mountain-mist: rgba(151, 151, 151, 1);
+    --rose-pearl: rgba(245, 55, 124, 1);
+}
+
+.container-center-vertical,
+.container-center-horizontal {
+    pointer-events: none;
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    margin: 0;
+}
+
+.container-center-horizontal {
+    justify-content: center;
+    width: 100%;
+}
+
+.container-center-vertical>*,
+.container-center-horizontal>* {
+    pointer-events: auto;
+    flex-shrink: 0;
+}
+
+.auto-animated .container-center-vertical,
+.auto-animated .container-center-horizontal {
+    opacity: 1;
+}
+
+a {
+    text-decoration: none;
+    display: contents;
+}

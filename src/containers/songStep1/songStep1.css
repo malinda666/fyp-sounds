@@ -1,0 +1,335 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,600,500,400,700");
+
+@font-face {
+    font-family: "SofiaPro-Bold";
+    font-weight: 1 1000;
+    src: url("../../assets/fonts/Sofia Pro Bold.ttf") format("truetype");
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.animate-enter {
+    animation: animate-enter-frames 0.5s ease-in-out 0.2s 1 normal forwards;
+    display: block;
+    opacity: 0;
+    transform: scale(1.1);
+}
+
+.animate-enter1 {
+    animation: animate-enter1-frames 0.5s ease-in-out 0.2s 1 normal forwards;
+    display: block;
+    opacity: 0;
+    transform: scale(1.1);
+}
+
+.animate-enter2 {
+    animation: animate-enter2-frames 0.5s ease-in-out 0.2s 1 normal forwards;
+    display: block;
+    opacity: 0;
+    transform: scale(1.1);
+}
+
+.montserrat-light-white-20px {
+    color: white;
+    font-family: "Montserrat", Helvetica, Arial, serif;
+    font-size: 1rem !important;
+    font-style: normal;
+    font-weight: 300;
+}
+
+.montserrat-semi-bold-white-20px {
+    color: white;
+    font-family: "Montserrat", Helvetica, Arial, serif;
+    font-size: 1rem !important;
+    font-style: normal;
+    font-weight: 600;
+}
+
+.musicform2 {
+    background-color: var(--anakiwa);
+    height: 100%;
+    margin: 0px;
+    min-height:100vh;
+    position: relative;
+    width: 100%;
+    overflow:hidden;
+}
+.musicform2 .nexticon-copy-text{
+    position:absolute;
+    left:0;
+    top:200px;
+    width:100%;
+    min-width:100vw;
+    height:50px;
+    display:flex;align-items:center;justify-content:center;
+}
+.musicform2 .all-stores {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: 0px;
+    line-height: 24px;
+    position: relative;
+    text-align: center;
+    top: 9px;
+    white-space: nowrap;
+    width: 100%;
+    font-size: 1rem;
+}
+
+.musicform2 .are-you-the-owner-of {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: -0.19px;
+    line-height: 42px;
+    position: relative;
+    text-align: center;
+    width: 262px;
+}
+.musicform2 .ownership{
+    position: absolute;display: flex;align-items: center;justify-content: center;width: 100%;flex-direction: column;                                                                                                                                                            
+    top: 15%;
+}
+.musicform2 .fypsoundslogo {
+    background-color: transparent;
+    background-size: 100% 100%;
+    height: 40px;
+    position: absolute;
+    top: 29px;
+    width: 94px;
+}
+.musicform2 .publish-wrapper{
+    position: absolute;display: flex;align-items: center;justify-content: center;flex-direction: column;width: 100%;
+    top: 30%;
+}
+@media only screen and (max-width: 600px) {
+  .musicform2 .publish-wrapper{
+    top: 40%;
+  }
+}
+.musicform2 .button-wrapper{
+    position: relative;display: flex;align-items: center;justify-content: space-between;flex-direction: row;
+
+}
+.musicform2 .button-wrapper > div {
+    margin:1rem;
+}
+.musicform2 .nexticon-copy- {
+    background-color: transparent;
+    display: block;
+    height: 41px;
+    pointer-events: auto;
+    position: relative;
+    transition: all 0.2s ease-in-out;
+    width: 146px;
+}
+
+.musicform2 .btn-yes {
+    top: 220px;
+    left: 265px;
+}
+.musicform2 .nexticon-copy-2 {
+    background-color: transparent;
+    display: block;
+    height: 41px;
+    position: relative;
+    width: 146px;
+    opacity: 0;
+}
+
+.musicform2 .nexticon-copy-:hover {
+    transform: scale(1.1);
+}
+
+.musicform2 .nexticon-copy-:hover {
+    transform: scale(1.1);
+}
+
+.musicform2 .oval-4eduM0 {
+    background-color: transparent;
+    height: 603px;
+    left: 38px;
+    position: absolute;
+    top: 349px;
+    width: 968px;
+}
+
+.musicform2 .oval-6sb1qn {
+    background-color: transparent;
+    height: 746px;
+    left: 38px;
+    position: absolute;
+    top: 539px;
+    width: 1343px;
+}
+
+.musicform2 .oval-BJQsbv {
+    background-color: transparent;
+    height: 722px;
+    left: 58px;
+    position: absolute;
+    top: 0px;
+    width: 1043px;
+}
+
+.musicform2 .oval-ovOecM {
+    background-color: transparent;
+    height: 649px;
+    left: 0px;
+    position: absolute;
+    top: 690px;
+    width: 1240px;
+}
+
+.musicform2 .overlap-group-C61RwL {
+    background-color: transparent;
+    height: 1339px;
+    left: -315px;
+    position: absolute;
+    top: -371px;
+    width: 1381px;
+}
+
+.musicform2 .publish-audio-to {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: -0.19px;
+    line-height: 42px;
+    position: relative;
+    text-align: center;
+    white-space: nowrap;
+    width: 328px;
+}
+
+.musicform2 .rectangle {
+    background-color: transparent;
+    height: 41px;
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    width: 146px;
+}
+
+.musicform2 .rectangle-C0bm8O {
+    background-color: transparent;
+    height: 31px;
+    left: 17px;
+    position: absolute;
+    top: 9px;
+    width: 112px;
+}
+
+.musicform2 .tik-tok {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: 0px;
+    line-height: 24px;
+    position: relative;
+    text-align: center;
+    top: 9px;
+    white-space: nowrap;
+    width: 100%;
+    font-size: 1rem;
+}
+
+.musicform2 .yes {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: 0px;
+    line-height: 24px;
+    text-align: center;
+    white-space: nowrap;
+    width: 88px;
+    font-size: 1rem;
+}
+
+.sofiapro-normal-white-30px {
+    color: white;
+    font-family: "SofiaPro-Bold", Helvetica, Arial, serif;
+    font-size: 30px;
+}
+
+:root {
+    --anakiwa: rgba(145, 255, 251, 1);
+}
+
+@keyframes animate-enter-frames {
+    from {
+        opacity: 0;
+        transform: scale(1.1);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes animate-enter1-frames {
+    from {
+        opacity: 0;
+        transform: scale(1.1);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes animate-enter2-frames {
+    from {
+        opacity: 0;
+        transform: scale(1.1);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.container-center-vertical,
+.container-center-horizontal {
+    pointer-events: none;
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    margin: 0;
+}
+
+.container-center-horizontal {
+    justify-content: center;
+    width: 100%;
+}
+
+.container-center-vertical>*,
+.container-center-horizontal>* {
+    pointer-events: auto;
+    flex-shrink: 0;
+}
+
+.auto-animated .container-center-vertical,
+.auto-animated .container-center-horizontal {
+    opacity: 1;
+}
+@media only screen and (max-width: 320px) {
+    .musicform2 .fypsoundslogo{
+        top: 75px
+    }
+    .musicform2 .ownership{
+        top: 30%;
+    }
+    .musicform2 .publish-wrapper{
+        top: 55%
+    }
+    .musicform2 .publish-audio-to,
+    .musicform2 .are-you-the-owner-of{
+        font-size: 24px;
+    }
+    .musicform2 .button-wrapper > div{
+        margin: 0.5rem 0.5rem 0;
+    }
+}

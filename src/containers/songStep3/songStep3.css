@@ -1,0 +1,235 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,300,700,600");
+
+@font-face {
+    font-family: "SofiaPro-Bold";
+    font-weight: 1 1000;
+    src: url("../../assets/fonts/Sofia Pro Bold.ttf") format("truetype");
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.animate-enter {
+    animation: animate-enter-frames 0.5s ease-in-out 0.2s 1 normal forwards;
+    display: block;
+    opacity: 0;
+    transform: scale(1.1);
+}
+
+.animate-enter1 {
+    animation: animate-enter1-frames 0.5s ease-in-out 0.2s 1 normal forwards;
+    display: block;
+    opacity: 0;
+    transform: scale(1.1);
+}
+
+.montserrat-semi-bold-white-20px {
+    color: white;
+    font-family: "Montserrat", Helvetica, Arial, serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+}
+
+.musicform4 {
+    background-color: var(--anakiwa);
+    height: 100vh;
+    position: relative;
+    width: 100vw;
+    overflow:hidden;
+}
+
+.musicform4 .fypsoundslogo {
+    background-color: transparent;
+    background-size: 100% 100%;
+    height: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    top: 29px;
+    width: 94px;
+}
+
+.musicform4 .is-this-content-expl {
+    background-color: transparent;
+    height: auto;
+    left:0;
+    letter-spacing: -0.19px;
+    line-height: 42px;
+    position: absolute;
+    text-align: center;
+    top: 220px;
+    white-space: nowrap;
+    width: 100%;
+    text-align:center;
+}
+.musicform4 .button_wrapper{
+    position:absolute;
+    top:300px;
+    left:50%;
+    transform:translateX(-50%);
+    width:fit-content;
+    display:flex;
+    align-items:center;
+    justify-content:space-evenly;
+}
+.musicform4 .button_wrapper > div{
+    margin: 0 .5rem;
+}
+.musicform4 .nexticon-copy-2 {
+    background-color: transparent;
+    display: block;
+    height: 41px;
+    
+    width: 146px;
+    opacity: 0;
+    transform: scale(1.1);
+    
+}
+
+.musicform4 .nexticon-copy-3 {
+    background-color: transparent;
+    display: block;
+    height: 41px;
+    pointer-events: auto;
+   
+    transition: all 0.2s ease-in-out;
+    width: 146px;
+    opacity: 0;
+    transform: scale(1.1);
+}
+
+.musicform4 .nexticon-copy-3:hover {
+    transform: scale(1.1);
+}
+
+.musicform4 .no {
+    background-color: transparent;
+    height: auto;
+    left: 27px;
+    letter-spacing: 0px;
+    line-height: 24px;
+    position: absolute;
+    text-align: center;
+    top: 9px;
+    white-space: nowrap;
+    width: 102px;
+}
+
+.musicform4 .oval-C61RwL {
+    background-color: transparent;
+    height: 603px;
+    left: -277px;
+    position: fixed;
+    top: -22px;
+    width: 968px;
+}
+
+.musicform4 .oval-QxM5SU {
+    background-color: transparent;
+    height: 649px;
+    left: -315px;
+    position: fixed;
+    top: 319px;
+    width: 1240px;
+}
+
+
+.musicform4 .oval-VMr6Om {
+    background-color: transparent;
+    height: 722px;
+    left: -257px;
+    position: fixed;
+    top: -371px;
+    width: 1043px;
+}
+
+.musicform4 .oval-mzXdH9 {
+    background-color: transparent;
+    height: 746px;
+    left: -277px;
+    position: fixed;
+    top: 168px;
+    width: 1343px;
+}
+
+.musicform4 .rectangle {
+    background-color: transparent;
+    height: 41px;
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    width: 146px;
+}
+
+.musicform4 .rectangle-nRQRPx {
+    background-color: transparent;
+    height: 31px;
+    left: 17px;
+    position: absolute;
+    top: 9px;
+    width: 112px;
+}
+
+.musicform4 .yes {
+    background-color: transparent;
+    height: auto;
+    left: 27px;
+    letter-spacing: 0px;
+    line-height: 24px;
+    position: absolute;
+    text-align: center;
+    top: 9px;
+    white-space: nowrap;
+    width: 88px;
+}
+
+.sofiapro-normal-white-30px {
+    color: white;
+    font-family: "SofiaPro-Bold", Helvetica, Arial, serif;
+    font-size: 30px;
+}
+
+:root {
+    --anakiwa: rgba(145, 255, 251, 1);
+}
+
+@keyframes animate-enter-frames {
+    from {
+        opacity: 0;
+        transform: scale(1.1);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes animate-enter1-frames {
+    from {
+        opacity: 0;
+        transform: scale(1.1);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+@media only screen and (max-width: 320px) {
+    .musicform4 .fypsoundslogo{
+        top: 75px
+    }
+    .musicform4 .is-this-content-expl{
+        top: 35%;font-size: 24px
+    }
+    .musicform4 .button_wrapper{
+        top: 50%
+    }
+    .musicform4 .button_wrapper > div{
+        margin: 0.5rem 0.5rem 0;
+    }
+}

@@ -1,0 +1,615 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,700,600,500,300");
+
+@font-face {
+    font-family: "SofiaPro-Bold";
+    font-weight: 1 1000;
+    src: url("../../assets/fonts/Sofia Pro Bold.ttf") format("truetype");
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.animate-enter {
+    animation: animate-enter-frames 0.5s ease-in-out 0.2s 1 normal forwards;
+    display: block;
+    opacity: 0;
+    transform: scale(1.1);
+}
+
+.animate-enter1 {
+    animation: animate-enter1-frames 0.2s ease-in-out 0s 1 normal forwards;
+    display: block;
+    opacity: 0;
+}
+
+.montserrat-light-gravel-14px {
+    color: var(--gravel);
+    font-family: "Montserrat", Helvetica, Arial, serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+}
+
+/*.reactEasyCrop_CropArea {
+  border-radius:6px;
+  width: 200px !important;
+  height: 200px !important;
+}*/
+.montserrat-light-mountain-mist-20px {
+    color: var(--mountain-mist);
+    font-family: "Montserrat", Helvetica, Arial, serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+}
+
+.montserrat-medium-white-20px {
+    color: white;
+    font-family: "Montserrat", Helvetica, Arial, serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+}
+
+.montserrat-semi-bold-white-20px {
+    color: white;
+    font-family: "Montserrat", Helvetica, Arial, serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+}
+
+.newsound {
+    background-color: var(--anakiwa);
+    height: 100%;
+    margin: 0px;
+    min-height: 100vh;
+    min-width: 100vw;
+    position: absolute;
+    width: 100%;
+    overflow:hidden;
+}
+
+.newsound .artwork-ca-019t-inclu {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: 0px;
+    line-height: 17px;
+    position: absolute;
+    text-align: center;
+    top: 350px;
+    white-space: nowrap;
+    width: 354px;
+    font-size: 10px !important;
+}
+
+.newsound .audio-title {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: -0.19px;
+    line-height: 42px;
+    position: absolute;
+    text-align: center;
+    top: 440px;
+    white-space: nowrap;
+    width: auto;
+}
+
+.newsound .error-message {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: -0.19px;
+    line-height: 42px;
+    position: absolute;
+    text-align: center;
+    top: 40px;
+    white-space: nowrap;
+    width: auto;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.newsound .bar {
+    align-items: center;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    height: 40px;
+    justify-content: flex-start;
+    position: absolute;
+    top: 5%;
+    width: 381px;
+}
+
+.newsound .fypsoundslogo {
+    background-color: transparent;
+    background-size: 100% 100%;
+    flex-shrink: 0;
+    height: 40px;
+    margin-right: 1px;
+    width: 94px;
+}
+
+.newsound .dropzone {
+    display: none;
+}
+
+.newsound .group {
+    align-items: flex-start;
+    background-color: transparent;
+    display: inline-flex;
+    flex-direction: row;
+    height: 41px;
+    justify-content: flex-start;
+    min-width: 346px;
+    position: absolute;
+    top: 590px;
+    width: auto;
+}
+
+.newsound .group-2-copy {
+    background-color: white;
+    border-radius: 6px;
+    height: 200px;
+    overflow: hidden;
+    position: absolute;
+    top: 150px;
+    width: 200px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.newsound .is-your-audio-a {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: -0.19px;
+    line-height: 42px;
+    position: absolute;
+    text-align: center;
+    top: 540px;
+    white-space: nowrap;
+    width: auto;
+}
+
+
+.newsound .nexticon {
+    background-color: transparent;
+    flex-shrink: 0;
+    height: 41px;
+    pointer-events: auto;
+    position: relative;
+    transition: all 0.2s ease-in-out;
+    width: 146px;
+}
+
+.newsound .nexticon-copy {
+    background-color: transparent;
+    display: block;
+    flex-shrink: 0;
+    height: 41px;
+    margin-left: 54px;
+    pointer-events: auto;
+    position: relative;
+    transition: all 0.2s ease-in-out;
+    width: 146px;
+    opacity: 0;
+    transform: scale(1.1);
+}
+
+.newsound .nexticon-copy:hover {
+    transform: scale(1.1);
+}
+
+.newsound .nexticon:hover {
+    transform: scale(1.1);
+}
+.newsound .btn-ok {
+    background-color: transparent;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    top: 85%;
+    border: 0;
+    outline: 0;
+    width: 20%;
+    padding: .25rem 0;
+    border-radius : 0.25rem;
+    background: var(--rose-pearl);
+    color: var(--white);
+    font-weight: 900;
+}
+.newsound .oval-5 {
+    background-color: transparent;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 0;
+}
+.newsound .oval-4eduM0 {
+    background-color: transparent;
+    height: 603px;
+    left: 38px;
+    position: absolute;
+    top: 349px;
+    width: 968px;
+}
+
+.newsound .bg-image1 {
+    background: no-repeat;
+    width: 185%;
+    height: 603px;
+    position: absolute;
+    top: 11px;
+    left: -300px;
+}
+
+.newsound .oval-6sb1qn {
+    background-color: transparent;
+    height: 746px;
+    left: 38px;
+    position: absolute;
+    top: 539px;
+    width: 1343px;
+}
+
+.newsound .bg-image3 {
+    background: no-repeat;
+    height: 682px;
+    left: -300px;
+    position: absolute;
+    top: 194px;
+    width: 185%;
+}
+
+.newsound .oval-BJQsbv {
+    background-color: transparent;
+    height: 722px;
+    left: 58px;
+    position: absolute;
+    top: 0px;
+    width: 1043px;
+}
+
+.newsound .bg-image2 {
+    background: no-repeat;
+    height: 722px;
+    left: -180px;
+    position: absolute;
+    top: -390px;
+    width: 151.5%;
+}
+
+.newsound .oval-ovOecM {
+    background-color: transparent;
+    height: 649px;
+    left: 0px;
+    position: absolute;
+    top: 690px;
+    width: 1240px;
+}
+
+.newsound .bg-image4 {
+    background: no-repeat;
+    height: 556px;
+    left: -415px;
+    position: absolute;
+    top: 320px;
+    width: 200%;
+}
+
+.newsound .overlap-group-C61RwL {
+    background-color: transparent;
+    height: 1339px;
+    left: -315px;
+    position: absolute;
+    top: -371px;
+    width: 1381px;
+}
+
+.newsound .overlap-group1 {
+    background-color: transparent;
+    flex-shrink: 0;
+    height: 41px;
+    margin-top: 390px;
+    position: relative;
+    width: 309px;
+    display:flex;
+    align-items:center;
+}
+
+.newsound .path {
+    background-color: transparent;
+    height: 23px;
+    left: 43px;
+    position: absolute;
+    top: 36px;
+    width: 20px;
+}
+
+.newsound .rectangle {
+    background-color: transparent;
+    height: 41px;
+    left: 0px;
+    position: absolute;
+    top: 20px;
+    width: 309px;
+}
+
+.newsound .rectangle-2 {
+    background-color: white;
+    border-radius: 6px;
+    height: 200px;
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    width: 200px;
+}
+
+.newsound .rectangle-bKk8JK {
+    background-color: transparent;
+    height: 31px;
+    left: 17px;
+    position: absolute;
+    top: 9px;
+    width: 112px;
+}
+
+.newsound .rectangle-bKk8JK {
+    background-color: transparent;
+    height: 41px;
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    width: 146px;
+}
+
+.newsound .shape-UPUXXo {
+    background-color: transparent;
+    height: 15px;
+    left: 10px;
+    position: absolute;
+    top: 9px;
+    width: 15px;
+}
+
+.newsound .shape-rlzqmL {
+    background-color: transparent;
+    height: 55px;
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    width: 63px;
+}
+
+.newsound .song {
+    background-color: transparent;
+    height: auto;
+    left: 27px;
+    letter-spacing: 0px;
+    line-height: 24px;
+    position: absolute;
+    text-align: center;
+    top: 9px;
+    white-space: nowrap;
+    width: 88px;
+}
+
+.newsound .sound {
+    background-color: transparent;
+    height: auto;
+    left: 27px;
+    letter-spacing: 0px;
+    line-height: 24px;
+    position: absolute;
+    text-align: center;
+    top: 9px;
+    white-space: nowrap;
+    width: 88px;
+}
+
+.newsound .text-type-here {
+    background-color: transparent;
+    border: 0;
+    display: block;
+    height: 100%;
+    line-height: 24px;
+    outline: none;
+    padding: 0;
+    position: relative;
+    resize: none;
+    text-align: center;
+    width: 100%;
+    opacity: 0;
+    top: 20px;
+}
+
+.newsound .text-type-here::placeholder {
+    color: rgba(151, 151, 151, 0.6);
+}
+
+.newsound .tik-tok-au-io-submiss {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: -0.12px;
+    line-height: 24px;
+    position: absolute;
+    text-align: center;
+    top: 105px;
+    width: auto;
+}
+
+._loading_overlay_wrapper {
+    position: inherit;
+}
+
+._loading_overlay_overlay {
+    position: fixed;
+}
+
+.newsound .upload {
+    background-color: transparent;
+    height: 59px;
+    pointer-events: auto;
+    position: relative;
+    transition: all 0.2s ease-in-out;
+    width: 63px;
+}
+
+.newsound .upload-a-cover-image {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: -0.19px;
+    line-height: 42px;
+    position: absolute;
+    text-align: center;
+    top: 100px;
+    white-space: nowrap;
+    width: auto;
+}
+
+.newsound .upload:hover {
+    transform: scale(1.1);
+}
+
+.newsound .upload-div{
+    background-color: transparent;
+    height: 41px;
+    left: -50px;
+    position: absolute;
+    top: 412px;
+    width: 250px;
+}
+
+.newsound .upload-button {
+    background-color: transparent;
+    position: absolute;
+    display: block;
+    flex-shrink: 0;
+    height: 41px;
+    pointer-events: auto;
+    top: 380px;
+    
+    /*left: 50%;
+    transform: scale(1.1) translateX(-50%) !important;
+    -ms-transform: translateX(-50%) !important;
+    -webkit-transform: translateX(-50%) !important;
+    -moz-transform: translateX(-50%) !important;
+    -o-transform: translateX(-50%) !important;*/
+    transition: all 0.2s ease-in-out;
+    width: 146px;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.sofiapro-normal-white-30px {
+    color: white;
+    font-family: "SofiaPro-Bold", Helvetica, Arial, serif;
+    font-size: 30px;
+}
+
+.montserrat-light-red-14px {
+    color: red;
+    font-family: "Montserrat", Helvetica, Arial, serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+}
+:root {
+    --anakiwa: rgba(145, 255, 251, 1);
+    --gravel: rgba(74, 73, 74, 1);
+    --mountain-mist: rgba(151, 151, 151, 1);
+}
+
+@keyframes animate-enter-frames {
+    from {
+        opacity: 0;
+        transform: scale(1.1);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes animate-enter1-frames {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.container-center-vertical,
+.container-center-horizontal {
+    pointer-events: none;
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    margin: 0;
+}
+
+.container-center-horizontal {
+    justify-content: center;
+    width: 100%;
+}
+
+.container-center-vertical>*,
+.container-center-horizontal>* {
+    pointer-events: auto;
+    flex-shrink: 0;
+}
+
+.auto-animated .container-center-vertical,
+.auto-animated .container-center-horizontal {
+    opacity: 1;
+}
+@media only screen and (max-width: 320px) {
+    .newsound .bg-image1 {
+        left: -270px;
+    }
+    .newsound .bg-image2 {
+        left: -160px;
+    }
+    .newsound .bg-image3 { 
+        left: -270px;
+    }
+    .newsound .bg-image4 {
+        left: -355px;
+    }
+    .newsound .upload-a-cover-image{
+        font-size: 24px;top: 80px;
+    }
+    .newsound .group-2-copy{
+        top: 120px;
+    }
+    .newsound .artwork-ca-019t-inclu{
+        top: 320px;
+    }
+    .newsound .upload-button{
+        top: 340px;
+    }
+    .newsound .overlap-group1{
+        margin-top: 340px;
+    }
+    .newsound .audio-title{
+        top: 390px;font-size: 24px;
+    }
+    .newsound .is-your-audio-a{
+        top: 470px;font-size: 24px;
+    }
+    .newsound .group{
+        top: 510px;
+        min-width: 288px;
+    }
+    .newsound .nexticon-copy{
+        margin-left: 14px;
+    }
+}

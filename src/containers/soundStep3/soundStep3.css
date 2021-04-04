@@ -1,0 +1,548 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,300,700,600");
+
+@font-face {
+    font-family: "SofiaPro-Bold";
+    font-weight: 1 1000;
+    src: url("../../assets/fonts/Sofia Pro Bold.ttf") format("truetype");
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.montserrat-light-gravel-14px {
+    color: var(--gravel);
+    font-family: "Montserrat", Helvetica, Arial, serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+}
+
+
+.montserrat-light-red-14px {
+    color: red;
+    font-family: "Montserrat", Helvetica, Arial, serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+}
+
+.montserrat-light-mountain-mist-20px {
+    color: var(--mountain-mist);
+    font-family: "Montserrat", Helvetica, Arial, serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+}
+
+.montserrat-light-white-20px {
+    color: white;
+    font-family: "Montserrat", Helvetica, Arial, serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+}
+
+.montserrat-semi-bold-white-20px {
+    color: white;
+    font-family: "Montserrat", Helvetica, Arial, serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+}
+
+.sofiapro-normal-white-30px {
+    color: white;
+    font-family: "SofiaPro-Bold", Helvetica, Arial, serif;
+    font-size: 30px;
+}
+
+.soundform2b {
+    background-color: var(--anakiwa);
+    height: 100vh;
+    margin: 0px;
+    overflow:hidden;
+    position: relative;
+    width: 100%;
+}
+.soundform2b .owner{
+    top: 15%;
+}
+.soundform2b .explicit{
+    top: 25%;
+}
+.soundform2b .owner,
+.soundform2b .explicit{
+    position: absolute;
+    display: flex;align-items: center;justify-content: center;flex-direction: column;
+}
+.soundform2b .step4-container{
+    flex-direction:column;
+    align-items:center;
+}
+.soundform2b .are-you-the-owner-of {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: -0.19px;
+    line-height: 1;
+    position: relative;
+    top: 15%;
+    text-align: center;
+    width: 269px;
+}
+
+.soundform2b .back-chevron {
+    background-color: transparent;
+    height: 20px;
+    left: 155px;
+    position: absolute;
+    top: 19px;
+    transform: rotate(-90deg);
+    width: 11px;
+}
+
+.soundform2b .error-message {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: -0.19px;
+    line-height: 42px;
+    position: absolute;
+    text-align: center;
+    top: 50px;
+    white-space: nowrap;
+    width: 100%;
+    left: 0px;
+}
+
+.soundform2b .dropzone {
+    background-color: transparent;
+    display: none;
+    height: 100px;
+    left: 508px;
+    position: absolute;
+    top: 1021px;
+    width: 30px;
+}
+
+
+.soundform2b .category {
+    background-color: transparent;
+    height: auto;
+    left: 51px;
+    letter-spacing: 0px;
+    line-height: 24px;
+    position: absolute;
+    text-align: center;
+    top: 15px;
+    white-space: nowrap;
+    width: auto;
+}
+
+.soundform2b .creator-name {
+    background-color: transparent;
+    flex-shrink: 0;
+    height: auto;
+    letter-spacing: -0.19px;
+    line-height: 42px;
+    min-height: 42px;
+    text-align: center;
+    white-space: nowrap;
+    width: 189px;
+}
+.soundform2b .creator{
+    position: absolute;top: 45%;
+    display: flex;align-items: center;justify-content: center;flex-direction: column;
+}
+.soundform2b .fypsoundslogo {
+    background-color: transparent;
+    background-size: 100% 100%;
+    height: 40px;
+    position: absolute;
+    top: 5%;
+    width: 94px;
+}
+
+.soundform2b .is-this-content-expl {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: -0.19px;
+    line-height: 42px;
+    position: relative;
+    top: 28%;
+    text-align: center;
+    white-space: nowrap;
+    width: 328px;
+}
+
+.soundform2b .next {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: 0px;
+    line-height: 24px;
+    position: absolute;
+    text-align: center;
+    top: 15px;
+    white-space: nowrap;
+    width: auto;
+}
+
+.soundform2b .nexticon-4eduM0 {
+    background-color: transparent;
+    height: 54px;
+    position:absolute;
+    top: 80%;
+    width: 100%;
+    text-align:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.soundform2b .nexticon-C61RwL {
+    background-color: transparent;
+    font-size: 20px;
+    font-family: "Montserrat", Helvetica, Arial, serif;
+    text-align: center;
+    height: 54px;
+    position: absolute;
+    top: 508px;
+    width: 294px;
+}
+
+.soundform2b .css-yk16xz-control {
+    border-radius: 24px;
+    height: 36px;
+}
+
+.soundform2b .css-1pahdxg-control {
+    border-color: white !important;
+    border-radius: 24px;
+    box-shadow: none !important;
+}
+
+.soundform2b .css-g1d714-ValueContainer {
+    padding-left: 16px !important;
+    flex-wrap : nowrap !important;
+}
+
+
+.soundform2b .nexticon-copy-2 {
+    align-items: flex-start;
+    background-color: transparent;
+    display: inline-flex;
+    flex-direction: row;
+    height: 24px;
+    justify-content: flex-start;
+    left:0;
+    min-width: 102px;
+    position: relative;
+    top: 0;
+    width: auto;
+}
+
+.soundform2b .nexticon-copy-3 {
+    align-items: flex-start;
+    background-color: transparent;
+    display: inline-flex;
+    flex-direction: row;
+    height: 58px;
+    justify-content: flex-start;
+    min-width: 205px;
+    padding: 7px 3.1px;
+    position: absolute;
+    top:46%;
+    width: auto;
+}
+
+.soundform2b .nexticon-copy-5 {
+    align-items: flex-start;
+    background-color: transparent;
+    display: inline-flex;
+    flex-direction: row;
+    height: 24px;
+    justify-content: flex-start;
+    min-width: 88px;
+    position: absolute;
+    top: 25%;
+    width: auto;
+}
+.soundform2b .nexticon-copy-4 {
+    align-items: flex-start;
+    background-color: transparent;
+    display: inline-flex;
+    flex-direction: row;
+    height: 24px;
+    justify-content: flex-start;
+    min-width: 88px;
+    position: absolute;
+    top: 35%;
+    width: auto;
+}
+.soundform2b .nexticon-copy-7 {
+    align-items: flex-end;
+    background-color: transparent;
+    display: inline-flex;
+    flex-direction: row;
+    height: 58px;
+    justify-content: flex-start;
+    min-width: 248px;
+    padding: 2px 1.1px;
+    position: absolute;
+    top:58%;
+    width: auto;
+}
+.soundform2b .nexticon-copy-8 {
+    align-items: center;
+    background-color: transparent;
+    display: inline-flex;
+    flex-direction: row;
+    height: 58px;
+    justify-content: center;
+    padding: 2px 1.1px;
+    position: relative;
+    top:65%;
+    width: 100%;
+}
+.soundform2b .nexticon-copy-8  > label {
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    width:100%;
+    height:41px;
+    display:flex;align-items:center;justify-content:center;
+}
+.soundform2b .no {
+    background-color: transparent;
+    flex-shrink: 0;
+    height: auto;
+    letter-spacing: 0px;
+    line-height: 24px;
+    min-height: 24px;
+    text-align: center;
+    white-space: nowrap;
+    width: 102px;
+}
+
+.soundform2b .oval-4eduM0 {
+    background-color: transparent;
+    height: 603px;
+    left: 38px;
+    position: absolute;
+    top: 349px;
+    width: 968px;
+}
+
+.soundform2b .oval-6sb1qn {
+    background-color: transparent;
+    height: 746px;
+    left: 38px;
+    position: absolute;
+    top: 539px;
+    width: 1343px;
+}
+
+.soundform2b .oval-BJQsbv {
+    background-color: transparent;
+    height: 722px;
+    left: 58px;
+    position: absolute;
+    top: 0px;
+    width: 1043px;
+}
+
+.soundform2b .oval-ovOecM {
+    background-color: transparent;
+    height: 649px;
+    left: 0px;
+    position: absolute;
+    top: 690px;
+    width: 1240px;
+}
+
+.soundform2b .overlap-group-C61RwL {
+    background-color: transparent;
+    height: 1339px;
+    left: -315px;
+    position: absolute;
+    top: -371px;
+    width: 1381px;
+    overflow:hidden;
+}
+
+.soundform2b .rectangle-4eduM0 {
+    background-color: transparent;
+    height: 41px;
+    position: absolute;
+    width: 294px;
+}
+
+.soundform2b .rectangle-BJQsbv {
+    background-color: transparent;
+    height: 41px;
+    position: relative;
+    width: 294px;
+    top:53%;
+}
+
+.soundform2b .rectangle-JuxZGf {
+    background-color: transparent;
+    height: 54px;
+    position: absolute;
+    top: 0px;
+    width: 192px;
+}
+
+.soundform2b .rectangle-f4xscB {
+    background-color: transparent;
+    height: 41px;
+    position: absolute;
+    width: 147px;
+}
+
+.soundform2b .text-type {
+    background-color: transparent;
+    border: 0;
+    height: 41px;
+    letter-spacing: 0px;
+    line-height: 24px;
+    padding: 0;
+    position: absolute;
+    resize: none;
+    text-align: center;
+    top: 53%;
+    width: 250px;
+    z-index : 3;
+}
+
+.soundform2b .text-type::placeholder {
+    color: rgba(151, 151, 151, 0.6);
+}
+.soundform2b .css-2b097c-container{
+    width:192px;
+    position: absolute;
+    top: 35%;
+}
+.soundform2b .upload-container{
+    position: absolute;
+    top: 60%;display: flex;align-items: center;justify-content: center;flex-direction: column;
+}
+.soundform2b .upload {
+    background-color: transparent;
+    height: 28px;
+    position: absolute;
+    width: 28px;
+}
+
+.soundform2b .filename {
+    background-color: transparent;
+    position: absolute;
+    width: 100%;
+    text-align:center;
+    white-space:nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    left:0;
+    padding:0 5rem;
+}
+
+.soundform2b .upload-audio-file {
+    background-color: transparent;
+    flex-shrink: 0;
+    height: auto;
+    letter-spacing: -0.19px;
+    line-height: 42px;
+    text-align: center;
+    white-space: nowrap;
+    width: 232px;
+}
+
+.soundform2b .wav-or-mp3-format {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: 0px;
+    line-height: 17px;
+    position: relative;
+    top:75%;
+    text-align: center;
+    white-space: nowrap;
+    width: 354px;
+}
+
+.soundform2b .yes {
+    background-color: transparent;
+    flex-shrink: 0;
+    height: auto;
+    letter-spacing: 0px;
+    line-height: 24px;
+    min-height: 24px;
+    text-align: center;
+    white-space: nowrap;
+    width: 88px;
+}
+
+:root {
+    --anakiwa: rgba(145, 255, 251, 1);
+    --gravel: rgba(74, 73, 74, 1);
+    --mountain-mist: rgba(151, 151, 151, 1);
+}
+
+.container-center-vertical,
+.container-center-horizontal {
+    pointer-events: none;
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    margin: 0;
+}
+
+.container-center-horizontal {
+    justify-content: center;
+    width: 100%;
+}
+
+.container-center-vertical>*,
+.container-center-horizontal>* {
+    pointer-events: auto;
+    flex-shrink: 0;
+}
+
+.auto-animated .container-center-vertical,
+.auto-animated .container-center-horizontal {
+    opacity: 1;
+}
+@media only screen and (max-width: 320px) {
+    .soundform2b .nexticon-4eduM0{
+        top: 85%
+    }
+    .soundform2b .wav-or-mp3-format{
+        font-size: 10px
+    }
+    .soundform2b .nexticon-copy-8{
+        height: 44px
+    }
+    .soundform2b .upload-audio-file,
+    .soundform2b .creator-name,
+    .soundform2b .is-this-content-expl,
+    .soundform2b .are-you-the-owner-of{
+        font-size: 24px;line-height: 32px;
+    }
+    .soundform2b .upload-container{
+        top: 65%
+    }
+    .soundform2b .creator{
+        top: 50%
+    }
+    .soundform2b .creator-name{
+        min-height: 32px
+    }
+    .soundform2b .css-2b097c-container{
+        top: 40%
+    }
+    .soundform2b .explicit{
+        top: 30%
+    }
+    .soundform2b .yes{
+        min-height: 16px;line-height: 16px
+    }
+}

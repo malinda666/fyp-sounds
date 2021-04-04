@@ -1,0 +1,488 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:600,700,300,400");
+
+* {
+    box-sizing: border-box;
+}
+
+.border-class-1 {
+    border: 1px solid var(--mountain-mist-2);
+}
+
+.contact {
+    background-color: white;
+    height: 100vh;
+    margin: 0px;
+    overflow:hidden;
+    position: relative;
+    width: 100%;
+}
+
+.contact .about-e9FaNd {
+    align-items: flex-start;
+    background-color: transparent;
+    display: inline-flex;
+    flex-direction: row;
+    height: 18px;
+    justify-content: flex-start;
+    margin-left: -137px;
+    margin-right: 137px;
+    min-width: 66px;
+    position: absolute;
+    top: 0px;
+    width: auto;
+}
+
+.contact .about-x2vL0s {
+    background-color: transparent;
+    flex-shrink: 0;
+    height: auto;
+    letter-spacing: 0px;
+    line-height: 18px;
+    min-height: 18px;
+    text-align: left;
+    white-space: nowrap;
+    width: 66px;
+}
+
+.contact .bar {
+    background-color: transparent;
+    height: 40px;
+    margin-left: -0px;
+    margin-right: 0px;
+    position: fixed;
+    top: 29px;
+    width: 94px;
+}
+
+.contact .contact-C61RwL {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: 0px;
+    line-height: 29px;
+    position: fixed;
+    text-align: left;
+    top: 108px;
+    white-space: nowrap;
+    width: auto;
+}
+
+.contact .contact-e9FaNd {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: 0px;
+    line-height: 18px;
+    margin-left: 23px;
+    margin-right: -23px;
+    position: absolute;
+    text-align: center;
+    top: 0px;
+    white-space: nowrap;
+    width: 100px;
+}
+
+.contact .copyright--51-2021-al {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: 0px;
+    line-height: 16px;
+    position: absolute;
+    text-align: center;
+    top: 131px;
+    white-space: nowrap;
+    width: 372px;
+}
+
+.contact .faq {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: 0px;
+    line-height: 18px;
+    margin-left: -66px;
+    margin-right: 66px;
+    position: absolute;
+    text-align: center;
+    top: 0px;
+    white-space: nowrap;
+    width: 73px;
+}
+
+.footer-items {
+    width: fit-content !important;
+    display: inline-flex !important;
+    position: relative;
+    margin-left: 16px !important;
+}
+
+.footer-items-devider {
+    margin-right: 16px;
+    color: white;
+    font-size: 20px;
+}
+
+.contact .footer {
+    background-color: transparent;
+    bottom: -136px;
+    height: 296px;
+    position: fixed;
+    width: 1748px;
+}
+
+.contact .fypsoundslogo-NOXmfT {
+    background-color: transparent;
+    background-size: 100% 100%;
+    height: 40px;
+    left: 245px;
+    position: absolute;
+    top: 359px;
+    width: 94px;
+}
+
+.contact .fypsoundslogo-iPe1yZ {
+    background-color: transparent;
+    background-size: 100% 100%;
+    height: 24px;
+    position: absolute;
+    top: 53px;
+    width: 57px;
+}
+
+.contact .group {
+    background-color: transparent;
+    height: 452px;
+    margin-left: 96px;
+    margin-right: -96px;
+    position: fixed;
+    top: -333px;
+    width: 776px;
+}
+
+.contact .group-5 {
+    background-color: transparent;
+    height: 18px;
+    left: 692px;
+    position: absolute;
+    top: 90px;
+    width: 362px;
+}
+
+.contact .nexticon-copy {
+    align-items: center;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    justify-content: flex-start;
+    min-height: 100%;
+    position: fixed;
+    top: 175px;
+    width: 311px;
+}
+
+.contact .or-shoot-us-an-email {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: 0px;
+    line-height: 14px;
+    position: fixed;
+    text-align: center;
+    top: 480px;
+    width: 354px;
+    display: block;
+    font-size: 14px;
+}
+.contact .or-shoot-us-an-email > span {display:inline-block;}
+.contact .oval-E582nk {
+    background-color: transparent;
+    height: 242px;
+    left: 0px;
+    position: absolute;
+    top: 210px;
+    width: 775px;
+}
+
+.contact .oval-FuOxjK {
+    background-color: transparent;
+    height: 295px;
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    width: 1747px;
+}
+
+.contact .oval-NOXmfT {
+    background-color: transparent;
+    height: 410px;
+    left: 15px;
+    position: absolute;
+    top: 0px;
+    width: 592px;
+}
+
+.contact .overlap-group {
+    margin-top: 13px;
+}
+
+.contact .overlap-group1 {
+    background-color: transparent;
+    flex-shrink: 0;
+    height: 33px;
+    position: relative;
+    width: 311px;
+}
+
+.contact .overlap-group2 {
+    background-color: transparent;
+    flex-shrink: 0;
+    height: 142px;
+    margin-top: 17px;
+    position: relative;
+    width: 311px;
+}
+
+.contact .overlap-group3 {
+    background-color: transparent;
+    flex-shrink: 0;
+    height: 54px;
+    margin-right: 1px;
+    margin-top: 8px;
+    position: relative;
+    width: 192px;
+}
+
+.contact .overlap-group4 {
+    background-color: transparent;
+    height: 295px;
+    left: 1px;
+    position: absolute;
+    top: 0px;
+    width: 1747px;
+}
+
+.contact .privacy-policy {
+    background-color: transparent;
+    height: auto;
+    left: 262px;
+    letter-spacing: 0px;
+    line-height: 18px;
+    position: absolute;
+    text-align: center;
+    top: 0px;
+    white-space: nowrap;
+    width: 100px;
+}
+
+.contact .rectangle-2m0hPv {
+    background-color: transparent;
+    height: 54px;
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    width: 192px;
+}
+
+.contact .rectangle-copy {
+    background-color: transparent;
+    height: 33px;
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    width: 311px;
+}
+
+.contact .rectangle-zlebQ8 {
+    background-color: white;
+    border-radius: 27px;
+    height: 132px;
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    width: 311px;
+}
+
+.contact .send {
+    background-color: transparent;
+    height: auto;
+    left: 70px;
+    letter-spacing: 0px;
+    line-height: 24px;
+    position: absolute;
+    text-align: center;
+    top: 15px;
+    white-space: nowrap;
+    width: auto;
+}
+
+.contact .span1-YPZk8k {
+    line-height: 17px;
+}
+
+.contact .span2-YPZk8k {
+    font-family: "Montserrat", Helvetica, Arial, serif;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 18px;
+}
+
+.contact .text- {
+    background-color: transparent;
+    border: 0;
+    height: 30px;
+    left: 12px;
+    letter-spacing: 0px;
+    line-height: 17px;
+    padding: 0;
+    position: absolute;
+    resize: none;
+    text-align: center;
+    top: 2px;
+    width: 288px;
+}
+.contact .text-area {
+    background-color: transparent;
+    border: 0;
+    height: 130px;
+    left: 12px;
+    letter-spacing: 0px;
+    line-height: 17px;
+    padding: 0;
+    position: absolute;
+    resize: none;
+    text-align: center;
+    top: 2px;
+    width: 288px;
+}
+.contact .text-::placeholder {
+    color: rgba(151, 151, 151, 0.6);
+}
+
+.contact .text-::placeholder {
+    color: rgba(151, 151, 151, 0.6);
+}
+
+.contact .text-::placeholder {
+    color: rgba(151, 151, 151, 0.6);
+}
+
+.contact .x {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: 0px;
+    line-height: 18px;
+    margin-left: -48px;
+    margin-right: 48px;
+    position: absolute;
+    text-align: center;
+    top: 0px;
+    white-space: nowrap;
+    width: auto;
+}
+
+.montserrat-bold-rose-pearl-24px {
+    color: var(--rose-pearl);
+    font-family: "Montserrat", Helvetica, Arial, serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.montserrat-bold-white-20px {
+    color: white;
+    font-family: "Montserrat", Helvetica, Arial, serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.montserrat-light-gravel-14px {
+    color: var(--gravel);
+    font-family: "Montserrat", Helvetica, Arial, serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+}
+
+.montserrat-light-mountain-mist-14px {
+    color: var(--mountain-mist);
+    font-family: "Montserrat", Helvetica, Arial, serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+}
+
+.montserrat-normal-white-13px {
+    color: white;
+    font-family: "Montserrat", Helvetica, Arial, serif;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.montserrat-semi-bold-white-14px {
+    color: white;
+    font-family: "Montserrat", Helvetica, Arial, serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+}
+
+:root {
+    --gravel: rgba(74, 73, 74, 1);
+    --mountain-mist: rgba(151, 151, 151, 1);
+    --mountain-mist-2: rgba(150, 150, 150, 1);
+    --rose-pearl: rgba(245, 55, 124, 1);
+}
+
+.container-center-vertical,
+.container-center-horizontal {
+    pointer-events: none;
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    margin: 0;
+}
+
+.container-center-horizontal {
+    justify-content: center;
+    width: 100%;
+}
+
+.container-center-vertical>*,
+.container-center-horizontal>* {
+    pointer-events: auto;
+    flex-shrink: 0;
+}
+
+.auto-animated .container-center-vertical,
+.auto-animated .container-center-horizontal {
+    opacity: 1;
+}
+
+a {
+    text-decoration: none;
+    display: contents;
+}
+@media only screen and (max-width: 320px) {
+
+.contact .rectangle-zlebQ8{
+    height: 100px;
+}
+.contact .text-area {
+    height: 100px;
+}
+.contact .overlap-group2{
+    margin-top: 7px;
+    height: 100px;
+}
+.contact .overlap-group {
+    margin-top: 7px;
+}
+.contact .or-shoot-us-an-email {
+    top: 390px;
+    font-size: 10px;
+    line-height: 1;
+}
+.contact .nexticon-copy {
+    top: 145px;
+}
+}

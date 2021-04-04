@@ -1,0 +1,515 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,600,700,300");
+
+@font-face {
+    font-family: "SofiaPro-Bold";
+    font-style: normal;
+    font-weight: 1 1000;
+    src: url("https://fonts.animaapp.com/SofiaPro-Bold") format("opentype");
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.animate-enter {
+    animation: animate-enter-frames 0.2s ease-in-out 0s 1 normal forwards;
+    display: block;
+    opacity: 0;
+    transform: scale(1.1);
+}
+
+.animate-enter1 {
+    animation: animate-enter1-frames 0.7s ease-in-out 0s 1 normal forwards;
+    display: block;
+    opacity: 0;
+    filter: blur(10px);
+}
+
+.animate-enter2 {
+    animation: animate-enter2-frames 0.2s ease-in-out 0s 1 normal forwards;
+    display: block;
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+.animate-enter3 {
+    animation: animate-enter3-frames 0.2s ease-in-out 0s 1 normal forwards;
+    display: block;
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+.animate-enter4 {
+    animation: animate-enter4-frames 2s ease-in-out 0s 1 normal forwards;
+    display: block;
+    opacity: 0;
+    filter: blur(50px);
+}
+
+.landing {
+    background-color: var(--anakiwa);
+    display: block;
+    height: 100vh;
+    margin: 0px;
+    /*min-height: 100vh;*/
+    position: relative;
+    width: 100%;
+    opacity: 0;
+    filter: blur(50px);
+    overflow:hidden;
+}
+
+.landing .about-IlweIA {
+    align-items: flex-start;
+    background-color: transparent;
+    display: inline-flex;
+    flex-direction: row;
+    height: 18px;
+    justify-content: flex-start;
+    margin-left: -137px;
+    margin-right: 137px;
+    min-width: 66px;
+    position: absolute;
+    top: 0px;
+    width: auto;
+}
+.landing .home-video{
+    position: absolute;
+    height: 100%;
+    width: 600px;
+    left: 50%;transform: translateX(-50%);
+}
+@media only screen and (max-width: 600px) {
+  .landing .home-video{
+        width: 100%;
+    }
+}
+.landing .about-qv0Ulj {
+    background-color: transparent;
+    flex-shrink: 0;
+    height: auto;
+    letter-spacing: 0px;
+    line-height: 18px;
+    min-height: 18px;
+    text-align: left;
+    white-space: nowrap;
+    width: 66px;
+}
+
+.landing .anything-can-go-vira {
+    background-color: transparent;
+    display: block;
+    height: auto;
+    letter-spacing: -0.16px;
+    line-height: 36px;
+    margin-left: 1px;
+    margin-right: -1px;
+    position: fixed;
+    text-align: center;
+    top: 69px;
+    white-space: nowrap;
+    width: 254px;
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+.landing .copyright--51-2021-al {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: 0px;
+    line-height: 16px;
+    position: absolute;
+    text-align: center;
+    top: 131px;
+    white-space: nowrap;
+    width: 372px;
+}
+
+.landing .create-tik-tok-sounds {
+    background-color: transparent;
+    display: block;
+    height: auto;
+    letter-spacing: -0.16px;
+    line-height: 25px;
+    position: fixed;
+    text-align: center;
+    top: 388px;
+    width: 254px;
+    opacity: 0;
+    transform: scale(0.9);
+}
+.landing .footer {
+    background-color: transparent;
+    bottom: -136px;
+    height: 296px;
+    position: fixed;
+    width: 1748px;
+}
+
+.landing .fypsoundslogo {
+    background-color: transparent;
+    background-size: 100% 100%;
+    display: block;
+    height: 42px;
+    margin-left: 0px;
+    margin-right: -0px;
+    position: fixed;
+    top: 17px;
+    width: 99px;
+    opacity: 0;
+    filter: blur(10px);
+}
+
+.landing .group-5 {
+    background-color: transparent;
+    height: 18px;
+    left: 692px;
+    position: absolute;
+    top: 90px;
+    width: 362px;
+    display: flex;align-items: center;
+    justify-content: center;
+}
+.landing .group-5 a {
+    margin: 0 0.5rem;position: relative;display: inline-block;
+}
+.landing .nexticon {
+    background-color: transparent;
+    height: 54px;
+    pointer-events: auto;
+    position: fixed;
+    top: 476px;
+    transition: all 0.2s ease-in-out;
+    width: 192px;
+}
+
+.landing .nexticon:hover {
+    transform: scale(1.1);
+}
+
+.landing .oval-4K0abD {
+    background-color: transparent;
+    height: 295px;
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    width: 1747px;
+}
+
+.landing .oval-C61RwL {
+    background-color: transparent;
+    height: 941px;
+    margin-left: 0px;
+    margin-right: -0px;
+    opacity: 0.99;
+    position: fixed;
+    top: 367px;
+    width: 2235px;
+}
+
+.landing .oval-QxM5SU {
+    background-color: transparent;
+    bottom: -350px;
+    height: 1291px;
+    margin-left: 212px;
+    margin-right: -212px;
+    position: fixed;
+    width: 3282px;
+}
+
+.landing .oval-VMr6Om {
+    background-color: transparent;
+    height: 567px;
+    position: fixed;
+    top: -328px;
+    width: 910px;
+}
+
+.landing .oval-mzXdH9 {
+    background-color: transparent;
+    height: 681px;
+    margin-left: 294px;
+    margin-right: -294px;
+    position: fixed;
+    top: -564px;
+    width: 984px;
+}
+
+.landing .overlap-group {
+    background-color: transparent;
+    height: 295px;
+    left: 1px;
+    position: absolute;
+    top: 0px;
+    width: 1747px;
+}
+
+.landing .faq {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: 0px;
+    line-height: 18px;
+    margin-left: -66px;
+    margin-right: 66px;
+    position: absolute;
+    text-align: center;
+    top: 0px;
+    white-space: nowrap;
+    width: 73px;
+}
+
+.landing .contact {
+    background-color: transparent;
+    height: auto;
+    left: 8px;
+    letter-spacing: 0px;
+    line-height: 18px;
+    position: absolute;
+    text-align: center;
+    top: 0px;
+    white-space: nowrap;
+    width: 100px;
+}
+
+.landing .about {
+    background-color: transparent;
+    height: auto;
+    left: -150px;
+    letter-spacing: 0px;
+    line-height: 18px;
+    position: absolute;
+    text-align: center;
+    top: 0px;
+    white-space: nowrap;
+    width: 100px;
+}
+.footer-items {
+    width: fit-content !important;
+    display: inline-flex !important;
+    position: relative;
+    margin-left: 16px !important;
+}
+.footer-items-devider {
+    margin-right: 16px;
+    color: white;
+    font-size: 20px;
+}
+.landing .privacy-policy {
+    background-color: transparent;
+    height: auto;
+    left: 262px;
+    letter-spacing: 0px;
+    line-height: 18px;
+    position: absolute;
+    text-align: center;
+    top: 0px;
+    white-space: nowrap;
+    width: 100px;
+}
+
+
+.landing .rectangle-C61RwL {
+    background-color: transparent;
+    display: block;
+    height: calc(99.91% + 1px);
+    position: fixed;
+    top: 0px;
+    width: 414px;
+    opacity: 0;
+    transform: scale(1.1);
+}
+
+.landing .rectangle-C61RwL video {
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+}
+
+.landing .rectangle-rGr1Cp {
+    background-color: transparent;
+    height: 41px;
+    left: 23px;
+    position: absolute;
+    top: 11px;
+    width: 147px;
+}
+
+.landing .rectangle-xd37is {
+    background-color: transparent;
+    height: 54px;
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    width: 192px;
+}
+
+.landing .span1-t2xaPz {
+    letter-spacing: 0px;
+    line-height: 36px;
+}
+
+.landing .span2-t2xaPz {
+    font-family: "AppleColorEmoji", Helvetica, Arial, serif;
+    font-size: 35px;
+    letter-spacing: -0.22px;
+    line-height: 46px;
+}
+
+.landing .upload-sounds {
+    background-color: transparent;
+    height: auto;
+    left: 18px;
+    letter-spacing: 0px;
+    line-height: 24px;
+    position: absolute;
+    text-align: center;
+    top: 15px;
+    white-space: nowrap;
+    width: auto;
+    cursor:pointer;
+}
+
+.landing .x {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: 0px;
+    line-height: 18px;
+    margin-left: -48px;
+    margin-right: 48px;
+    position: absolute;
+    text-align: center;
+    top: 0px;
+    white-space: nowrap;
+    width: auto;
+}
+
+.montserrat-bold-white-20px {
+    color: white;
+    font-family: "Montserrat", Helvetica, Arial, serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.montserrat-normal-white-13px {
+    color: white;
+    font-family: "Montserrat", Helvetica, Arial, serif;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.montserrat-semi-bold-white-14px {
+    color: white;
+    font-family: "Montserrat", Helvetica, Arial, serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 21px;
+}
+
+.sofiapro-normal-white-25px {
+    color: white;
+    font-family: "SofiaPro-Bold", Helvetica, Arial, serif;
+    font-size: 25px;
+}
+
+:root {
+    --anakiwa: rgba(145, 255, 251, 1);
+}
+
+@keyframes animate-enter-frames {
+    from {
+        opacity: 0;
+        transform: scale(1.1);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes animate-enter1-frames {
+    from {
+        opacity: 0;
+        filter: blur(10px);
+    }
+
+    to {
+        opacity: 1;
+        filter: none;
+    }
+}
+
+@keyframes animate-enter2-frames {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes animate-enter3-frames {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes animate-enter4-frames {
+    from {
+        opacity: 0;
+        filter: blur(50px);
+    }
+
+    to {
+        opacity: 1;
+        filter: none;
+    }
+}
+
+.container-center-vertical,
+.container-center-horizontal {
+    pointer-events: none;
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    margin: 0;
+}
+
+.container-center-horizontal {
+    justify-content: center;
+    width: 100%;
+}
+
+.container-center-vertical>*,
+.container-center-horizontal>* {
+    pointer-events: auto;
+    flex-shrink: 0;
+}
+
+.auto-animated .container-center-vertical,
+.auto-animated .container-center-horizontal {
+    opacity: 1;
+}
+@media only screen and (max-width: 320px) {
+    .landing .create-tik-tok-sounds {
+        top :250px;
+    }
+    .landing .nexticon{
+        top: 356px;
+    }
+/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */ 
+
+}

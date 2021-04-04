@@ -1,0 +1,628 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:700,300,600,400");
+
+@font-face {
+    font-family: "SofiaPro-Bold";
+    font-weight: 1 1000;
+    src: url("../../assets/fonts/Sofia Pro Bold.ttf") format("truetype");
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.border-class-1 {
+    border: 1px solid var(--mountain-mist-2);
+}
+
+.loginerrormessages {
+    background-color: white;
+    height: 100%;
+    margin: 0px;
+    min-height: 100vh;
+    overflow:hidden;
+    position: relative;
+    width: 100%;
+    display: flex;align-items: center;justify-content: center;flex-direction: column;
+}
+.loginerrormessages .form-container{
+    position: absolute;
+    height: 700px;width: 414px;
+}
+.loginerrormessages .a-password-is-requi-C61RwL {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: 0px;
+    line-height: 17px;
+    margin-left: 6px;
+    margin-right: -6px;
+    position: fixed;
+    text-align: center;
+    top: 390px;
+    white-space: nowrap;
+    width: 309px;
+    font-size: 10px !important;
+}
+
+.loginerrormessages .a-password-is-requi-VMr6Om {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: 0px;
+    line-height: 17px;
+    margin-left: 6px;
+    margin-right: -6px;
+    position: fixed;
+    text-align: center;
+    top: 195px;
+    white-space: nowrap;
+    width: 309px;
+    font-size: 10px !important;
+}
+
+.loginerrormessages .about-7pmZoB {
+    align-items: flex-start;
+    background-color: transparent;
+    display: inline-flex;
+    flex-direction: row;
+    height: 18px;
+    justify-content: flex-start;
+    margin-left: -137px;
+    margin-right: 137px;
+    min-width: 66px;
+    position: absolute;
+    top: 0px;
+    width: auto;
+}
+
+.loginerrormessages .about-rVE2UT {
+    background-color: transparent;
+    flex-shrink: 0;
+    height: auto;
+    letter-spacing: 0px;
+    line-height: 18px;
+    min-height: 18px;
+    text-align: left;
+    white-space: nowrap;
+    width: 66px;
+}
+
+.loginerrormessages .an-email-is-require-C61RwL {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: 0px;
+    line-height: 17px;
+    margin-left: 6px;
+    margin-right: -6px;
+    position: fixed;
+    text-align: center;
+    top: 345px;
+    white-space: nowrap;
+    width: 309px;
+    font-size: 10px !important;
+}
+
+.loginerrormessages .an-email-is-require-VMr6Om {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: 0px;
+    line-height: 17px;
+    margin-left: -0px;
+    margin-right: 0px;
+    position: fixed;
+    text-align: center;
+    top: 150px;
+    white-space: nowrap;
+    width: 309px;
+    font-size: 10px !important;
+}
+
+.loginerrormessages .an-error-VMr6Om {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: 0px;
+    line-height: 17px;
+    margin-left: -0px;
+    margin-right: 0px;
+    margin-top: 5px;
+    position: fixed;
+    text-align: center;
+    top: 296px;
+    white-space: nowrap;
+    width: 309px;
+    font-size: 10px !important;
+}
+
+.loginerrormessages .bar {
+    background-color: transparent;
+    height: 40px;
+    margin-left: -0px;
+    margin-right: 0px;
+    position: fixed;
+    top: 29px;
+    width: 94px;
+}
+
+.loginerrormessages .contact {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: 0px;
+    line-height: 18px;
+    margin-left: 23px;
+    margin-right: -23px;
+    position: absolute;
+    text-align: center;
+    top: 0px;
+    white-space: nowrap;
+    width: 100px;
+}
+
+.loginerrormessages .copyright--51-2021-al {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: 0px;
+    line-height: 16px;
+    position: absolute;
+    text-align: center;
+    top: 131px;
+    white-space: nowrap;
+    width: 372px;
+}
+
+.loginerrormessages .faq {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: 0px;
+    line-height: 18px;
+    margin-left: -66px;
+    margin-right: 66px;
+    position: absolute;
+    text-align: center;
+    top: 0px;
+    white-space: nowrap;
+    width: 73px;
+}
+
+.loginerrormessages .footer {
+    background-color: transparent;
+    bottom: -136px;
+    height: 296px;
+    position: fixed;
+    width: 1748px;
+}
+
+.loginerrormessages .forgot-your-access {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: 0px;
+    line-height: 14px;
+    position: fixed;
+    text-align: center;
+    top: 475px;
+    width: 321px;
+}
+
+.loginerrormessages .fypsoundslogo-NOXmfT {
+    background-color: transparent;
+    background-size: 100% 100%;
+    height: 40px;
+    left: 245px;
+    position: absolute;
+    top: 359px;
+    width: 94px;
+}
+
+.loginerrormessages .fypsoundslogo-iPe1yZ {
+    background-color: transparent;
+    background-size: 100% 100%;
+    height: 24px;
+    position: absolute;
+    top: 53px;
+    width: 57px;
+}
+
+.loginerrormessages .group {
+    background-color: transparent;
+    height: 452px;
+    margin-left: 96px;
+    margin-right: -96px;
+    position: fixed;
+    top: -333px;
+    width: 776px;
+}
+
+.loginerrormessages .group-5 {
+    background-color: transparent;
+    height: 18px;
+    left: 692px;
+    position: absolute;
+    top: 90px;
+    width: 362px;
+}
+
+.footer-items {
+    width: fit-content !important;
+    display: inline-flex !important;
+    position: relative;
+    margin-left: 16px !important;
+}
+
+.footer-items-devider {
+    margin-right: 16px;
+    color: white;
+    font-size: 20px;
+}
+
+.loginerrormessages .join {
+    background-color: transparent;
+    height: auto;
+    left: 75px;
+    letter-spacing: 0px;
+    line-height: 24px;
+    position: absolute;
+    text-align: center;
+    top: 15px;
+    white-space: nowrap;
+    width: auto;
+}
+
+.loginerrormessages .login {
+    background-color: transparent;
+    height: auto;
+    left: 69px;
+    letter-spacing: 0px;
+    line-height: 24px;
+    position: absolute;
+    text-align: center;
+    top: 15px;
+    white-space: nowrap;
+    width: auto;
+}
+
+.loginerrormessages .a-join-error {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: 0px;
+    line-height: 17px;
+    margin-left: -0px;
+    margin-right: 0px;
+    position: fixed;
+    text-align: center;
+    top: 150px;
+    white-space: wrap;
+    width: 309px;
+    font-size:10px !important;
+}
+
+.loginerrormessages .nexticon {
+    align-items: center;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    justify-content: flex-start;
+    margin-left: 0px;
+    margin-right: -0px;
+    position: fixed;
+    top: 119px;
+    width: 311px;
+}
+
+.loginerrormessages .nexticon-copy {
+    align-items: center;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    justify-content: flex-start;
+    position: fixed;
+    top: 279px;
+    width: 311px;
+}
+
+.loginerrormessages .or {
+    background-color: transparent;
+    flex-shrink: 0;
+    height: auto;
+    letter-spacing: 0px;
+    line-height: 36px;
+    min-width: 37px;
+    text-align: center;
+    white-space: nowrap;
+    width: auto;
+}
+
+.loginerrormessages .oval-E582nk {
+    background-color: transparent;
+    height: 242px;
+    left: 0px;
+    position: absolute;
+    top: 210px;
+    width: 775px;
+}
+
+.loginerrormessages .oval-NOXmfT {
+    background-color: transparent;
+    height: 410px;
+    left: 15px;
+    position: absolute;
+    top: 0px;
+    width: 592px;
+}
+
+.loginerrormessages .oval-ipjwHu {
+    background-color: transparent;
+    height: 295px;
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    width: 1747px;
+}
+
+.loginerrormessages .overlap-group {
+    background-color: transparent;
+    flex-shrink: 0;
+    height: 33px;
+    position: relative;
+    width: 311px;
+}
+
+.loginerrormessages .overlap-group-PVhVGJ {
+    background-color: transparent;
+    flex-shrink: 0;
+    height: 54px;
+    margin-right: 1px;
+    margin-top: 12px;
+    position: relative;
+    width: 192px;
+    cursor:pointer;
+}
+
+.loginerrormessages .overlap-group1 {
+    background-color: transparent;
+    flex-shrink: 0;
+    height: 33px;
+    margin-top: 12px;
+    position: relative;
+    width: 311px;
+}
+
+.loginerrormessages .overlap-group3 {
+    margin-top: unset;
+}
+
+.loginerrormessages .overlap-group6 {
+    background-color: transparent;
+    height: 295px;
+    left: 1px;
+    position: absolute;
+    top: 0px;
+    width: 1747px;
+}
+
+.loginerrormessages .privacy-policy {
+    background-color: transparent;
+    height: auto;
+    left: 262px;
+    letter-spacing: 0px;
+    line-height: 18px;
+    position: absolute;
+    text-align: center;
+    top: 0px;
+    white-space: nowrap;
+    width: 100px;
+}
+
+.loginerrormessages .rectangle-JWSful {
+    background-color: transparent;
+    height: 54px;
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    width: 192px;
+}
+
+.loginerrormessages .rectangle-Vg8Dgr {
+    background-color: white;
+    border-radius: 16.5px;
+    height: 33px;
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    width: 311px;
+}
+
+.loginerrormessages .rectangle-ZtaLEy {
+    background-color: transparent;
+    height: 33px;
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    width: 311px;
+}
+
+.loginerrormessages .span1-VhPCr0 {
+    line-height: 17px;
+}
+
+.loginerrormessages .span2-VhPCr0 {
+    font-family: "Montserrat", Helvetica, Arial, serif;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 18px;
+    cursor:pointer;
+}
+
+.loginerrormessages .text {
+    background-color: transparent;
+    border: 0;
+    height: 30px;
+    left: 12px;
+    letter-spacing: 0px;
+    line-height: 17px;
+    outline: none;
+    padding: 0;
+    position: absolute;
+    resize: none;
+    text-align: center;
+    top: 2px;
+    width: 288px;
+}
+
+.loginerrormessages .text::placeholder {
+    color: rgba(151, 151, 151, 0.6);
+}
+
+.loginerrormessages .text::placeholder {
+    color: rgba(151, 151, 151, 0.6);
+}
+
+.loginerrormessages .text::placeholder {
+    color: rgba(151, 151, 151, 0.6);
+}
+
+.loginerrormessages .text::placeholder {
+    color: rgba(151, 151, 151, 0.6);
+}
+
+.loginerrormessages .btn {
+    display:block;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    border: 1px solid black;
+    
+  }
+
+.loginerrormessages .x {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: 0px;
+    line-height: 18px;
+    margin-left: -48px;
+    margin-right: 48px;
+    position: absolute;
+    text-align: center;
+    top: 0px;
+    white-space: nowrap;
+    width: auto;
+}
+
+.montserrat-bold-white-20px {
+    color: white;
+    font-family: "Montserrat", Helvetica, Arial, serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.montserrat-light-gravel-14px {
+    color: var(--gravel);
+    font-family: "Montserrat", Helvetica, Arial, serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+}
+
+.montserrat-light-mountain-mist-14px {
+    color: var(--mountain-mist);
+    font-family: "Montserrat", Helvetica, Arial, serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+}
+
+.montserrat-light-red-14px {
+    color: red;
+    font-family: "Montserrat", Helvetica, Arial, serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+}
+
+.montserrat-normal-white-13px {
+    color: white;
+    font-family: "Montserrat", Helvetica, Arial, serif;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.montserrat-semi-bold-white-14px {
+    color: white;
+    font-family: "Montserrat", Helvetica, Arial, serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+}
+
+.sofiapro-normal-torch-red-25px {
+    color: var(--torch-red);
+    font-family: "SofiaPro-Bold", Helvetica, Arial, serif;
+    font-size: 25px;
+}
+
+:root {
+    --gravel: rgba(74, 73, 74, 1);
+    --mountain-mist: rgba(151, 151, 151, 1);
+    --mountain-mist-2: rgba(150, 150, 150, 1);
+    --torch-red: rgba(255, 0, 80, 1);
+}
+
+.container-center-vertical,
+.container-center-horizontal {
+    pointer-events: none;
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    margin: 0;
+}
+
+.container-center-horizontal {
+    justify-content: center;
+    width: 100%;
+}
+
+.container-center-vertical>*,
+.container-center-horizontal>* {
+    pointer-events: auto;
+    flex-shrink: 0;
+}
+
+.auto-animated .container-center-vertical,
+.auto-animated .container-center-horizontal {
+    opacity: 1;
+}
+
+a {
+    text-decoration: none;
+    display: contents;
+}
+@media only screen and (max-width: 320px) {
+    .loginerrormessages .form-container{
+        height: 550px;width: 300px;
+        transform: scale(0.85);
+    }
+    .loginerrormessages .nexticon{
+        top: 100px;
+
+    }
+    .loginerrormessages .nexticon-copy{
+        top: 239px;
+    }
+    .loginerrormessages .forgot-your-access {
+        top: 425px;
+        font-size: 10px;
+    }
+    .loginerrormessages .an-email-is-require-VMr6Om {
+        top: 160px;
+    }
+    .loginerrormessages .a-password-is-requi-VMr6Om{
+        top: 198px;
+    }
+    .loginerrormessages .a-password-is-requi-C61RwL {
+        top: 345px;
+    }
+    .loginerrormessages .an-error-VMr6Om{
+        top: 266px;
+    }
+}

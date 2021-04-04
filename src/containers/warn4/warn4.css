@@ -1,0 +1,388 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,600,300,700");
+
+@font-face {
+    font-family: "SofiaPro-Bold";
+    font-weight: 1 1000;
+    src: url("../../assets/fonts/Sofia Pro Bold.ttf") format("truetype");
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.animate-enter {
+    animation: animate-enter-frames 0.5s ease-in-out 0.2s 1 normal forwards;
+    display: block;
+    opacity: 0;
+    transform: scale(1.1);
+}
+
+.animate-enter1 {
+    animation: animate-enter1-frames 0.5s ease-in-out 0.2s 1 normal forwards;
+    display: block;
+    opacity: 0;
+    transform: scale(1.1);
+}
+
+.applecoloremoji-normal-white-60px {
+    color: white;
+    font-family: "AppleColorEmoji", Helvetica, Arial, serif;
+    font-size: 60px;
+}
+
+.montserrat-light-white-14px {
+    color: white;
+    font-family: "Montserrat", Helvetica, Arial, serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+}
+
+.montserrat-semi-bold-white-20px {
+    color: white;
+    font-family: "Montserrat", Helvetica, Arial, serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+}
+
+.sofiapro-normal-white-30px {
+    color: white;
+    font-family: "SofiaPro-Bold", Helvetica, Arial, serif;
+    font-size: 30px;
+}
+
+.warn4 {
+    background-color: var(--onahau);
+    height: 100vh;
+    margin: 0px;
+    position: relative;
+    width: 100vw;
+    overflow:hidden;
+}
+.warn4 .accept-wrapper{
+    position: absolute;
+    display: flex;align-items: center;justify-content: center;flex-direction: column;
+    width: 100%;
+    top: 30%;
+}
+.warn4 .accept {
+    background-color: transparent;
+    height: auto;
+    left: 27px;
+    letter-spacing: 0px;
+    line-height: 24px;
+    position: absolute;
+    text-align: center;
+    top: 9px;
+    white-space: nowrap;
+    width: 88px;
+}
+
+.warn4 .by-clickin-201caccept {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: -0.19px;
+    line-height: 42px;
+    position: relative;
+    text-align: center;
+    width:100%;
+}
+
+.warn4 .fypsoundslogo {
+    background-color: transparent;
+    background-size: 100% 100%;
+    height: 40px;
+    position: absolute;
+    top: 64px;
+    width: 94px;
+}
+
+.warn4 .group {
+    align-items: flex-start;
+    background-color: transparent;
+    display: inline-flex;
+    flex-direction: row;
+    height: 41px;
+    justify-content: flex-start;
+    min-width: 346px;
+    position: absolute;
+    top: 75%;
+    width: auto;
+}
+
+.warn4 .nexticon-copy-2 {
+    background-color: transparent;
+    display: block;
+    flex-shrink: 0;
+    height: 41px;
+    margin-left: 54px;
+    position: relative;
+    width: 146px;
+    opacity: 0;
+    transform: scale(1.1);
+}
+
+.warn4 .nexticon-copy-3 {
+    background-color: transparent;
+    display: block;
+    flex-shrink: 0;
+    height: 41px;
+    pointer-events: auto;
+    position: relative;
+    transition: all 0.2s ease-in-out;
+    width: 146px;
+    opacity: 0;
+    transform: scale(1.1);
+}
+
+.warn4 .nexticon-copy-3:hover {
+    transform: scale(1.1);
+}
+
+.warn4 .no {
+    background-color: transparent;
+    height: auto;
+    left: 27px;
+    letter-spacing: 0px;
+    line-height: 24px;
+    position: absolute;
+    text-align: center;
+    top: 9px;
+    white-space: nowrap;
+    width: 102px;
+}
+.warn4 .bg-image-wrap{
+    position:absolute;
+    height:100%;
+    width:100%;
+}
+.warn4 .bg-image1 {
+    background: no-repeat;
+    width: 185%;
+    height: 603px;
+    position: absolute;
+    top: 11px;
+    left:-100px;
+}
+
+.warn4 .bg-image3 {
+    background: no-repeat;
+    height: 682px;
+    left: -300px;
+    position: absolute;
+    top: 194px;
+    width: 185%;
+}
+
+.warn4 .bg-image2 {
+    background: no-repeat;
+    height: 722px;
+    left: -185px;
+    position: absolute;
+    top: -390px;
+    width: 151.5%;
+}
+
+.warn4 .bg-image4 {
+    background: no-repeat;
+    height: 556px;
+    left: -350px;
+    position: absolute;
+    top: 320px;
+    width: 200%;
+}
+
+.warn4 .oval-4eduM0 {
+    background-color: transparent;
+    height: 603px;
+    left: 38px;
+    position: absolute;
+    top: 349px;
+    width: 968px;
+}
+
+.warn4 .oval-6sb1qn {
+    background-color: transparent;
+    height: 746px;
+    left: 38px;
+    position: absolute;
+    top: 539px;
+    width: 1343px;
+}
+
+.warn4 .oval-BJQsbv {
+    background-color: transparent;
+    height: 722px;
+    left: 58px;
+    position: absolute;
+    top: 0px;
+    width: 1043px;
+}
+
+.warn4 .oval-ovOecM {
+    background-color: transparent;
+    height: 649px;
+    left: 0px;
+    position: absolute;
+    top: 690px;
+    width: 1240px;
+}
+
+.warn4 .overlap-group-C61RwL {
+    background-color: transparent;
+    height: 1339px;
+    left: -315px;
+    position: absolute;
+    top: -371px;
+    width: 1381px;
+}
+
+.warn4 .rectangle {
+    background-color: transparent;
+    height: 41px;
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    width: 146px;
+}
+
+.warn4 .rectangle-0Ttflx {
+    background-color: transparent;
+    height: 31px;
+    left: 17px;
+    position: absolute;
+    top: 9px;
+    width: 112px;
+}
+
+.warn4 .rectangle-IZxxJF {
+    display: none;
+    background-color: transparent;
+    height: 896px;
+    left: 315px;
+    position: absolute;
+    top: 371px;
+    width: 414px;
+}
+
+.warn4 .span1-mpB3ZZ {
+    line-height: 17px;
+}
+
+.warn4 .span2-mpB3ZZ {
+    font-family: "Montserrat", Helvetica, Arial, serif;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 18px;
+}
+
+.warn4 .ud83eudd13 {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: -0.38px;
+    line-height: 79px;
+    
+    position: relative;
+    text-align: center;
+    white-space: nowrap;
+    width: auto;
+}
+
+.warn4 .view-terms-here {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: 0px;
+    line-height: 14px;
+    position: relative;
+    text-align: center;
+    width: 100%;
+    margin-top: 16px;
+}
+
+:root {
+    --onahau: rgba(199, 255, 253, 1);
+}
+
+@keyframes animate-enter-frames {
+    from {
+        opacity: 0;
+        transform: scale(1.1);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes animate-enter1-frames {
+    from {
+        opacity: 0;
+        transform: scale(1.1);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.container-center-vertical,
+.container-center-horizontal {
+    pointer-events: none;
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    margin: 0;
+}
+
+.container-center-horizontal {
+    justify-content: center;
+    width: 100%;
+}
+
+.container-center-vertical>*,
+.container-center-horizontal>* {
+    pointer-events: auto;
+    flex-shrink: 0;
+}
+
+.auto-animated .container-center-vertical,
+.auto-animated .container-center-horizontal {
+    opacity: 1;
+}
+
+a {
+    text-decoration: none;
+    display: contents;
+}
+@media only screen and (max-width: 320px) {
+    .warn4 .bg-image1 {
+        left: -270px;
+    }
+    .warn4 .bg-image2 {
+        left: -160px;
+    }
+    .warn4 .bg-image3 { 
+        left: -270px;
+    }
+    .warn4 .bg-image4 {
+        left: -355px;
+    }
+    .warn4 .by-clickin-201caccept{
+        font-size: 24px;
+        line-height: 1
+    }
+    .warn4 .view-terms-here{
+        font-size: 12px;
+
+    }
+    .warn4 .group{
+        min-width: 288px
+    }
+    .warn4 .nexticon-copy-2{
+        margin-left: 16px
+    }
+}

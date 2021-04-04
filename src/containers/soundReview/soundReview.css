@@ -1,0 +1,286 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,600,500,400,700");
+
+@font-face {
+    font-family: "SFProDisplay-Regular";
+    font-weight: 1 1000;
+    src: url("../../assets/fonts/SF-Pro-Display-Regular.otf") format("opentype");
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.montserrat-bold-rose-pearl-24px {
+    color: var(--rose-pearl);
+    font-family: "Montserrat", Helvetica, Arial, serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.montserrat-semi-bold-white-20px {
+    color: white;
+    font-family: "Montserrat", Helvetica, Arial, serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+}
+
+.sfprodisplay-regular-normal-granite-gray-20px {
+    color: var(--granite-gray);
+    font-family: "SFProDisplay-Regular", Helvetica, Arial, serif;
+    font-size: 20px;
+}
+
+.sfprodisplay-regular-normal-pink-swan-15px {
+    color: var(--pink-swan);
+    font-family: "SFProDisplay-Regular", Helvetica, Arial, serif;
+    font-size: 15px;
+}
+
+.soundsub {
+    align-items: center;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow:hidden;
+    justify-content: center;
+    padding: 16px 0;
+    width: 100vw;
+}
+.soundsub .audio-file {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: -0.12px;
+    line-height: 24px;
+    text-align: left;
+    white-space: nowrap;
+    width: 109px;
+    position: relative;
+}
+
+.soundsub .category {
+    background-color: transparent;
+    flex-shrink: 0;
+    height: auto;
+    letter-spacing: -0.12px;
+    line-height: 24px;
+    min-height: 24px;
+    text-align: left;
+    white-space: nowrap;
+    width: 109px;
+}
+
+.soundsub .clear-cache-copy- {
+    background-color: white;
+    height: 68px;
+    margin-top: 0px;
+    position: relative;
+    width: 100%;
+    max-width:414px;
+}
+
+.soundsub .clear-cache-copy-5 {
+    margin-left: 2px;
+}
+
+.soundsub .field {
+    align-items: center;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    flex-shrink: 0;
+    height: 60px;
+    justify-content: space-between;
+    margin-top: 4px;
+    padding: 4px 22px;
+    width: 100%;
+    max-width: 414px;
+}
+
+/*.soundsub .clear-cache-copy-VMr6Om {
+    margin-top: 0px;
+}
+
+.soundsub .clear-cache-copy-awedTk {
+    align-items: center;
+    background-color: white;
+    display: inline-flex;
+    flex-direction: row;
+    flex-shrink: 0;
+    height: 68px;
+    justify-content: flex-start;
+    margin-top: 0px;
+    padding: 0 22px;
+    width: 100%;
+    max-width: 414px;
+}*/
+
+.soundsub .content {
+    background-color: transparent;
+    flex-shrink: 0;
+    height: auto;
+    letter-spacing: -0.12px;
+    line-height: 24px;
+    min-height: 24px;
+    text-align: left;
+    white-space: nowrap;
+    width: 109px;
+}
+
+.soundsub .creator {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: -0.12px;
+    line-height: 24px;
+    min-height: 24px;
+    text-align: left;
+    white-space: nowrap;
+    width: 100%;
+}
+
+.soundsub .explicit {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: -0.09px;
+    line-height: 18px;
+    margin-left: 92px;
+    min-height: 18px;
+    text-align: right;
+    white-space: nowrap;
+    width: 100%;
+}
+
+.soundsub .funny {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: -0.09px;
+    line-height: 18px;
+    margin-left: 94px;
+    min-height: 18px;
+    text-align: right;
+    white-space: nowrap;
+    width: 100%;
+}
+
+.soundsub .mysoundwav {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: -0.09px;
+    line-height: 18px;
+    margin-left: 94px;
+    min-height: 18px;
+    text-align: right;
+    white-space: nowrap;
+    width: 100%;
+}
+
+.soundsub .nexticon {
+    align-items: center;
+    background-color: transparent;
+    background-size: 100% 100%;
+    display: inline-flex;
+    flex-direction: row;
+    flex-shrink: 0;
+    height: 54px;
+    justify-content: flex-end;
+    margin-top: 59px;
+    min-width: 192px;
+    padding: 0 58px;
+    width: auto;
+}
+
+.soundsub .rectangle-19-copy-W5x3Ae {
+    background-color: white;
+    height: 68px;
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    width: 414px;
+}
+
+.soundsub .review {
+    background-color: transparent;
+    flex-shrink: 0;
+    height: auto;
+    letter-spacing: 0px;
+    line-height: 29px;
+    margin-left: 3px;
+    min-height: 29px;
+    min-width: 97px;
+    text-align: left;
+    white-space: nowrap;
+    width: auto;
+}
+
+.soundsub .stores {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: -0.12px;
+    line-height: 24px;
+    position: relative;
+    text-align: left;
+    white-space: nowrap;
+    width: 109px;
+}
+
+.soundsub .submit {
+    background-color: transparent;
+    flex-shrink: 0;
+    height: auto;
+    letter-spacing: 0px;
+    line-height: 24px;
+    min-height: 24px;
+    min-width: 85px;
+    text-align: center;
+    white-space: nowrap;
+    width: auto;
+}
+
+.soundsub .text- {
+    align-self: center;
+    background-color: transparent;
+    border: 0;
+    flex-shrink: 0;
+    height: 30px;
+    letter-spacing: -0.09px;
+    line-height: 18px;
+    padding: 0;
+    resize: none;
+    text-align: right;
+    width: 141px;
+}
+
+.soundsub .text-::placeholder {
+    color: rgba(186, 186, 186, 0.6);
+}
+
+.soundsub .text-::placeholder {
+    color: rgba(186, 186, 186, 0.6);
+}
+
+.soundsub .tik-tok {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: -0.09px;
+    line-height: 18px;
+    margin-left: 94px;
+    min-height: 18px;
+    text-align: right;
+    white-space: nowrap;
+    width: 100%;
+}
+
+:root {
+    --granite-gray: rgba(102, 102, 102, 1);
+    --pink-swan: rgba(186, 186, 186, 1);
+    --rose-pearl: rgba(245, 55, 124, 1);
+}
+@media only screen and (max-width: 320px) {
+    .soundsub .field{
+        height: 45px
+    }
+
+}

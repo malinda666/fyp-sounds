@@ -1,0 +1,326 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,600,300,700");
+
+@font-face {
+    font-family: "SFProDisplay-Regular";
+    font-weight: 1 1000;
+    src: url("../../assets/fonts/SF-Pro-Display-Regular.otf") format("opentype");
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.montserrat-bold-rose-pearl-24px {
+    color: var(--rose-pearl);
+    font-family: "Montserrat", Helvetica, Arial, serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.montserrat-semi-bold-white-20px {
+    color: white;
+    font-family: "Montserrat", Helvetica, Arial, serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+}
+
+.musicsub {
+    align-items: center;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    justify-content: flex-start;
+    min-height: 100vh;
+    padding: 16px 0;
+    width: 100vw;
+}
+
+.musicsub .audio-file {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: -0.12px;
+    line-height: 24px;
+    position: absolute;
+    text-align: left;
+    white-space: nowrap;
+    width: 109px;
+}
+
+.musicsub .author {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: -0.12px;
+    line-height: 24px;
+    min-height: 24px;
+    text-align: left;
+    white-space: nowrap;
+    width: 100%;
+}
+
+.musicsub .category {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: -0.12px;
+    line-height: 24px;
+    min-height: 24px;
+    text-align: left;
+    white-space: nowrap;
+    width: 100%
+}
+
+.musicsub .charlotte--019-amelio {
+    background-color: transparent;
+    height: auto;
+    position: relative;
+    width: 100%;
+    letter-spacing: -0.09px;
+    line-height: 18px;
+    text-align: right;
+    white-space: nowrap;
+}
+
+.musicsub .clear-cache {
+    background-color: white;
+    flex-shrink: 0;
+    height: 68px;
+    margin-top: 0px;
+    position: relative;
+    width: 100%;
+
+}
+
+.musicsub .clear-cache-copy-2 {
+    margin-top: 3px;
+}
+
+.musicsub .clear-cache-copy-5 {
+    margin-left: 2px;
+}
+
+.musicsub .clear-cache-copy-C61RwL {
+    align-items: center;
+    background-color: white;
+    display: inline-flex;
+    flex-direction: row;
+    flex-shrink: 0;
+    height: 68px;
+    justify-content: flex-start;
+    margin-top: 15px;
+    min-width: 100vw;
+    padding: 18px 22px;
+    width: auto;
+}
+
+.musicsub .clear-cache-copy-VMr6Om {
+    margin-top: 0px;
+}
+
+.musicsub .clear-cache-copy-sXGHus {
+    align-items: center;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    flex-shrink: 0;
+    height: 50px;
+    justify-content: space-between;
+    margin-top: 0px;
+    padding: 0 22px;
+    width: 100%;
+    max-width: 414px;
+}
+
+.musicsub .content {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: -0.12px;
+    line-height: 24px;
+    min-height: 24px;
+    text-align: left;
+    white-space: nowrap;
+    width: 100%;
+}
+
+.musicsub .creator {
+    background-color: transparent;
+    flex-shrink: 0;
+    height: auto;
+    letter-spacing: -0.12px;
+    line-height: 24px;
+    min-height: 24px;
+    text-align: left;
+    white-space: nowrap;
+    width: 109px;
+}
+
+.musicsub .dj-sins {
+    background-color: transparent;
+    height: auto;
+    position:relative;
+    width:100%;
+    letter-spacing: -0.09px;
+    line-height: 18px;
+    text-align: right;
+    white-space: nowrap;
+}
+
+.musicsub .explicit {
+    background-color: transparent;
+    height: auto;
+    position: relative;
+    width: 100%;
+    letter-spacing: -0.09px;
+    line-height: 18px;
+    text-align: right;
+    white-space: nowrap;
+}
+
+.musicsub .mysoundwav {
+    background-color: transparent;
+    height: auto;
+    position: relative;
+    width: 100%;
+    letter-spacing: -0.09px;
+    line-height: 18px;
+    text-align: right;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.musicsub .nexticon {
+    align-items: center;
+    background-color: transparent;
+    background-size: 100% 100%;
+    display: inline-flex;
+    flex-direction: row;
+    flex-shrink: 0;
+    height: 54px;
+    justify-content: flex-end;
+    margin-right: 16px;
+    margin-top: 42px;
+    min-width: 192px;
+    padding: 0 58px;
+    width: auto;
+}
+
+.musicsub .pop {
+    background-color: transparent;
+    height: auto;
+    position: relative;
+    width: 100%;
+    letter-spacing: -0.09px;
+    line-height: 18px;
+    text-align: right;
+    white-space: nowrap;
+}
+
+.musicsub .producer {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: -0.12px;
+    line-height: 24px;
+    position: absolute;
+    text-align: left;
+    white-space: nowrap;
+    width: 50%;
+}
+
+.musicsub .rectangle-19-copy-gUmma6 {
+    background-color: white;
+    height: 68px;
+    position: absolute;
+    width: fit-content;
+}
+
+.musicsub .review {
+    background-color: transparent;
+    flex-shrink: 0;
+    height: auto;
+    letter-spacing: 0px;
+    line-height: 29px;
+    text-align: center;
+    white-space: nowrap;
+    width: 100%;
+}
+
+.musicsub .stores {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: -0.12px;
+    line-height: 24px;
+    position: absolute;
+    text-align: left;
+    white-space: nowrap;
+    width: 109px;
+}
+
+.musicsub .submit {
+    background-color: transparent;
+    flex-shrink: 0;
+    height: auto;
+    letter-spacing: 0px;
+    line-height: 24px;
+    min-height: 24px;
+    min-width: 85px;
+    text-align: center;
+    white-space: nowrap;
+    width: auto;
+}
+
+.musicsub .text- {
+    align-self: center;
+    background-color: transparent;
+    border: 0;
+    height: 30px;
+    letter-spacing: -0.09px;
+    line-height: 18px;
+    padding: 0;
+    resize: none;
+    text-align: right;
+    width: 100%;
+}
+
+.musicsub .text-::placeholder {
+    color: rgba(186, 186, 186, 0.6);
+}
+
+.musicsub .text-::placeholder {
+    color: rgba(186, 186, 186, 0.6);
+}
+
+.musicsub .text-::placeholder {
+    color: rgba(186, 186, 186, 0.6);
+}
+
+.musicsub .tik-tok {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: -0.09px;
+    line-height: 18px;
+    position: relative;
+    text-align: right;
+    white-space: nowrap;
+    width: 100%;
+}
+
+.sfprodisplay-regular-normal-granite-gray-20px {
+    color: var(--granite-gray);
+    font-family: "SFProDisplay-Regular", Helvetica, Arial, serif;
+    font-size: 20px;
+}
+
+.sfprodisplay-regular-normal-pink-swan-15px {
+    color: var(--pink-swan);
+    font-family: "SFProDisplay-Regular", Helvetica, Arial, serif;
+    font-size: 15px;
+}
+
+:root {
+    --granite-gray: rgba(102, 102, 102, 1);
+    --pink-swan: rgba(186, 186, 186, 1);
+    --rose-pearl: rgba(245, 55, 124, 1);
+}

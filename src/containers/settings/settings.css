@@ -1,0 +1,419 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,600,700,300");
+
+@font-face {
+    font-family: "SFProDisplay-Regular";
+    font-weight: 1 1000;
+    src: url("../../assets/fonts/SF-Pro-Display-Regular.otf") format("opentype");
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.montserrat-bold-rose-pearl-24px {
+    color: var(--rose-pearl);
+    font-family: "Montserrat", Helvetica, Arial, serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.montserrat-semi-bold-white-20px {
+    color: white;
+    font-family: "Montserrat", Helvetica, Arial, serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+}
+
+.settings {
+    align-items: center;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height:100vh;
+    justify-content: center;
+    padding: 16px 22px;
+    width: 100%;
+    max-width:414px;
+    overflow:hidden;
+    position:absolute;
+    left: 50%;transform: translateX(-50%);
+}
+
+.settings .auto-flex-C61RwL {
+    align-items: center;
+    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    flex-shrink: 0;
+    height: 29px;
+    justify-content: space-between;
+    width: 100%;
+    min-width:100%;
+}
+
+.settings .back-chevron-1VxUKx {
+   background-color: transparent;
+    height: 20px;
+    position: relative;
+    width: 12px;
+}
+
+.settings .back-chevron-1VxUKy {
+    background-color: transparent;
+    height: 20px;
+    position: relative;
+    width: 12px;
+}
+
+.settings .back-chevron-S8W5J0 {
+    background-color: transparent;
+    flex-shrink: 0;
+    height: 20px;
+    width: 11px;
+}
+
+.settings .back-icon {
+    background-color: transparent;
+    height: 21px;
+    min-width: 12px;
+    width: auto;
+}
+
+.settings .birthday {
+    align-self: center;
+    background-color: transparent;
+    flex-shrink: 0;
+    height: auto;
+    letter-spacing: -0.12px;
+    line-height: 24px;
+    min-height: 24px;
+    text-align: left;
+    white-space: nowrap;
+    width: 54%;
+}
+
+.settings .birthday-input {
+    border: none;
+    width: 190px;
+    text-align:end;
+}
+
+.settings .text-email {
+    border: none;
+    text-align: right;
+}
+
+.settings .text-pay-pal {
+    border: none;
+    text-align: right;
+}
+
+.settings .password-input {
+    border: none;
+    text-align: right;
+}
+
+.settings .charlie-du-019-amelio {
+    background-color: transparent;
+    flex-shrink: 0;
+    height: auto;
+    letter-spacing: -0.09px;
+    line-height: 18px;
+    margin-left: 79px;
+    min-height: 18px;
+    text-align: right;
+    white-space: nowrap;
+    width: 141px;
+}
+
+.settings .clear-cache {
+    background-color: white;
+    flex-shrink: 0;
+    height: 68px;
+    margin-top: 0px;
+    position: relative;
+    width: auto;
+    min-width: 100%;
+    padding: 18px 0;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.settings .clear-cache-copy-Brk1wZ {
+    align-items: center;
+    background-color: white;
+    display: inline-flex;
+    flex-direction: row;
+    flex-shrink: 0;
+    height: 68px;
+    justify-content: space-between;
+    margin-top: 0px;
+    min-width: 100%;
+    padding: 18px 0;
+    width: auto;
+}
+
+.settings .clear-cache-copy-C61RwL {
+    align-items: center;
+    background-color: white;
+    display: inline-flex;
+    flex-direction: row;
+    flex-shrink: 0;
+    height: 68px;
+    justify-content: space-between;
+    margin-top: 15px;
+    min-width: 100%;
+    padding: 0 0;
+    width: auto;
+}
+
+.settings .clear-cache-copy-VMr6Om {
+    align-items: flex-end;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    flex-shrink: 0;
+    height: 68px;
+    justify-content: space-between;
+    align-items:center;
+    margin-top: 0px;
+    min-width: 100%;
+    padding: 18px 0;
+    width: auto;
+}
+
+
+.settings .email {
+    background-color: transparent;
+    flex-shrink: 0;
+    height: auto;
+    letter-spacing: -0.12px;
+    line-height: 24px;
+    min-height: 24px;
+    text-align: left;
+    white-space: nowrap;
+    width:fit-content;
+}
+
+.settings .group {
+    background-color: transparent;
+    height: 32px;
+    position: relative;
+    width: 35px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.settings .logout {
+    background-color: transparent;
+    height: auto;
+    letter-spacing: -0.12px;
+    line-height: 24px;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.settings .name {
+    background-color: transparent;
+    flex-shrink: 0;
+    height: auto;
+    letter-spacing: -0.12px;
+    line-height: 24px;
+    min-height: 24px;
+    text-align: left;
+    white-space: nowrap;
+    width: fit-content;
+}
+
+.settings .name-input {
+    border: none;
+    text-align: right;
+}
+.settings .nexticon {
+    align-items: center;
+    align-self: center;
+    background-color: transparent;
+    background-size: 100% 100%;
+    display: inline-flex;
+    flex-direction: row;
+    flex-shrink: 0;
+    height: 54px;
+    justify-content: flex-end;
+    min-width: 192px;
+    padding: 0 72px;
+    width: auto;
+    z-index: 2;
+}
+
+.settings .password-wrap {
+    background-color: transparent;
+    flex-shrink: 0;
+    height: auto;
+    letter-spacing: -0.12px;
+    line-height: 24px;
+    min-height: 24px;
+    text-align: left;
+    white-space: nowrap;
+    width: fit-content;
+}
+
+.settings .paypal {
+    background-color: transparent;
+    height: auto;
+    left: 22px;
+    letter-spacing: -0.12px;
+    line-height: 24px;
+    position: absolute;
+    text-align: left;
+    top: 22px;
+    white-space: nowrap;
+    width: 109px;
+}
+
+.settings .rectangle-10 {
+    background-color: white;
+    height: 32px;
+    left: 0px;
+    opacity: 0;
+    position: absolute;
+    top: 0px;
+    width: 35px;
+}
+
+.settings .rectangle-19-copy {
+    background-color: white;
+    height: 68px;
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    width: 100%;
+}
+
+.settings .save {
+    background-color: transparent;
+    flex-shrink: 0;
+    height: auto;
+    letter-spacing: 0px;
+    line-height: 24px;
+    min-height: 24px;
+    min-width: 57px;
+    text-align: center;
+    white-space: nowrap;
+    width: auto;
+}
+
+.settings .settings-header {
+    background-color: transparent;
+    flex-shrink: 0;
+    height: auto;
+    letter-spacing: 0px;
+    line-height: 29px;
+    min-height: 29px;
+    text-align: center;
+    white-space: nowrap;
+    width:calc(100% - 10%);
+}
+
+.settings .shape {
+    background-color: transparent;
+    height: 18px;
+    left: 98px;
+    position: absolute;
+    top: 25px;
+    width: 19px;
+}
+
+.settings .text {
+    background-color: transparent;
+    border: 0;
+    flex-shrink: 0;
+    height: 30px;
+    letter-spacing: -0.09px;
+    line-height: 18px;
+    margin-left: 144px;
+    padding: 0;
+    resize: none;
+    text-align: right;
+    width: 23px;
+}
+
+.settings .text-9XXxfm::placeholder {
+    color: rgba(186, 186, 186, 0.6);
+}
+
+.settings .text-pay-palpaylalcom::placeholder {
+    color: rgba(186, 186, 186, 0.6);
+}
+
+.settings .text::placeholder {
+    color: rgba(186, 186, 186, 0.6);
+}
+
+.settings .text::placeholder {
+    color: rgba(186, 186, 186, 0.6);
+}
+
+.settings .text::placeholder {
+    color: rgba(186, 186, 186, 0.6);
+}
+
+.settings .text::placeholder {
+    color: rgba(186, 186, 186, 0.6);
+}
+
+.settings .text::placeholder {
+    color: rgba(186, 186, 186, 0.6);
+}
+
+.settings .top-bar {
+    background-color: transparent;
+    flex-shrink: 0;
+    height: 21px;
+    min-width: 12px;
+    width: 14px;
+    position:relative;
+
+}
+
+.sfprodisplay-regular-normal-granite-gray-20px {
+    color: var(--granite-gray);
+    font-family: "SFProDisplay-Regular", Helvetica, Arial, serif;
+    font-size: 20px;
+}
+
+.sfprodisplay-regular-normal-pink-swan-15px {
+    color: var(--pink-swan);
+    font-family: "SFProDisplay-Regular", Helvetica, Arial, serif;
+    font-size: 15px;
+}
+
+:root {
+    --granite-gray: rgba(102, 102, 102, 1);
+    --pink-swan: rgba(186, 186, 186, 1);
+    --rose-pearl: rgba(245, 55, 124, 1);
+}
+
+.align-self-flex-center {
+    align-self: center;
+}
+
+a {
+    text-decoration: none;
+    display: contents;
+}
+@media only screen and (max-width: 320px) {
+    .settings {
+        left: 50%;
+        transform: translateX(-50%) ;
+    }
+    .settings .field{
+        height: 55px;
+    }
+    
+}
