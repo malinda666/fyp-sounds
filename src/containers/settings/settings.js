@@ -190,14 +190,14 @@ export default class Settings extends React.Component {
           </div>
           <h1 className="settings-header montserrat-bold-rose-pearl-24px">{settings}</h1>
         </div>
-        <div className="clear-cache-copy-C61RwL">
+        <div className="field clear-cache-copy-C61RwL">
           <div className="name sfprodisplay-regular-normal-granite-gray-20px">{name}</div>
           <input type="text" id="name" name="name" className="name-input sfprodisplay-regular-normal-pink-swan-15px" placeholder={this.state.name?this.state.name:"Your Name"}
             value={this.state.name}
             onChange={this.handleFieldChange.bind(this)}></input>
           {/* <div className="charlie-du-019-amelio sfprodisplay-regular-normal-pink-swan-15px">{this.state.name}</div> */}
         </div>
-        <div className="clear-cache-copy-VMr6Om">
+        <div className="field clear-cache-copy-VMr6Om">
           <div className="birthday sfprodisplay-regular-normal-granite-gray-20px">{birthday}</div>
           <input type="date" id="dateOfBirth" name="dateOfBirth" className="birthday-input sfprodisplay-regular-normal-pink-swan-15px"
             value={this.state.dateOfBirth}
@@ -206,13 +206,13 @@ export default class Settings extends React.Component {
         </div>
         <ClearCacheCopy {...{...clearCacheCopyProps, handleFieldChange : event => this.handleFieldChange(event), value : this.state.auth? this.state.auth.email?this.state.auth.email:"" : '', id : 'email', readOnly: true}} />
         {/* <ClearCacheCopy {...{...clearCacheCopy2Props, handleFieldChange : event => this.handleFieldChange(event), value : this.state.tikTokUser?this.state.tikTokUser:"" , id:'tikTokUser', readOnly: false,inputPlaceholder:this.state.tikTokUser?this.state.tikTokUser:"Your TikTok Id"}} /> */}
-         <div className="clear-cache-copy-Brk1wZ">
+         <div className="field clear-cache-copy-Brk1wZ">
           <div className="email sfprodisplay-regular-normal-granite-gray-20px">TikTok User</div>
             <input type="text" id="tikTokUser" name="textcharlidamelio" className="text-email emailcom sfprodisplay-regular-normal-pink-swan-15px" placeholder={this.state.tikTokUser?this.state.tikTokUser:"Your TikTok Id"}
             value={this.state.tikTokUser}
             onChange={this.handleFieldChange.bind(this)}></input>
         </div>
-        <div className="clear-cache">
+        <div className="field clear-cache">
           <div className="password-wrap sfprodisplay-regular-normal-granite-gray-20px">Change Password</div>
            <a >
             <div className="group" onClick={this.changePassword.bind(this)}>
@@ -221,7 +221,7 @@ export default class Settings extends React.Component {
             </div>
           </a>
         </div>
-        <div className="clear-cache-copy-Brk1wZ">
+        <div className="field clear-cache-copy-Brk1wZ">
           <div className="email sfprodisplay-regular-normal-granite-gray-20px">{paypal}</div>
             <input type="text" id="payPal" name="payPal" className="text-email emailcom sfprodisplay-regular-normal-pink-swan-15px" placeholder={this.state.payPal?this.state.payPal:"Your PayPal Acc"}
             value={this.state.payPal}
@@ -237,7 +237,7 @@ export default class Settings extends React.Component {
           /> */}
           {/* <img className="shape" src={shape} /> */}
         </div>
-        <div className="clear-cache">
+        <div className="field clear-cache">
           <div className="logout sfprodisplay-regular-normal-granite-gray-20px">{logout}</div>
           <a >
             <div className="group" onClick={this.logout.bind(this)}>
@@ -262,7 +262,7 @@ class ClearCacheCopy extends React.Component {
     const { email, inputName, inputType, inputPlaceholder, inputRequired } = this.props;
 
     return (
-      <div className="clear-cache-copy-Brk1wZ">
+      <div className="field clear-cache-copy-Brk1wZ">
         <div className="email sfprodisplay-regular-normal-granite-gray-20px">{email}</div>
         <input
           id={this.props.id}

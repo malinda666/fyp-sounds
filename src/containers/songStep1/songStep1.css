@@ -69,14 +69,13 @@
 .musicform2 .all-stores {
     background-color: transparent;
     height: auto;
-    left: 27px;
     letter-spacing: 0px;
     line-height: 24px;
-    position: absolute;
+    position: relative;
     text-align: center;
     top: 9px;
     white-space: nowrap;
-    width: 102px;
+    width: 100%;
     font-size: 1rem;
 }
 
@@ -225,15 +224,13 @@
 .musicform2 .tik-tok {
     background-color: transparent;
     height: auto;
-    left: 50%;
-    transform: translateX(-50%);
     letter-spacing: 0px;
     line-height: 24px;
-    position: absolute;
+    position: relative;
     text-align: center;
     top: 9px;
     white-space: nowrap;
-    width: 88px;
+    width: 100%;
     font-size: 1rem;
 }
 
@@ -317,4 +314,22 @@
 .auto-animated .container-center-vertical,
 .auto-animated .container-center-horizontal {
     opacity: 1;
+}
+@media only screen and (max-width: 320px) {
+    .musicform2 .fypsoundslogo{
+        top: 75px
+    }
+    .musicform2 .ownership{
+        top: 30%;
+    }
+    .musicform2 .publish-wrapper{
+        top: 55%
+    }
+    .musicform2 .publish-audio-to,
+    .musicform2 .are-you-the-owner-of{
+        font-size: 24px;
+    }
+    .musicform2 .button-wrapper > div{
+        margin: 0.5rem 0.5rem 0;
+    }
 }

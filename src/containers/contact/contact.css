@@ -189,6 +189,7 @@
     top: 480px;
     width: 354px;
     display: block;
+    font-size: 14px;
 }
 .contact .or-shoot-us-an-email > span {display:inline-block;}
 .contact .oval-E582nk {
@@ -460,4 +461,28 @@
 a {
     text-decoration: none;
     display: contents;
+}
+@media only screen and (max-width: 320px) {
+
+.contact .rectangle-zlebQ8{
+    height: 100px;
+}
+.contact .text-area {
+    height: 100px;
+}
+.contact .overlap-group2{
+    margin-top: 7px;
+    height: 100px;
+}
+.contact .overlap-group {
+    margin-top: 7px;
+}
+.contact .or-shoot-us-an-email {
+    top: 390px;
+    font-size: 10px;
+    line-height: 1;
+}
+.contact .nexticon-copy {
+    top: 145px;
+}
 }

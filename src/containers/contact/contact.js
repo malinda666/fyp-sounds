@@ -52,8 +52,8 @@ export default class Contact extends React.Component {
         </div>
         <div className="container-center-horizontal">
           <form className="nexticon-copy" name="form2" action="form2" method="post">
-            <Overlapgroup1 {...overlapgroup1Props} />
-            <Overlapgroup1 {...overlapgroup12Props} className="overlap-group" />
+            <Overlapgroup1 {...overlapgroup1Props} className="montserrat-light-mountain-mist-14px" />
+            <Overlapgroup1 {...overlapgroup12Props} className="overlap-group montserrat-light-mountain-mist-14px" />
             <div className="overlap-group2">
               <div className="rectangle-zlebQ8 border-class-1"></div>
               <textarea

@@ -195,11 +195,13 @@
     position: relative;
     width: 100%;
     padding: 1rem 0;
+     font-family: "Montserrat", Helvetica, Arial, serif;
+    font-style: normal
 }
 .privacypolicy .policy-container > h3,
 .privacypolicy .policy-container > h4{
     color: #222;
-    font-size: 14px;font-weight: 400;
+    font-size: 12px;font-weight: 400;
 }
 .privacypolicy .lorem-ipsum-dolor-si {
     background-color: transparent;
@@ -212,7 +214,7 @@
     top: 179px;
     width: 288px;
     text-align: left;
-    font-size: 10px !important;
+    font-size: 10px;
     line-height: 12px;
     color: #333;
     color: var(--mountain-mist);
@@ -332,4 +334,22 @@
 a {
     text-decoration: none;
     display: contents;
+}
+
+@media only screen and (max-width: 320px) {
+    .privacypolicy .policy-wrapper{
+        margin-top: 150px;
+        width: 258px;
+        height: 300px;
+    }
+    .privacypolicy .policy-container > h3,
+    .privacypolicy .policy-container > h4{
+        color: #222;
+        font-size: 10px;font-weight: 300;
+        line-height: 1;
+    }
+    .privacypolicy .lorem-ipsum-dolor-si {
+        font-size: 9px;font-weight: 200;
+        line-height: 1;
+    }
 }

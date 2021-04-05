@@ -139,7 +139,6 @@
     opacity: 0;
     transform: scale(0.9);
 }
-
 .landing .footer {
     background-color: transparent;
     bottom: -136px;
@@ -503,4 +502,14 @@
 .auto-animated .container-center-vertical,
 .auto-animated .container-center-horizontal {
     opacity: 1;
+}
+@media only screen and (max-width: 320px) {
+    .landing .create-tik-tok-sounds {
+        top :250px;
+    }
+    .landing .nexticon{
+        top: 356px;
+    }
+/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */ 
+
 }

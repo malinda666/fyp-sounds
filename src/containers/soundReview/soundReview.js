@@ -41,23 +41,21 @@ export default class SoundReview extends React.Component {
       <div className="soundsub">
         <h1 className="review montserrat-bold-rose-pearl-24px">{review}</h1>
         <ClearCacheCopy {...{...clearCacheCopyProps, id:'creator', value : this.state?.name}} />
-        <ClearCacheCopy {...{...clearCacheCopy2Props, id:'title', value : this.state?.title}} className="clear-cache-copy-VMr6Om" />
-        <div className="clear-cache-copy-awedTk">
+        <ClearCacheCopy {...{...clearCacheCopy2Props, id:'title', value : this.state?.title}} className="" />
+        <div className="field clear-cache-copy-awedTk">
           <div className="category sfprodisplay-regular-normal-granite-gray-20px">{category}</div>
           <div className="funny sfprodisplay-regular-normal-pink-swan-15px">{this.state?.category}</div>
         </div>
-        <div className="clear-cache-copy-awedTk">
+        <div className="field clear-cache-copy-awedTk">
           <div className="content sfprodisplay-regular-normal-granite-gray-20px">{content}</div>
           <div className="explicit sfprodisplay-regular-normal-pink-swan-15px">{this.state?.content}</div>
         </div>
         <ClearCacheCopy3 {...{...clearCacheCopy3Props,  value : 'social media'}} />
-        <div className="clear-cache-copy-">
-          <div className="rectangle-19-copy-W5x3Ae"></div>
-          <div className="rectangle-19-copy-W5x3Ae"></div>
+        <div className="field clear-cache-copy-">
           <div className="audio-file sfprodisplay-regular-normal-granite-gray-20px">{audioFile}</div>
           <div className="mysoundwav sfprodisplay-regular-normal-pink-swan-15px">{this.state?.fileName}</div>
         </div>
-        <ClearCacheCopy3 {...{...clearCacheCopy32Props,  value : 'sound'}} className="clear-cache-copy-5" />
+        <ClearCacheCopy3 {...{...clearCacheCopy32Props,  value : 'sound'}} className="" />
         <div className="nexticon" style={{ backgroundImage: `url(${nextIcon})` }}  onClick={() => {
                                                               this.props.history.push("/warn4");
                                                               }}>
@@ -74,7 +72,7 @@ class ClearCacheCopy extends React.Component {
     const { creator, inputName, inputType, inputPlaceholder, inputRequired, className } = this.props;
 
     return (
-      <div className={`clear-cache-copy-C61RwL ${className || ""}`}>
+      <div className={`field clear-cache-copy-C61RwL ${className || ""}`}>
         <div className="creator sfprodisplay-regular-normal-granite-gray-20px">{creator}</div>
         <input
         id = {this.props.id}
@@ -96,9 +94,7 @@ class ClearCacheCopy3 extends React.Component {
     const { stores, tiktok, className } = this.props;
 
     return (
-      <div className={`clear-cache-copy- ${className || ""}`}>
-        <div className="rectangle-19-copy-W5x3Ae"></div>
-        <div className="rectangle-19-copy-W5x3Ae"></div>
+      <div className={`field clear-cache-copy- ${className || ""}`}>
         <div className="stores sfprodisplay-regular-normal-granite-gray-20px">{stores}</div>
         <div className="tik-tok sfprodisplay-regular-normal-pink-swan-15px">social media</div>
       </div>

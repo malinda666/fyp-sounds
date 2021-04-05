@@ -23,9 +23,10 @@
     overflow:hidden;
     position: relative;
     width: 100%;
+    display: flex;align-items: center;justify-content: center;flex-direction: column;
 }
 .loginerrormessages .form-container{
-    position: absolute;left: 50%;top: 50%;transform: translate(-50%,-50%);
+    position: absolute;
     height: 700px;width: 414px;
 }
 .loginerrormessages .a-password-is-requi-C61RwL {
@@ -125,7 +126,7 @@
     margin-top: 5px;
     position: fixed;
     text-align: center;
-    top: 340px;
+    top: 296px;
     white-space: nowrap;
     width: 309px;
     font-size: 10px !important;
@@ -595,4 +596,33 @@
 a {
     text-decoration: none;
     display: contents;
+}
+@media only screen and (max-width: 320px) {
+    .loginerrormessages .form-container{
+        height: 550px;width: 300px;
+        transform: scale(0.85);
+    }
+    .loginerrormessages .nexticon{
+        top: 100px;
+
+    }
+    .loginerrormessages .nexticon-copy{
+        top: 239px;
+    }
+    .loginerrormessages .forgot-your-access {
+        top: 425px;
+        font-size: 10px;
+    }
+    .loginerrormessages .an-email-is-require-VMr6Om {
+        top: 160px;
+    }
+    .loginerrormessages .a-password-is-requi-VMr6Om{
+        top: 198px;
+    }
+    .loginerrormessages .a-password-is-requi-C61RwL {
+        top: 345px;
+    }
+    .loginerrormessages .an-error-VMr6Om{
+        top: 266px;
+    }
 }

@@ -219,3 +219,17 @@
         transform: scale(1);
     }
 }
+@media only screen and (max-width: 320px) {
+    .musicform4 .fypsoundslogo{
+        top: 75px
+    }
+    .musicform4 .is-this-content-expl{
+        top: 35%;font-size: 24px
+    }
+    .musicform4 .button_wrapper{
+        top: 50%
+    }
+    .musicform4 .button_wrapper > div{
+        margin: 0.5rem 0.5rem 0;
+    }
+}

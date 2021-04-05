@@ -48,18 +48,21 @@
     position: relative;
     width: 100%;
 }
-
+.warn5 .congrats-wrapper{
+    position: absolute;
+    display: flex;align-items: center;justify-content: center;
+    flex-direction: column;
+    width: 100%;top: 35%;
+}
 .warn5 .congratulations-you {
     background-color: transparent;
     height: auto;
     letter-spacing: -0.19px;
     line-height: 42px;
-    margin-left: 0px;
     margin-right: -0px;
-    position: absolute;
+    position: relative;
     text-align: center;
-    top: 286px;
-    width: 329px;
+    width:100%;
 }
 
 .warn5 .dismiss {
@@ -88,11 +91,12 @@
     background-color: transparent;
     display: block;
     height: 41px;
-    position: absolute;
-    top: 448px;
-    width: 146px;
+    position: relative;
+    width:146px;
     opacity: 0;
     transform: scale(1.1);
+    text-align: center;
+    margin: 1rem auto;
 }
 .warn5 .bg-image-wrap{
     position:absolute;
@@ -214,11 +218,8 @@
     height: auto;
     letter-spacing: -0.38px;
     line-height: 79px;
-    margin-left: 3px;
-    margin-right: -3px;
-    position: absolute;
+    position: relative;
     text-align: center;
-    top: 207px;
     white-space: nowrap;
     width: auto;
 }
@@ -262,4 +263,11 @@
 .auto-animated .container-center-vertical,
 .auto-animated .container-center-horizontal {
     opacity: 1;
+}
+@media only screen and (max-width: 320px) {
+    .warn5 .congratulations-you{
+        font-size: 24px;
+        line-height: 1
+    }
+
 }

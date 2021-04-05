@@ -693,7 +693,7 @@ export default class Soundsnewuser extends React.Component {
                   <a data-toggle="tab" href="#sounds">
                    <div className="sounds-Gt7Q7B">
                     <h1 className="ud83cudfb5 applecoloremoji-normal-granite-gray-30px">{Ud83CUdfb5}</h1>
-                    <div className="sounds-EiSkUu sfprodisplay-normal-black-15px">{sounds}</div>
+                    <div className="sounds-EiSkUu sfprodisplay-regular-normal-mountain-mist-15px">{sounds}</div>
                     {/* <div className="rectangle-3"></div> */}
                    </div>
                   </a>

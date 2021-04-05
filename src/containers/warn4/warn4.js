@@ -205,17 +205,20 @@ this.setState({ loading: true });
           <img className="rectangle-IZxxJF" src={rectangleCopy} />
         </div>
         <div className="container-center-horizontal">
-          <div className="view-terms-here montserrat-light-white-14px">
+          <div className="accept-wrapper">
+            <h1 className="ud83eudd13 applecoloremoji-normal-white-60px">{Ud83EUdd13}</h1>
+            <div className="by-clickin-201caccept sofiapro-normal-white-30px">{byClickingU201Caccept}</div>
+            <div className="view-terms-here montserrat-light-white-14px">
             <span className="span1-mpB3ZZ">{spanText}</span>
             <span className="span2-mpB3ZZ" onClick={() => {
                                                               this.props.history.push({
                                                                 pathname: '/terms'
                                                                   });
-                                                              }}>{spanText2}</span>
+                                                              }}>{spanText2}
+                                                            </span>
           </div>
-        </div>
-        <div className="container-center-horizontal">
-          <h1 className="ud83eudd13 applecoloremoji-normal-white-60px">{Ud83EUdd13}</h1>
+          </div>
+          
         </div>
         <div className="container-center-horizontal">
           <div className="group">
@@ -238,9 +241,6 @@ this.setState({ loading: true });
               </div>
            
           </div>
-        </div>
-        <div className="container-center-horizontal">
-          <div className="by-clickin-201caccept sofiapro-normal-white-30px">{byClickingU201Caccept}</div>
         </div>
         <Fypcopy {...fypcopyProps} />
       </div>

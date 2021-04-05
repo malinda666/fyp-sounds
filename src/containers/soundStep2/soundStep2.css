@@ -62,6 +62,10 @@
     position: relative;
     width: 100%;
 }
+.soundform1b .ownership{
+    position: absolute;width: 100%;display: flex;align-items: center;justify-content: center;flex-direction: column;
+    top: 15%;
+}
 .soundform1b .btn-wrapper{
     position: absolute;
     left:50%;
@@ -79,10 +83,9 @@
     height: auto;
     letter-spacing: -0.19px;
     line-height: 42px;
-    position: absolute;
+    position: relative;
     text-align: center;
-    top: 116px;
-    width: 262px;
+    width: 100%;
 }
 
 .soundform1b .fypsoundslogo {
@@ -306,4 +309,22 @@
 .auto-animated .container-center-vertical,
 .auto-animated .container-center-horizontal {
     opacity: 1;
+}
+@media only screen and (max-width: 320px) {
+    .soundform1b .fypsoundslogo{
+        top: 75px
+    }
+    .soundform1b .are-you-the-owner-of,.soundform1b .is-this-content-expl{
+        font-size: 24px;
+        line-height: 24px;
+    }
+    .soundform1b .ownership{
+        top: 25%
+    }
+    .soundform1b .is-this-content-expl{
+        top: 250px
+    }
+    .soundform1b .btn-wrapper{
+        top: 300px
+    }
 }

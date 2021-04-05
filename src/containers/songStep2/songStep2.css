@@ -427,3 +427,30 @@ a {
         top: 75%;
     }
 }
+@media only screen and (max-width: 320px) {
+    .musicform3 .nexticon{
+        top: 85%
+    }
+    .musicform3 .nexticon-copy-6{
+        top: 65%
+    }
+    .musicform3 .or-name{
+        font-size: 24px
+    }
+    .musicform3 .nexticon-copy-3{
+        top: 50%
+    }
+    .musicform3 .publish-sec{
+        top: 37%
+    }
+    .musicform3 .ownership{
+        top: 20%
+    }
+    .musicform3 .fypsoundslogo{
+        top: 10%
+    }
+    .musicform3 .are-you-the-owner-of,
+    .musicform3 .publish-audio-to{
+        font-size: 24px
+    }
+}

@@ -571,3 +571,45 @@
 .auto-animated .container-center-horizontal {
     opacity: 1;
 }
+@media only screen and (max-width: 320px) {
+    .newsound .bg-image1 {
+        left: -270px;
+    }
+    .newsound .bg-image2 {
+        left: -160px;
+    }
+    .newsound .bg-image3 { 
+        left: -270px;
+    }
+    .newsound .bg-image4 {
+        left: -355px;
+    }
+    .newsound .upload-a-cover-image{
+        font-size: 24px;top: 80px;
+    }
+    .newsound .group-2-copy{
+        top: 120px;
+    }
+    .newsound .artwork-ca-019t-inclu{
+        top: 320px;
+    }
+    .newsound .upload-button{
+        top: 340px;
+    }
+    .newsound .overlap-group1{
+        margin-top: 340px;
+    }
+    .newsound .audio-title{
+        top: 390px;font-size: 24px;
+    }
+    .newsound .is-your-audio-a{
+        top: 470px;font-size: 24px;
+    }
+    .newsound .group{
+        top: 510px;
+        min-width: 288px;
+    }
+    .newsound .nexticon-copy{
+        margin-left: 14px;
+    }
+}

@@ -61,7 +61,12 @@
     width: 100vw;
     overflow:hidden;
 }
-
+.warn4 .accept-wrapper{
+    position: absolute;
+    display: flex;align-items: center;justify-content: center;flex-direction: column;
+    width: 100%;
+    top: 30%;
+}
 .warn4 .accept {
     background-color: transparent;
     height: auto;
@@ -80,10 +85,9 @@
     height: auto;
     letter-spacing: -0.19px;
     line-height: 42px;
-    position: absolute;
+    position: relative;
     text-align: center;
-    top: 286px;
-    width: 392px;
+    width:100%;
 }
 
 .warn4 .fypsoundslogo {
@@ -104,7 +108,7 @@
     justify-content: flex-start;
     min-width: 346px;
     position: absolute;
-    top: 448px;
+    top: 75%;
     width: auto;
 }
 
@@ -279,11 +283,9 @@
     height: auto;
     letter-spacing: -0.38px;
     line-height: 79px;
-    margin-left: 3px;
-    margin-right: -3px;
-    position: absolute;
+    
+    position: relative;
     text-align: center;
-    top: 207px;
     white-space: nowrap;
     width: auto;
 }
@@ -293,10 +295,10 @@
     height: auto;
     letter-spacing: 0px;
     line-height: 14px;
-    position: absolute;
+    position: relative;
     text-align: center;
-    top: 417px;
-    width: 354px;
+    width: 100%;
+    margin-top: 16px;
 }
 
 :root {
@@ -355,4 +357,32 @@
 a {
     text-decoration: none;
     display: contents;
+}
+@media only screen and (max-width: 320px) {
+    .warn4 .bg-image1 {
+        left: -270px;
+    }
+    .warn4 .bg-image2 {
+        left: -160px;
+    }
+    .warn4 .bg-image3 { 
+        left: -270px;
+    }
+    .warn4 .bg-image4 {
+        left: -355px;
+    }
+    .warn4 .by-clickin-201caccept{
+        font-size: 24px;
+        line-height: 1
+    }
+    .warn4 .view-terms-here{
+        font-size: 12px;
+
+    }
+    .warn4 .group{
+        min-width: 288px
+    }
+    .warn4 .nexticon-copy-2{
+        margin-left: 16px
+    }
 }

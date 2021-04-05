@@ -383,3 +383,27 @@
         top: 75%;
     }
 }
+@media only screen and (max-width: 320px) {
+    .musicform5 .nexticon-VMr6Om{
+        top: 80%
+    }
+    .musicform5 .wav-or-mp3-format{
+        font-size: 10px
+    }
+    .musicform5 .upload-wrapper{
+        top: 55%
+    }
+    .musicform5 .category-wrapper{
+        top: 45%
+    }
+    .musicform5 .upload-audio-file,
+    .musicform5 .is-this-content-expl{
+        font-size: 24px
+    }
+    .musicform5 .explicit{
+        top: 30%
+    }
+    .musicform5 .fypsoundslogo{
+        top: 75px
+    }
+}

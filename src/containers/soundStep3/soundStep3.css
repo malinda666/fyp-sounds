@@ -511,3 +511,38 @@
 .auto-animated .container-center-horizontal {
     opacity: 1;
 }
+@media only screen and (max-width: 320px) {
+    .soundform2b .nexticon-4eduM0{
+        top: 85%
+    }
+    .soundform2b .wav-or-mp3-format{
+        font-size: 10px
+    }
+    .soundform2b .nexticon-copy-8{
+        height: 44px
+    }
+    .soundform2b .upload-audio-file,
+    .soundform2b .creator-name,
+    .soundform2b .is-this-content-expl,
+    .soundform2b .are-you-the-owner-of{
+        font-size: 24px;line-height: 32px;
+    }
+    .soundform2b .upload-container{
+        top: 65%
+    }
+    .soundform2b .creator{
+        top: 50%
+    }
+    .soundform2b .creator-name{
+        min-height: 32px
+    }
+    .soundform2b .css-2b097c-container{
+        top: 40%
+    }
+    .soundform2b .explicit{
+        top: 30%
+    }
+    .soundform2b .yes{
+        min-height: 16px;line-height: 16px
+    }
+}
