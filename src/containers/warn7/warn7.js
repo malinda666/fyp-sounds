@@ -2,9 +2,7 @@ import React from "react";
 import "./warn7.css";
 
 export default class Warn7 extends React.Component {
-    constructor(props) {     
-    super(props);
-   }
+  
   render() {
     const { warn3Copy, textLabel, youGotSomeCh, rectangle, rectangle2, dismiss } = this.props;
 

@@ -148,7 +148,7 @@ const LoginData = {
     AnEmailIsRequire: "*an email is required to login.",
     APasswordIsRequi: "*a password is required to login.",
     AnEmailIsRequire2: "*an email is required to join.",
-    APasswordIsRequi2: "*a password is required to join.",
+    APasswordIsRequi2: "*a strong password is required to join. Please set a password that meets policy requirements.",
     overlapgroupProps: overlapgroupData,
     overlapgroup1Props: overlapgroup1Data,
     overlapgroup2Props: overlapgroup2Data,

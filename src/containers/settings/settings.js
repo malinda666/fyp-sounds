@@ -123,7 +123,7 @@ export default class Settings extends React.Component {
                           state: { email: this.state.auth.email}
                             });
                     this.setState({ loading: false });
-                    toast.success('Confirmation code sent to ' + this.state.email);
+                    toast.success('Confirmation code sent to ' + this.state.auth.email);
                   }
                 } else {
                   this.setState({ loading: false });
@@ -262,7 +262,7 @@ class ClearCacheCopy extends React.Component {
     const { email, inputName, inputType, inputPlaceholder, inputRequired } = this.props;
 
     return (
-      <div className="field clear-cache-copy-Brk1wZ">
+      <div className="clear-cache-copy-Brk1wZ">
         <div className="email sfprodisplay-regular-normal-granite-gray-20px">{email}</div>
         <input
           id={this.props.id}

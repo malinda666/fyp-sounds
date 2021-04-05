@@ -35,7 +35,7 @@ export default class MusicForm4 extends React.Component {
                     data.status = 'yes';  
                     data.content = 'Explicit'  ;             
                     localStorage.setItem('data', JSON.stringify(data));
-                    this.props.history.push('/songStep4');
+                    this.props.history.push('/song4');
                 } }}>
             <img className="rectangle-nRQRPx" src={rectangle} />
             
@@ -49,7 +49,7 @@ export default class MusicForm4 extends React.Component {
                     data.status = 'no';  
                     data.content = 'NonExplicit'  ;             
                     localStorage.setItem('data', JSON.stringify(data));
-                    this.props.history.push('/songStep4');
+                    this.props.history.push('/song4');
                 } }}>
             <img className="rectangle-nRQRPx" src={rectangle3} />
             

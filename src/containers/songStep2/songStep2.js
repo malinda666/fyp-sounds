@@ -36,11 +36,11 @@ export default class MusicForm3 extends React.Component {
 
    validateForm =() =>{
     if(!this.state.creatorName || this.state.creatorName === ''){
-      this.setState({errorMessage : 'Creator name field is required'});
+      this.setState({errorMessage : 'creator name field is required'});
       return false;
     }
     if(!this.state.authorName || this.state.authorName === ''){
-      this.setState({errorMessage : 'Author name field is required'});
+      this.setState({errorMessage : 'author name field is required'});
       return false;
     }
     if(removeEmojis(this.state.creatorName) || removeEmojis(this.state.authorName)){
@@ -140,7 +140,9 @@ export default class MusicForm3 extends React.Component {
           value={this.state.authorName}
         />
           </div>
-       
+
+          <NexticonCopy7 {...{...nexticonCopy7Props, handleFieldChange : event => this.handleFieldChange(event), id: 'producerName', value: this.state.producerName}} />
+          <NexticonCopy7 {...{...nexticonCopy72Props, handleFieldChange : event => this.handleFieldChange(event), id: 'featuringArtist', value: this.state.featuringArtist}} className="nexticon-copy-8" /> 
         <div className="nexticon" onClick={()=>{
           this.setState({errorMessage : ''});
           if(this.validateForm()){
@@ -149,10 +151,12 @@ export default class MusicForm3 extends React.Component {
              data.authorName = this.state.authorName;
              data.name = this.state.creatorName;
              localStorage.setItem('data', JSON.stringify(data));
-             this.props.history.push('/songStep3');
+             this.props.history.push('/song3');
           }
         }
                                                                                 }}>
+
+
           <img className="rectangle-rGr1Cp" src={rectangle} />
           <img className="rectangle-xd37is" src={rectangle2} />
           <div className="next montserrat-semi-bold-white-20px">{next}</div>

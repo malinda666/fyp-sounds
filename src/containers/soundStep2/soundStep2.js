@@ -34,14 +34,14 @@ export default class SoundForm1b extends React.Component {
           
         </div>
         <div className="container-center-horizontal">
-          <div className="ownership">
-            <h1 className="are-you-the-owner-of sofiapro-normal-white-30px">{areYouTheOwnerOf}</h1>
+          <div className="nexticon-copy-3 animate-enter2 smart-layers-pointers ">
             <div className="yes-YdXrBc montserrat-light-white-20px">{yes2}</div>
           </div>
-         
         </div>
         <Fypcopy {...fypcopyProps} />
-       
+        <div className="container-center-horizontal">
+          <h1 className="are-you-the-owner-of sofiapro-normal-white-30px">{areYouTheOwnerOf}</h1>
+        </div>
         <div className="container-center-horizontal">
           <div className="is-this-content-expl sofiapro-normal-white-30px">{isThisContentExpl}</div>
         </div>
@@ -52,7 +52,7 @@ export default class SoundForm1b extends React.Component {
                                                                                           let data = JSON.parse(localStorage.getItem('data'));
                                                                                           data.status = 'yes'
                                                                                           localStorage.setItem('data', JSON.stringify(data));
-                                                                                          this.props.history.push('/soundStep3');
+                                                                                          this.props.history.push('/sound3');
                                                                                         }                                                                                        
                                                                                         }}>
               <img className="rectangle-ViqXFw" src={rectangle} />
@@ -66,7 +66,7 @@ export default class SoundForm1b extends React.Component {
                                                                                             let data = JSON.parse(localStorage.getItem('data'));
                                                                                             data.status = 'no'
                                                                                             localStorage.setItem('data', JSON.stringify(data));
-                                                                                            this.props.history.push('/soundStep3');
+                                                                                            this.props.history.push('/sound3');
                                                                                           }       
                                                                 }}>
               <img className="rectangle-ViqXFw" src={rectangle3} />

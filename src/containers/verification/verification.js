@@ -4,8 +4,7 @@ import userManagementService from '../../services/userManagementService'
 import profileManagementService from '../../services/profileManagementService'
 import HashLoader from 'react-spinners/HashLoader'
 import LoadingOverlay from "react-loading-overlay";
-import Header from '../../components/header'
-import Footer from '../../components/footer'
+import Cookies from "js-cookie";
 
 export default class Verificationin extends React.Component {
 
@@ -43,7 +42,10 @@ export default class Verificationin extends React.Component {
                         email : this.props.location.state.email
                       }
                       localStorage.setItem('auth', JSON.stringify(auth) );
-                      //this.props.userHasAuthenticated(true);
+                      let inFiftyMinutes = new Date(new Date().getTime() + 50 *60* 100);
+                      Cookies.set("id_token", res.data.idToken.jwtToken, {expires : inFiftyMinutes});
+                      Cookies.set("refreshtoken", res.data.refreshToken, {expires : 1 });
+                      this.props.userHasAuthenticated(true);
   
                this.setState({ loading: false, user_dir: profileResponse.data.user_dir });
                 this.props.history.push('/dashboard');        
@@ -161,10 +163,37 @@ export default class Verificationin extends React.Component {
           <h1 className="ud83dudd75ufe0f applecoloremoji-normal-white-45px">{Ud83DUdd75Ufe0F}</h1>
         </div>
         <div className="container-center-horizontal">
-          <Header/>
+          <div className="group">
+            <img className="oval-NOXmfT" src={oval} />
+            <img className="oval-E582nk" src={oval2} />
+            <Fypsoundslogo {...fypsoundslogoProps} />
+          </div>
         </div>
         <div className="container-center-horizontal">
-          <Footer/>
+          <div className="footer">
+            <div className="overlap-group2">
+              <img className="oval-S4xVmX" src={oval3} />
+              <div className="group-5">
+                <About {...aboutProps} />
+                <div className="container-center-horizontal footer-items">
+                  <p className="footer-items-devider">|</p>
+                  <div className="montserrat-semi-bold-white-14px">{faq}</div>
+                </div>
+                <div className="container-center-horizontal footer-items">
+                  <p className="footer-items-devider">|</p>
+                  <div className="montserrat-semi-bold-white-14px">{contact}</div>
+                </div>
+                <div className="container-center-horizontal footer-items">
+                  <p className="footer-items-devider">|</p>
+                  <div className="montserrat-semi-bold-white-14px">{privacyPolicy}</div>
+                </div>
+              </div>
+            </div>
+            <Fypsoundslogo2 {...fypsoundslogo2Props} />
+            <div className="container-center-horizontal">
+              <p className="copyright--51-2021-al montserrat-normal-white-13px">{copyright2512021Al}</p>
+            </div>
+          </div>
         </div>
         <div className="container-center-horizontal">
           <p className="didnu2019t-ceive-clic montserrat-light-gravel-14px">

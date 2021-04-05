@@ -48,7 +48,7 @@ export default class MusicForm2 extends React.Component {
                     let data = JSON.parse(localStorage.getItem('data'));                  
                     data.stores = 'social media';                 
                     localStorage.setItem('data', JSON.stringify(data));
-                    this.props.history.push('/songStep2');
+                    this.props.history.push('/song2');
                 }  
                                                                                   }}>
               <img className="rectangle-C0bm8O" src={rectangle} />
@@ -62,7 +62,7 @@ export default class MusicForm2 extends React.Component {
                     let data = JSON.parse(localStorage.getItem('data'));                  
                     data.stores = 'allStores';                 
                     localStorage.setItem('data', JSON.stringify(data));
-                    this.props.history.push('/songStep2');
+                    this.props.history.push('/song2');
                 }  
                                                                                  
                                                                                   }}>

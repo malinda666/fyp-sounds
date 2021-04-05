@@ -61,29 +61,6 @@ export default class Password extends React.Component {
     this.getPasswordPolicy();
   }
 
-  getPasswordPolicy() {
-    this.setState({ loading: true });
-    userManagementService
-      .userPoolData()
-      .then((res) => {
-        if (res.status == 200) {
-          this.setState({ loading: false });
-          if (res.data.UserPool.Policies.PasswordPolicy != null) {
-            this.setState({
-              passwordPolicy: res.data.UserPool.Policies.PasswordPolicy,
-            });
-          } else {
-            this.setState({ loading: false });
-          }
-        } else {
-          this.setState({ loading: false });
-        }
-      })
-      .catch((err) => {
-        this.setState({ loading: false });
-      });
-  }
-
   handleFieldChange(event){
     
     if(event){
@@ -259,21 +236,19 @@ getPasswordPolicy() {
    validateVerifyForm() {
     console.log(this.state.confirmationCode)
     if (!this.state.confirmationCode || this.state.confirmationCode == '') {
-     this.setState({errorMessage : 'Confirmation code required'});
+     this.setState({errorMessage : 'confirmation code required'});
       return false;
     }
 
     if (this.state.confirmPassword != this.state.password) {
-     // toast.error('Your password and confirmation password do not match');
+      this.setState({errorMessage : 'those passwords didn’t match. Try again.'});
       return false;
     }
 
-    // if (!this.state.passwordValidation.isSuccess) {
-    //   toast.error(
-    //     'For your safety, a strong password is required. Please set a password that meets policy requirements.'
-    //   );
-    //   return false;
-    // }
+    if (!this.state.passwordValidation.isSuccess) {
+      this.setState({errorMessage : 'a strong password is required'});
+      return false;
+    }
 
     return true;
   }
@@ -317,6 +292,7 @@ getPasswordPolicy() {
                               email : this.props.location.state.email
                             }
                             localStorage.setItem('auth', JSON.stringify(auth) );
+                            this.props.userHasAuthenticated(true);
                              this.props.history.push('/dashboard');
                           }
                           this.setState({ loading: false });
@@ -381,7 +357,7 @@ const { isPopoverOpen } = this.state;
                                       .hasUpperCase,
                                   }}
                                 >
-                                  Should include atleast one upper case
+                                  should include atleast one upper case
                                   character
                                 </li>
                               ) : null}
@@ -393,7 +369,7 @@ const { isPopoverOpen } = this.state;
                                       .hasLowerCase,
                                   }}
                                 >
-                                  Should include atleast one lower case
+                                  should include atleast one lower case
                                   character
                                 </li>
                               ) : null}
@@ -405,7 +381,7 @@ const { isPopoverOpen } = this.state;
                                       .hasNumeric,
                                   }}
                                 >
-                                  Should include atlease one number
+                                  should include atlease one number
                                 </li>
                               ) : null}
                               {this.state.passwordPolicy.RequireSymbols ? (
@@ -416,7 +392,7 @@ const { isPopoverOpen } = this.state;
                                       .hasSpecialCharacter,
                                   }}
                                 >
-                                  Should include atleast one special character
+                                  should include atleast one special character
                                 </li>
                               ) : null}
                               {this.state.passwordPolicy.MinimumLength > 0 ? (
@@ -427,7 +403,7 @@ const { isPopoverOpen } = this.state;
                                       .hasCorrectLength,
                                   }}
                                 >
-                                  Should include{' '}
+                                  should include{' '}
                                   {this.state.passwordPolicy.MinimumLength}{' '}
                                   characters
                                 </li>
@@ -447,9 +423,9 @@ const { isPopoverOpen } = this.state;
             </Link>
             <h1 className="password montserrat-bold-rose-pearl-24px">{password}</h1>
           </div>
-        <div className="container-center-horizontal">
+        <div className="container-center-horizontal" onClick={()=>this.verify.bind(this)} >
             <div className="nexticon" style={{ backgroundImage: `url(${nextIcon})` }}>
-              <div onClick={()=>this.verify.bind(this)} className="save montserrat-semi-bold-white-20px">{save}</div>
+              <div className="save montserrat-semi-bold-white-20px">{save}</div>
             </div>
         </div>
         <div className="field-wrapper">

@@ -557,7 +557,7 @@ export default class Soundsnewuser extends React.Component {
   }
 
   onSettingsClick(){
-     this.props.history.push('/settigns');
+     this.props.history.push('/settings');
    }
 
   selectCreative(id, status) {
@@ -768,7 +768,7 @@ export default class Soundsnewuser extends React.Component {
               <div id="trends" class="tab-pane fade">
                 <br/>
                 {this.state.creativeList.length > 0 ?
-                  (this.state.countriesSeries.length===0 || this.state.dspSeries.length===0||this.state.trackSeries===0)?(
+                  this.state.trackSeries.length===0 && this.state.countriesSeries.length === 0 && this.state.dspSeries.length === 0?(
                     <div className="no-earnings montserrat-semi-bold-violet-red-25px">
                       <span>No Data Available.</span>
                     </div>

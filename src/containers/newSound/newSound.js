@@ -145,7 +145,7 @@ readUploadedFile = (e) => {
 }
 
   uploadCoverImage = (type) => {
-      this.setState({ loading: false });
+      this.setState({ loading: true });
   console.log(this.state.cropedImageFile);
   let file = this.state.cropedImageFile;
   var re = /(?:\.([^.]+))?$/;
@@ -276,7 +276,7 @@ navigateToSoundPage(){
         data.finalImage = this.state.finalImage;
         data.thumbnailImage = this.state.thumbnailImage;
         localStorage.setItem('data', JSON.stringify(data));
-        this.props.history.push('/soundStep1');
+        this.props.history.push('/sound1');
       }
       else {
         let data = {
@@ -288,7 +288,7 @@ navigateToSoundPage(){
         thumbnailImage : this.state.thumbnailImage, 
     }
         localStorage.setItem('data', JSON.stringify(data));
-        this.props.history.push('/soundStep1');
+        this.props.history.push('/sound1');
       }
     }
   }
@@ -305,7 +305,7 @@ navigateToSoundPage(){
         data.finalImage = this.state.finalImage;
         data.thumbnailImage = this.state.thumbnailImage;
         localStorage.setItem('data', JSON.stringify(data));
-        this.props.history.push('/soundStep1');
+        this.props.history.push('/sound1');
       }
       else{
         let data = {
@@ -317,7 +317,7 @@ navigateToSoundPage(){
         thumbnailImage : this.state.thumbnailImage
         }
         localStorage.setItem('data', JSON.stringify(data));
-        this.props.history.push('/soundStep1');
+        this.props.history.push('/sound1');
       }
     }
    }

@@ -152,10 +152,10 @@ fileManagementService
 
 validateForm =() =>{
    if (!this.state.s3Path || this.state.s3Path === ''){
-    this.setState({errorMessage : 'Please upload creative file'});
+    this.setState({errorMessage : 'please upload creative file'});
     return false;
   }else if (!this.state.category || this.state.category.value === 'category'){
-    this.setState({errorMessage : 'Category field required'});
+    this.setState({errorMessage : 'category field required'});
     return false;
   }
 

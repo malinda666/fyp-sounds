@@ -33,21 +33,20 @@ export default class Warn5 extends React.Component {
           <img className="rectangle-IZxxJF" src={rectangleCopy} />
         </div>
         <div className="container-center-horizontal">
-          <div className="congrats-wrapper">
-            <h1 className="ud83cudf89 applecoloremoji-normal-white-60px">{Ud83CUdf89}</h1>
-           <div className="congratulations-you sofiapro-normal-white-30px">{congratulationsYou}</div>
-           <div className="nexticon-copy-2 animate-enter" onClick={() => {this.props.history.push('/dashboard')}}>
-              <img className="rectangle-pXVhQA" src={rectangle2} />
-              <a >
-                <img className="rectangle-OxJunE" src={rectangle3} />
-                <div className="dismiss montserrat-semi-bold-white-20px">{dismiss}</div>
-              </a>
-              
-          </div>
-          </div>
-          
+          <h1 className="ud83cudf89 applecoloremoji-normal-white-60px">{Ud83CUdf89}</h1>
         </div>
-       
+        <div className="container-center-horizontal">
+          <div className="nexticon-copy-2 animate-enter" onClick={() => {this.props.history.push('/dashboard')}}>
+            <img className="rectangle-pXVhQA" src={rectangle2} />
+            <a >
+              <img className="rectangle-OxJunE" src={rectangle3} />
+            </a>
+            <div className="dismiss montserrat-semi-bold-white-20px">{dismiss}</div>
+          </div>
+        </div>
+        <div className="container-center-horizontal">
+          <div className="congratulations-you sofiapro-normal-white-30px">{congratulationsYou}</div>
+        </div>
         <Fypcopy {...fypcopyProps} />
       </div>
     );

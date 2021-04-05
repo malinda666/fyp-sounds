@@ -9,7 +9,7 @@ import Footer from '../../components/footer'
 import { IconContext } from "react-icons";
 import { BsFillInfoCircleFill } from "react-icons/bs";
 import { Popover } from 'react-tiny-popover'
-
+import Cookies from "js-cookie";
 
 const popOverTriggerStyles = {
     position:"absolute",
@@ -388,6 +388,9 @@ export default class LoginErrorMessages extends React.Component {
                         email : this.state.loginEmail
                       }
                       localStorage.setItem('auth', JSON.stringify(auth) );
+                      let inFiftyMinutes = new Date(new Date().getTime() + 50 *60* 100);
+                      Cookies.set("id_token", res.data.idToken.jwtToken, {expires : inFiftyMinutes});
+                      Cookies.set("refreshtoken", res.data.refreshToken, {expires : 1 });
                       this.props.userHasAuthenticated(true);
                     
                        this.props.history.push('/dashboard');
@@ -461,7 +464,7 @@ export default class LoginErrorMessages extends React.Component {
                                       .hasUpperCase,
                                   }}
                                 >
-                                  Should include atleast one upper case
+                                  should include at least one upper case
                                   character
                                 </li>
                               ) : null}
@@ -473,7 +476,7 @@ export default class LoginErrorMessages extends React.Component {
                                       .hasLowerCase,
                                   }}
                                 >
-                                  Should include atleast one lower case
+                                  should include at least one lower case
                                   character
                                 </li>
                               ) : null}
@@ -485,7 +488,7 @@ export default class LoginErrorMessages extends React.Component {
                                       .hasNumeric,
                                   }}
                                 >
-                                  Should include atlease one number
+                                  should include at least one number
                                 </li>
                               ) : null}
                               {this.state.passwordPolicy.RequireSymbols ? (
@@ -496,7 +499,7 @@ export default class LoginErrorMessages extends React.Component {
                                       .hasSpecialCharacter,
                                   }}
                                 >
-                                  Should include atleast one special character
+                                  should include at least one special character
                                 </li>
                               ) : null}
                               {this.state.passwordPolicy.MinimumLength > 0 ? (
@@ -507,7 +510,7 @@ export default class LoginErrorMessages extends React.Component {
                                       .hasCorrectLength,
                                   }}
                                 >
-                                  Should include{' '}
+                                  should include{' '}
                                   {this.state.passwordPolicy.MinimumLength}{' '}
                                   characters
                                 </li>

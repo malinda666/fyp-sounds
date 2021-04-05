@@ -16,14 +16,14 @@ export default class SoundForm1 extends React.Component {
       let data = JSON.parse(localStorage.getItem('data'));
         if(data){
         if(data.type === 'sound'){
-        this.setState({routePath : '/soundStep2'});
+        this.setState({routePath : '/sound2'});
       }
       else if(data.type === 'song'){
-        this.setState({routePath : '/songStep1'});
+        this.setState({routePath : '/song1'});
       }
     }
     else{
-      this.setState({routePath : '/soundStep2'});
+      this.setState({routePath : '/sound2'});
     }
       }
 

@@ -69,15 +69,15 @@ const RouterConfig = ({ userHasAuthenticated, isAuthenticated}) =>
     <AppliedRoute path="/login" exact component={Login} props={{...LoginData, userHasAuthenticated : userHasAuthenticated, isAuthenticated: isAuthenticated}} />
     <UnauthenticatedRoute path="/" exact component={Home} props={LandingData} />
     <UnauthenticatedRoute path="/forgotPassword" exact component={ForgotPassword} props={RecoveryData} />
-    <UnauthenticatedRoute path="/verifyPassword" exact component={VerifyPassword} props={RecoverPasswordData}/>
+    <AppliedRoute path="/verifyPassword" exact component={VerifyPassword} props={{...RecoverPasswordData, userHasAuthenticated : userHasAuthenticated, isAuthenticated: isAuthenticated}}/>
     <UnauthenticatedRoute path="/faq" exact component={FAQ} props={FAQData} />
     <UnauthenticatedRoute path="/about" exact component={About} props={AboutData} />
     <UnauthenticatedRoute path="/contact" exact component={Contact} props={ContactData} />
     <UnauthenticatedRoute path="/policy" exact component={Policy} props={PrivacyPolicyData} />
-    <UnauthenticatedRoute path="/verify" exact component={Verification} props={VerificationData} />
-    <UnauthenticatedRoute path="/changePassword" exact component={ChangePassword} props={PasswordData} />
+    <AppliedRoute path="/verify" exact component={Verification} props={{...VerificationData, userHasAuthenticated : userHasAuthenticated, isAuthenticated: isAuthenticated}} />
+    <AppliedRoute path="/changePassword" exact component={ChangePassword} props={{...PasswordData, userHasAuthenticated : userHasAuthenticated, isAuthenticated: isAuthenticated}} />
     <AuthenticatedRoute path="/dashboard" exact component={Dashboard} props={{...dashboardData, isAuthenticated: isAuthenticated}} />
-    <AuthenticatedRoute path="/settigns" exact component={Settings} props={{...SettingsData, userHasAuthenticated : userHasAuthenticated, isAuthenticated: isAuthenticated}} />
+    <AuthenticatedRoute path="/settings" exact component={Settings} props={{...SettingsData, userHasAuthenticated : userHasAuthenticated, isAuthenticated: isAuthenticated}} />
     <AuthenticatedRoute path="/warn5" exact component={Warn5} props = {{...Warn5Data, userHasAuthenticated : userHasAuthenticated, isAuthenticated: isAuthenticated}}/>
     <AuthenticatedRoute path="/warn4" exact component={Warn4} props = {{...Warn4Data, userHasAuthenticated : userHasAuthenticated, isAuthenticated: isAuthenticated}}/>
     <AuthenticatedRoute path="/warn2" exact component={Warn2} props = {{...Warn2Data, userHasAuthenticated : userHasAuthenticated, isAuthenticated: isAuthenticated}}/>
@@ -87,15 +87,15 @@ const RouterConfig = ({ userHasAuthenticated, isAuthenticated}) =>
     <AuthenticatedRoute path="/terms" exact component={Terms} props = {{...TermsData, userHasAuthenticated : userHasAuthenticated, isAuthenticated: isAuthenticated}}/>
     <AuthenticatedRoute path="/musicReview" exact component={Review} props = {{...MusicsubData, userHasAuthenticated : userHasAuthenticated, isAuthenticated: isAuthenticated}}/>
     <AuthenticatedRoute path="/newSound" exact component={NewSound} props = {{...NewSoundData, userHasAuthenticated : userHasAuthenticated, isAuthenticated: isAuthenticated}}/>
-    <AuthenticatedRoute path="/soundStep1" exact component={SoundStep1} props = {{...SoundForm1Data, userHasAuthenticated : userHasAuthenticated, isAuthenticated: isAuthenticated}}/>
+    <AuthenticatedRoute path="/sound1" exact component={SoundStep1} props = {{...SoundForm1Data, userHasAuthenticated : userHasAuthenticated, isAuthenticated: isAuthenticated}}/>
     <AuthenticatedRoute path="/warn1" exact component={Warn1} props = {{...warn1Data, userHasAuthenticated : userHasAuthenticated, isAuthenticated: isAuthenticated}}/>
-    <AuthenticatedRoute path="/soundStep2" exact component={SoundStep2} props = {{...SoundForm1bData, userHasAuthenticated : userHasAuthenticated, isAuthenticated: isAuthenticated}}/>
-    <AuthenticatedRoute path="/soundStep3" exact component={SoundStep3} props = {{...SoundForm2bData, userHasAuthenticated : userHasAuthenticated, isAuthenticated: isAuthenticated}}/>
+    <AuthenticatedRoute path="/sound2" exact component={SoundStep2} props = {{...SoundForm1bData, userHasAuthenticated : userHasAuthenticated, isAuthenticated: isAuthenticated}}/>
+    <AuthenticatedRoute path="/sound3" exact component={SoundStep3} props = {{...SoundForm2bData, userHasAuthenticated : userHasAuthenticated, isAuthenticated: isAuthenticated}}/>
     <AuthenticatedRoute path="/soundReview" exact component={SoundReview} props = {{...SoundsubData, userHasAuthenticated : userHasAuthenticated, isAuthenticated: isAuthenticated}}/>
-    <AuthenticatedRoute path="/songStep1" exact component={SongStep1} props = {{...MusicForm2Data, userHasAuthenticated : userHasAuthenticated, isAuthenticated: isAuthenticated}}/>
-    <AuthenticatedRoute path="/songStep2" exact component={SongStep2} props = {{...MusicForm3Data, userHasAuthenticated : userHasAuthenticated, isAuthenticated: isAuthenticated}}/>
-    <AuthenticatedRoute path="/songStep3" exact component={SongStep3} props = {{...MusicForm4Data, userHasAuthenticated : userHasAuthenticated, isAuthenticated: isAuthenticated}}/>
-    <AuthenticatedRoute path="/songStep4" exact component={SongStep4} props = {{...MusicForm5Data, userHasAuthenticated : userHasAuthenticated, isAuthenticated: isAuthenticated}}/>
+    <AuthenticatedRoute path="/song1" exact component={SongStep1} props = {{...MusicForm2Data, userHasAuthenticated : userHasAuthenticated, isAuthenticated: isAuthenticated}}/>
+    <AuthenticatedRoute path="/song2" exact component={SongStep2} props = {{...MusicForm3Data, userHasAuthenticated : userHasAuthenticated, isAuthenticated: isAuthenticated}}/>
+    <AuthenticatedRoute path="/song3" exact component={SongStep3} props = {{...MusicForm4Data, userHasAuthenticated : userHasAuthenticated, isAuthenticated: isAuthenticated}}/>
+    <AuthenticatedRoute path="/song4" exact component={SongStep4} props = {{...MusicForm5Data, userHasAuthenticated : userHasAuthenticated, isAuthenticated: isAuthenticated}}/>
 </Switch>;
 
 export default RouterConfig; 
