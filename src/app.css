@@ -37,10 +37,12 @@ background: linear-gradient(62deg, rgba(210,43,108,1) 0%, rgba(85,163,182,1) 100
 	z-index: 2 !important;
 }
 .react-select__value-container{
-	background: rgb(210,43,108);
-background: linear-gradient(62deg, rgba(210,43,108,1) 0%,  rgba(85,163,182,1) 100%); 
+	/*background: rgb(210,43,108);
+background: linear-gradient(62deg, rgba(210,43,108,1) 0%,  rgba(85,163,182,1) 100%); */
 	border-radius: 2rem 0px 0px 2rem;
 	justify-content: center !important;
+	-webkit-flex: 1 1 50%;
+    flex: 1 1 50%;
 }
 .react-select__indicator  > svg {
 	transform:scale(1.4) !important;
@@ -55,21 +57,21 @@ background: linear-gradient(62deg, rgba(210,43,108,1) 0%,  rgba(85,163,182,1) 10
 }
 .react-select__single-value {
 	color : #fff !important;
-	margin-left: 22px !important;
 	position: relative !important;
 	transform: translateY(0) !important;
 	text-align: center !important;
 	font-family: "Montserrat", Helvetica, Arial, serif !important;
-    font-size: 16px !important;
+    font-size: 14px !important;
     font-style: normal !important;
     font-weight: 400 !important;
     letter-spacing: 0px !important;
 }
 .react-select__menu{
-	margin: 0 !important;
+	margin: 0 0 !important;
 	 background: rgb(210,43,108);
 background: linear-gradient(62deg, rgba(210,43,108,1) 0%, rgba(85,163,182,1) 100%); 
 	top: 0 !important;
+	padding:37px 0 0 0;
 	border-radius:1.5rem !important;
 	 scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none;  /* Internet Explorer 10+ */
@@ -80,7 +82,6 @@ background: linear-gradient(62deg, rgba(210,43,108,1) 0%, rgba(85,163,182,1) 100
 background: linear-gradient(62deg, rgba(210,43,108,1) 0%, rgba(85,163,182,1) 100%); 
 	max-height: 350px !important;
 	border-radius:1.5rem !important;
-	padding-top: 36px !important;
 	 scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none;  /* Internet Explorer 10+ */
 }
@@ -89,7 +90,7 @@ background: linear-gradient(62deg, rgba(210,43,108,1) 0%, rgba(85,163,182,1) 100
 	color: #fff !important;
 	text-align: center !important;
 	font-family: "Montserrat", Helvetica, Arial, serif !important;
-    font-size: 16px !important;
+    font-size: 14px !important;
     font-style: normal !important;
     font-weight: 400 !important;
     letter-spacing: 0px !important;
@@ -129,3 +130,19 @@ input[type=number]::-webkit-outer-spin-button {
     appearance: none;
     margin: 0; 
 }
+@media only screen and (max-width: 320px) {
+
+	.react-select__menu-list{
+		max-height: 250px !important;
+	}	
+
+}
+@media (min-width:480px)  { 
+
+/* smartphones, Android phones, landscape iPhone */ 
+
+}
+@media (min-width:600px)  { /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */ }
+@media (min-width:801px)  { /* tablet, landscape iPad, lo-res laptops ands desktops */ }
+@media (min-width:1025px) { /* big landscape tablets, laptops, and desktops */ }
+@media (min-width:1281px) { /* hi-res laptops and desktops */ }

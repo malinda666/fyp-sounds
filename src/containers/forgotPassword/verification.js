@@ -442,7 +442,7 @@ const { isPopoverOpen } = this.state;
             </Link>
             <h1 className="password montserrat-bold-rose-pearl-24px">{password}</h1>
           </div>
-        <div className="container-center-horizontal" onClick={()=>this.verify.bind(this)} >
+        <div className="container-center-horizontal" onClick={()=>this.verify()} >
             <div className="nexticon" style={{ backgroundImage: `url(${nextIcon})` }}>
               <div className="save montserrat-semi-bold-white-20px">{save}</div>
             </div>

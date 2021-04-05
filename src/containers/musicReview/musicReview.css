@@ -216,6 +216,10 @@
     line-height: 18px;
     text-align: right;
     white-space: nowrap;
+    width: 125px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .musicsub .producer {

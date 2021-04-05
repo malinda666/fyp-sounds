@@ -272,7 +272,7 @@ navigateToNextPage(){
               onChange={this.changeCategoryHandler}
               classNamePrefix="react-select"
               className='react-select-container'
-              isMenuOpen={true}
+              isSearchable = {false}
                         />
             <img className="back-chevron" src={backChevron} />
           </div>

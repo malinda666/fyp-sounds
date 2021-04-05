@@ -5,6 +5,7 @@
 	position: fixed;
 	width: 1748px;
 	display: flex;align-items: center;justify-content: center;
+	z-index: 0;
 }
 .footerLogo{
 	position: absolute;top: 53px;left: 50%;transform: translateX(-50%);width: 57px;height: 24px;
@@ -13,7 +14,7 @@
 	position: absolute;top: 0;left: 0;height: 100%;width: 100%;
 }
 .footerImg{
-	position: absolute;top: 0;left: 0;width: 1747px;height: 296px;
+	position: absolute;top: 0;left: 0;width: 1747px;height: 296px;z-index: -3;
 }
 .footerImg > img {
 	position: absolute;top: 0;left: 0;height: 295px;width: 1747px;
@@ -31,4 +32,10 @@
 }
 .copyrightNotice{
 	height: auto;letter-spacing: 0;line-height: 16px;position: absolute;text-align: center;top: 131px;white-space: nowrap;width: 100%;
+}
+@media only screen and (max-width: 320px) {
+	.footer{
+		transform: scale(0.8);
+	}
+
 }

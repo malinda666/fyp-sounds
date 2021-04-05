@@ -99,7 +99,7 @@ export default class MusicForm3 extends React.Component {
         <img className="oval-QxM5SU" src={oval4} />
         <div className="musicform2-wrapper">
 
-           <div className="ownership">
+          <div className="ownership">
             <div className="are-you-the-owner-of sofiapro-normal-white-30px">{areYouTheOwnerOf}</div>
             <div className="yes montserrat-light-white-20px">{yes}</div>
           </div>
@@ -140,10 +140,7 @@ export default class MusicForm3 extends React.Component {
           value={this.state.authorName}
         />
           </div>
-
-          <NexticonCopy7 {...{...nexticonCopy7Props, handleFieldChange : event => this.handleFieldChange(event), id: 'producerName', value: this.state.producerName}} />
-          <NexticonCopy7 {...{...nexticonCopy72Props, handleFieldChange : event => this.handleFieldChange(event), id: 'featuringArtist', value: this.state.featuringArtist}} className="nexticon-copy-8" /> 
-        <div className="nexticon" onClick={()=>{
+          <div className="nexticon" onClick={()=>{
           this.setState({errorMessage : ''});
           if(this.validateForm()){
             if(localStorage.getItem('data')){

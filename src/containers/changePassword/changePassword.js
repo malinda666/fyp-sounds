@@ -249,11 +249,12 @@ getPasswordPolicy() {
       this.setState({errorMessage : 'a strong password is required'});
       return false;
     }
-
+    console.log(this.state.errorMessage)
     return true;
   }
   verify (){
     if (this.validateVerifyForm()) {
+      console.log('verified')
       this.setState({ loading: true});
 
       let authObject = {
@@ -324,6 +325,8 @@ getPasswordPolicy() {
             this.setState({ loading: false });
           //toast.error('Unable to reset password \n' + err);
         });
+    }else{
+      console.log('unverified')
     }
   };
 
@@ -423,11 +426,9 @@ const { isPopoverOpen } = this.state;
             </Link>
             <h1 className="password montserrat-bold-rose-pearl-24px">{password}</h1>
           </div>
-        <div className="container-center-horizontal" onClick={()=>this.verify.bind(this)} >
-            <div className="nexticon" style={{ backgroundImage: `url(${nextIcon})` }}>
+            <div onClick={()=>this.verify()} className="nexticon" style={{ backgroundImage: `url(${nextIcon})` }}>
               <div className="save montserrat-semi-bold-white-20px">{save}</div>
             </div>
-        </div>
         <div className="field-wrapper">
             <ClearCacheCopy {...{...clearCacheCopyProps,handleFieldChange : event => this._validateJoinPassword(event), id : '_oldPassword'}} />
             <ClearCacheCopy {...{...clearCacheCopy2Props,handleFieldChange : event => this._validateJoinPassword(event), id : '_newPassword'}} className="clear-cache-copy-2" />

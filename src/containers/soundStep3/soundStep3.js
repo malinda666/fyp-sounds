@@ -279,6 +279,7 @@ export default class SoundForm2b extends React.Component {
               onChange={this.changeCategoryHandler}
               classNamePrefix="react-select"
               className='react-select-container'
+              isSearchable = {false}
                         />
 
               <div className="creator">
