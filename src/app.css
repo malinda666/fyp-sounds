@@ -1,17 +1,19 @@
 html, body {
 	user-select : none;
 }
-body {
-    overflow: hidden;
+body::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* Chrome/Safari/Webkit */
+}
+
+body{
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE 10+ */
 }
 img{
 	object-fit:cover;
 	object-position:center;
 	
-}
-::-webkit-scrollbar { /* WebKit */
-    width: 0;
-    height: 0;
 }
 ._loading_overlay_wrapper--active > *{
 	background-color:#fff;

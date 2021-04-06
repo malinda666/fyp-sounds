@@ -7,6 +7,7 @@ import LoadingOverlay from "react-loading-overlay";
 import Header from '../../components/header'
 import Footer from '../../components/footer'
 import { IconContext } from "react-icons";
+import { AiOutlineInfo } from "react-icons/ai";
 import { BsFillInfoCircleFill } from "react-icons/bs";
 import { Popover } from 'react-tiny-popover'
 import Cookies from "js-cookie";
@@ -381,15 +382,15 @@ export default class LoginErrorMessages extends React.Component {
                        this.setState({ loading: false});                       
                     } else {
                       let auth = {
-                        refreshtoken : res.data.refreshToken,
-                        access_token : res.data.accessToken,
-                        id_token : res.data.idToken.jwtToken,
+                        //refreshtoken : res.data.refreshToken,
+                        //access_token : res.data.accessToken,
+                        //id_token : res.data.idToken.jwtToken,
                         user_dir : result.data.Item.user_dir,
                         email : this.state.loginEmail
                       }
                       localStorage.setItem('auth', JSON.stringify(auth) );
-                      let inFiftyMinutes = new Date(new Date().getTime() + 50 *60* 100);
-                      Cookies.set("id_token", res.data.idToken.jwtToken, {expires : inFiftyMinutes});
+                      let inFiftyMinutes = new Date(new Date().getTime() + 50 *60* 1000);
+                      Cookies.set("id_token", res.data.idToken.jwtToken, {expires : 1});
                       Cookies.set("refreshtoken", res.data.refreshToken, {expires : 1 });
                       this.props.userHasAuthenticated(true);
                     
@@ -525,10 +526,6 @@ export default class LoginErrorMessages extends React.Component {
           active={this.state.loading}
           spinner={<HashLoader color={"#f24b76"} size={100}/>}
         >
-<meta 
-     name='viewport' 
-     content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' 
-/>
       <form className="loginerrormessages" name="form1" action="form1" method="post" >
         <div className="form-container">
           <div className="container-center-horizontal">

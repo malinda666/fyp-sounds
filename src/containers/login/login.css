@@ -17,9 +17,9 @@
 
 .loginerrormessages {
     background-color: white;
-    height: 100%;
+    height: 100vh;
     margin: 0px;
-    min-height: 100vh;
+    /*min-height: 100vh;*/
     overflow:hidden;
     position: relative;
     width: 100%;
@@ -38,7 +38,7 @@
     margin-right: -6px;
     position: fixed;
     text-align: center;
-    top: 390px;
+    top: 390px; 
     white-space: nowrap;
     width: 309px;
     font-size: 10px !important;
@@ -606,6 +606,9 @@ a {
         top: 100px;
 
     }
+    .loginerrormessages{
+        height: 674px
+    }
     .loginerrormessages .nexticon-copy{
         top: 239px;
     }
@@ -623,6 +626,6 @@ a {
         top: 345px;
     }
     .loginerrormessages .an-error-VMr6Om{
-        top: 266px;
+        top: 342px;
     }
 }

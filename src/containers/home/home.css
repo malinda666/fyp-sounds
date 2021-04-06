@@ -75,7 +75,7 @@
     width: auto;
 }
 .landing .home-video{
-    position: absolute;
+    position: fixed;
     height: 100%;
     width: 600px;
     left: 50%;transform: translateX(-50%);
@@ -506,29 +506,28 @@
     opacity: 1;
 }
 @media only screen and (max-width: 320px) {
-    .landing .create-tik-tok-sounds {
+    /*.landing .create-tik-tok-sounds {
         top :320px;
         font-size: 24px;
         line-height: 1
     }
     .landing .nexticon{
         top: 420px;
-    }
+    }*/
     .landing .upload-sounds{
         font-size: 16px
-    }
-    .landing .footer{
-        transform: scale(0.8);
     }
     .landing .overlap-group{
         top: 40px   
     }
-    .landing .fypsoundslogo{
-
-    }
     .landing .anything-can-go-vira{
         font-size: 16px
     }
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */ 
+    .landing{
+        height: 674px
+    }
+    .landing .footer{
+        top : 515px
+    }
 
 }

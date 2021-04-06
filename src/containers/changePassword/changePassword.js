@@ -13,7 +13,7 @@ import { Popover } from 'react-tiny-popover'
 const popOverTriggerStyles = {
     position:"absolute",
     top:"140px",
-    left:"100px ",
+    left:"108px ",
     padding: "1px",
     borderRadius: "50%",
     margin: "0 0 0 0",

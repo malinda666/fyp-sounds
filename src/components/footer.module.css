@@ -2,7 +2,7 @@
 	background-color: transparent;
 	bottom: -136px;
 	height: 296px;
-	position: fixed;
+	position: absolute;
 	width: 1748px;
 	display: flex;align-items: center;justify-content: center;
 	z-index: 0;
@@ -35,7 +35,7 @@
 }
 @media only screen and (max-width: 320px) {
 	.footer{
-		transform: scale(0.8);
+		top: 515px;
 	}
 
 }

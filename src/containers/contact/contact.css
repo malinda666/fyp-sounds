@@ -50,7 +50,7 @@
     height: 40px;
     margin-left: -0px;
     margin-right: 0px;
-    position: fixed;
+    position:absolute;
     top: 29px;
     width: 94px;
 }
@@ -60,7 +60,7 @@
     height: auto;
     letter-spacing: 0px;
     line-height: 29px;
-    position: fixed;
+    position:absolute;
     text-align: left;
     top: 108px;
     white-space: nowrap;
@@ -124,7 +124,7 @@
     background-color: transparent;
     bottom: -136px;
     height: 296px;
-    position: fixed;
+    position:absolute;
     width: 1748px;
 }
 
@@ -152,7 +152,7 @@
     height: 452px;
     margin-left: 96px;
     margin-right: -96px;
-    position: fixed;
+    position:absolute;
     top: -333px;
     width: 776px;
 }
@@ -174,7 +174,7 @@
     height: auto;
     justify-content: flex-start;
     min-height: 100%;
-    position: fixed;
+    position:absolute;
     top: 175px;
     width: 311px;
 }
@@ -184,7 +184,7 @@
     height: auto;
     letter-spacing: 0px;
     line-height: 14px;
-    position: fixed;
+    position:absolute;
     text-align: center;
     top: 480px;
     width: 354px;
@@ -464,25 +464,33 @@ a {
 }
 @media only screen and (max-width: 320px) {
 
-.contact .rectangle-zlebQ8{
-    height: 100px;
-}
-.contact .text-area {
-    height: 100px;
-}
-.contact .overlap-group2{
-    margin-top: 7px;
-    height: 100px;
-}
-.contact .overlap-group {
-    margin-top: 7px;
-}
-.contact .or-shoot-us-an-email {
-    top: 390px;
-    font-size: 10px;
-    line-height: 1;
-}
-.contact .nexticon-copy {
-    top: 145px;
-}
+    .contact .rectangle-zlebQ8 {
+        height: 100px;
+    }
+
+    .contact .text-area {
+        height: 100px;
+    }
+
+    .contact .overlap-group2 {
+        margin-top: 7px;
+        height: 100px;
+    }
+
+    .contact .overlap-group {
+        margin-top: 7px;
+    }
+
+    .contact .or-shoot-us-an-email {
+        top: 390px;
+        font-size: 10px;
+        line-height: 1;
+    }
+
+    .contact .nexticon-copy {
+        top: 145px;
+    }
+    .contact{
+        height: 674px
+    }
 }

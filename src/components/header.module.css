@@ -3,7 +3,7 @@
 	height: 452px;
 	margin-left: 96px;
 	margin-right: -96px;
-	position: fixed;
+	position: absolute;
 	top: -333px;
 	width: 776px;
 }
