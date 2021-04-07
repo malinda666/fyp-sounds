@@ -102,7 +102,7 @@ const overlapgroup1Data = {
 const overlapgroupContactData = {
     inputName: "text",
     inputType: "text",
-    inputPlaceholder: "username",
+    inputPlaceholder: "name",
     inputRequired: true,
 };
 

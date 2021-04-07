@@ -468,7 +468,7 @@ navigateToSoundPage(){
         
           <div className="container-center-horizontal">
             
-           <div className="upload-button animate-enter smart-layers-pointers " onClick={() =>this.uploadCoverImage('song')} >
+           <div className="upload-button animate-enter smart-layers-pointers " >
               <label for="fileChoose">
               <img className="rectangle-bKk8JK" src={rectangle3} />         
               <img className="rectangle-bKk8JK" src={rectangle4} />   

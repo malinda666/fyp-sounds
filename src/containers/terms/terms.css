@@ -79,10 +79,11 @@
      overflow-y: scroll;
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    z-index: 3;
 }
 @media only screen and (max-width: 600px) {
   .terms .terms-wrapper {
-    height: 350px;
+    height: 300px;
     max-width: 288px;
     
   }
@@ -96,12 +97,12 @@
     background-color: transparent;
     display: block;
     height: 41px;
-    position: fixed;
+    position: absolute;
     top: 85vh;
     width: 146px;
     opacity: 0;
     transform: scale(1.1);
-    z-index: 3;
+    z-index: 4;
     cursor:pointer;
 }
 .terms .terms-container{
@@ -133,7 +134,7 @@
     height: auto;
     letter-spacing: 0px;
     line-height: 17px;
-    position: fixed;
+    position: absolute;
     text-align: justify;
     top: 179px;
     width: 288px;
@@ -190,6 +191,7 @@ background: -moz-linear-gradient(180deg, rgba(2,0,36,0) 0%, rgba(0,242,234,0.01)
 background: -webkit-linear-gradient(180deg, rgba(2,0,36,0) 0%, rgba(0,242,234,0.01) 0%, rgba(0,212,255,1) 100%);
 background: linear-gradient(180deg, rgba(2,0,36,0) 0%, rgba(0,242,234,0.01) 0%, rgba(0,212,255,1) 100%);
 filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#020024",endColorstr="#00d4ff",GradientType=1); 
+z-index: 1;
 }
 @media only screen and (max-width: 600px) {
   .terms .gradient{
@@ -260,7 +262,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#020024",endCo
     background-color: transparent;
     bottom: -250px;
     height: 533px;
-    position: fixed;
+    position: absolute;
     width: 414px;
     z-index: unset;
 }
@@ -279,7 +281,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#020024",endCo
     height: auto;
     letter-spacing: 0px;
     line-height: 29px;
-    position: fixed;
+    position: absolute;
     text-align: left;
     top: 20%;
     white-space: nowrap;
@@ -347,8 +349,12 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#020024",endCo
     }
     .terms .terms-wrapper{
         max-width: 250px;
+        height: 250px
     }
     .terms .nexticon-copy-2{
         top: 85%;
+    }
+    .terms .gradient{
+        height: 40vh
     }
 }

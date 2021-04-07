@@ -122,7 +122,7 @@
     height: 54px;
     left: 111px;
     position: absolute;
-    top: 50%;
+    top: 75%;
     width: 192px;
 }
 
@@ -201,12 +201,12 @@
     left: 86px;
     min-width: 243px;
     position: absolute;
-    top: 420px;
+    top: 500px;
     width: auto;
 }
 
 .musicform3 .nexticon-copy-8 {
-    top: 500px;
+    top: 600px;
 }
 
 .musicform3 .or-name {

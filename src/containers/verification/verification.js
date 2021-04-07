@@ -35,15 +35,15 @@ export default class Verificationin extends React.Component {
             .then((res) => {
               if(res.status === 200){
               let auth = {
-                        refreshtoken : res.data.refreshToken,
-                        access_token : res.data.accessToken,
-                        id_token : res.data.idToken.jwtToken,
+                        //refreshtoken : res.data.refreshToken,
+                        //access_token : res.data.accessToken,
+                        //id_token : res.data.idToken.jwtToken,
                         user_dir : profileResponse.data.user_dir,
                         email : this.props.location.state.email
                       }
                       localStorage.setItem('auth', JSON.stringify(auth) );
-                      let inFiftyMinutes = new Date(new Date().getTime() + 50 *60* 100);
-                      Cookies.set("id_token", res.data.idToken.jwtToken, {expires : inFiftyMinutes});
+                      let inFiftyMinutes = new Date(new Date().getTime() + 50 *60* 1000);
+                      Cookies.set("id_token", res.data.idToken.jwtToken, {expires : 1});
                       Cookies.set("refreshtoken", res.data.refreshToken, {expires : 1 });
                       this.props.userHasAuthenticated(true);
   

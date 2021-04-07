@@ -140,7 +140,7 @@ export default class Recovery extends React.Component {
                 onChange={this.handleFieldChange.bind(this)}
               />
             </div>
-            <div className="overlap-group1" onClick={this.onSendClick.bind(this)}>
+            <div className="overlap-group1" onClick={() => this.onSendClick()}>
               <img className="rectangle-3cn1mj" src={rectangle2} />
               <div className="send montserrat-semi-bold-white-20px">{send}</div>
             </div>

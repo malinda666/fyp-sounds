@@ -65,7 +65,7 @@ export default class SoundForm2b extends React.Component {
         this.setState({errorMessage : 'creator name field is required'});
         return false;
       }else if (!this.state.s3Path || this.state.s3Path === ''){
-        this.setState({errorMessage : 'please upload creative file'});
+        this.setState({errorMessage : 'please upload audio file'});
         return false;
       }else if (!this.state.category || this.state.category.value === 'category'){
         this.setState({errorMessage : 'category field required'});

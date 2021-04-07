@@ -6,6 +6,7 @@ import userManagementService from '../../services/userManagementService';
 import ProfileManagementService from "../../services/profileManagementService";
 import HashLoader from 'react-spinners/HashLoader'
 import LoadingOverlay from "react-loading-overlay";
+import Cookies from "js-cookie";
 import { IconContext } from "react-icons";
 import { BsFillInfoCircleFill } from "react-icons/bs";
 import { Popover } from 'react-tiny-popover'
@@ -39,7 +40,7 @@ export default class Password extends React.Component {
       email:'',
       loading: false,
       confirmationCode:'',
-      password:'1235',
+      password:'',
       confirmPassword:'',
       invalidCode: false,
       errorMessage:'',
@@ -59,6 +60,13 @@ export default class Password extends React.Component {
   }
 
   componentDidMount() {
+    if(localStorage.getItem('auth')){
+      this.setState({auth : JSON.parse(localStorage.getItem('auth'))}, () => {
+        this.setState({successMessage : 'verification code sent to ' + this.state.auth.email.trim(), errorMessage : ''})
+      });
+     
+    }
+
     this.getPasswordPolicy();
   }
 
@@ -237,17 +245,17 @@ getPasswordPolicy() {
    validateVerifyForm() {
     console.log(this.state.confirmationCode)
     if (!this.state.confirmationCode || this.state.confirmationCode == '') {
-     this.setState({errorMessage : 'confirmation code required'});
+     this.setState({errorMessage : 'confirmation code required', successMessage: ''});
       return false;
     }
 
-    if (this.state.confirmPassword != this.state.password) {
-      this.setState({errorMessage : 'those passwords didn’t match. Try again.'});
-      return false;
-    }
+    // if (this.state.confirmPassword != this.state.password) {
+    //   this.setState({errorMessage : 'those passwords didn’t match. Try again.', successMessage: ''});
+    //   return false;
+    // }
 
     if (!this.state.passwordValidation.isSuccess) {
-      this.setState({errorMessage : 'a strong password is required'});
+      this.setState({errorMessage : 'a strong password is required', successMessage: ''});
       return false;
     }
 
@@ -261,7 +269,7 @@ getPasswordPolicy() {
         ConfirmationCode: this.state.confirmationCode,
         Username: this.state.auth.email,
         ClientId: config.CLIENT_ID,
-        Password: this.state.password,
+        Password: this.state.confirmPassword,
       };
 
       userManagementService
@@ -274,45 +282,48 @@ getPasswordPolicy() {
                 if (result.status == 200) {
                   if (result.data.Item != null) {
                     userManagementService
-                      .signIn(this.state.auth.email, this.state.password)
+                      .signIn(this.state.auth.email, this.state.confirmPassword)
                       .then((res) => {
                         if (res.status == 200) {
                           if (res.data.code != null) {
                             if (res.data.code == 'NotAuthorizedException') {
-                               this.setState({errorMessage : 'Invalid Email/Password'});
+                               this.setState({errorMessage : 'Invalid Email/Password', successMessage: ''});
                             } else {
-                              this.setState({errorMessage :'Invalid Email/Password'});
+                              this.setState({errorMessage :'Invalid Email/Password', successMessage: ''});
                             }
                              this.setState({ loading: false});                       
                           } else {
                             let auth = {
-                              refreshtoken : res.data.refreshToken,
-                              access_token : res.data.accessToken,
-                              id_token : res.data.idToken.jwtToken,
+                              //refreshtoken : res.data.refreshToken,
+                              //access_token : res.data.accessToken,
+                              //id_token : res.data.idToken.jwtToken,
                               user_dir : result.data.Item.user_dir,
                               email : this.state.auth.email
                             }
                             localStorage.setItem('auth', JSON.stringify(auth) );
+                            let inFiftyMinutes = new Date(new Date().getTime() + 50 *60* 1000);
+                            Cookies.set("id_token", res.data.idToken.jwtToken, {expires : 1});
+                            Cookies.set("refreshtoken", res.data.refreshToken, {expires : 1 });
                             this.props.userHasAuthenticated(true);
                              this.props.history.push('/dashboard');
                           }
                           this.setState({ loading: false });
                         } else {
-                           this.setState({errorMessage :'Login failed, please contact administrator'});
+                           this.setState({errorMessage :'Login failed, please contact administrator', successMessage: ''});
                           this.setState({ loading: false });
                         }
                       });
                     }else {               
-                      this.setState({errorMessage :'No account found under this email'});
+                      this.setState({errorMessage :'No account found under this email', successMessage: ''});
                       this.setState({loading:false})
                     }
       
                   } else{
-                     this.setState({errorMessage :'Login failed, please contact administrator'});
+                     this.setState({errorMessage :'Login failed, please contact administrator', successMessage: ''});
                     this.setState({loading:false})
                   }
                 }).catch((err) => {
-                    this.setState({errorMessage :'Login failed, please contact administrator'});
+                    this.setState({errorMessage :'Login failed, please contact administrator', successMessage: ''});
                     this.setState({ loading: false });
                   });
           } else {
@@ -329,19 +340,22 @@ getPasswordPolicy() {
   };
 
   reSend() {
+    this.setState({ loading: true });
     userManagementService
-      .resendConfirmationCode(this.state.email.trim())
+      .resendConfirmationCode(this.state.auth.email.trim())
       .then((res) => {
         if (res.status === 200) {
-          this.setState({successMessage : 'verification code sent to ' + this.state.email.trim()})
+          this.setState({successMessage : 'verification code sent to ' + this.state.auth.email.trim(), errorMessage : ''})
           //toast.success('Verification code sent to ' + this.state.email.trim());
         } else {
-          this.setState({errorMessage : 'unable to send verification code'})
+          this.setState({errorMessage : 'unable to send verification code', successMessage: ''})
          // toast.error('Unable to send verification code');
         }
+        this.setState({ loading: false });
       })
       .catch((err) => {
-        this.setState({errorMessage : 'unable to send verification code'})
+        this.setState({errorMessage : 'unable to send verification code', successMessage: ''})
+        this.setState({ loading: false });
         //toast.error('Unable to send verification code');
       });
   }
@@ -448,8 +462,8 @@ const { isPopoverOpen } = this.state;
             </div>
         </div>
         <div className="field-wrapper">
-            <ClearCacheCopy {...{...clearCacheCopyProps,handleFieldChange : event => this._validateJoinPassword(event), id : '_oldPassword'}} />
-            <ClearCacheCopy {...{...clearCacheCopy2Props,handleFieldChange : event => this._validateJoinPassword(event), id : '_newPassword'}} className="clear-cache-copy-2" />
+            <ClearCacheCopy {...{...clearCacheCopyProps,handleFieldChange : event => this._validateJoinPassword(event), id : 'password'}} />
+            <ClearCacheCopy {...{...clearCacheCopy2Props,handleFieldChange : event => this._validateJoinPassword(event), id : 'confirmPassword'}} className="clear-cache-copy-2" />
             <ClearCacheCopy {...{...clearCacheCopy3Props,handleFieldChange : event => this.handleFieldChange(event), id : 'confirmationCode'}} className="clear-cache-copy-3" />
         <Popover
                   isOpen={isPopoverOpen}
@@ -472,7 +486,7 @@ const { isPopoverOpen } = this.state;
         <div className="container-center-horizontal" >
           <p className="didnu2019t-ceive-clic montserrat-light-gravel-14px">
             <span className="span1-LBLLyx">{spanText4}</span>
-            <span className="span2-LBLLyx" onClick={()=>this.reSend.bind(this)}>{spanText5}</span>
+            <span className="span2-LBLLyx" onClick={()=>this.reSend()}>{spanText5}</span>
           </p>
         </div>
         <div className="container-center-horizontal">

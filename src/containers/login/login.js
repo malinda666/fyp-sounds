@@ -526,6 +526,10 @@ export default class LoginErrorMessages extends React.Component {
           active={this.state.loading}
           spinner={<HashLoader color={"#f24b76"} size={100}/>}
         >
+<meta 
+     name='viewport' 
+     content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' 
+/>
       <form className="loginerrormessages" name="form1" action="form1" method="post" >
         <div className="form-container">
           <div className="container-center-horizontal">
@@ -697,5 +701,4 @@ class Fypsoundslogo2 extends React.Component {
     );
   }
 }
-
 

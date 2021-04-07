@@ -1,6 +1,7 @@
-import React from "react";
+import React , {useRef, useEffect } from "react";
 import './terms.css';
 import { withRouter } from 'react-router-dom';
+import {disableBodyScroll,enableBodyScroll,clearAllBodyScrollLocks} from 'body-scroll-lock'
 
 const Terms = ({oval,
       oval2,
@@ -16,7 +17,15 @@ const Terms = ({oval,
       terms,
       fypsoundslogoProps,history,}) => {
   
+  let termsInner = useRef(null)
 
+  useEffect(() => {
+  	disableBodyScroll(termsInner)
+  	return () => {
+  		enableBodyScroll(termsInner)
+  		clearAllBodyScrollLocks()
+  	};
+  }, [])
     return (
       <div className="terms">
         {/* <div className="overlap-group-C61RwL"> */}
@@ -39,7 +48,7 @@ const Terms = ({oval,
           <Fypsoundslogo {...fypsoundslogoProps} />          
         </div>
         <div className="container-center-horizontal">
-          <div className="terms-wrapper">
+          <div className="terms-wrapper" ref={el=>termsInner=el}>
             <div className="terms-container">
              <h2> SUBMISSION FOR DISTRIBUTION AGREEMENT</h2> <span className="desc">for FYPsounds.com and FYPcharts.com (the “eMUQ Websites”), each an online streaming platform owned and controlled by eMUQ TECH, Inc., a Florida corporation with an address at 1000 5th Street/Suite #200, Miami Beach, FL 33139 (“eMUQ”),  dedicated to providing your original audio content for digital streaming platforms whereby you can monetize your original audio creations:</span>
 <br/>

@@ -9,6 +9,7 @@ import LoadingOverlay from "react-loading-overlay";
 import { IconContext } from "react-icons";
 import { BsFillInfoCircleFill } from "react-icons/bs";
 import { Popover } from 'react-tiny-popover'
+import Cookies from "js-cookie";
 
 const popOverTriggerStyles = {
     position:"absolute",
@@ -39,10 +40,11 @@ export default class Password extends React.Component {
       email:'',
       loading: false,
       confirmationCode:'',
-      password:'1235',
+      password:'',
       confirmPassword:'',
       invalidCode: false,
       errorMessage:'',
+      successMessage:'',
       isPopoverOpen:false,
       passwordPolicy: Object.assign({}, props.passwordPolicy),
       passwordValidation: {
@@ -58,6 +60,7 @@ export default class Password extends React.Component {
   }
 
   componentDidMount() {
+    this.setState({successMessage : 'verification code sent to ' + this.props.location.state.email});
     this.getPasswordPolicy();
   }
 
@@ -236,17 +239,17 @@ getPasswordPolicy() {
    validateVerifyForm() {
     console.log(this.state.confirmationCode)
     if (!this.state.confirmationCode || this.state.confirmationCode == '') {
-     this.setState({errorMessage : 'confirmation code required'});
+     this.setState({errorMessage : 'confirmation code required', successMessage: ''});
       return false;
     }
 
-    if (this.state.confirmPassword != this.state.password) {
-      this.setState({errorMessage : 'those passwords didn’t match. Try again.'});
-      return false;
-    }
+    // if (this.state.confirmPassword != this.state.password) {
+    //   this.setState({errorMessage : 'those passwords didn’t match. Try again.', successMessage: ''});
+    //   return false;
+    // }
 
     if (!this.state.passwordValidation.isSuccess) {
-      this.setState({errorMessage : 'a strong password is required'});
+      this.setState({errorMessage : 'a strong password is required', successMessage: ''});
       return false;
     }
     console.log(this.state.errorMessage)
@@ -261,7 +264,7 @@ getPasswordPolicy() {
         ConfirmationCode: this.state.confirmationCode,
         Username: this.props.location.state.email,
         ClientId: config.CLIENT_ID,
-        Password: this.state.password,
+        Password: this.state.confirmPassword,
       };
 
       userManagementService
@@ -274,45 +277,47 @@ getPasswordPolicy() {
                 if (result.status == 200) {
                   if (result.data.Item != null) {
                     userManagementService
-                      .signIn(this.props.location.state.email, this.state.password)
+                      .signIn(this.props.location.state.email, this.state.confirmPassword)
                       .then((res) => {
                         if (res.status == 200) {
                           if (res.data.code != null) {
                             if (res.data.code == 'NotAuthorizedException') {
-                               this.setState({errorMessage : 'Invalid Email/Password'});
+                               this.setState({errorMessage : 'Invalid Email/Password', successMessage: ''});
                             } else {
-                              this.setState({errorMessage :'Invalid Email/Password'});
+                              this.setState({errorMessage :'Invalid Email/Password', successMessage: ''});
                             }
                              this.setState({ loading: false});                       
                           } else {
                             let auth = {
-                              refreshtoken : res.data.refreshToken,
-                              access_token : res.data.accessToken,
-                              id_token : res.data.idToken.jwtToken,
+                              //refreshtoken : res.data.refreshToken,
+                              //access_token : res.data.accessToken,
+                              //id_token : res.data.idToken.jwtToken,
                               user_dir : result.data.Item.user_dir,
                               email : this.props.location.state.email
                             }
                             localStorage.setItem('auth', JSON.stringify(auth) );
+                            Cookies.set("id_token", res.data.idToken.jwtToken, {expires : 1});
+                      Cookies.set("refreshtoken", res.data.refreshToken, {expires : 1 });
                             this.props.userHasAuthenticated(true);
                              this.props.history.push('/dashboard');
                           }
                           this.setState({ loading: false });
                         } else {
-                           this.setState({errorMessage :'Login failed, please contact administrator'});
+                           this.setState({errorMessage :'Login failed, please contact administrator', successMessage: ''});
                           this.setState({ loading: false });
                         }
                       });
                     }else {               
-                      this.setState({errorMessage :'No account found under this email'});
+                      this.setState({errorMessage :'No account found under this email', successMessage: ''});
                       this.setState({loading:false})
                     }
       
                   } else{
-                     this.setState({errorMessage :'Login failed, please contact administrator'});
+                     this.setState({errorMessage :'Login failed, please contact administrator', successMessage: ''});
                     this.setState({loading:false})
                   }
                 }).catch((err) => {
-                    this.setState({errorMessage :'Login failed, please contact administrator'});
+                    this.setState({errorMessage :'Login failed, please contact administrator', successMessage: ''});
                     this.setState({ loading: false });
                   });
           } else {
@@ -329,6 +334,27 @@ getPasswordPolicy() {
       console.log('unverified')
     }
   };
+
+  reSend() {
+    this.setState({ loading: true });
+    userManagementService
+      .resendConfirmationCode(this.props.location.state.email)
+      .then((res) => {
+        if (res.status === 200) {
+          this.setState({successMessage : 'verification code sent to ' + this.props.location.state.email, errorMessage : ''})
+          //toast.success('Verification code sent to ' + this.state.email.trim());
+        } else {
+          this.setState({errorMessage : 'unable to send verification code', successMessage: ''})
+         // toast.error('Unable to send verification code');
+        }
+        this.setState({ loading: false });
+      })
+      .catch((err) => {
+        this.setState({errorMessage : 'unable to send verification code', successMessage: ''})
+        this.setState({ loading: false });
+        //toast.error('Unable to send verification code');
+      });
+  }
 
   render() {
     const {
@@ -417,6 +443,10 @@ const { isPopoverOpen } = this.state;
     );
 
     return (
+      <LoadingOverlay
+      active={this.state.loading}
+      spinner={<HashLoader color={"#f24b76"} size={100}/>}
+    >
       <form className="password" name="form1" action="form1" method="post">
         <div className="top-bar">
             <Link to="/forgotPassword">
@@ -430,8 +460,8 @@ const { isPopoverOpen } = this.state;
               <div className="save montserrat-semi-bold-white-20px">{save}</div>
             </div>
         <div className="field-wrapper">
-            <ClearCacheCopy {...{...clearCacheCopyProps,handleFieldChange : event => this._validateJoinPassword(event), id : '_oldPassword'}} />
-            <ClearCacheCopy {...{...clearCacheCopy2Props,handleFieldChange : event => this._validateJoinPassword(event), id : '_newPassword'}} className="clear-cache-copy-2" />
+            <ClearCacheCopy {...{...clearCacheCopyProps,handleFieldChange : event => this._validateJoinPassword(event), id : 'password'}} />
+            <ClearCacheCopy {...{...clearCacheCopy2Props,handleFieldChange : event => this._validateJoinPassword(event), id : 'confirmPassword'}} className="clear-cache-copy-2" />
             <ClearCacheCopy {...{...clearCacheCopy3Props,handleFieldChange : event => this.handleFieldChange(event), id : 'confirmationCode'}} className="clear-cache-copy-3" />
         <Popover
                   isOpen={isPopoverOpen}
@@ -454,7 +484,7 @@ const { isPopoverOpen } = this.state;
         <div className="container-center-horizontal">
           <p className="didnu2019t-ceive-clic montserrat-light-gravel-14px">
             <span className="span1-LBLLyx">{spanText4}</span>
-            <span className="span2-LBLLyx">{spanText5}</span>
+            <span className="span2-LBLLyx" onClick={()=>this.reSend()}>{spanText5}</span>
           </p>
         </div>
         <div className="container-center-horizontal">
@@ -464,7 +494,16 @@ const { isPopoverOpen } = this.state;
             </div> : null } 
           
         </div>
+
+        <div className="container-center-horizontal">
+           {this.state.successMessage && this.state.successMessage != '' ? 
+            <div className="container-center-horizontal">
+              <p className="correct-code-che montserrat-light-green-14px">{this.state.successMessage}</p>
+            </div> : null } 
+          
+        </div>
       </form>
+      </LoadingOverlay>
     );
   }
 }

@@ -19,9 +19,12 @@ function App() {
   let main = useRef(null);
   useEffect(() => {
   if(localStorage.getItem('auth')){
-    let data = JSON.parse(localStorage.getItem('auth'));
-    if(data.access_token){
+    //let data = JSON.parse(localStorage.getItem('auth'));
+    if(Cookies.get("id_token")){
       setIsAuthenticated(true);
+    }
+    else{
+      setIsAuthenticated(false);
     }
   }
   else {
@@ -43,28 +46,25 @@ function App() {
   }, err => {
       if (err.response.status === 401)
       {
-        // const originalRequest = err.config;
-        // return new Promise(function(resolve, reject) {
-        //                             axios
-        //                                 .put(config.AWS_API + 'Refresh', {
-        //                                                   'refreshToken': Cookies.get("refreshtoken"), 'Username' : JSON.parse(localStorage.get('auth')).email
-        //                                               })
-        //                                 .then(({ data }) => {
-        //                                   let inFiftyMinutes = new Date(new Date().getTime() + 50 *60* 100);
-        //                                   Cookies.set("id_token", data.idToken.jwtToken, {expires : inFiftyMinutes});
-        //                                   Cookies.set("refreshtoken", data.refreshToken, {expires : 1 });
-        //                                     axios.defaults.headers.common['Authorization'] = 'Bearer ' + data.idToken.jwtToken;
-        //                                     originalRequest.headers['Authorization'] = 'Bearer ' + data.idToken.jwtToken;
-        //                                     //processQueue(null, data.idToken.jwtToken);
-        //                                     resolve(axios(originalRequest));
-        //                                 })
-        //                                 .catch(err => {
-        //                                     //processQueue(err, null);
-        //                                     //store.dispatch(showMessage({ message: 'Expired Token' }));
-            
-        //                                     reject(err);
-        //                                 })
-        //                             });
+        // return refreshToken() .then(response => {
+    
+        //   // update currUser with new access_token      
+        //   // Set default headers to have authorization the access token as authorization for future requests      
+        //   // Get the original that failed due to 401 and resend it      
+        //   // with the new access token      
+        //   const config = error.config;      
+        //   config.headers.Authorization = "Bearer " + response.data.idToken.jwtToken;      
+        //   // Resending original request      
+        //   return new Promise((resolve, reject) => {      
+        //     my_app.request(config)      
+        //     .then(response => { resolve(response); })      
+        //     .catch(error => { reject(error); });      
+        //     });    
+        //   }).catch(error => { 
+        //     // just logout() if anything goes wrong});
+
+        // }); 
+        
       }
       else if(err.response.status === 403){
 
@@ -76,6 +76,21 @@ function App() {
       }
       
   });
+
+  // const refreshToken = () => {
+  //   return axios.post(config.AWS_API + 'SignIn', {
+  //                     'refreshToken': Cookies.get("refreshtoken"), 'Username' : JSON.parse(localStorage.get('auth')).email
+  //                 }).then(response => {
+  //                   // let inFiftyMinutes = new Date(new Date().getTime() + 50 *60* 100);
+  //                   // Cookies.set("id_token", response.data.idToken.jwtToken, {expires : inFiftyMinutes});
+  //                   // Cookies.set("refreshtoken", response.data.refreshToken, {expires : 1 });
+  //                   // err.response.config.headers['Authorization'] = 'Bearer ' + response.data.idToken.jwtToken;
+  //                   return response;
+  //                 }).catch(error => {
+  //                     //this.router.push('/login');
+  //                     return Promise.reject(error);
+  //                 })
+  // }
 
 //   const createAxiosResponseInterceptor = () => {
 //     const interceptor = axios.interceptors.response.use(response => {

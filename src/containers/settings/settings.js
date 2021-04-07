@@ -8,6 +8,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import config from "../../config/index";
 import {Link} from 'react-router-dom'
+import Cookies from "js-cookie";
 
 export default class Settings extends React.Component {
 
@@ -98,6 +99,8 @@ export default class Settings extends React.Component {
 
    logout(){
      localStorage.clear();
+     Cookies.set("id_token", '');
+     Cookies.set("refreshtoken", '');
      this.props.userHasAuthenticated(false);
      this.props.history.push('/login')
    }
@@ -184,7 +187,7 @@ export default class Settings extends React.Component {
       <form className="settings" name="form1" action="form1" method="post">
         <div className="auto-flex-C61RwL">
           <div className="top-bar">
-            <Link to="/dashboard"className="back-icon">
+            <Link to="/dashboard" className="back-icon">
               <img className="back-chevron-S8W5J0" src={backChevron}  />
             </Link>
           </div>

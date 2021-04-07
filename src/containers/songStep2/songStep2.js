@@ -147,6 +147,8 @@ export default class MusicForm3 extends React.Component {
             let data = JSON.parse(localStorage.getItem('data')); 
              data.authorName = this.state.authorName;
              data.name = this.state.creatorName;
+             data.producerName = this.state.producerName;
+             data.featuringArtist = this.state.featuringArtist;
              localStorage.setItem('data', JSON.stringify(data));
              this.props.history.push('/song3');
           }
