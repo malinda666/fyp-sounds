@@ -3,6 +3,11 @@ import UnauthenticatedRoute from "./UnauthenticatedRoute";
 import AppliedRoute from "./AppliedRoute";
 import AuthenticatedRoute from "./AuthenticatedRoute";
 import Login from "../containers/login/login";
+
+import loginpage from "../containers/loginpage";
+import joinpage from "../containers/joinpage";
+import verifypage from "../containers/verifypage";
+
 import Home from "../containers/home/home";
 import ForgotPassword from "../containers/forgotPassword/forgotPassword"
 import FAQ from "../containers/faq/faq"
@@ -67,6 +72,11 @@ import { AboutData,
 const RouterConfig = ({ userHasAuthenticated, isAuthenticated}) => 
 <Switch>
     <AppliedRoute path="/login" exact component={Login} props={{...LoginData, userHasAuthenticated : userHasAuthenticated, isAuthenticated: isAuthenticated}} />
+    
+    <AppliedRoute path="/loginpage" exact component={loginpage} props={{...LoginData, userHasAuthenticated : userHasAuthenticated, isAuthenticated: isAuthenticated}} />
+    <AppliedRoute path="/joinpage" exact component={joinpage} props={{...LoginData, userHasAuthenticated : userHasAuthenticated, isAuthenticated: isAuthenticated}} />
+    <AppliedRoute path="/verifypage" exact component={verifypage} props={{...LoginData, userHasAuthenticated : userHasAuthenticated, isAuthenticated: isAuthenticated}} />
+    
     <UnauthenticatedRoute path="/" exact component={Home} props={LandingData} />
     <UnauthenticatedRoute path="/forgotPassword" exact component={ForgotPassword} props={RecoveryData} />
     <AppliedRoute path="/verifyPassword" exact component={VerifyPassword} props={{...RecoverPasswordData, userHasAuthenticated : userHasAuthenticated, isAuthenticated: isAuthenticated}}/>
@@ -96,6 +106,7 @@ const RouterConfig = ({ userHasAuthenticated, isAuthenticated}) =>
     <AuthenticatedRoute path="/song2" exact component={SongStep2} props = {{...MusicForm3Data, userHasAuthenticated : userHasAuthenticated, isAuthenticated: isAuthenticated}}/>
     <AuthenticatedRoute path="/song3" exact component={SongStep3} props = {{...MusicForm4Data, userHasAuthenticated : userHasAuthenticated, isAuthenticated: isAuthenticated}}/>
     <AuthenticatedRoute path="/song4" exact component={SongStep4} props = {{...MusicForm5Data, userHasAuthenticated : userHasAuthenticated, isAuthenticated: isAuthenticated}}/>
+   
 </Switch>;
 
 export default RouterConfig; 

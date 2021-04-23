@@ -179,7 +179,7 @@ const VerificationData = {
     copyright2512021Al: "Copyright © 2021. All Rights Reserved By Emuq Tech Inc.",
     spanText: "didn’t receive? click here to ",
     spanText2: "re-send",
-    InvalidCode: "*invalid code",
+    InvalidCode: "*invalid verification code provided",
     fypsoundslogoProps: fypsoundslogoData,
     aboutProps: aboutData,
     fypsoundslogo2Props: fypsoundslogo2Data,
@@ -352,7 +352,7 @@ const SettingsData = {
 };
 
 const clearCacheCopyData = {
-    oldPassword: "Old Password",
+    oldPassword: "New Password",
     inputName: "text",
     inputType: "password",
     inputPlaceholder: "********",
@@ -360,7 +360,7 @@ const clearCacheCopyData = {
 };
 
 const clearCacheCopy2Data = {
-    oldPassword: "New Password",
+    oldPassword: "Confirm Password",
     inputName: "text",
     inputType: "password",
     inputPlaceholder: "********",

@@ -19,6 +19,7 @@ export default class NewSound extends React.Component {
   constructor(props) {
   super(props);
      this.inputOpenFileRef = React.createRef()
+     this.textFieldRef = React.createRef()
              this.state = {
           loading : false,
           coverImageSignedURL:'',
@@ -37,7 +38,8 @@ export default class NewSound extends React.Component {
           finalImage:'',
           thumbnailImage:'',
           imagePreviewUrl: '',
-          cropedImageFile:''
+          cropedImageFile:'',
+          textFieldDisabled:true
 
         }
     }
@@ -81,6 +83,8 @@ export default class NewSound extends React.Component {
       
       showCroppedImage = async () => {
         const { croppedAreaPixels , imagePreviewUrl} = this.state;
+       // if(croppedAreaPixels != '' && imagePreviewUrl != ''){
+     
           try {
             const croppedImage = await getCroppedImg(
               imagePreviewUrl,
@@ -101,6 +105,7 @@ export default class NewSound extends React.Component {
                   this.image.style.zIndex = 0;
             })
           }
+        //}
         }
 
       componentDidMount(){
@@ -113,6 +118,7 @@ export default class NewSound extends React.Component {
           this.setCoverImageSignedURL();
         });
       }
+      this.textFieldRef.current.disabled = true;
     }
 
     validateForm =() =>{
@@ -144,66 +150,77 @@ readUploadedFile = (e) => {
   reader.readAsDataURL(file)
 }
 
-  uploadCoverImage = (type) => {
+  uploadCoverImage =  (type) => {
       this.setState({ loading: true });
-  console.log(this.state.cropedImageFile);
-  let file = this.state.cropedImageFile;
-  var re = /(?:\.([^.]+))?$/;
-if(file == null || file == undefined){
-  return  
-}
-
-  var ext = re.exec(file.name);
-
-  let newFileName = uuid_v4();
-  let s3Path = this.state.auth.user_dir + '/creative/coverImage/' + newFileName+'.' +ext[1];
-  let finalImage = this.state.auth.user_dir + '/creative/coverImage/large/' + newFileName+'.jpg';
-  let thumbnailImage = this.state.auth.user_dir + '/creative/coverImage/thumbnail/' + newFileName+'.jpg';
-
-
-
-  fileManagementService
-      .uploadCoverImage(s3Path, file.type)
-      .then((response) => {
-        if(response.status === 200){  
-        var signedRequest = response.data.signedRequest;
-        var url = response.data.url;
-        // this.setState({url: url})
-        console.log('Recieved a signed request ' + signedRequest);
-        // Put the fileType in the headers for the upload
-        uploadManagementService
-          .upload(signedRequest, file, file.type)
-          .then((result) => {
-            console.log('Response from s3');
-            if (result.status == 200) {
-             this.setState({coverImageURL : url, loading : false, s3Path : s3Path, thumbnailImage : thumbnailImage, finalImage : finalImage}, () => {
-               if(type === 'song'){
-                 this.navigateToSongPage();
-               }
-               else{
-                 this.navigateToSoundPage();
-               }
-             });
-
-            } else {
+      // this.showCroppedImage().then(() => {
+        console.log(this.state.cropedImageFile);
+        let file = this.state.cropedImageFile;
+        var re = /(?:\.([^.]+))?$/;
+      if(file == null || file == undefined || file == ''){
+        this.setState({errorMessage : 'please select cover image to upload'});
+        this.setState({ loading: false });
+        return  
+      }
+      
+        var ext = re.exec(file.name);
+      
+        if(ext == null || ext == undefined || ext[1] == null || ext[1] == undefined)
+        {
+          this.setState({errorMessage : 'this cover image file format not support by fyp'});
+          this.setState({ loading: false });
+          return  
+        }
+      
+        let newFileName = uuid_v4();
+        let s3Path = this.state.auth.user_dir + '/creative/coverImage/' + newFileName+'.' + ext[1] ;
+        let finalImage = this.state.auth.user_dir + '/creative/coverImage/large/' + newFileName+'.jpg';
+        let thumbnailImage = this.state.auth.user_dir + '/creative/coverImage/thumbnail/' + newFileName+'.jpg';
+      
+      
+      
+        fileManagementService
+            .uploadCoverImage(s3Path, file.type)
+            .then((response) => {
+              if(response.status === 200){  
+              var signedRequest = response.data.signedRequest;
+              var url = response.data.url;
+              // this.setState({url: url})
+              console.log('Recieved a signed request ' + signedRequest);
+              // Put the fileType in the headers for the upload
+              uploadManagementService
+                .upload(signedRequest, file, file.type)
+                .then((result) => {
+                  console.log('Response from s3');
+                  if (result.status == 200) {
+                   this.setState({coverImageURL : url, loading : false, s3Path : s3Path, thumbnailImage : thumbnailImage, finalImage : finalImage}, () => {
+                     if(type === 'song'){
+                       this.navigateToSongPage();
+                     }
+                     else{
+                       this.navigateToSoundPage();
+                     }
+                   });
+      
+                  } else {
+                    this.setState({ loading: false });
+                   // toast.error('Unable to upload cover photo');
+                  }
+                })
+                .catch((error) => {
+                 this.setState({ loading: false });
+                // toast.error('Unable to upload cover photo');
+                });
+              }
+              else {
+               // toast.error('Unable to upload cover photo');
+                this.setState({ loading: false });
+              }  
+            })
+            .catch((error) => {
               this.setState({ loading: false });
              // toast.error('Unable to upload cover photo');
-            }
-          })
-          .catch((error) => {
-           this.setState({ loading: false });
-          // toast.error('Unable to upload cover photo');
-          });
-        }
-        else {
-         // toast.error('Unable to upload cover photo');
-          this.setState({ loading: false });
-        }  
-      })
-      .catch((error) => {
-        this.setState({ loading: false });
-       // toast.error('Unable to upload cover photo');
-      });
+            });
+      // }) 
   }
 
 
@@ -422,7 +439,7 @@ navigateToSoundPage(){
               onZoomChange={this.onZoomChange}
               onMediaLoaded={(mediaSize) => {
                 this.onZoomChange(mediaSize.naturalWidth / mediaSize.naturalHeight)
-                console.log(CONTAINER_HEIGHT/ mediaSize.naturalHeight)
+                this.textFieldRef.current.disabled = false;
               }}
             />
                   </>
@@ -453,7 +470,6 @@ navigateToSoundPage(){
                 this.uploadInput = ref;
                 }}
                  onChange={(e)=>this.readUploadedFile(e)}
-                              accept=".png, .jpg, .gif"
                             /> 
         </div>
 
@@ -493,6 +509,7 @@ navigateToSoundPage(){
                 name={inputName}
                 placeholder={inputPlaceholder}
                 type={inputType}
+                ref={this.textFieldRef}
                 required={inputRequired}
                 value={this.state.title}
                 onChange={this.handleFieldChange.bind(this)}

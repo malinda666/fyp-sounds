@@ -27,10 +27,10 @@ const popOverStyles = {
     borderRadius: "8px",
     margin:"0 4px",
     fontFamily:' "Montserrat", Helvetica, Arial, serif',
-    fontSize:"11px"
+    fontSize:"13px"
 }
 
-
+const popOverTextColor = "rgba(255, 0, 70, 1)";
 
 export default class Password extends React.Component {
 
@@ -48,11 +48,11 @@ export default class Password extends React.Component {
       isPopoverOpen:false,
       passwordPolicy: Object.assign({}, props.passwordPolicy),
       passwordValidation: {
-        hasUpperCase: "rgba(255, 0, 80, 1)",
-        hasLowerCase: "rgba(255, 0, 80, 1)",
-        hasNumeric: "rgba(255, 0, 80, 1)",
-        hasSpecialCharacter: "rgba(255, 0, 80, 1)",
-        hasCorrectLength: "rgba(255, 0, 80, 1)",
+        hasUpperCase: popOverTextColor,
+        hasLowerCase: popOverTextColor,
+        hasNumeric: popOverTextColor,
+        hasSpecialCharacter: popOverTextColor,
+        hasCorrectLength: popOverTextColor,
         isSuccess: false,
       },
     }

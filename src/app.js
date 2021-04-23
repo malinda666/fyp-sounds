@@ -46,6 +46,7 @@ function App() {
   }, err => {
       if (err.response.status === 401)
       {
+        window.location.href = '/login';
         // return refreshToken() .then(response => {
     
         //   // update currUser with new access_token      
@@ -67,8 +68,7 @@ function App() {
         
       }
       else if(err.response.status === 403){
-
-      
+        window.location.href = '/login';      
       }
 
       else{

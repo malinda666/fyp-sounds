@@ -71,7 +71,7 @@ export default class Verificationin extends React.Component {
       })
       .catch((err) => {
         this.setState({ loading: false});
-        if (err.response.data.includes('UsernameExistsException')) 
+        if (err.response.data.code === 'CodeMismatchException' || err.response.data.code === 'ExpiredCodeException') 
         {
           this.setState({isInvalidCode : true})
         }

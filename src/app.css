@@ -101,7 +101,15 @@ background: linear-gradient(62deg, rgba(210,43,108,1) 0%, rgba(85,163,182,1) 100
 .reactEasyCrop_Image, .reactEasyCrop_Video{
 	
 }*/
+input{
+	border: none;
+    overflow: auto;
+    outline: none;
 
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
 input:focus::placeholder {
   color: transparent;
 }
@@ -145,3 +153,15 @@ input[type=number]::-webkit-outer-spin-button {
 @media (min-width:801px)  { /* tablet, landscape iPad, lo-res laptops ands desktops */ }
 @media (min-width:1025px) { /* big landscape tablets, laptops, and desktops */ }
 @media (min-width:1281px) { /* hi-res laptops and desktops */ }
+
+textarea {
+    border: none;
+    overflow: auto;
+    outline: none;
+
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+
+    resize: none; /*remove the resize handle on the bottom right*/
+}

@@ -28,8 +28,10 @@ const popOverStyles = {
     borderRadius: "8px",
     margin:"0 4px",
     fontFamily:' "Montserrat", Helvetica, Arial, serif',
-    fontSize:"11px"
+    fontSize:"13px"
 }
+
+const popOverTextColor = "rgba(255, 0, 70, 1)";
 
 export default class LoginErrorMessages extends React.Component { 
 
@@ -55,11 +57,11 @@ export default class LoginErrorMessages extends React.Component {
       isPopoverOpen:false,
       passwordPolicy: Object.assign({}, props.passwordPolicy),
       passwordValidation: {
-        hasUpperCase: "rgba(255, 0, 80, 1)",
-        hasLowerCase: "rgba(255, 0, 80, 1)",
-        hasNumeric: "rgba(255, 0, 80, 1)",
-        hasSpecialCharacter: "rgba(255, 0, 80, 1)",
-        hasCorrectLength: "rgba(255, 0, 80, 1)",
+        hasUpperCase: popOverTextColor,
+        hasLowerCase: popOverTextColor,
+        hasNumeric: popOverTextColor,
+        hasSpecialCharacter: popOverTextColor,
+        hasCorrectLength: popOverTextColor,
         isSuccess: false,
       },
     };
@@ -537,7 +539,23 @@ export default class LoginErrorMessages extends React.Component {
               <h1 className="or sofiapro-normal-torch-red-25px">{or}</h1>
               <Overlapgroup  {... {...overlapgroupProps, handleFieldChange : event => this.handleFieldChange(event), id : 'loginEmail'}} />
               <Overlapgroup1 {... {...overlapgroup1Props, handleFieldChange : event => this.handleFieldChange(event), id : 'loginPassword'}} />
-              <div className="overlap-group-PVhVGJ"  onClick={this.login}>
+              <div className="error-container-1 error-container">
+                {this.state.isLoginEmailRequired ? 
+                <div className="container-center-horizontal">
+                  <p className="an-email-is-require-C61RwL montserrat-light-red-14px">{AnEmailIsRequire}</p>
+                </div>
+                 : null}
+                 {this.state.isLoginPasswordRequired ?
+                <div className="container-center-horizontal">
+                  <p className="a-password-is-requi-C61RwL montserrat-light-red-14px">{APasswordIsRequi}</p>
+                </div> : null}
+                
+                   {this.state.errorMessage && this.state.errorMessage != '' ? 
+                <div className="container-center-horizontal">
+                  <p className="an-error-VMr6Om montserrat-light-red-14px">{this.state.errorMessage}</p>
+                </div> : null }
+              </div>
+              <div className="overlap-group-PVhVGJ-2"  onClick={this.login}>
                 <img className="rectangle-JWSful" src={rectangle} />
                 <div className="login montserrat-bold-white-20px">{login}</div>
               </div>
@@ -571,6 +589,20 @@ export default class LoginErrorMessages extends React.Component {
                  
                 </div>
               </Popover>
+              <div className="error-container-2 error-container">
+                {this.state.isJoinEmailRequired ? 
+                <div className="container-center-horizontal">
+                  <p className="an-email-is-require-VMr6Om montserrat-light-red-14px">{AnEmailIsRequire2}</p>
+                </div> : null }
+                {this.state.isJoinPasswordRequired ? 
+                <div className="container-center-horizontal"> 
+                  <p className="a-password-is-requi-VMr6Om montserrat-light-red-14px">{APasswordIsRequi2}</p>
+                </div> : null }
+                {this.state.joinErrorMessage && this.state.joinErrorMessage != '' ? 
+                <div className="container-center-horizontal">
+                  <p className="a-join-error montserrat-light-red-14px">{this.state.joinErrorMessage}</p>
+                </div> : null }
+              </div>
               <div className="overlap-group-PVhVGJ" onClick={this.signUp.bind(this)}>
                 <img className="rectangle-JWSful" src={rectangle2} />
                 <a href="javascript:SubmitForm('form1')">
@@ -592,31 +624,8 @@ export default class LoginErrorMessages extends React.Component {
         <div className="container-center-horizontal">
           <Footer/>
         </div>
-        {this.state.isLoginEmailRequired ? 
-        <div className="container-center-horizontal">
-          <p className="an-email-is-require-C61RwL montserrat-light-red-14px">{AnEmailIsRequire}</p>
-        </div>
-         : null}
-         {this.state.isLoginPasswordRequired ?
-        <div className="container-center-horizontal">
-          <p className="a-password-is-requi-C61RwL montserrat-light-red-14px">{APasswordIsRequi}</p>
-        </div> : null}
-        {this.state.isJoinEmailRequired ? 
-        <div className="container-center-horizontal">
-          <p className="an-email-is-require-VMr6Om montserrat-light-red-14px">{AnEmailIsRequire2}</p>
-        </div> : null }
-        {this.state.isJoinPasswordRequired ? 
-        <div className="container-center-horizontal">
-          <p className="a-password-is-requi-VMr6Om montserrat-light-red-14px">{APasswordIsRequi2}</p>
-        </div> : null }
-           {this.state.errorMessage && this.state.errorMessage != '' ? 
-        <div className="container-center-horizontal">
-          <p className="an-error-VMr6Om montserrat-light-red-14px">{this.state.errorMessage}</p>
-        </div> : null }
-        {this.state.joinErrorMessage && this.state.joinErrorMessage != '' ? 
-        <div className="container-center-horizontal">
-          <p className="a-join-error montserrat-light-red-14px">{this.state.joinErrorMessage}</p>
-        </div> : null }
+        
+        
       </form>
       </LoadingOverlay>
     );

@@ -5,8 +5,54 @@ import {
 import './contact.css'
 import Header from '../../components/header'
 import Footer from '../../components/footer'
+import contactManagementService from "../../services/contactManagementService";
+import HashLoader from 'react-spinners/HashLoader'
+import LoadingOverlay from "react-loading-overlay";
 
 export default class Contact extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      loading : false, 
+      name:'',
+      email:'',
+      message:'',
+      successMessage:'',
+      errorMessage: ''     
+    }
+  }
+
+  handleFieldChange(event){
+    if(event){
+    this.setState({
+     [event.target.id]: event.target.value,
+   });
+ }
+}
+
+send = () => {
+  if(this.state.name && this.state.name != '' && this.state.email && this.state.email != ''){
+    this.setState({loading : true});
+    contactManagementService.send({name : this.state.name, email : this.state.email, message : this.state.message})
+    .then(response => {
+      if(response.status === 200){
+        this.setState({successMessage : 'we will contact you soon', errorMessage : '', name : '', email: '', message: ''});
+      }
+      else {
+        this.setState({errorMessage : 'unable to contact fyp', successMessage : ''});
+      }
+      this.setState({loading : false});
+    }).catch(err => {
+      this.setState({errorMessage : 'unable to contact fyp', successMessage : ''});
+      this.setState({loading : false});
+    })
+  }else {
+    this.setState({errorMessage : 'please enter your name and email', successMessage : ''});
+    this.setState({loading : false});
+  }
+  
+}
+
   render() {
     const {
       contact,
@@ -35,6 +81,10 @@ export default class Contact extends React.Component {
     } = this.props;
 
     return (
+      <LoadingOverlay
+      active={this.state.loading}
+      spinner={<HashLoader color={"#f24b76"} size={100}/>}
+    >
       <div className="contact">
         <div className="container-center-horizontal">
           <div className="bar"></div>
@@ -52,25 +102,28 @@ export default class Contact extends React.Component {
         </div>
         <div className="container-center-horizontal">
           <form className="nexticon-copy" name="form2" action="form2" method="post">
-            <Overlapgroup1 {...overlapgroup1Props} className="montserrat-light-mountain-mist-14px"  />
-            <Overlapgroup1 {...overlapgroup12Props} className="overlap-group montserrat-light-mountain-mist-14px" />
+            <Overlapgroup1 {...{...overlapgroup1Props, handleFieldChange : event => this.handleFieldChange(event), id: 'name', value : this.state.name}} className="montserrat-light-mountain-mist-14px"  />
+            <Overlapgroup1 {...{...overlapgroup12Props, handleFieldChange : event => this.handleFieldChange(event), id: 'email', value : this.state.email}} className="overlap-group montserrat-light-mountain-mist-14px" />
             <div className="overlap-group2">
               <div className="rectangle-zlebQ8 border-class-1"></div>
               <textarea
+              id='message'
                 className="text-area montserrat-light-mountain-mist-14px"
                 name={inputName}
                 placeholder={inputPlaceholder}
                 type={inputType}
                 required={inputRequired}
+                onChange={this.handleFieldChange.bind(this)}
+                value={this.state.message}
               ></textarea>
             </div>
-            <div className="overlap-group3">
-              <a href="javascript:SubmitForm('form2')">
+            <div className="overlap-group3" onClick={()=> this.send()}>
+            
                 <img className="rectangle-2m0hPv" src={rectangle} />
-              </a>
-              <a href="javascript:SubmitForm('form2')">
+             
+           
                 <img className="rectangle-2m0hPv" src={rectangleCopy2} />
-              </a>
+             
               <div className="send montserrat-bold-white-20px">{send}</div>
             </div>
           </form>
@@ -81,7 +134,23 @@ export default class Contact extends React.Component {
         <div className="container-center-horizontal">
           <Footer/>
         </div>
+        <div className="container-center-horizontal">
+           {this.state.errorMessage && this.state.errorMessage != '' ? 
+            <div className="container-center-horizontal">
+              <p className="incorrect-code-che montserrat-light-red-14px">{this.state.errorMessage}</p>
+            </div> : null } 
+          
+        </div>
+
+        <div className="container-center-horizontal">
+           {this.state.successMessage && this.state.successMessage != '' ? 
+            <div className="container-center-horizontal">
+              <p className="correct-code-che montserrat-light-green-14px">{this.state.successMessage}</p>
+            </div> : null } 
+          
+        </div>
       </div>
+      </LoadingOverlay>
     );
   }
 }
@@ -99,7 +168,9 @@ class Overlapgroup1 extends React.Component {
           name={inputName}
           placeholder={inputPlaceholder}
           type={inputType}
-          required={inputRequired}
+          id={this.props.id}
+          onChange={this.props.handleFieldChange}
+          value={this.props.value}
         />
       </div>
     );

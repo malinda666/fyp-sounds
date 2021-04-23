@@ -23,6 +23,7 @@
     overflow:hidden;
     position: relative;
     width: 100%;
+
     display: flex;align-items: center;justify-content: center;flex-direction: column;
 }
 .loginerrormessages .form-container{
@@ -36,27 +37,25 @@
     line-height: 17px;
     margin-left: 6px;
     margin-right: -6px;
-    position: fixed;
+    position: absolute;
     text-align: center;
-    top: 390px; 
+    top: 365px; 
     white-space: nowrap;
     width: 309px;
-    font-size: 10px !important;
+    font-size: 10px;
 }
 
 .loginerrormessages .a-password-is-requi-VMr6Om {
     background-color: transparent;
     height: auto;
     letter-spacing: 0px;
-    line-height: 17px;
-    margin-left: 6px;
-    margin-right: -6px;
-    position: fixed;
+    line-height: 0.8;
+    position: relative;
     text-align: center;
-    top: 195px;
-    white-space: nowrap;
-    width: 309px;
-    font-size: 10px !important;
+    padding: 0 8px;
+    white-space: pre-wrap;
+    width: 100%;
+    font-size:10px !important;
 }
 
 .loginerrormessages .about-7pmZoB {
@@ -93,27 +92,26 @@
     line-height: 17px;
     margin-left: 6px;
     margin-right: -6px;
-    position: fixed;
+    position: relative;
     text-align: center;
-    top: 345px;
+    
     white-space: nowrap;
     width: 309px;
-    font-size: 10px !important;
+    font-size: 10px;
 }
 
 .loginerrormessages .an-email-is-require-VMr6Om {
     background-color: transparent;
     height: auto;
     letter-spacing: 0px;
-    line-height: 17px;
+    line-height: 1;
     margin-left: -0px;
     margin-right: 0px;
-    position: fixed;
+    position: relative;
     text-align: center;
-    top: 150px;
     white-space: nowrap;
     width: 309px;
-    font-size: 10px !important;
+    font-size: 10px;
 }
 
 .loginerrormessages .an-error-VMr6Om {
@@ -121,15 +119,11 @@
     height: auto;
     letter-spacing: 0px;
     line-height: 17px;
-    margin-left: -0px;
-    margin-right: 0px;
-    margin-top: 5px;
-    position: fixed;
+    position: relative;
     text-align: center;
-    top: 296px;
     white-space: nowrap;
     width: 309px;
-    font-size: 10px !important;
+    font-size: 10px;
 }
 
 .loginerrormessages .bar {
@@ -137,7 +131,7 @@
     height: 40px;
     margin-left: -0px;
     margin-right: 0px;
-    position: fixed;
+    position: absolute;
     top: 29px;
     width: 94px;
 }
@@ -186,7 +180,7 @@
     background-color: transparent;
     bottom: -136px;
     height: 296px;
-    position: fixed;
+    position: absolute;
     width: 1748px;
 }
 
@@ -195,7 +189,7 @@
     height: auto;
     letter-spacing: 0px;
     line-height: 14px;
-    position: fixed;
+    position: absolute;
     text-align: center;
     top: 475px;
     width: 321px;
@@ -225,7 +219,7 @@
     height: 452px;
     margin-left: 96px;
     margin-right: -96px;
-    position: fixed;
+    position: absolute;
     top: -333px;
     width: 776px;
 }
@@ -285,9 +279,8 @@
     line-height: 17px;
     margin-left: -0px;
     margin-right: 0px;
-    position: fixed;
+    position: relative;
     text-align: center;
-    top: 150px;
     white-space: wrap;
     width: 309px;
     font-size:10px !important;
@@ -302,7 +295,7 @@
     justify-content: flex-start;
     margin-left: 0px;
     margin-right: -0px;
-    position: fixed;
+    position: absolute;
     top: 119px;
     width: 311px;
 }
@@ -314,7 +307,7 @@
     flex-direction: column;
     height: auto;
     justify-content: flex-start;
-    position: fixed;
+    position: absolute;
     top: 279px;
     width: 311px;
 }
@@ -324,11 +317,12 @@
     flex-shrink: 0;
     height: auto;
     letter-spacing: 0px;
-    line-height: 36px;
-    min-width: 37px;
+    line-height: 1;
     text-align: center;
     white-space: nowrap;
     width: auto;
+    position: relative;
+    top: -5px;
 }
 
 .loginerrormessages .oval-E582nk {
@@ -365,18 +359,24 @@
     position: relative;
     width: 311px;
 }
-
-.loginerrormessages .overlap-group-PVhVGJ {
+.loginerrormessages .error-container{
+    position: relative;
+    margin: 0.25rem 0;
+}
+.loginerrormessages .overlap-group-PVhVGJ ,.loginerrormessages .overlap-group-PVhVGJ-2 {
     background-color: transparent;
     flex-shrink: 0;
     height: 54px;
     margin-right: 1px;
-    margin-top: 12px;
-    position: relative;
+    margin-top: 2px;
+    position: absolute;
     width: 192px;
+    top: 100px;
     cursor:pointer;
 }
-
+.loginerrormessages .overlap-group-PVhVGJ-2 {
+    top: 140px;
+}
 .loginerrormessages .overlap-group1 {
     background-color: transparent;
     flex-shrink: 0;
@@ -603,7 +603,7 @@ a {
         transform: scale(0.85);
     }
     .loginerrormessages .nexticon{
-        top: 100px;
+        top: 70px;
 
     }
     .loginerrormessages{
@@ -613,19 +613,22 @@ a {
         top: 239px;
     }
     .loginerrormessages .forgot-your-access {
-        top: 425px;
+        top: 445px;
         font-size: 10px;
     }
     .loginerrormessages .an-email-is-require-VMr6Om {
-        top: 160px;
+        font-size : 9px;
     }
     .loginerrormessages .a-password-is-requi-VMr6Om{
-        top: 198px;
+        font-size : 9px;
     }
     .loginerrormessages .a-password-is-requi-C61RwL {
-        top: 345px;
+        font-size : 9px;
     }
     .loginerrormessages .an-error-VMr6Om{
-        top: 342px;
+        font-size : 9px;
+    }
+    .loginerrormessages .an-email-is-require-C61RwL{
+        font-size : 9px;
     }
 }

@@ -68,12 +68,16 @@
 }
 
 .verificationin {
+    align-items: center;
     background-color: white;
+    display: flex;
+    flex-direction: column;
     height: 100vh;
-    margin: 0px;
-    max-width: 414px;
-    position: relative;
+    min-height:100vh;
+    justify-content: center;
+    padding: 16px 22px;
     width: 100%;
+    overflow:hidden;
 }
 
 .verificationin .about-Tai3pd {
@@ -259,7 +263,6 @@
     flex-direction: column;
     height: auto;
     justify-content: flex-start;
-    min-height: 100%;
     position: absolute;
     top: 175px;
     width: 311px;
@@ -309,6 +312,7 @@
     margin-top: 29px;
     position: relative;
     width: 192px;
+    cursor: pointer;
 }
 
 .verificationin .overlap-group2 {

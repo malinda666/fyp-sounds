@@ -346,7 +346,7 @@ export default class Soundsnewuser extends React.Component {
      return data.map(async item => {
       
                 item.index = ++index;
-                item.signedCoverURL = await this.getCoverThumbnailSignedURL(item.thumbnailImage);
+                item.signedCoverURL = item.thumbnailImage ? await this.getCoverThumbnailSignedURL(item.thumbnailImage): '';
                 if(item.fyp_status.toUpperCase() === 'DRAFT'){
                   item.statusImageURL = this.draftImage;
                 }
@@ -991,6 +991,7 @@ export default class Soundsnewuser extends React.Component {
                 id="fileChoose"
                 className="dropzone"
                               type='file'
+                              accept='image/*'
                               name='img_logo'
                               ref={(ref) => {
                                 this.uploadInput = ref;
