@@ -7,6 +7,9 @@ import Login from "../containers/login/login";
 import loginpage from "../containers/loginpage";
 import joinpage from "../containers/joinpage";
 import verifypage from "../containers/verifypage";
+import newSubmission from "../containers/newSubmission";
+import newSubmission2 from "../containers/newSubmission2";
+import newSubmissionFinal from "../containers/newSubmissionFinal";
 
 import Home from "../containers/home/home";
 import ForgotPassword from "../containers/forgotPassword/forgotPassword"
@@ -76,6 +79,9 @@ const RouterConfig = ({ userHasAuthenticated, isAuthenticated}) =>
     <AppliedRoute path="/loginpage" exact component={loginpage} props={{...LoginData, userHasAuthenticated : userHasAuthenticated, isAuthenticated: isAuthenticated}} />
     <AppliedRoute path="/joinpage" exact component={joinpage} props={{...LoginData, userHasAuthenticated : userHasAuthenticated, isAuthenticated: isAuthenticated}} />
     <AppliedRoute path="/verifypage" exact component={verifypage} props={{...LoginData, userHasAuthenticated : userHasAuthenticated, isAuthenticated: isAuthenticated}} />
+    <AppliedRoute path="/newSubmission" exact component={newSubmission} props={{...LoginData, userHasAuthenticated : userHasAuthenticated, isAuthenticated: isAuthenticated}} />
+    <AppliedRoute path="/newSubmission2" exact component={newSubmission2} props={{...LoginData, userHasAuthenticated : userHasAuthenticated, isAuthenticated: isAuthenticated}} />
+    <AppliedRoute path="/newSubmissionFinal" exact component={newSubmissionFinal} props={{...LoginData, userHasAuthenticated : userHasAuthenticated, isAuthenticated: isAuthenticated}} />
     
     <UnauthenticatedRoute path="/" exact component={Home} props={LandingData} />
     <UnauthenticatedRoute path="/forgotPassword" exact component={ForgotPassword} props={RecoveryData} />

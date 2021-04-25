@@ -12,7 +12,7 @@ const JoinPage = () => {
 	}
 	return (
 		<div className={s.container}>
-			<LoginHeader/>
+			<LoginHeader isLogin/>
 			<LoginPara/>
 			<LoginTextFields/>
 			<LoginSubmit 
