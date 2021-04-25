@@ -6,12 +6,23 @@ import LoginSubmit from '../LoginSubmit'
 
 
 const JoinPage = () => {
+
+	const handleJoin = () => {
+		window.alert('join')
+	}
 	return (
 		<div className={s.container}>
 			<LoginHeader/>
 			<LoginPara/>
 			<LoginTextFields/>
-			<LoginSubmit/>
+			<LoginSubmit 
+				bgColor="rgba(245, 55, 124, 1)" 
+				btnText="join" 
+				eventHandler={handleJoin} 
+				link="/loginpage" 
+				linkText="login"
+				text="already a user?click here to"
+			/>
 		</div>
 	)
 }

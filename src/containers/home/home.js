@@ -123,6 +123,7 @@ export default class Landing extends React.Component {
             <Link to="/about"><span className="montserrat-semi-bold-white-14px">About</span></Link>
             <Link to="/contact"><span className="montserrat-semi-bold-white-14px">Contact</span></Link>
             <Link to="/policy"><span className="montserrat-semi-bold-white-14px">Privacy Policy</span></Link>
+            <Link to="/loginpage"><span className="montserrat-semi-bold-white-14px">new login</span></Link>
           </div>
           <div className="container-center-horizontal">
             <span className="copyright--51-2021-al montserrat-normal-white-13px">Copyright © 2021. All Rights Reserved By Emuq Tech Inc.</span>

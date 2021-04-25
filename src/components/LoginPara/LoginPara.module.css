@@ -41,9 +41,9 @@
 	height: 16px;width: 16px;
 	margin: 0 4px;
 }
-.line2{
-
+.line2 span{
+	margin: 4px;
 }
 .line2 span span {
-	margin: 4px;
+	margin: 2px;
 }

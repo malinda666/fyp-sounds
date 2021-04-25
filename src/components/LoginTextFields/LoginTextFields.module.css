@@ -1,17 +1,18 @@
 .container{
 	position: relative;width: 100%;
+	max-width: 414px;
 	display: flex;align-items: center;justify-content: center;
 	flex-direction: column;
 	margin-top: 16px;
 }
 .container input {
-	position: relative;margin-top: 8px;
+	position: relative;margin-top: 4px;
 	border: 1px solid var(--mountain-mist-2);
 	border-radius : 0.35rem;
 	padding:8px;
 	width: 70%;
 	background-color: transparent;
-	font-size: 10px;
+	font-size: 12px;
 	line-height: 1.2;
 }
 .forgot__pwd{

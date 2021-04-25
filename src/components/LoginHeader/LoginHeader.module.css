@@ -1,5 +1,6 @@
 .container{
 	width: 100%;
+	max-width: 414px;
 	position: relative;
 	top: 0;left: 0;
 	height: 10%;
@@ -23,14 +24,14 @@
 	background-color: var(--torch-red);
 }
 .image__container{
-	position: relative;
+	position: absolute;
 	height: 100%;width: 100%;
 	display: flex;justify-content: center;align-items: center;
+	padding: 8px;
 }
 .image__container img{
 	object-fit: contain;
 	object-position: center;
-	position: absolute;
-	width: 100%;
+	position: relative;
 	height: 100%;	
 }

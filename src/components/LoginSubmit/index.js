@@ -4,20 +4,9 @@ import { useState , useEffect} from 'react'
 import { Link } from 'react-router-dom'
 
 
-const LoginSubmit = ({isLogin}) => {
+const LoginSubmit = ({bgColor, btnText, eventHandler,link,linkText,text}) => {
 
 	const [errors, setErrors] = useState([])
-
-	let bgColor = isLogin ? "rgba(0, 242, 234, 1)" : "rgba(245, 55, 124, 1)";
-	let text = isLogin ? "login" : "join"
-
-	const handleLogin = () => {
-		window.alert('login')
-	}
-
-	const handleJoin = () => {
-		window.alert('join')
-	}
 
 	useEffect(() => {
 		let _errors = [...errors];
@@ -31,17 +20,12 @@ const LoginSubmit = ({isLogin}) => {
 			<div 
 				className={s.btn} 
 				style={{backgroundColor:`${bgColor}`}}
-				onClick={isLogin?handleLogin:handleJoin}
-				>{text}
+				onClick={eventHandler}
+				>{btnText}
 			</div>
 
 			<div className={s.redir}>
-				{
-					isLogin ? 
-					<p>new user?click here to <Link to="/joinpage"><span>join</span></Link></p>
-					:
-					<p>already a user?click here to <Link to="/loginpage"><span>login</span></Link></p>
-					}
+				{<p>{text}<Link to={link}><span>{` ${linkText}`}</span></Link></p>}
 			</div>
 			<div className={s.err}>
 				{errors.map((err)=>

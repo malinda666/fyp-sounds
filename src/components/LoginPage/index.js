@@ -6,12 +6,24 @@ import LoginSubmit from '../LoginSubmit'
 
 
 const LoginPage = () => {
+
+	const handleLogin = () => {
+		window.alert('login')
+	}
+
 	return (
 		<div className={s.container}>
 			<LoginHeader/>
 			<LoginPara/>
 			<LoginTextFields isLogin/>
-			<LoginSubmit isLogin/>
+			<LoginSubmit 
+				bgColor="rgba(0, 242, 234, 1)" 
+				btnText="login" 
+				eventHandler={handleLogin} 
+				link="/joinpage" 
+				linkText="join"
+				text="new user?click here to"
+			/>
 		</div>
 	)
 }

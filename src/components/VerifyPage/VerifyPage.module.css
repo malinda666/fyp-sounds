@@ -41,6 +41,7 @@
 	background-color: transparent;
 	font-size: 10px;
 	line-height: 1.2;
+	max-width: 414px;
 }
 .btn{
 	color: #fff;
@@ -56,6 +57,7 @@
     border-radius: 1rem;
     background-color: rgba(0, 242, 234, 1);
     margin: 32px 0 16px 0;
+    max-width: 414px;
 }
 .resend{
 	position: relative;
