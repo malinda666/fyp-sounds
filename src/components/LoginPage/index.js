@@ -4,16 +4,20 @@ import LoginPara from '../LoginPara'
 import LoginTextFields from '../LoginTextFields'
 import LoginSubmit from '../LoginSubmit'
 
+import { useHistory } from 'react-router-dom';
+
 
 const LoginPage = () => {
 
+	const history = useHistory()
+
 	const handleLogin = () => {
-		window.alert('login')
+		history.push('/newSubmission')
 	}
 
 	return (
 		<div className={s.container}>
-			<LoginHeader/>
+			<LoginHeader isLogin/>
 			<LoginPara/>
 			<LoginTextFields isLogin/>
 			<LoginSubmit 

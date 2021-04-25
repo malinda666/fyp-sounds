@@ -1,0 +1,115 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:700,300,600,400");
+@font-face {
+    font-family: "SofiaPro-Bold";
+    font-weight: 1 1000;
+    src: url("../../assets/fonts/Sofia Pro Bold.ttf") format("truetype");
+}
+
+
+.container{
+	height: 100vh;
+    margin: 0px;
+    /*min-height: 100vh;*/
+    overflow:hidden;
+    position: relative;
+    width: 100%;
+	font-family: "Montserrat", Helvetica, Arial, serif;
+    font-style: normal;
+    display: flex;align-items: center;justify-content: flex-start;flex-direction: column;
+ }
+.form {
+    height:80%;
+    margin: 0px;
+    /*min-height: 100vh;*/
+    overflow-x: hidden;
+    position: relative;
+    width: 100%;
+    display: flex;align-items: center;justify-content: flex-start;flex-direction: column;
+}
+
+.form>div
+ {
+    text-align: center;
+    font-family: "Montserrat", Helvetica, Arial, serif;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.1;
+    
+}
+.form>input{
+	height: 32px;
+    min-height: 32px;
+}
+.hero__img{
+	position: relative;
+	width: 200px;height: 200px;
+	border-radius : 0.35rem;
+	object-fit:cover;
+	object-position:center;
+}
+.audio__title{
+	margin-top: 8px;
+	display: block;
+	position: relative;
+
+}
+.audio__title span{
+	display: block;
+}
+.audio__title span:first-child{
+	font-weight: 900;
+}
+.audio__file{
+	margin-top: 16px;
+	width: 200px;
+	height: 36px;
+	border-radius : 0.35rem;
+	background-color: rgba(0, 242, 234, 1);
+	color: #fff;
+	display: flex;align-items: center;justify-content: center;
+	font-weight: 700;
+	position: relative;
+	min-height: 36px;
+}
+.audio__file span{
+	font-weight: bold;
+}
+.audio__file span:first-child{
+	position: absolute;
+	left: 0;
+	padding: 8px;
+	font-size: 24px;
+}
+.audio__details{
+	position: relative;
+	width: 200px;
+	margin-top: 8px;
+	padding: 4px;
+	display: flex;
+	align-items: flex-start;
+	justify-content: flex-start;
+	flex-direction: column;
+}
+.audio__details > div{
+	margin: 4px 0;
+}
+.audio__details > div span:nth-child(2) {
+	margin: 0 0 0 4px;
+}
+.audio__details > div span:first-child{
+	font-weight: bold;
+}
+.agreement{
+	position: relative;
+	width: 80%;
+	font-size: 12px;
+	margin-top: 16px;
+}
+.agreement div label{
+	font-size: 10px;
+}
+.agreement div input{
+	margin: 4px;
+}

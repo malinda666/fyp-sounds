@@ -1,12 +1,15 @@
 import s from './LoginSubmit.module.css'
 
 import { useState , useEffect} from 'react'
-import { Link } from 'react-router-dom'
+import { Link , useLocation} from 'react-router-dom'
+
+import CTAButton from '../CTAButton'
 
 
-const LoginSubmit = ({bgColor, btnText, eventHandler,link,linkText,text}) => {
+const LoginSubmit = ({ eventHandler,link,linkText,text}) => {
 
 	const [errors, setErrors] = useState([])
+	const location = useLocation()
 
 	useEffect(() => {
 		let _errors = [...errors];
@@ -17,12 +20,11 @@ const LoginSubmit = ({bgColor, btnText, eventHandler,link,linkText,text}) => {
 
 	return (
 		<div className={s.container}>
-			<div 
-				className={s.btn} 
-				style={{backgroundColor:`${bgColor}`}}
-				onClick={eventHandler}
-				>{btnText}
-			</div>
+			<CTAButton 
+					eventHandler={eventHandler} 
+					bgColor={location.pathname==="/loginpage" ?"rgba(0, 242, 234, 1)" : "rgba(245, 55, 124, 1)" }   
+					btnText={location.pathname==="/loginpage"?"login":"join"}
+				/>
 
 			<div className={s.redir}>
 				{<p>{text}<Link to={link}><span>{` ${linkText}`}</span></Link></p>}

@@ -12,12 +12,10 @@ const JoinPage = () => {
 	}
 	return (
 		<div className={s.container}>
-			<LoginHeader/>
+			<LoginHeader isLogin/>
 			<LoginPara/>
 			<LoginTextFields/>
 			<LoginSubmit 
-				bgColor="rgba(245, 55, 124, 1)" 
-				btnText="join" 
 				eventHandler={handleJoin} 
 				link="/loginpage" 
 				linkText="login"

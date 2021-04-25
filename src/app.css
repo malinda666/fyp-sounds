@@ -1,7 +1,9 @@
 html, body {
 	user-select : none;
 }
-
+#root.drop{
+	background: rgba(0,0,0,.25);
+}
 
 img{
 	object-fit:cover;
@@ -19,6 +21,36 @@ img{
 ._loading_overlay_wrapper--active > div{
 	background-color:#fff;
 	filter: blur(0px);
+}
+.css-1wa3eu0-placeholder,.css-1uccc91-singleValue{
+	left: 60%;
+	top: 40% !important;
+	transform: translate(-50%,-50%) !important;
+}
+.css-4ljt47-MenuList{
+	text-align: center;
+	z-index: 5;
+}
+.css-26l3qy-menu{
+	margin-top: 0 !important;
+}
+.css-tlfecz-indicatorContainer{
+	padding: 4px !important;
+	height: 32px !important;
+	width: 32px !important;
+}
+.css-1okebmr-indicatorSeparator{
+	display: none;
+}
+
+.css-yk16xz-control,.css-1pahdxg-control{
+	min-height: 32px !important;
+	height: 32px;
+	border-radius : 0.35rem !important;
+	border: 1px solid var(--mountain-mist-2)	!important;
+}
+.css-4ljt47-MenuList{
+	padding-top: 0 !important;
 }
 
 .react-select-container{
