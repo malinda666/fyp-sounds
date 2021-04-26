@@ -27,7 +27,7 @@ const LoginSubmit = ({ eventHandler,link,linkText,text}) => {
 				/>
 
 			<div className={s.redir}>
-				{<p>{text}<Link to={link}><span>{` ${linkText}`}</span></Link></p>}
+				{ <p>{text}<Link to={link}><span>{` ${linkText}`}</span></Link></p> }
 			</div>
 			<div className={s.err}>
 				{errors.map((err)=>
