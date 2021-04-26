@@ -1,24 +1,25 @@
 .container{
 	width: 100%;
-	max-width: 100%;
+	min-width: 200px;
+	max-width: 288px;
 	position: relative;
 	top: 0;left: 0;
-	height: 10%;
+	height: 44px;
 	display: flex;align-items: center;justify-content: space-between;
 	padding:16px 4px 4px;
 	margin: 0 0 24px 0;
 }
-@media (orientation: landscape) {
+@media (orientation: landscape) and (max-width : 600px){
  .container{
     max-width: 200px
   }
 }
-
-@media (orientation: portrait) {
+/*
+@media (orientation: portrait) and (max-width : 600px){
  .container{
-    max-width: 414px
+    max-width: 200px
   }
-}
+}*/
 .left__sidebar{
 	position: relative;
 	width: 10%;
@@ -114,4 +115,28 @@ box-shadow: 1px 1px 8px 1px rgba(0,0,0,0.75);
 }
 .no__btn{
 	background-color: var(--torch-red);
+}
+
+@media screen and (min-width: 1400px),
+screen and (min-width: 1600px),
+screen and (min-width: 1900px) 
+ {
+  .container {
+    	height: 64px;
+    	max-width: 350px;
+    	width: 350px;
+  }
+  .modal{
+  	font-size: 1.3rem;
+  	width: 350px;
+  	height: 200px;
+  }
+  .btn_container{
+  	margin-top: 32px;
+  	width: 70%;
+  }
+  .btn{
+  	padding: 8px 32px;
+  	border-radius : 1.5rem;
+  }
 }

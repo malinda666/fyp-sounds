@@ -113,3 +113,38 @@
 .agreement div input{
 	margin: 4px;
 }
+@media screen and (min-width: 1400px),
+screen and (min-width: 1600px),
+screen and (min-width: 1900px) 
+ {
+  .container {
+    justify-content: space-around;
+  }
+  .form > div {
+  	font-size: 1.3rem;
+  	
+  	width: 350px;
+  }
+   .form > input {
+
+   }
+  input[type='text']{
+  	font-size: 1.3rem;
+  	padding: 16px;
+  	width: 350px;
+  }
+  .agreement{
+  	font-size: 1.2rem;
+  	/*margin-top: 84px*/
+  	width: 120%;
+  }
+  .agreement div label{
+  	font-size: 1rem
+  }
+  .audio__file{
+  	height: 44px;
+  }
+  .hero__img{
+  	width: 350px
+  }
+}

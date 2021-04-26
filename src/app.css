@@ -53,6 +53,14 @@ img{
 	padding-top: 0 !important;
 }
 
+@media screen and (min-width: 1400px),
+screen and (min-width: 1600px),
+screen and (min-width: 1900px) 
+ {
+  .css-yk16xz-control,.css-1pahdxg-control{
+  	height: calc(32px + 1.2rem);
+  }
+}
 .react-select-container{
 	background: rgb(210,43,108);
 background: linear-gradient(62deg, rgba(210,43,108,1) 0%, rgba(85,163,182,1) 100%); 

@@ -27,3 +27,20 @@
     text-align: right;
     color : #333;
 }
+@media screen and (min-width: 1400px),
+screen and (min-width: 1600px),
+screen and (min-width: 1900px) 
+ {
+  .container {
+    
+  }
+  .container input{
+  	font-size: 1.3rem;
+  	padding: 16px;
+  	width: 350px;
+  }
+  .forgot__pwd{
+  	font-size: 1.2rem;
+  	width: 350px;
+  }
+}

@@ -10,6 +10,7 @@ import verifypage from "../containers/verifypage";
 import newSubmission from "../containers/newSubmission";
 import newSubmission2 from "../containers/newSubmission2";
 import newSubmissionFinal from "../containers/newSubmissionFinal";
+import imageCrop from "../containers/imageCrop";
 
 import Home from "../containers/home/home";
 import ForgotPassword from "../containers/forgotPassword/forgotPassword"
@@ -82,6 +83,7 @@ const RouterConfig = ({ userHasAuthenticated, isAuthenticated}) =>
     <AppliedRoute path="/newSubmission" exact component={newSubmission} props={{...LoginData, userHasAuthenticated : userHasAuthenticated, isAuthenticated: isAuthenticated}} />
     <AppliedRoute path="/newSubmission2" exact component={newSubmission2} props={{...LoginData, userHasAuthenticated : userHasAuthenticated, isAuthenticated: isAuthenticated}} />
     <AppliedRoute path="/newSubmissionFinal" exact component={newSubmissionFinal} props={{...LoginData, userHasAuthenticated : userHasAuthenticated, isAuthenticated: isAuthenticated}} />
+    <AppliedRoute path="/imageCrop" exact component={imageCrop} props={{...LoginData, userHasAuthenticated : userHasAuthenticated, isAuthenticated: isAuthenticated}} />
     
     <UnauthenticatedRoute path="/" exact component={Home} props={LandingData} />
     <UnauthenticatedRoute path="/forgotPassword" exact component={ForgotPassword} props={RecoveryData} />

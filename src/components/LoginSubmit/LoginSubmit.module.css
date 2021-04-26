@@ -41,3 +41,19 @@
     font-size: 11px;
     color: #f00;
 }
+@media screen and (min-width: 1400px),
+screen and (min-width: 1600px),
+screen and (min-width: 1900px) 
+ {
+  .btn{
+  	width: 100%;
+  	font-size: 1.3rem
+
+  }
+  .redir{
+  	font-size: 1rem
+  }
+  .err{
+  	font-size: 0.9rem;
+  }
+}

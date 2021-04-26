@@ -10,7 +10,7 @@
     margin: 0px;
     /*min-height: 100vh;*/
     overflow:hidden;
-    position: relative;
+    position: absolute;
     width: 100%;
 	font-family: "Montserrat", Helvetica, Arial, serif;
     font-style: normal;
@@ -19,7 +19,7 @@
 .form{
     margin: 0px;
     /*min-height: 100vh;*/
-    overflow: hidden;
+    overflow-x: hidden;
     position: relative;
     width: 100%;
     display: flex;align-items: center;justify-content: flex-start;flex-direction: column;
@@ -34,6 +34,7 @@
     height: 32px;
     min-height: 32px;
 }
+
 .image__upload,
 .audio__upload{
 	position: relative;
@@ -45,7 +46,7 @@
 	border: 1px solid var(--mountain-mist-2);
 }
 .image__upload{
-	height: 200px;
+	height: 200px !important;
 }
 .drop{
 	width: 200px;
@@ -88,3 +89,96 @@ input[type='text']{
     font-size: 11px;
     color: #f00;
  }
+.c__img{
+	position: relative;
+	height: 100%;width: 100%;
+}
+
+ /*cropper*/	
+
+.c__container{
+	position: absolute;
+	top: 0;left: 0;height: 100vh;width: 100%;
+	background-color: #fff;
+	z-index: 9999;
+
+
+    margin: 0px;
+    /*min-height: 100vh;*/
+    overflow:hidden;
+	font-family: "Montserrat", Helvetica, Arial, serif;
+    font-style: normal;
+    display: flex;align-items: center;justify-content: flex-start;flex-direction: column;
+}
+.c__cropper{
+	position: relative;
+	width: 200px;
+	height: 200px;
+	border-radius : 0.35rem;
+	margin-bottom: 64px;
+	overflow: auto;
+}
+.c__header{
+	width: 100%;
+	min-width: 200px;
+	max-width: 288px;
+	position: relative;
+	top: 0;left: 0;
+	height: 44px;
+	display: flex;align-items: center;justify-content: space-between;
+	padding:16px 4px 4px;
+	margin: 0 0 24px 0;
+}
+@media (orientation: landscape) and (max-width : 600px){
+ .c__header{
+    max-width: 200px
+  }
+}
+.c__backbtn{
+	cursor: pointer;
+	z-index: 99;
+	position: relative;
+	width: 10%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.c__backbtn > svg{
+	transform: rotate(90deg);
+	position: relative;
+	fill: var(--rose-pearl);
+}
+.c__logo{
+	position: absolute;
+	height: 100%;width: 100%;
+	display: flex;justify-content: center;align-items: center;
+	padding: 8px;
+}
+.c__logo > img{
+	object-fit: contain;
+	object-position: center;
+	position: relative;
+	height: 100%;	
+}
+
+@media screen and (min-width: 1400px),
+screen and (min-width: 1600px),
+screen and (min-width: 1900px) 
+ {
+  .container {
+    justify-content: space-around;
+  }
+  .form > div , .form > input {
+  	font-size: 1.3rem;
+  	height: calc(32px + 1.2rem);
+  	width: 350px;
+  }
+  input[type='text']{
+  	font-size: 1.3rem;
+  	padding: 16px;
+  	width: 350px;
+  }
+  .error{
+  	font-size: 1.2rem
+  }
+}

@@ -83,3 +83,33 @@
     font-size: 11px;
     color: #f00;
 }
+@media screen and (min-width: 1400px),
+screen and (min-width: 1600px),
+screen and (min-width: 1900px) 
+ {
+  .emoji{
+  	font-size: 4rem;
+  	margin-top: 64px
+
+  }
+  .para{
+  	font-size: 1.3rem;
+  }
+  .v__code{
+  	font-size: 1.3rem;
+  	padding: 16px;
+  	width: 350px;
+  }
+  .btn{
+  	font-size: 1.3rem;
+  	padding: 16px 44px;
+  	border-radius : 1.5rem;
+  }
+  .resend{
+  	font-size: 1.1rem;
+
+  }
+  .err{
+  	font-size: 0.9rem
+  }
+}

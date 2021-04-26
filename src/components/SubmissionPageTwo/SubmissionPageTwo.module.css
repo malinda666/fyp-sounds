@@ -125,3 +125,28 @@ input[type='text']{
 .check__expand > div input:checked ~ .check__mark{
     background-color: green;
 }*/
+
+@media screen and (min-width: 1400px),
+screen and (min-width: 1600px),
+screen and (min-width: 1900px) 
+ {
+  .container {
+    justify-content: space-around;
+  }
+  .form > div , .form > input {
+    font-size: 1.3rem;
+    height: calc(32px + 1.2rem);
+    width: 350px;
+  }
+  input[type='text']{
+    font-size: 1.3rem;
+    padding: 16px;
+    width: 350px;
+  }
+  .error{
+    font-size: 1.2rem
+  }
+  .check{
+    height: calc(32px + 1.2rem)
+  }
+}
