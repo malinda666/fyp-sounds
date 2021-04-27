@@ -119,7 +119,7 @@ const ImageCrop = ({imageRef,imageContainerRef, imageURL,setImagePreviewURL}) =>
 
 	const [crop, setCrop] = useState({ x: 0, y: 0 })
 	const [rotation, setRotation] = useState(0)
-	const [zoom, setZoom] = useState(1)
+	const [zoom, setZoom] = useState(1.1)
 	const [croppedAreaPixels, setCroppedAreaPixels] = useState(null)
 	const [croppedImage, setCroppedImage] = useState(null)
 
@@ -183,10 +183,10 @@ const ImageCrop = ({imageRef,imageContainerRef, imageURL,setImagePreviewURL}) =>
 		          onCropComplete={onCropComplete}
 		          onZoomChange={setZoom}
 		          cropShape="rect"
-              	  cropSize={{width:200,height:200}}
-              	  onMediaLoaded={(mediaSize) => {
-	                setZoom(mediaSize.naturalWidth / mediaSize.naturalHeight)
-	              }}
+              	  // cropSize={{width:200,height:200}}
+              	//   onMediaLoaded={(mediaSize) => {
+	              //   setZoom(mediaSize.naturalWidth / mediaSize.naturalHeight)
+	              // }}
 		        />
 			</div>
 			{/* <img className={s.c__img} alt="cropper" ref={imageRef}/> */}
