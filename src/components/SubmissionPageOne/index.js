@@ -4,7 +4,9 @@ import { useState, useRef ,useEffect ,useCallback} from 'react'
 import Select from 'react-select'
 import { useHistory } from 'react-router-dom';
 import gsap from 'gsap';
-import Cropper from 'react-easy-crop'
+import Cropper from 'react-easy-crop';
+import { css } from "@emotion/core";
+import PuffLoader from "react-spinners/ClipLoader";
 
 import LoginHeader from '../LoginHeader'
 import CTAButton from '../CTAButton'
@@ -29,6 +31,12 @@ const typeOptions = [
   { value: 'song', label: 'Song' },
   { value: 'sound', label: 'Sound' },
 ]
+
+const override = css`
+  display: block;
+  margin: 0 auto;
+  top: 50%;
+`;
 
 const SubmissionPageOne = () => {
 
@@ -121,20 +129,23 @@ const ImageCrop = ({imageRef,imageContainerRef, imageURL,setImagePreviewURL}) =>
 	const [rotation, setRotation] = useState(0)
 	const [zoom, setZoom] = useState(1.1)
 	const [croppedAreaPixels, setCroppedAreaPixels] = useState(null)
-	const [croppedImage, setCroppedImage] = useState(null)
+	const [croppedImage, setCroppedImage] = useState(null);
+	let [loading, setLoading] = useState(false);
 
 	const onCropComplete = useCallback((croppedArea, croppedAreaPixels) => {
 	    setCroppedAreaPixels(croppedAreaPixels)
+	    
 	  }, [])
 
 	  const showCroppedImage = useCallback(async () => {
+	  	setLoading(true)
 	    try {
 	      const croppedImage = await getCroppedImg(
 	        imageURL,
 	        croppedAreaPixels,
 	        rotation
 	      )
-	      console.log('donee', { croppedImage })
+	      setLoading(false)
 	      setCroppedImage(croppedImage)
 	      setImagePreviewURL(croppedImage)
 	      gsap.to(imageContainerRef.current,0.75,{y : '100%',opacity:0,ease:'expo.out',})
@@ -172,6 +183,11 @@ const ImageCrop = ({imageRef,imageContainerRef, imageURL,setImagePreviewURL}) =>
 				<div className={s.c__logo}><img src={FYPLogo} alt="logo"/></div>
 			</div>
 			<div className={s.c__cropper}>
+				<div 
+					className={s.c__loader} 
+					style={{backgroundColor : `${loading?"rgba(255, 255, 251,0.95)":""}`, zIndex:`${loading?99:0}`}}>
+					<PuffLoader color="rgba(145, 255, 251, 1)" loading={loading} css={override} size={100} />
+				</div>
 				<Cropper
 		          image={imageURL}
 		          crop={crop}
