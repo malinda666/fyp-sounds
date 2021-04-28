@@ -6,7 +6,8 @@
     src: url("../../assets/fonts/Sofia Pro Bold.ttf") format("truetype");
 }
 .container{
-	height: 100vh;
+	height: var(--docHeight);
+	height: -webkit-fill-available;
     margin: 0px;
     /*min-height: 100vh;*/
     overflow:hidden;
@@ -98,7 +99,8 @@ input[type='text']{
 
 .c__container{
 	position: absolute;
-	top: 0;left: 0;height: 100vh;width: 100%;
+	top: 0;left: 0;height: var(--docHeight);
+	width: 100%;
 	background-color: #fff;
 	z-index: 9999;
 

@@ -32,6 +32,15 @@ function App() {
 
   }
 }, []);
+
+  useEffect(() => {
+    const wh = window.innerHeight;
+    const setHeight = () => {
+      document.documentElement.style.setProperty('--docHeight',`${wh}px`)
+    }
+    window.addEventListener('resize',()=>setHeight())
+    setHeight()
+  }, [])
     const userHasAuthenticated = authenticated => {
             setIsAuthenticated(authenticated);       
       };

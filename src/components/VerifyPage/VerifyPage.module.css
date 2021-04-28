@@ -7,7 +7,7 @@
 }
 
 .container{
-	height: 100vh;
+	height: var(--docHeight);
     margin: 0px;
     /*min-height: 100vh;*/
     overflow:hidden;

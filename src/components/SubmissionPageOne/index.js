@@ -126,7 +126,6 @@ const SubmissionPageOne = () => {
 const ImageCrop = ({imageRef,imageContainerRef, imageURL,setImagePreviewURL}) => {
 
 	const [crop, setCrop] = useState({ x: 0, y: 0 })
-	const [rotation, setRotation] = useState(0)
 	const [zoom, setZoom] = useState(1.1)
 	const [croppedAreaPixels, setCroppedAreaPixels] = useState(null)
 	const [croppedImage, setCroppedImage] = useState(null);
@@ -142,8 +141,7 @@ const ImageCrop = ({imageRef,imageContainerRef, imageURL,setImagePreviewURL}) =>
 	    try {
 	      const croppedImage = await getCroppedImg(
 	        imageURL,
-	        croppedAreaPixels,
-	        rotation
+	        croppedAreaPixels
 	      )
 	      setLoading(false)
 	      setCroppedImage(croppedImage)
@@ -152,7 +150,7 @@ const ImageCrop = ({imageRef,imageContainerRef, imageURL,setImagePreviewURL}) =>
 	    } catch (e) {
 	      console.error(e)
 	    }
-	  }, [croppedAreaPixels, rotation])
+	  }, [croppedAreaPixels])
 
 	  const onClose = useCallback(() => {
 	    setCroppedImage(null)
@@ -191,11 +189,9 @@ const ImageCrop = ({imageRef,imageContainerRef, imageURL,setImagePreviewURL}) =>
 				<Cropper
 		          image={imageURL}
 		          crop={crop}
-		          rotation={rotation}
 		          zoom={zoom}
 		          aspect={1}
 		          onCropChange={setCrop}
-		          onRotationChange={setRotation}
 		          onCropComplete={onCropComplete}
 		          onZoomChange={setZoom}
 		          cropShape="rect"

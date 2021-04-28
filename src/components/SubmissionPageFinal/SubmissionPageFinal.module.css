@@ -8,9 +8,10 @@
 
 
 .container{
-	height: 100vh;
+	height: var(--docHeight);
     margin: 0px;
     /*min-height: 100vh;*/
+    height: -webkit-fill-available;
     overflow:hidden;
     position: relative;
     width: 100%;
