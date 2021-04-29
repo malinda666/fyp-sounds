@@ -2,6 +2,7 @@ import s from './VerifyPage.module.css'
 import LoginHeader from '../LoginHeader'
 
 import { useState, useEffect } from 'react';
+import CTAButton from '../CTAButton'
 
 
 const VerifyPage = () => {
@@ -12,6 +13,11 @@ const VerifyPage = () => {
 		_errors.push("this is an error");
 		setErrors(_errors)
 	}, [])
+
+
+	const eventHandler = ( ) => {
+
+	}
 
 	return (
 		<div className={s.container}>
@@ -25,7 +31,11 @@ const VerifyPage = () => {
 				placeholder="verification code" 
 				className={s.v__code} required 
 			/>
-			<div className={s.btn}>verify</div>
+			<CTAButton 
+					eventHandler={eventHandler} 
+					bgColor="rgba(0, 242, 234, 1)"  
+					btnText="verify"
+				/>
 			<div className={s.resend}>
 				didn't recieved a code?click 
 				<span 

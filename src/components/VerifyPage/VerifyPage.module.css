@@ -37,11 +37,11 @@
 	border: 1px solid var(--mountain-mist-2);
 	border-radius : 0.35rem;
 	padding:8px;
-	width: 70%;
 	background-color: transparent;
 	font-size: 10px;
 	line-height: 1.2;
-	max-width: 414px;
+	width: 250px;
+  margin-bottom: 16px;
 }
 .btn{
 	color: #fff;

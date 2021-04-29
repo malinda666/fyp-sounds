@@ -21,7 +21,7 @@ const LoginTextFields = ({isLogin}) => {
 	        />
 	        {
 	        	isLogin && 
-	        		<Link to="/verifypage"><p className={s.forgot__pwd}>forgot password?</p></Link>
+	        		<Link to="/forgotPasswordPage"><p className={s.forgot__pwd}>forgot password?</p></Link>
 	        	}
 		</div>
 	)
